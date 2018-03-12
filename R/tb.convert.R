@@ -9,8 +9,8 @@
 #' @param days criteria for conversion
 #' @keywords TB
 #' @export
-#' tb.convert()
-tb_convert <- function(x, id, date, start, result, days = 30) {
+
+tb.convert <- function(x, id, date, start, result, days = 30) {
 	# require
 require(data.table)
 require(zoo)
