@@ -1,5 +1,16 @@
-## Function to calculate culture converstion date
+#' Calculate TB conversion date
+#'
+#' This function takes long laboratory data and treatment start times to calculate culture conversion dates.
+#' @param x data frame or data.table
+#' @param id string representing patient unique ID number
+#' @param date sample date (string)
+#' @param start patient treatment start date (string)
+#' @param result laboratory result variable (string)
+#' @param days criteria for conversion
+#' @keywords TB
+#' @export
 
+#' cat_function()
 tb_convert <- function(x, id, date, start, result, days = 30) {
 	# require
 require(data.table)
