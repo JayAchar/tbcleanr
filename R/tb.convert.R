@@ -9,8 +9,7 @@
 #' @param days criteria for conversion
 #' @keywords TB
 #' @export
-
-#' cat_function()
+#' tb.convert()
 tb_convert <- function(x, id, date, start, result, days = 30) {
 	# require
 require(data.table)
