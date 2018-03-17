@@ -2,11 +2,11 @@
 # 1. DONE = Join ID and treatment start date with lab data 
 # 2. DONE = Filter by presence of start date
 # 3. DONE = Check only 2 factor levels of lab result
-# 4. Mutate - absolute number of days from treatment start
-# 5. Sort by absolute number of days from treatment start
-# 6. Keep result with smallest number of absolute days from treatment start
-# 7. Filter by defined days culture (e.g. 30 days, 90 days)
-# 8. Return ID number, start date and result
+# 4. DONE = Mutate - absolute number of days from treatment start
+# 5. DONE = Sort by absolute number of days from treatment start
+# 6. DONE = Keep result with smallest number of absolute days from treatment start
+# 7. DONE = Filter by defined days culture (e.g. 30 days, 90 days)
+# 8. DONE = Return ID number, start date and result
 
 baseline <- function() {
 	# require
@@ -86,12 +86,23 @@ d <- as.data.table(inner_join(a, l, by = "APID"))
 # remove duplicate rows - id, time from treatment start, result
 	subvar <- c("APID", "abs_days", "RESULT")
 	setkeyv(d, subvar)
-	d <- unique(d)
 	d <- unique(d, by = subvar)
 
-	# HOJD13069
 # identify id & time from treatment start duplicates
 	d <- d[, dupvar := 1L * (.N > 1L), by = c("APID", "abs_days")] 
 
 # remove negative culture if duplicated with positive on same day
 	d <- d[!(dupvar == 1L & RESULT == "1"), ]
+
+# add row id after sorting
+	d <- d[, row_id := 1:.N, by = c("APID", "STARTTRE")]
+
+# keep result closest to treatment start
+	d <- d[row_id == 1,]
+
+# rename result variable 
+	selvar <- c("APID", "STARTTRE", "FIRST", "RESULT")
+	d <- d[ , selvar, with = F]
+	d <- setnames(d, old = c("RESULT", "FIRST"), new = c("baseline", "date"))
+
+	return(d)
