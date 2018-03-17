@@ -1,108 +1,68 @@
-# Steps
-# 1. DONE = Join ID and treatment start date with lab data 
-# 2. DONE = Filter by presence of start date
-# 3. DONE = Check only 2 factor levels of lab result
-# 4. DONE = Mutate - absolute number of days from treatment start
-# 5. DONE = Sort by absolute number of days from treatment start
-# 6. DONE = Keep result with smallest number of absolute days from treatment start
-# 7. DONE = Filter by defined days culture (e.g. 30 days, 90 days)
-# 8. DONE = Return ID number, start date and result
+#' Calculate baseline culture or smear status
+#'
+#' This function takes a data frame and uses a unique patient identifier, dates of treatment start and sample submission and sample results to provide a baseline culture or smear result.  
+#' @param x data frame or data.table with combined admission and lab data
+#' @param id string variable representing patient unique ID number
+#' @param result variable within data frame with laboratory result of interest. Must be a binary variable with missing values pre-removed. 
+#' @param date sample submission date - fomatted as date
+#' @param start patient treatment start date - formatted as date
+#' @param neg string representing factor level for negative sample result
+#' @param days criteria for using pre-treatment samples
+#' @keywords TB
+#' @export
 
-baseline <- function() {
+baseline <- function(x, id, result, date, start, neg, days = 90) {
 	# require
-		pkgs <- c("dplyr", "purrr")						# define required packages
+		require(data.table)
+		require(lubridate)
 
-			for (i in seq(along = pkgs)) {
-				library(pkgs[i], character.only = T)		# load packages
-			}
-
-
-}
-
-
-# =================================================================
-# temporary function to review outputs
-check_apid <- function() {
-	r <- sample(d[["APID"]], size = 3)
-	z <- d[APID %in% r, ]
-	return(z)
-}
-
-
-# Prepare test data
-library(readr)
-require(data.table)
-require(lubridate)
-set.wd("functions/TB.funs/tests")
-
-a <- read_csv("admission.csv")					# import admission data
-		colnames(a) <- a[2,]
-		a <- a[-c(1:2),]										# clean admission data
-
-l <- read_csv("laboratory.csv")					# import lab data
-		colnames(l) <- l[2, ]
-		l <- l[-c(1:2), ]										# clean lab data
-
-# cnvert to data.table
-	a <- as.data.table(a)
-	l <- as.data.table(l)
-
-# select required variables only
-	a <- a[, .(APID, STARTTRE),]
-	l <- l[, .(APID, FIRST, RESULT), ]
-
-# filter contaminated and NA culture results
-	l <- l[!is.na(RESULT), ]
-	l <- l[RESULT != "3", ]
-
-save(a, l, file = "baseline_test.rda")
-
-# =================================================================
-load("baseline_test.rda")
-
-d <- as.data.table(inner_join(a, l, by = "APID"))
+# convert to data.table
+x <- as.data.table(x)
 
 # check if result variable is binary
-	if (summary(levels(factor(d$RESULT)))[1] != 2) {
+	if (summary(levels(factor(x[[result]])))[1] != 2) {
 		stop("Result variable must have 2 levels")
 	}
 
-	
-	d$FIRST <- dmy(d$FIRST)
-	d$STARTTRE <- dmy(d$STARTTRE)					# reclassify date variables
+# check if dates are classified correctly
 
-	setkey(d, APID, STARTTRE, FIRST)			# set key to sort
+
+	keyvar <- c(id, start, date)
+	setkeyv(x, keyvar)			# set key to sort
 
 # filter out results with no date
-	d <- d[!is.na(FIRST),]
+	x <- x[!is.na(get(date)),]
 
 # remove ineligible records due to date
-	d <- d[STARTTRE - FIRST <= 90, ]
-	d <- d[STARTTRE - FIRST >= -7, ]
+	x <- x[get(start) - get(date) <= days, ]
+	x <- x[get(start) - get(date) >= -7, ]
+
 
 # absolute days from treatment start to specimen collection
-	d <- d[, abs_days := abs(FIRST - STARTTRE), ]
+	x <- x[, abs_days := abs(get(date) - get(start)), ]
 
 # remove duplicate rows - id, time from treatment start, result
-	subvar <- c("APID", "abs_days", "RESULT")
-	setkeyv(d, subvar)
-	d <- unique(d, by = subvar)
+	subvar <- c(id, "abs_days", result)
+	setkeyv(x, subvar)
+	x <- unique(x, by = subvar)
+
 
 # identify id & time from treatment start duplicates
-	d <- d[, dupvar := 1L * (.N > 1L), by = c("APID", "abs_days")] 
+	x <- x[, dupvar := 1L * (.N > 1L), by = c(id, "abs_days")] 
 
 # remove negative culture if duplicated with positive on same day
-	d <- d[!(dupvar == 1L & RESULT == "1"), ]
+	x <- x[!(dupvar == 1L & get(result) == neg), ]
 
 # add row id after sorting
-	d <- d[, row_id := 1:.N, by = c("APID", "STARTTRE")]
+	x <- x[, row_id := 1:.N, by = c(id, start)]
 
 # keep result closest to treatment start
-	d <- d[row_id == 1,]
+	x <- x[row_id == 1,]
 
 # rename result variable 
-	selvar <- c("APID", "STARTTRE", "FIRST", "RESULT")
-	d <- d[ , selvar, with = F]
-	d <- setnames(d, old = c("RESULT", "FIRST"), new = c("baseline", "date"))
+	selvar <- c(id, start, date, result)
+	x <- x[ , selvar, with = F]
+	x <- setnames(x, old = c(result, date), new = c("baseline", "date"))
 
-	return(d)
+return(x)
+}
