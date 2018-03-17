@@ -4,6 +4,7 @@
 #' date.format, k6.clean.adm and tb.convert 
 #' 
 #' @section TB.funs functions:
+#' baseline
 #' date.format
 #' k6.clean.adm
 #' tb.convert
