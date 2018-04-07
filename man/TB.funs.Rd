@@ -4,16 +4,19 @@
 \name{TB.funs}
 \alias{TB.funs}
 \alias{TB.funs-package}
-\title{TB.funs: A package for cleaning TB data}
+\title{TB.funs: A package for cleaning TB data.}
 \description{
-The TB.funs package provides three important functions:
-date.format, k6.clean.adm and tb.convert
+The TB.funs package provides functions to clean and subset TB data from K6, and EpiInfo
 }
-\section{TB.funs functions}{
+\seealso{
+\code{\link{baseline}}
 
-baseline
-date.format
-k6.clean.adm
-tb.convert
+\code{\link{date.format}}
+
+\code{\link{k6.clean.adm}}
+
+\code{\link{tb.convert}}
 }
-
+\author{
+Jay Achar \email{jay.achar@doctors.org.uk}
+}

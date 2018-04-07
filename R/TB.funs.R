@@ -1,13 +1,13 @@
-#' TB.funs: A package for cleaning TB data
+#' TB.funs: A package for cleaning TB data.
 #'
-#' The TB.funs package provides three important functions:
-#' date.format, k6.clean.adm and tb.convert 
+#' The TB.funs package provides functions to clean and subset TB data from K6, and EpiInfo
 #' 
-#' @section TB.funs functions:
-#' baseline
-#' date.format
-#' k6.clean.adm
-#' tb.convert
+#' 
+#' @author Jay Achar \email{jay.achar@@doctors.org.uk}
+#' @seealso \code{\link{baseline}}
+#' @seealso \code{\link{date.format}}
+#' @seealso \code{\link{k6.clean.adm}}
+#' @seealso \code{\link{tb.convert}}
 #' 
 #' @docType package
 #' @name TB.funs
