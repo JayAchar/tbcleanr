@@ -7,9 +7,9 @@
 #' @export
 
 date.format <- function(x, format = dmy) {
-		require(dplyr)
-		require(stringr)
-		require(lubridate)
+		funs <- c("dplyr", "stringr", "lubridate", "purrr")
+		invisible(lapply(funs, require, character = T))
+
 			output <- logical()
 			
 	for (i in 1:length(names(x)))	{
