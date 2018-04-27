@@ -24,9 +24,6 @@ x <- as.data.table(x)
 		stop("Result variable must have 2 levels")
 	}
 
-# check if dates are classified correctly
-
-
 	keyvar <- c(id, start, date)
 	setkeyv(x, keyvar)			# set key to sort
 
@@ -36,7 +33,6 @@ x <- as.data.table(x)
 # remove ineligible records due to date
 	x <- x[get(start) - get(date) <= days, ]
 	x <- x[get(start) - get(date) >= -7, ]
-
 
 # absolute days from treatment start to specimen collection
 	x <- x[, abs_days := abs(get(date) - get(start)), ]
