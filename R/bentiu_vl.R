@@ -7,7 +7,7 @@ library(JA.funs)
 library(readxl)
 set.wd.data("")
 
-xpert <- read_xlsx("Bentiu GeneXpert data from July 2017 to 13th March 2018.xlsx",
+p <- read_xlsx("Bentiu GeneXpert data from July 2017 to 13th March 2018.xlsx",
 						sheet = "Raw data")
 
 
