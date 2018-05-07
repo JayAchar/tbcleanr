@@ -8,6 +8,7 @@
 #' @seealso \code{\link{date.format}}
 #' @seealso \code{\link{k6.clean.adm}}
 #' @seealso \code{\link{tb.convert}}
+#' @seealso \code{\link{bentiu_xpert_date}}
 #' 
 #' @docType package
 #' @name TB.funs

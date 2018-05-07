@@ -16,6 +16,8 @@ The TB.funs package provides functions to clean and subset TB data from K6, and 
 \code{\link{k6.clean.adm}}
 
 \code{\link{tb.convert}}
+
+\code{\link{bentiu_xpert_date}}
 }
 \author{
 Jay Achar \email{jay.achar@doctors.org.uk}
