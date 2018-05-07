@@ -1,19 +1,22 @@
-
-
-
-
+#' Bentiu Xpert laboratory data cleaning
+#'
+#' This function takes the Bentiu PoC lab dataset as a data.frame and
+#' removes unnecessary variables, cleans results and generates new 
+#' result variables.
+#' @param x data frome including Bentiu PoC lab Xpert data
+#' @author Jay Achar \email{jay.achar@@doctors.org.uk}
+#' @export
+#' @seealso \code{\link{TB.funs}}
+#' @examples
+#' bentiu_xpert_clean(p)
 
 
 bentiu_xpert_clean <- function(x) {
+	require(stringr, quietly = T)
 # check x is data.frame
 	if (!is.data.frame(x)) {
 		stop("Confirm x is data.frame")
 	}
-
-
-# print number of tests being 
-
-
 
 # remove variables not required
 	rem <- c("X__1", "module", "staff", "done", "ok")
@@ -21,7 +24,6 @@ bentiu_xpert_clean <- function(x) {
 	if (!all((rem %in% names(x)))) {
 		stop("Variable names not all recognised")
 	}
-
 	# remove varaibles
 	x <- x[, -which(names(x) %in% rem)]
 
@@ -82,7 +84,7 @@ bentiu_xpert_clean <- function(x) {
 	x$vl1 <- NA
 	x$vl2 <- NA
 	x$vl3 <- NA
-	vl <- which(str_detect(x$vl, "^\\d{1}.\\d{2}E\\d{2}$"))
+	vl <- which(str_detect(x$vl, "\\d{1}.\\d{2}E\\d{2}$"))
 	x$vl1 <- str_match(x$vl, "\\d{1}.\\d{2}E\\d{2}$")
 	x$vl2 <- as.numeric(str_extract(x$vl1, "\\d{2}$"))
 	x$vl1 <- as.numeric(str_extract(x$vl1, "^\\d{1}.\\d{2}"))
@@ -90,20 +92,48 @@ bentiu_xpert_clean <- function(x) {
 
 	# transfer log transformed viral loads
 	x$vl[vl] <- x$vl3[vl]
-	return(x)
-	# check if any non-numeric results
-	if (any(is.na(as.numeric(x$vl)))) {
+
+	# remove unnecessary variables
+		x$vl1 <- NULL
+		x$vl2 <- NULL
+		x$vl3 <- NULL
+
+	# check if any non-numeric results in VL variable
+	if (any(is.na(as.numeric(x$vl[v])))) {
 		stop("VL figures lost during coercion")
 	} else {
 		x$vl <- as.numeric(x$vl)
 	}
 
-	
+	# reclassify rif variable
+	if (length(table(x$rif)) == 2) {
+		x$rif <- as.numeric(x$rif)
+	} else {
+		warning("Rifampicin resistance variable has > 2 levels")
+	}
 
-	# check that all HIV-1 detected has a VL value
-	if (any(!is.na(x$vl[v]))) {
-		stop("VL figures lost during coercion")
-	} 
+	# reclassify result variable
+	if (length(table(x$result)) == 2) {
+		x$result <- as.numeric(x$result)
+	} else {
+		warning("Result variable has > 2 levels")
+	}
+
+	# reclassify test variable
+	if (length(table(x$test)) == 2) {
+		x$test[x$test == "tb"] <- 0
+		x$test[x$test == "vl"] <- 1
+		x$test <- factor(x$test, 
+											levels = c(0,1), 
+											labels = c("MTB/RIF", "HIV VL"))
+			if (any(is.na(x$test))) {
+				stop("Result variable factorised incorrectly")
+			}
+	} else {
+		warning("Result variable has > 2 levels")
+	}
+
+
 return(x)
 }
 
