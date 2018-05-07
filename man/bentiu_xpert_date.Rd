@@ -10,6 +10,13 @@ bentiu_xpert_date(x)
 \item{x}{data frame including variable called "date"}
 }
 \description{
-This function takes the Bentiu PoC lab dataset as a data.frame and cleans the date format and class
+This function takes the Bentiu PoC lab dataset as a data.frame and cleans 
+the date format and class.
+}
+\seealso{
+\code{\link{TB.funs}}
+}
+\author{
+Jay Achar \email{jay.achar@doctors.org.uk}
 }
 \keyword{TB}

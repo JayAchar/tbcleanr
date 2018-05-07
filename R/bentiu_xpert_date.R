@@ -1,8 +1,11 @@
 #' Bentiu Xpert laboratory date adjustment
 #'
-#' This function takes the Bentiu PoC lab dataset as a data.frame and cleans the date format and class
+#' This function takes the Bentiu PoC lab dataset as a data.frame and cleans 
+#' the date format and class.
 #' @param x data frame including variable called "date"
 #' @keywords TB
+#' @author Jay Achar \email{jay.achar@@doctors.org.uk}
+#' @seealso \code{\link{TB.funs}}
 #' @export
 
 bentiu_xpert_date <- function(x) {

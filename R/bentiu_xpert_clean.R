@@ -8,7 +8,9 @@
 #' @export
 #' @seealso \code{\link{TB.funs}}
 #' @examples
+#' \dontrun{
 #' bentiu_xpert_clean(p)
+#' }
 
 
 bentiu_xpert_clean <- function(x) {

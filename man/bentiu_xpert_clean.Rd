@@ -15,7 +15,9 @@ removes unnecessary variables, cleans results and generates new
 result variables.
 }
 \examples{
+\dontrun{
 bentiu_xpert_clean(p)
+}
 }
 \seealso{
 \code{\link{TB.funs}}
