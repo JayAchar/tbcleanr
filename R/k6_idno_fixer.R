@@ -51,7 +51,9 @@ k6_idno_fixer <- function(x) {
 			warning("idno is not a unique identifier in this data set")
 	}
 
-### need to add option for dummy == 1
+	if (dummy == 1 && ! dim(unique(x[c("idstring", "idno")]))[1] == dim(x)[1]) {
+			warning("idno and idstring combination is not a unique identifier")
+	}
 
 # remove original registration number variable
 	x$registrationnb <- NULL

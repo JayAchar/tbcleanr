@@ -1,7 +1,7 @@
 Package: TB.funs
 Type: Package
 Title: Tools for cleaning and analysing TB data
-Version: 0.0.8.2
+Version: 0.0.8.3
 Date: 2018-05-14
 Authors@R: person("Jay", "Achar", email = "jay.achar@doctors.org.uk", role = c("aut", "cre"))
 Description: Contains multiple tools for cleaning and analysing data related to TB. Tools are designed for data collection tools used by MSF such as Excel-based tools and Koch 6, but also include data manipulation tools to calculate additional key variables. 
