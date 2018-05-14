@@ -11,6 +11,7 @@
 #' @seealso \code{\link{bentiu_xpert_date}}
 #' @seealso \code{\link{k6_hep_fixer}}
 #' @seealso \code{\link{k6_outcome_fixer}}
+#' @seealso \code{\link{k6_adm_subset_vars}}
 #' 
 #' @docType package
 #' @name TB.funs
