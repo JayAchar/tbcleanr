@@ -6,9 +6,9 @@
 #' @keywords TB
 #' @export
 
-date.format <- function(x, format = dmy) {
+date_format <- function(x, format = dmy) {
 		funs <- c("dplyr", "stringr", "lubridate", "purrr")
-		invisible(lapply(funs, require, character = T))
+		invisible(lapply(funs, require, character = T, quietly = T))
 
 			output <- logical()
 			
@@ -18,7 +18,7 @@ date.format <- function(x, format = dmy) {
 			# omit missing values
 			na.omit() %>%
 			mean() %>%
-			# only keep variables where all records are dates
+			# only keep variables where all records are datesa
 			as.logical -> output[i]	
 	}
 	
