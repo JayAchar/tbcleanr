@@ -24,6 +24,8 @@ The TB.funs package provides functions to clean and subset TB data from K6, and 
 \code{\link{k6_outcome_fixer}}
 
 \code{\link{k6_adm_subset_vars}}
+
+\code{\link{k6_idno_fixer}}
 }
 \author{
 Jay Achar \email{jay.achar@doctors.org.uk}

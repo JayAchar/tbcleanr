@@ -12,6 +12,7 @@
 #' @seealso \code{\link{k6_hep_fixer}}
 #' @seealso \code{\link{k6_outcome_fixer}}
 #' @seealso \code{\link{k6_adm_subset_vars}}
+#' @seealso \code{\link{k6_idno_fixer}}
 #' 
 #' @docType package
 #' @name TB.funs
