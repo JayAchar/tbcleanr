@@ -15,6 +15,7 @@
 #' @seealso \code{\link{k6_idno_fixer}}
 #' @seealso \code{\link{age_generator}}
 #' @seealso \code{\link{bmi_generator}}
+#' @seealso \code{\link{binary_drug_fixer}}
 #' 
 #' @docType package
 #' @name TB.funs
