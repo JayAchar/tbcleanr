@@ -28,6 +28,8 @@ The TB.funs package provides functions to clean and subset TB data from K6, and 
 \code{\link{k6_idno_fixer}}
 
 \code{\link{age_generator}}
+
+\code{\link{bmi_generator}}
 }
 \author{
 Jay Achar \email{jay.achar@doctors.org.uk}
