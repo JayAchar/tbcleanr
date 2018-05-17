@@ -34,7 +34,7 @@ age_generator <- function(x, dob = "dateofbirth", start = "Starttre") {
 
 # generate age variable
 	x$age <- as.numeric(difftime(x[[start]], x[[dob]],
-								unit = "weeks")) / 52.25
+								units = "weeks")) / 52.25
 
 # delete date of birth variable
 	x[[dob]] <- NULL
