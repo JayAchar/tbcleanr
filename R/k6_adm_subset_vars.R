@@ -37,7 +37,7 @@ k6_adm_subset_vars <- function(x, set = "msc500") {
 		k <- c("registrationnb", "dateofbirth", "datedeat", "gender",
 					"weight", "height", "ecgqt", "ecghr", "ecgrr", "ecgqtcf",
 					"diabetes", "cardiodi", "renalfail", "cav", "cavD", "labClinDate",
-					"Hemoglobin", "Creatinine", "HIV", "CD4count", "Starttre",
+					"Hemoglobin", "Creatinine", "cdhivenrol", "HIV", "CD4count", "Starttre",
 					"E", "H", "R", "Z", "Am", "Cm", "Km", "Lfx", "Mfx", 
 					"Ofx", "Cs", "Eto", "PAS", "PAS Na", "Pto", "Amx-Clv",
 					"Bdq", "Cfz", "Clr", "Dld", "hdH", "ImpCln", "Lzd", "Mpm",
