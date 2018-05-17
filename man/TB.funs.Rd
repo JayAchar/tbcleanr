@@ -38,6 +38,8 @@ The TB.funs package provides functions to clean and subset TB data from K6, and 
 \code{\link{yn_binary_fixer}}
 
 \code{\link{gender_fixer}}
+
+\code{\link{hiv_fixer}}
 }
 \author{
 Jay Achar \email{jay.achar@doctors.org.uk}

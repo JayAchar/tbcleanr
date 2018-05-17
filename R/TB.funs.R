@@ -19,6 +19,7 @@
 #' @seealso \code{\link{k6_cavities_fixer}}  
 #' @seealso \code{\link{yn_binary_fixer}}  
 #' @seealso \code{\link{gender_fixer}}  
+#' @seealso \code{\link{hiv_fixer}}  
 #' 
 #' @docType package
 #' @name TB.funs
