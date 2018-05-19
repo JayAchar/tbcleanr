@@ -47,9 +47,8 @@ subset_vars <- function(x, set = "msc500") {
 # set = chechnya_myco_lab
 	if (set == "chechnya_myco_lab") {
 		k <- c("dbno", "dstno", "dob", "sputum", "dcol1", "dcol2", "dcol3",
-					"micro1", "micro2", "micro3", "dcolxpert1", "dcolxpert2", "xpert1err",
-					"xpert2err", "xpert1res", "xpert2res", "xpert1rif", "xpert2rif",
-					"mgit1d", "mgit2d", "mgit3d", "mgitres",
+					"micro1", "micro2", "micro3", "xpert1err", "xpert2err", "xpert1res",
+					"xpert2res", "xpert1rif", "xpert2rif", "mgitres",
 					"ms", "mr", "mh", "mz", "me", "mcm", "mam", "mlfx", "lj1d", "lj2d",
 					"lj3d", "ljres", 
 					"ljs", "ljr", "ljh", "ljz", "lje",
