@@ -9,7 +9,7 @@ subset_vars(x, set = "msc500")
 \arguments{
 \item{x}{data frame containing variables}
 
-\item{set}{define variable set to apply. Values can be "msc500"}
+\item{set}{define variable set to apply. Values can be "msc500", "chechnya_myco_lab"}
 }
 \description{
 Subset variables along pre-defined variable  
@@ -17,7 +17,7 @@ sets
 }
 \examples{
 \dontrun{
-k6_adm_subset_vars(p, set = "msc500")
+subset_vars(p, set = "msc500")
 }
 }
 \seealso{

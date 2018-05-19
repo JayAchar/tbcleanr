@@ -9,37 +9,39 @@
 The TB.funs package provides functions to clean and subset TB data from K6, and EpiInfo
 }
 \seealso{
+\code{\link{age_generator}}
+
+\code{\link{apid_detangle}}
+
 \code{\link{baseline}}
-
-\code{\link{date_format}}
-
-\code{\link{k6.clean.adm}}
-
-\code{\link{tb.convert}}
 
 \code{\link{bentiu_xpert_date}}
 
-\code{\link{k6_hep_fixer}}
-
-\code{\link{k6_outcome_fixer}}
-
-\code{\link{k6_adm_subset_vars}}
-
-\code{\link{k6_idno_fixer}}
-
-\code{\link{age_generator}}
+\code{\link{binary_drug_fixer}}
 
 \code{\link{bmi_generator}}
 
-\code{\link{binary_drug_fixer}}
-
-\code{\link{k6_cavities_fixer}}
-
-\code{\link{yn_binary_fixer}}
+\code{\link{date_format}}
 
 \code{\link{gender_fixer}}
 
 \code{\link{hiv_fixer}}
+
+\code{\link{k6_cavities_fixer}}
+
+\code{\link{k6.clean.adm}}
+
+\code{\link{k6_hep_fixer}}
+
+\code{\link{k6_idno_fixer}}
+
+\code{\link{k6_outcome_fixer}}
+
+\code{\link{subset_vars}}
+
+\code{\link{tb.convert}}
+
+\code{\link{yn_binary_fixer}}
 }
 \author{
 Jay Achar \email{jay.achar@doctors.org.uk}

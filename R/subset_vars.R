@@ -3,13 +3,13 @@
 #' Subset variables along pre-defined variable  
 #' sets   
 #' @param x data frame containing variables
-#' @param set define variable set to apply. Values can be "msc500"
+#' @param set define variable set to apply. Values can be "msc500", "chechnya_myco_lab"
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
 #' @export
 #' @examples
 #' \dontrun{
-#' k6_adm_subset_vars(p, set = "msc500")
+#' subset_vars(p, set = "msc500")
 #' }
 
 
