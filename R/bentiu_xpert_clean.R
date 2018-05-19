@@ -14,7 +14,7 @@
 
 
 bentiu_xpert_clean <- function(x) {
-	require(stringr, quietly = T)
+
 # check x is data.frame
 	if (!is.data.frame(x)) {
 		stop("Confirm x is data.frame")

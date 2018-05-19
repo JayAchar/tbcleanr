@@ -9,8 +9,7 @@
 #' @export
 
 bentiu_xpert_date <- function(x) {
-		require(stringr, quietly = T)
-		require(lubridate, quietly = T)
+
 # check x is data.frame
 	if (!is.data.frame(x)) {
 		stop("Confirm x is data.frame")

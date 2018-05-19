@@ -14,7 +14,6 @@
 
 
 k6_idno_fixer <- function(x) {
-	require(stringr, quietly = T)
 
 # check input
 	if (!(is.data.frame(x))) {

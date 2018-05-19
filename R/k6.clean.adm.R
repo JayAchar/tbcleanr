@@ -8,9 +8,6 @@
 
 
 k6.clean.adm <- function(x, format = dmy) {
-		require(dplyr)
-		require(purrr)
-		require(lubridate)
 
 	var_names <- names(x)
 # -----------------------------------------------------------------------------

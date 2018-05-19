@@ -4,12 +4,12 @@
 #' @param x data frame or data.table
 #' @param format specify the lubridate output format
 #' @keywords TB
+#' @import dplyr
+#' @import purrr
 #' @export
 
 date_format <- function(x, format = dmy) {
-		funs <- c("dplyr", "stringr", "lubridate", "purrr")
-		invisible(lapply(funs, require, character = T, quietly = T))
-
+	
 			output <- logical()
 			
 	for (i in 1:length(names(x)))	{

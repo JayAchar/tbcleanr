@@ -8,6 +8,7 @@
 #' @param result laboratory result variable (string)
 #' @param days criteria for conversion
 #' @keywords TB
+#' @import zoo
 #' @export
 
 tb.convert <- function(x, id, date, start, result, days = 30) {
