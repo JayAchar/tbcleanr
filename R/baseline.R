@@ -9,12 +9,11 @@
 #' @param neg string representing factor level for negative sample result
 #' @param days criteria for using pre-treatment samples
 #' @keywords TB
+#' @import data.table
+#' @import lubridate
 #' @export
 
 baseline <- function(x, id, result, date, start, neg, days = 90) {
-	# require
-		require(data.table)
-		require(lubridate)
 
 # convert to data.table
 x <- as.data.table(x)

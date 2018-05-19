@@ -6,13 +6,13 @@
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
 #' @export
+#' @import stringr
 #' @examples
 #' \dontrun{
 #' apid_detangle(p)
 #' }
 
 apid_detangle <- function(x) {
-	require(stringr, quietly = T)
 
 # check input
 	if (!(is.data.frame(x))) {

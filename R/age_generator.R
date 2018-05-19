@@ -15,7 +15,6 @@
 #' }
 
 age_generator <- function(x, dob = "dateofbirth", start = "Starttre") {
-	require(lubridate, quietly = T)
 
 # check input
 	if (!(is.data.frame(x))) {
