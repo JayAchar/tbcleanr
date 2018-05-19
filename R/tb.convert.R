@@ -12,9 +12,6 @@
 #' @export
 
 tb.convert <- function(x, id, date, start, result, days = 30) {
-	# require
-require(data.table)
-require(zoo)
 
 # check args
 		# check that result only has 2 levels - i.e. contaminated all removed
