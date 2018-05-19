@@ -6,6 +6,7 @@
 #' @keywords TB
 #' @import dplyr
 #' @import purrr
+#' @importFrom stats na.omit
 #' @export
 
 date_format <- function(x, format = dmy) {
