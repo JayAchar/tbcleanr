@@ -11,6 +11,7 @@
 #' @seealso \code{\link{binary_drug_fixer}}  
 #' @seealso \code{\link{bmi_generator}} 
 #' @seealso \code{\link{date_format}}  
+#' @seealso \code{\link{dstno_detangle}}
 #' @seealso \code{\link{gender_fixer}}  
 #' @seealso \code{\link{hiv_fixer}}  
 #' @seealso \code{\link{k6_cavities_fixer}} 

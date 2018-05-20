@@ -23,6 +23,8 @@ The TB.funs package provides functions to clean and subset TB data from K6, and 
 
 \code{\link{date_format}}
 
+\code{\link{dstno_detangle}}
+
 \code{\link{gender_fixer}}
 
 \code{\link{hiv_fixer}}
