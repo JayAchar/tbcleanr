@@ -21,7 +21,15 @@ The TB.funs package provides functions to clean and subset TB data from K6, and 
 
 \code{\link{bmi_generator}}
 
+\code{\link{chechnya_lab_date_consolidator}}
+
+\code{\link{culture_recode}}
+
 \code{\link{date_format}}
+
+\code{\link{dst_consolidator}}
+
+\code{\link{dst_recoder}}
 
 \code{\link{dstno_detangle}}
 
@@ -29,9 +37,9 @@ The TB.funs package provides functions to clean and subset TB data from K6, and 
 
 \code{\link{hiv_fixer}}
 
-\code{\link{k6_cavities_fixer}}
-
 \code{\link{k6.clean.adm}}
+
+\code{\link{k6_cavities_fixer}}
 
 \code{\link{k6_hep_fixer}}
 
@@ -43,13 +51,15 @@ The TB.funs package provides functions to clean and subset TB data from K6, and 
 
 \code{\link{result_consolidator}}
 
+\code{\link{smear_recode}}
+
 \code{\link{subset_vars}}
 
 \code{\link{tb.convert}}
 
-\code{\link{yn_binary_fixer}}
-
 \code{\link{xpert_result_fixer}}
+
+\code{\link{yn_binary_fixer}}
 }
 \author{
 Jay Achar \email{jay.achar@doctors.org.uk}
