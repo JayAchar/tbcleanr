@@ -4,12 +4,15 @@
 \alias{result_consolidator}
 \title{Consolidate smear results}
 \usage{
-result_consolidator(x, set = "chechnya_myco_lab", rm_orig = TRUE)
+result_consolidator(x, set = "chechnya_myco_lab", test = "smear",
+  rm_orig = TRUE)
 }
 \arguments{
 \item{x}{data frame containing variables}
 
 \item{set}{define variable set to apply. Values can be - "chechnya_myco_lab"}
+
+\item{test}{smear or culture}
 
 \item{rm_orig}{remove original variables - TRUE or FALSE}
 }

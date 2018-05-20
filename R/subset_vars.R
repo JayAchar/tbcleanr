@@ -51,7 +51,7 @@ subset_vars <- function(x, set = "msc500") {
 					"xpert2res", "xpert1rif", "xpert2rif", "mgitres",
 					"ms", "mr", "mh", "mz", "me", "mcm", "mam", "mlfx", "ljres", 
 					"ljs", "ljr", "ljh", "ljz", "lje",
-					"ctmicres", "ctmgitres", "ctidres",
+					"ctmicres", "ctmgitres",
 					"cts", "ctr", "cth", "ctz", "cte", "ctcm", "ctam", "ctlfx", "ctmfx",
 					"ctmfx2", "ctlzd", "cthres", "cthrifres", "cthinhres")
 	}
