@@ -37,6 +37,8 @@ The TB.funs package provides functions to clean and subset TB data from K6, and 
 
 \code{\link{k6_outcome_fixer}}
 
+\code{\link{result_consolidator}}
+
 \code{\link{subset_vars}}
 
 \code{\link{tb.convert}}

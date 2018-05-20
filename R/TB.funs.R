@@ -18,6 +18,7 @@
 #' @seealso \code{\link{k6_hep_fixer}}  
 #' @seealso \code{\link{k6_idno_fixer}}  
 #' @seealso \code{\link{k6_outcome_fixer}}  
+#' @seealso \code{\link{result_consolidator}} 
 #' @seealso \code{\link{subset_vars}}  
 #' @seealso \code{\link{tb.convert}}  
 #' @seealso \code{\link{yn_binary_fixer}}  
