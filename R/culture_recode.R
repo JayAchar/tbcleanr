@@ -29,8 +29,8 @@ culture_recode <- function(cult) {
 
 # recode smear variable
 	cult[cult %in% c("#ref!", "contaminated")] <- NA
-	cult[cult == "negative"] <- 0
-	cult[cult == "positive"] <- 1
+	cult[cult %in% c("negative", "neg")] <- 0
+	cult[cult %in% c("positive", "pos")] <- 1
 
 cult <- as.numeric(cult)
 return(cult)

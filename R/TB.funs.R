@@ -24,6 +24,7 @@
 #' @seealso \code{\link{k6_idno_fixer}}  
 #' @seealso \code{\link{k6_outcome_fixer}} 
 #' @seealso \code{\link{lab_sample_fixer}}  
+#' @seealso \code{\link{mtbdrplus_fixer}}  
 #' @seealso \code{\link{result_consolidator}} 
 #' @seealso \code{\link{smear_recode}}  
 #' @seealso \code{\link{subset_vars}}  
