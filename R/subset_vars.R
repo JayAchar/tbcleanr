@@ -3,7 +3,8 @@
 #' Subset variables along pre-defined variable  
 #' sets   
 #' @param x data frame containing variables
-#' @param set define variable set to apply. Values can be "msc500", "chechnya_myco_lab"
+#' @param set define variable set to apply. Values can be "msc500", "chechnya_myco_lab",
+#' "k6_adm_standard"
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
 #' @export
@@ -15,7 +16,7 @@
 
 subset_vars <- function(x, set = "msc500") {
 # acceptable values for "set" arg
-	s <- c("msc500", "chechnya_myco_lab")
+	s <- c("msc500", "chechnya_myco_lab", "k6_adm_standard")
 
 # check input
 	if (!(is.data.frame(x))) {
@@ -36,6 +37,17 @@ subset_vars <- function(x, set = "msc500") {
 	if (set == "msc500") {
 		k <- c("registrationnb", "dateofbirth", "datedeat", "gender",
 					"weight", "height", "ecgqt", "ecghr", "ecgrr", "ecgqtcf",
+					"diabetes", "cardiodi", "renalfail", "cav", "cavD", "labClinDate",
+					"Hemoglobin", "Creatinine", "cdhivenrol", "HIV", "CD4count", "Starttre",
+					"E", "H", "R", "Z", "Am", "Cm", "Km", "Lfx", "Mfx", 
+					"Ofx", "Cs", "Eto", "PAS", "PAS Na", "Pto", "Amx-Clv",
+					"Bdq", "Cfz", "Clr", "Dld", "hdH", "ImpCln", "Lzd", "Mpm",
+					"dateend", "dateout", "outfirst", "outfirst2013", "2013outcome")
+	}
+
+	if (set == "k6_adm_standard") {
+		k <- c("registrationnb", "dateofbirth", "datedeat", "gender",
+					"weight", "height",
 					"diabetes", "cardiodi", "renalfail", "cav", "cavD", "labClinDate",
 					"Hemoglobin", "Creatinine", "cdhivenrol", "HIV", "CD4count", "Starttre",
 					"E", "H", "R", "Z", "Am", "Cm", "Km", "Lfx", "Mfx", 
