@@ -1,8 +1,8 @@
 Package: TB.funs
 Type: Package
 Title: Tools for Cleaning and Analysing TB Data
-Version: 0.0.9.5
-Date: 2018-05-20
+Version: 0.0.10.0
+Date: 2018-05-21
 Authors@R: person("Jay", "Achar", email = "jay.achar@doctors.org.uk", role = c("aut", "cre"))
 Description: Contains multiple tools for cleaning and analysing data related to TB. Tools are designed for data collection tools used by MSF such as Excel-based tools and Koch 6, but also include data manipulation tools to calculate additional key variables. 
 Depends: R (>= 3.4.3)
@@ -15,6 +15,7 @@ Imports:
 	data.table (>= 1.10.4.0),
 	dplyr (>= 0.7.5),
 	lubridate (>= 1.7.0),
+	magrittr (>= 1.5),
 	purrr (>= 0.2.4),
 	stringr (>= 1.3.0),
 	zoo (>= 1.8.0)

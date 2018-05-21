@@ -47,6 +47,8 @@ The TB.funs package provides functions to clean and subset TB data from K6, and 
 
 \code{\link{k6_outcome_fixer}}
 
+\code{\link{lab_data_cleanr}}
+
 \code{\link{lab_sample_fixer}}
 
 \code{\link{mtbdrplus_fixer}}
