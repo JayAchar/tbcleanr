@@ -4,15 +4,17 @@
 #' 
 #' 
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
+#' @seealso \code{\link{adm_binary_fixer}} 
+#' @seealso \code{\link{adm_data_cleanr}} 
 #' @seealso \code{\link{age_generator}} 
 #' @seealso \code{\link{apid_detangle}} 
 #' @seealso \code{\link{baseline}}  
 #' @seealso \code{\link{bentiu_xpert_date}}  
-#' @seealso \code{\link{binary_drug_fixer}}  
 #' @seealso \code{\link{bmi_generator}} 
 #' @seealso \code{\link{chechnya_lab_date_consolidator}}  
 #' @seealso \code{\link{culture_recode}}  
 #' @seealso \code{\link{date_format}}  
+#' @seealso \code{\link{drug_fixer}}  
 #' @seealso \code{\link{dst_consolidator}}  
 #' @seealso \code{\link{dst_recoder}}  
 #' @seealso \code{\link{dstno_detangle}}

@@ -9,6 +9,10 @@
 The TB.funs package provides functions to clean and subset TB data from K6, and EpiInfo
 }
 \seealso{
+\code{\link{adm_binary_fixer}}
+
+\code{\link{adm_data_cleaner}}
+
 \code{\link{age_generator}}
 
 \code{\link{apid_detangle}}
@@ -17,8 +21,6 @@ The TB.funs package provides functions to clean and subset TB data from K6, and 
 
 \code{\link{bentiu_xpert_date}}
 
-\code{\link{binary_drug_fixer}}
-
 \code{\link{bmi_generator}}
 
 \code{\link{chechnya_lab_date_consolidator}}
@@ -26,6 +28,8 @@ The TB.funs package provides functions to clean and subset TB data from K6, and 
 \code{\link{culture_recode}}
 
 \code{\link{date_format}}
+
+\code{\link{drug_fixer}}
 
 \code{\link{dst_consolidator}}
 

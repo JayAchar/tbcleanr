@@ -3,6 +3,7 @@
 #' Input data frame containing cavity variables, factorise 
 #' and aggregate into new variable -cavity-
 #' @param x data frame containing Koch 6 HBV and HCV variables
+#' @param rm_orig remove original variables - TRUE or FALSE
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
 #' @export
@@ -12,7 +13,7 @@
 #' }
 
 
-k6_cavities_fixer <- function(x) {
+k6_cavities_fixer <- function(x, rm_orig = TRUE) {
 
 # check input
 	if (!(is.data.frame(x))) {
@@ -55,6 +56,11 @@ k6_cavities_fixer <- function(x) {
 		# factorise new variable
 	x$cavity <- factor(x$cavity, levels = c(1:2),
 					labels = c("No", "Yes")) 
+ 
+# remove original variables
+ 	if (rm_orig %in% c("TRUE", "T")) {
+ 		x[, v] <- NULL
+ 	}
  	
 
 return(x)

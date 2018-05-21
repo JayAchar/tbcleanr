@@ -13,19 +13,33 @@
 
 yn_binary_fixer <- function(x) {
 
-# check variable class
-	if (! is.numeric(x)) {
-		stop("Y/N variable not classed as numeric")
+# remove variables with all NAs
+	if (all(is.na(x))) {
+		
+		message("Y/N variable dropped as all NAs")
+		x <- NULL
+
+	} else {
+		# check variable class
+			if (! is.numeric(x)) {
+				stop("Y/N variable not classed as numeric")
+			}
+
+		# check levels - confirm Y/N status
+			if (! length(table(x))) {
+				stop("Number of levels of Y/N variable is not 2")
+			}
+
+		# convert to binary variable
+			x[x > 0] <- 1
+		
+
+		# factorise
+			x <- factor(x, levels = c(0,1),
+						labels = c("No", "Yes"))
+
 	}
 
-# check levels - confirm Y/N status
-	if (! length(table(x))) {
-		stop("Number of levels of Y/N variable is not 2")
-	}
-
-# factorise
-	x <- factor(x, levels = c(0,1),
-			labels = c("No", "Yes"))
 
 return(x)
 }
