@@ -4,6 +4,7 @@
 #' @param x data frame containing variables
 #' @param set define variable set to apply. Values can be - "chechnya_myco_lab"
 #' @param rm_orig remove original variables - TRUE or FALSE
+#' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
 #' @export
@@ -13,7 +14,7 @@
 #' }
 
 
-xpert_result_fixer <- function(x, set = "chechnya_myco_lab", rm_orig = TRUE) {
+xpert_result_fixer <- function(x, set = "chechnya_myco_lab", rm_orig = TRUE, ...) {
 
 # acceptable values for "set" arg
 	s <- c("chechnya_myco_lab")

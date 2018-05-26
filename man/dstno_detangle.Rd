@@ -4,10 +4,12 @@
 \alias{dstno_detangle}
 \title{Detangle DST identification number}
 \usage{
-dstno_detangle(x)
+dstno_detangle(x, ...)
 }
 \arguments{
 \item{x}{data frame containing APID variable from KK programme}
+
+\item{...}{further arguments passed to or from other methods}
 }
 \description{
 Convert character DST number found in Chechen data to numerical

@@ -2,6 +2,7 @@
 #'
 #' Convert character DST number found in Chechen data to numerical
 #' @param x data frame containing APID variable from KK programme
+#' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
 #' @export
@@ -12,7 +13,7 @@
 #' }
 
 
-dstno_detangle <- function(x) {
+dstno_detangle <- function(x, ...) {
 
 # check input
 	if (!(is.data.frame(x))) {

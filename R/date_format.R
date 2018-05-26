@@ -3,13 +3,14 @@
 #' This function detects variables with dates xx/xx/xxxx and converts them into date objects
 #' @param x data frame or data.table
 #' @param format specify the lubridate output format
+#' @param ... further arguments passed to or from other methods
 #' @keywords TB
 #' @import dplyr
 #' @import purrr
 #' @importFrom stats na.omit
 #' @export
 
-date_format <- function(x, format = dmy) {
+date_format <- function(x, format = dmy, ...) {
 	
 			output <- logical()
 			

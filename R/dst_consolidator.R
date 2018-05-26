@@ -6,6 +6,7 @@
 #' @param set define variable set to apply. Values can be - "chechnya_myco_lab"
 #' @param aggregate choose whether to aggregate to categories or retain all drug results
 #' @param rm_orig remove original variables - TRUE or FALSE
+#' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
 #' @export
@@ -15,7 +16,7 @@
 #' dst_consolidator(p, set = "chechnya_myco_lab", aggregate = TRUE, rm_orig = TRUE)
 #' }
 
-dst_consolidator <- function(x, set = "chechnya_myco_lab", aggregate = TRUE, rm_orig = TRUE) {
+dst_consolidator <- function(x, set = "chechnya_myco_lab", aggregate = TRUE, rm_orig = TRUE, ...) {
 
 # acceptable values for "set" arg
 	s <- c("chechnya_myco_lab")

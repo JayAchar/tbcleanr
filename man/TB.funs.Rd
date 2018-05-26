@@ -11,7 +11,7 @@ The TB.funs package provides functions to clean and subset TB data from K6, and 
 \seealso{
 \code{\link{adm_binary_fixer}}
 
-\code{\link{adm_data_cleaner}}
+\code{\link{adm_data_cleanr}}
 
 \code{\link{age_generator}}
 

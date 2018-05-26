@@ -5,6 +5,7 @@
 #' @param x data frame containing variables
 #' @param set define variable set to apply. Values can be "msc500", "chechnya_myco_lab",
 #' "k6_adm_standard"
+#' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
 #' @export
@@ -14,7 +15,7 @@
 #' }
 
 
-subset_vars <- function(x, set = "msc500") {
+subset_vars <- function(x, set = "msc500", ...) {
 # acceptable values for "set" arg
 	s <- c("msc500", "chechnya_myco_lab", "k6_adm_standard")
 

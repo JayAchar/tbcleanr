@@ -5,6 +5,7 @@
 #' @param set define variable set to apply. Values can be - "chechnya_myco_lab"
 #' @param rm_orig remove original variables - TRUE or FALSE
 #' @param test smear or culture
+#' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
 #' @export
@@ -15,7 +16,7 @@
 #' }
 
 
-result_consolidator <- function(x, set = "chechnya_myco_lab", test = "smear", rm_orig = TRUE) {
+result_consolidator <- function(x, set = "chechnya_myco_lab", test = "smear", rm_orig = TRUE, ...) {
 
 # acceptable values for "set" arg
 	s <- c("chechnya_myco_lab")

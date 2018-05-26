@@ -5,7 +5,7 @@
 \title{Consolidate smear results}
 \usage{
 result_consolidator(x, set = "chechnya_myco_lab", test = "smear",
-  rm_orig = TRUE)
+  rm_orig = TRUE, ...)
 }
 \arguments{
 \item{x}{data frame containing variables}
@@ -15,6 +15,8 @@ result_consolidator(x, set = "chechnya_myco_lab", test = "smear",
 \item{test}{smear or culture}
 
 \item{rm_orig}{remove original variables - TRUE or FALSE}
+
+\item{...}{further arguments passed to or from other methods}
 }
 \description{
 Take laboratory data set and consolidate repeated results to give summary variable

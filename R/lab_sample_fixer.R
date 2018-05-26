@@ -3,6 +3,7 @@
 #' Consolidate mycobacterial sample types in Chechen lab data
 #' @param x data frame containing sample date variables
 #' @param rm_orig remove original variables - TRUE or FALSE
+#' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
 #' @export
@@ -12,7 +13,7 @@
 #' lab_sample_fixer(p, rm_orig = TRUE)
 #' }
 
-lab_sample_fixer <- function(x, rm_orig = TRUE) {
+lab_sample_fixer <- function(x, rm_orig = TRUE, ...) {
 
 # check input
 	if (!(is.data.frame(x))) {

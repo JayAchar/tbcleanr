@@ -4,12 +4,14 @@
 \alias{lab_data_cleanr}
 \title{Cleans TB laboratory data sets}
 \usage{
-lab_data_cleanr(x, lab = "chechnya")
+lab_data_cleanr(x, lab = "chechnya", ...)
 }
 \arguments{
 \item{x}{data frame containing variables}
 
 \item{lab}{define laboratory dat set being used. Values can be - "chechnya".}
+
+\item{...}{further arguments passed to or from other methods}
 }
 \description{
 Take laboratory data set and perform multiple adjustments based on which

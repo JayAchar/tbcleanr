@@ -3,6 +3,7 @@
 #' Take laboratory data set and consolidate Hain MTBDRplus results from Chechen data
 #' @param x data frame containing variables
 #' @param set define variable set to apply. Values can be - "chechnya"
+#' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
 #' @import purrr
@@ -13,7 +14,7 @@
 #' }
 
 
-mtbdrplus_fixer <- function(x, set = "chechnya") {
+mtbdrplus_fixer <- function(x, set = "chechnya", ...) {
 # acceptable values for "set" arg
 	s <- c("chechnya")	
 
