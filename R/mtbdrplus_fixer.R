@@ -14,9 +14,9 @@
 #' }
 
 
-mtbdrplus_fixer <- function(x, set = "chechnya", ...) {
+mtbdrplus_fixer <- function(x, set = "chechnya_myco_lab", ...) {
 # acceptable values for "set" arg
-	s <- c("chechnya")	
+	s <- c("chechnya_myco_lab")	
 
 # check input
 	if (!(is.data.frame(x))) {
@@ -35,7 +35,7 @@ mtbdrplus_fixer <- function(x, set = "chechnya", ...) {
 
 # =========================================================
 #specify hain variables
-	if (set == "chechnya") {
+	if (set == "chechnya_myco_lab") {
 		hain_vars <- c("cthres", "cthrifres", "cthinhres")
 		h_resist <- c("cthinhres", "cthrifres")
 	}

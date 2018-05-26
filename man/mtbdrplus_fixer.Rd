@@ -4,7 +4,7 @@
 \alias{mtbdrplus_fixer}
 \title{Consolidate Hain MTBDRplus results}
 \usage{
-mtbdrplus_fixer(x, set = "chechnya", ...)
+mtbdrplus_fixer(x, set = "chechnya_myco_lab", ...)
 }
 \arguments{
 \item{x}{data frame containing variables}
