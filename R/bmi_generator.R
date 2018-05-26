@@ -4,6 +4,7 @@
 #' @param x data frame containing height and weight variables
 #' @param weight weight variable recorded in kgs - "weight"
 #' @param height height variable recorded in cms - "height"
+#' @param rm_orig remove original variables - TRUE or FALSE
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
@@ -13,7 +14,7 @@
 #' bmi_generator(p, weight = "weight", height = "height")
 #' }
 
-bmi_generator <- function(x, weight = "weight", height = "height", ...) {
+bmi_generator <- function(x, weight = "weight", height = "height", rm_orig = TRUE, ...) {
 
 # check input
 	if (!(is.data.frame(x))) {
@@ -66,6 +67,12 @@ bmi_generator <- function(x, weight = "weight", height = "height", ...) {
 	if (! bmi == c) {
 		warning("New NAs included in BMI variable")
 	}
+
+# remove original variables
+		 	if (rm_orig %in% c("TRUE", "T")) {
+		 		x[[height]] <- NULL
+		 		x[[weight]] <- NULL
+		 	}
 
 return(x)	
 }

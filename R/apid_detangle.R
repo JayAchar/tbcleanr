@@ -3,6 +3,8 @@
 #' Separate APID numbers into 3 constituent parts to ascertain 
 #' district, DS or DR TB categorisation and numerical ID number
 #' @param x data frame containing APID variable from KK programme
+#' @param rm_orig remove original variables - TRUE or FALSE
+#' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
 #' @export
@@ -12,7 +14,7 @@
 #' apid_detangle(p)
 #' }
 
-apid_detangle <- function(x) {
+apid_detangle <- function(x, rm_orig = TRUE, ...) {
 
 # check input
 	if (!(is.data.frame(x))) {
@@ -48,6 +50,7 @@ apid_detangle <- function(x) {
 
 # take rayon and generate district variable
 	x$district <- str_match(x$apid, "[[:alpha:]]{3}")
+	x$district <- as.character(x$district)
 
 # take all digits and generate id number
 	x$id <- str_match(x$apid, "\\d+")
@@ -56,6 +59,11 @@ apid_detangle <- function(x) {
 
 # remove original APID variable
 	x$apid <- NULL
+
+	# remove original variables
+	if (rm_orig %in% c("TRUE", "T")) {
+		 		x[, apid] <- NULL
+		}
 
 return(x)
 }
