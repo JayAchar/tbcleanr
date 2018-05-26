@@ -4,12 +4,14 @@
 \alias{k6_cavities_fixer}
 \title{Fix and aggregate Koch 6 x-ray cavities variables}
 \usage{
-k6_cavities_fixer(x, rm_orig = TRUE)
+k6_cavities_fixer(x, rm_orig = TRUE, ...)
 }
 \arguments{
 \item{x}{data frame containing Koch 6 HBV and HCV variables}
 
 \item{rm_orig}{remove original variables - TRUE or FALSE}
+
+\item{...}{further arguments passed to or from other methods}
 }
 \description{
 Input data frame containing cavity variables, factorise 

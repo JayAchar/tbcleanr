@@ -4,12 +4,14 @@
 \alias{gender_fixer}
 \title{Factorise gender variable}
 \usage{
-gender_fixer(x, db = "k6")
+gender_fixer(x, db = "k6", ...)
 }
 \arguments{
 \item{x}{data frame containing Koch 6 admission variables}
 
 \item{db}{define database being used - "k6"}
+
+\item{...}{further arguments passed to or from other methods}
 }
 \description{
 Take gender variable from data frame and factorise. Use db

@@ -4,6 +4,7 @@
 #' database set is being used
 #' @param x data frame containing variables
 #' @param set define admission data set being used. Values can be - "k6_adm_standard".
+#' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
 #' @import magrittr
@@ -14,7 +15,7 @@
 #' }
 
 
-adm_data_cleanr <- function(x, set = "k6_adm_standard") {
+adm_data_cleanr <- function(x, set = "k6_adm_standard", ...) {
 # check input
 	if (!(is.data.frame(x))) {
 			stop("input paramter, x, must be a data frame")

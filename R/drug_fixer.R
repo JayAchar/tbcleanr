@@ -5,6 +5,7 @@
 #' @param x data frame containing drug variables
 #' @param set define variable set to apply. Values can be "msc500",
 #' "k6_adm_standard"
+#' @param ... further arguments passed to or from other methods.
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
 #' @export
@@ -13,7 +14,7 @@
 #' drug_fixer(p, set = "msc500")
 #' }
 
-drug_fixer <- function(x, set = "msc500") {
+drug_fixer <- function(x, set = "msc500", ...) {
 
 # check drug variables correct based on set arg
 	if (set %in% c("msc500", "k6_adm_standard")) {

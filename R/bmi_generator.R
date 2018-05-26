@@ -4,6 +4,7 @@
 #' @param x data frame containing height and weight variables
 #' @param weight weight variable recorded in kgs - "weight"
 #' @param height height variable recorded in cms - "height"
+#' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
 #' @export
@@ -12,7 +13,7 @@
 #' bmi_generator(p, weight = "weight", height = "height")
 #' }
 
-bmi_generator <- function(x, weight = "weight", height = "height") {
+bmi_generator <- function(x, weight = "weight", height = "height", ...) {
 
 # check input
 	if (!(is.data.frame(x))) {
