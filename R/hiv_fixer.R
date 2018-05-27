@@ -3,7 +3,8 @@
 #' Take HIV variables from data frame and factorise. Use db
 #' to define which data base is being used as the input
 #' @param x data frame containing Koch 6 admission variables
-#' @param db define database being used - "k6"
+#' @param db define database being used - "k6", "epi_info"
+#' @param rm_orig remove original variables - TRUE or FALSE
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
@@ -13,56 +14,84 @@
 #' hiv_fixer(p, db = "k6")
 #' }
 
-hiv_fixer <- function(x, db = "k6", ...) {
+hiv_fixer <- function(x, db = "k6", rm_orig = TRUE, ...) {
+
+# acceptable values for "set" arg
+	s <- c("k6", "epi_info")
+
+# check db is within acceptable values
+	if (! db %in% s) {
+		stop("Specify db argument within specified values")
+	}
 
 # check input
 	if (!(is.data.frame(x))) {
 			stop("input paramter, x, must be a data frame")
 	}
 
-	if (db == "") {
-		stop("Arg db is missing - please add")
-	}
+# if db = "k6"
+		if (db == "k6") {
+		# check variables are present
+			h_names <- c("HIV", "cdhivenrol")
+			if (! all(h_names %in% names(x))) {
+				stop("Required HIV variables not included in data frame")
+			}
 
+		# convert HIV == not done to NA
+			x$HIV[x$HIV %in% c(0, 3, 4)] <- NA
+			x$cdhivenrol[x$cdhivenrol %in% c(0, 3:5)] <- NA
 
-if (db == "k6") {
-# check variables are present
-	h_names <- c("HIV", "cdhivenrol")
-	if (! all(h_names %in% names(x))) {
-		stop("Required HIV variables not included in data frame")
-	}
+		# check levels of HIV variable
+			if (! length(table(x$HIV)) == 2) {
+				stop("HIV variable does not have 2 levels")
+			}
 
-# convert HIV == not done to NA
-	x$HIV[x$HIV %in% c(0, 3, 4)] <- NA
-	x$cdhivenrol[x$cdhivenrol %in% c(0, 3:5)] <- NA
+			if (! length(table(x$cdhivenrol)) == 2) {
+				stop("History of HIV variable does not have 2 levels")
+			}
 
-# check levels of HIV variable
-	if (! length(table(x$HIV)) == 2) {
-		stop("HIV variable does not have 2 levels")
-	}
+		# generate aggregate HIV variable
+			x$hiv <- NA
 
-	if (! length(table(x$HIV)) == 2) {
-		stop("History of HIV variable does not have 2 levels")
-	}
+			# all those with a result start as negative
+			x$hiv[! (is.na(x$HIV) & is.na(x$cdhivenrol))] <- 0
+			x$hiv[x$HIV == 1 | x$cdhivenrol == 1] <- 1
 
-# generate aggregate HIV variable
-	x$hiv <- NA
+		}
 
-	# all those with a result start as negative
-	x$hiv[! (is.na(x$HIV) & is.na(x$cdhivenrol))] <- 0
-	x$hiv[x$HIV == 1 | x$cdhivenrol == 1] <- 1
+# if db = epi_info
+if (db == "epi_info") {
+		# check variables are present
+			h_names <- c("HIV")
+			if (! all(h_names %in% names(x))) {
+				stop("Required HIV variable not included in data frame")
+			}
 
+		# convert HIV == not done to NA
+			x$HIV[x$HIV == 3] <- NA
+
+		# check levels of HIV variable
+			if (! length(table(x$HIV)) == 2) {
+				stop("HIV variable does not have 2 levels")
+			}
+
+		# generate aggregate HIV variable
+			x$hiv <- NA
+
+			# all those with a result start as negative
+			x$hiv[x$HIV == 2] <- 0
+			x$hiv[x$HIV == 1] <- 1
+
+		}
 
 # factorise gender variable
 	x$hiv <- factor(x$hiv, levels = c(0:1),
 				labels = c("Negative", "Positive"))
 
-# remove original, unused HIV variables
-	x$HIV <- NULL
-	x$cdhivenrol <- NULL
-
-}
-
+# remove original variables
+		 	if (rm_orig %in% c("TRUE", "T")) {
+		 		x[, h_names] <- NULL
+		 	}
 
 return(x)
 }

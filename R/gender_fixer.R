@@ -3,7 +3,7 @@
 #' Take gender variable from data frame and factorise. Use db
 #' to define which data base is being used as the input
 #' @param x data frame containing Koch 6 admission variables
-#' @param db define database being used - "k6"
+#' @param db define database being used - "k6", "epi_info"
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
@@ -46,15 +46,19 @@ gender_fixer <- function(x, db = "k6", ...) {
 # convert gender == not done to NA
 	x[[gen_var]][x[[gen_var]] == 0] <- NA
 
+# convert character to numeric
+	x[[gen_var]][x[[gen_var]] == "M"] <- 1
+	x[[gen_var]][x[[gen_var]] == "F"] <- 2
+
 # check levels of gender variable
-	if (! length(table(x$gender)) == 2) {
+	if (! length(table(x[[gen_var]])) == 2) {
 		stop("Gender variable does not have 2 levels")
 	}
 
 # factorise gender variable
-	x$gender <- factor(x$gender, levels = c(1:2),
+	x[[gen_var]] <- factor(x[[gen_var]], levels = c(1:2),
 				labels = c("Male", "Female"))
-}
+
 
 return(x)
 }

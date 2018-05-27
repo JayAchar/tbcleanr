@@ -64,19 +64,15 @@ adm_data_cleanr <- function(x, set = "k6_adm_standard", ...) {
 		apid_detangle() %>%
 			# date format
 		date_format() %>%			
-		# bmi generator
+			# bmi generator
 		bmi_generator(weight = "WEIGHT", height = "HEIGHT") %>%
-
-
-
 			# categorise gender variable
-		gender_fixer() %>%
-
+		gender_fixer(db = "epi_info") %>%		
+			# hiv variables consolidated
+		hiv_fixer() %>%
 
 
 		
-			# hiv variables consolidated
-		hiv_fixer() %>%
 			# cavities variables consolidated
 		k6_cavities_fixer() %>%
 			# fix outcomes variables
