@@ -21,11 +21,11 @@ adm_data_cleanr <- function(x, set = "k6_adm_standard", ...) {
 			stop("input paramter, x, must be a data frame")
 	}
 # acceptable values for lab
-	allowed <- c("k6_adm_standard")
+	allowed <- c("k6_adm_standard", "nukus_epi_info")
 
-# check lab arg is within acceptable values
+# check set arg is within acceptable values
 	if (! set %in% allowed) {
-		stop("Specify lab argument within specified values")
+		stop("Specify set argument within specified values")
 	}
 
 # =======================================================
@@ -55,6 +55,37 @@ adm_data_cleanr <- function(x, set = "k6_adm_standard", ...) {
 		adm_binary_fixer()	
 	}
 
+
+	if (set == "nukus_epi_info") {
+	x <- x %>%
+			# subset variables
+		subset_vars(set = "nukus_epi_info") %>%
+			# detangle apid number
+		apid_detangle() %>%
+			# date format
+		date_format() %>%			
+		# bmi generator
+		bmi_generator(weight = "WEIGHT", height = "HEIGHT") %>%
+
+
+
+			# categorise gender variable
+		gender_fixer() %>%
+
+
+
+		
+			# hiv variables consolidated
+		hiv_fixer() %>%
+			# cavities variables consolidated
+		k6_cavities_fixer() %>%
+			# fix outcomes variables
+		k6_outcome_fixer() %>%
+			# change all drugs from doses to binary
+		drug_fixer() %>%
+			# change all binary variables to factors
+		adm_binary_fixer()	
+	}
 
 x
 }

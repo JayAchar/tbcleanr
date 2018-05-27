@@ -16,25 +16,35 @@
 
 gender_fixer <- function(x, db = "k6", ...) {
 
+# acceptable values for "set" arg
+	s <- c("k6", "epi_info")
+
 # check input
 	if (!(is.data.frame(x))) {
 			stop("input paramter, x, must be a data frame")
 	}
 
-	if (db == "") {
-		stop("Arg db is missing - please add")
+# check db is within acceptable values
+	if (! db %in% s) {
+		stop("Specify db argument within specified values")
 	}
 
+# set gender variable name
+		if (db == "k6") {
+			gen_var <- "gender"
+		}	
+		if (db == "epi_info") {
+			gen_var <- "SEX"
+		}
 
-
-if (db == "k6") {
 # check gender variable present
-	if (! "gender" %in% names(x)) {
+	if (! gen_var %in% names(x)) {
 		stop("Gender variable not present in data frame")
 	}
 
+
 # convert gender == not done to NA
-	x$gender[x$gender == 0] <- NA
+	x[[gen_var]][x[[gen_var]] == 0] <- NA
 
 # check levels of gender variable
 	if (! length(table(x$gender)) == 2) {
