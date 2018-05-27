@@ -35,7 +35,7 @@ subset_vars <- function(x, set = "msc500") {
 
 # set = msc500
 	if (set == "msc500") {
-		k <- c("registrationnb", "dateofbirth", "datedeat", "gender",
+		k <- c("registrationnb", "dstnumber", "dateofbirth", "datedeat", "gender",
 					"weight", "height", "ecgqt", "ecghr", "ecgrr", "ecgqtcf",
 					"diabetes", "cardiodi", "renalfail", "cav", "cavD", "labClinDate",
 					"Hemoglobin", "Creatinine", "cdhivenrol", "HIV", "CD4count", "Starttre",
@@ -46,7 +46,7 @@ subset_vars <- function(x, set = "msc500") {
 	}
 
 	if (set == "k6_adm_standard") {
-		k <- c("registrationnb", "dateofbirth", "datedeat", "gender",
+		k <- c("registrationnb", "dstnumber", "dateofbirth", "datedeat", "gender",
 					"weight", "height",
 					"diabetes", "cardiodi", "renalfail", "cav", "cavD", "labClinDate",
 					"Hemoglobin", "Creatinine", "cdhivenrol", "HIV", "CD4count", "Starttre",
