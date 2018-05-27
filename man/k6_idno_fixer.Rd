@@ -4,10 +4,12 @@
 \alias{k6_idno_fixer}
 \title{Fix Koch 6 registration number variable}
 \usage{
-k6_idno_fixer(x)
+k6_idno_fixer(x, ...)
 }
 \arguments{
 \item{x}{data frame containing Koch 6 registration number}
+
+\item{...}{further arguments passed to or from other methods}
 }
 \description{
 Deconstruct Koch 6 registration number into constiuent parts 

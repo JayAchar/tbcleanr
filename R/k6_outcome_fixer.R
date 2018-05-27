@@ -3,6 +3,7 @@
 #' Combine Koch 6 treatment outcome variables to leave one 
 #' factorised, labelled variable
 #' @param x data frame containing Koch 6 outcome variables
+#' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
 #' @export
@@ -11,7 +12,7 @@
 #' k6_outcome_fixer(p)
 #' }
 
-k6_outcome_fixer <- function(x) {
+k6_outcome_fixer <- function(x, ...) {
 
 # check input
 	if (!(is.data.frame(x))) {

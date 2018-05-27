@@ -2,6 +2,7 @@
 #'
 #' Consolidate sample dates in Chechen mycobacterial lab database
 #' @param x data frame containing sample date variables
+#' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
 #' @export
@@ -12,7 +13,7 @@
 #' }
 
 
-chechnya_lab_date_consolidator <- function(x) {
+chechnya_lab_date_consolidator <- function(x, ...) {
 # check input
 	if (!(is.data.frame(x))) {
 			stop("input paramter, x, must be a data frame")

@@ -4,12 +4,14 @@
 \alias{adm_data_cleanr}
 \title{Cleans TB admissions data sets}
 \usage{
-adm_data_cleanr(x, set = "k6_adm_standard")
+adm_data_cleanr(x, set = "k6_adm_standard", ...)
 }
 \arguments{
 \item{x}{data frame containing variables}
 
 \item{set}{define admission data set being used. Values can be - "k6_adm_standard".}
+
+\item{...}{further arguments passed to or from other methods}
 }
 \description{
 Take admission data set and perform multiple adjustments based on which

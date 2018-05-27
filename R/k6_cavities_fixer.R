@@ -4,6 +4,7 @@
 #' and aggregate into new variable -cavity-
 #' @param x data frame containing Koch 6 HBV and HCV variables
 #' @param rm_orig remove original variables - TRUE or FALSE
+#' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
 #' @export
@@ -13,7 +14,7 @@
 #' }
 
 
-k6_cavities_fixer <- function(x, rm_orig = TRUE) {
+k6_cavities_fixer <- function(x, rm_orig = TRUE, ...) {
 
 # check input
 	if (!(is.data.frame(x))) {

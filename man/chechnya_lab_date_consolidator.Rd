@@ -4,10 +4,12 @@
 \alias{chechnya_lab_date_consolidator}
 \title{Aggregate dates in Chechen lab database}
 \usage{
-chechnya_lab_date_consolidator(x)
+chechnya_lab_date_consolidator(x, ...)
 }
 \arguments{
 \item{x}{data frame containing sample date variables}
+
+\item{...}{further arguments passed to or from other methods}
 }
 \description{
 Consolidate sample dates in Chechen mycobacterial lab database

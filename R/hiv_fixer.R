@@ -4,6 +4,7 @@
 #' to define which data base is being used as the input
 #' @param x data frame containing Koch 6 admission variables
 #' @param db define database being used - "k6"
+#' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
 #' @export
@@ -12,7 +13,7 @@
 #' hiv_fixer(p, db = "k6")
 #' }
 
-hiv_fixer <- function(x, db = "k6") {
+hiv_fixer <- function(x, db = "k6", ...) {
 
 # check input
 	if (!(is.data.frame(x))) {

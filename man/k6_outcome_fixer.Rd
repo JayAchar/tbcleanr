@@ -4,10 +4,12 @@
 \alias{k6_outcome_fixer}
 \title{Fix Koch 6 treatment outcomes}
 \usage{
-k6_outcome_fixer(x)
+k6_outcome_fixer(x, ...)
 }
 \arguments{
 \item{x}{data frame containing Koch 6 outcome variables}
+
+\item{...}{further arguments passed to or from other methods}
 }
 \description{
 Combine Koch 6 treatment outcome variables to leave one 

@@ -4,12 +4,14 @@
 \alias{lab_sample_fixer}
 \title{Lab sample fixer}
 \usage{
-lab_sample_fixer(x, rm_orig = TRUE)
+lab_sample_fixer(x, rm_orig = TRUE, ...)
 }
 \arguments{
 \item{x}{data frame containing sample date variables}
 
 \item{rm_orig}{remove original variables - TRUE or FALSE}
+
+\item{...}{further arguments passed to or from other methods}
 }
 \description{
 Consolidate mycobacterial sample types in Chechen lab data

@@ -4,7 +4,7 @@
 \alias{bmi_generator}
 \title{Calculate BMI from height and weight}
 \usage{
-bmi_generator(x, weight = "weight", height = "height")
+bmi_generator(x, weight = "weight", height = "height", ...)
 }
 \arguments{
 \item{x}{data frame containing height and weight variables}
@@ -12,6 +12,8 @@ bmi_generator(x, weight = "weight", height = "height")
 \item{weight}{weight variable recorded in kgs - "weight"}
 
 \item{height}{height variable recorded in cms - "height"}
+
+\item{...}{further arguments passed to or from other methods}
 }
 \description{
 Use numerical height and weight variables to calculate BMI

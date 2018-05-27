@@ -4,6 +4,7 @@
 #' laboratory data set is being used
 #' @param x data frame containing variables
 #' @param lab define laboratory dat set being used. Values can be - "chechnya".
+#' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
 #' @import magrittr
@@ -14,7 +15,7 @@
 #' }
 
 
-lab_data_cleanr <- function(x, lab = "chechnya") {
+lab_data_cleanr <- function(x, lab = "chechnya", ...) {
 # check input
 	if (!(is.data.frame(x))) {
 			stop("input paramter, x, must be a data frame")

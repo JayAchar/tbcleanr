@@ -4,13 +4,15 @@
 \alias{subset_vars}
 \title{Subset variables}
 \usage{
-subset_vars(x, set = "msc500")
+subset_vars(x, set = "msc500", ...)
 }
 \arguments{
 \item{x}{data frame containing variables}
 
 \item{set}{define variable set to apply. Values can be "msc500", "chechnya_myco_lab",
 "k6_adm_standard"}
+
+\item{...}{further arguments passed to or from other methods}
 }
 \description{
 Subset variables along pre-defined variable  

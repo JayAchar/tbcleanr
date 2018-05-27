@@ -5,7 +5,7 @@
 \title{Consolidate DST results}
 \usage{
 dst_consolidator(x, set = "chechnya_myco_lab", aggregate = TRUE,
-  rm_orig = TRUE)
+  rm_orig = TRUE, ...)
 }
 \arguments{
 \item{x}{data frame containing variables}
@@ -15,6 +15,8 @@ dst_consolidator(x, set = "chechnya_myco_lab", aggregate = TRUE,
 \item{aggregate}{choose whether to aggregate to categories or retain all drug results}
 
 \item{rm_orig}{remove original variables - TRUE or FALSE}
+
+\item{...}{further arguments passed to or from other methods}
 }
 \description{
 Take Chechen laboratory data set and consolidate DST results - choose aggregate

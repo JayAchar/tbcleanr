@@ -4,12 +4,14 @@
 \alias{mtbdrplus_fixer}
 \title{Consolidate Hain MTBDRplus results}
 \usage{
-mtbdrplus_fixer(x, set = "chechnya")
+mtbdrplus_fixer(x, set = "chechnya", ...)
 }
 \arguments{
 \item{x}{data frame containing variables}
 
 \item{set}{define variable set to apply. Values can be - "chechnya"}
+
+\item{...}{further arguments passed to or from other methods}
 }
 \description{
 Take laboratory data set and consolidate Hain MTBDRplus results from Chechen data

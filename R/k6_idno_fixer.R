@@ -4,6 +4,7 @@
 #' and output numerical variable for idno and string for identifier, 
 #' if relevant
 #' @param x data frame containing Koch 6 registration number
+#' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
 #' @export
@@ -13,7 +14,7 @@
 #' }
 
 
-k6_idno_fixer <- function(x) {
+k6_idno_fixer <- function(x, ...) {
 
 # check input
 	if (!(is.data.frame(x))) {
