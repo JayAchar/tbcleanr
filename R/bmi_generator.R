@@ -2,8 +2,7 @@
 #'
 #' Use numerical height and weight variables to calculate BMI
 #' @param x data frame containing height and weight variables
-#' @param weight weight variable recorded in kgs - "weight"
-#' @param height height variable recorded in cms - "height"
+#' @param db define database being used - "k6", "epi_info"
 #' @param rm_orig remove original variables - TRUE or FALSE
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
@@ -14,19 +13,39 @@
 #' bmi_generator(p, weight = "weight", height = "height")
 #' }
 
-bmi_generator <- function(x, weight = "weight", height = "height", rm_orig = TRUE, ...) {
+bmi_generator <- function(x, db = "k6", rm_orig = TRUE, ...) {
+
+# acceptable values for "set" arg
+	s <- c("k6", "epi_info")
 
 # check input
 	if (!(is.data.frame(x))) {
 			stop("input paramter, x, must be a data frame")
 	}
 
+# check db is within acceptable values
+	if (! db %in% s) {
+		stop("Specify db argument within specified values")
+	}
+
+# =================================================================
+# set db specific variables 
+		if (db == "k6") {
+			weight <- "weight"
+			height <- "height"
+		}	
+		if (db == "epi_info") {
+			weight <- "WEIGHT"
+			height <- "HEIGHT"
+		}
+# =================================================================
+
 # check args are valid
 	if (! all(c(weight, height) %in% names(x))) {
 		stop("Height and weight variables not available - check function args")
 	}
 
-# check variables are dates
+# check variables are numericals
 	if (! all(is.numeric(x[[weight]]) & is.numeric(x[[height]]) ) ) {
 		stop("Variables are not formatted as numericals")
 	}
