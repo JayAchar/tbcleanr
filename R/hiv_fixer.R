@@ -29,60 +29,48 @@ hiv_fixer <- function(x, db = "k6", rm_orig = TRUE, ...) {
 			stop("input paramter, x, must be a data frame")
 	}
 
-# if db = "k6"
+
+# =================================================================
+# set db specific variables 
 		if (db == "k6") {
-		# check variables are present
 			h_names <- c("HIV", "cdhivenrol")
+			hiv <- "HIV"
+			cdhiv <- "cdhivenrol"
+		}	
+		if (db == "epi_info") {
+			h_names <- "HIV"
+			hiv <- "HIV"
+		}
+# =================================================================
+
+# check variables are present
 			if (! all(h_names %in% names(x))) {
 				stop("Required HIV variables not included in data frame")
 			}
 
-		# convert HIV == not done to NA
-			x$HIV[x$HIV %in% c(0, 3, 4)] <- NA
-			x$cdhivenrol[x$cdhivenrol %in% c(0, 3:5)] <- NA
-
-		# check levels of HIV variable
-			if (! length(table(x$HIV)) == 2) {
-				stop("HIV variable does not have 2 levels")
-			}
-
-			if (! length(table(x$cdhivenrol)) == 2) {
-				stop("History of HIV variable does not have 2 levels")
-			}
-
-		# generate aggregate HIV variable
+# generate aggregate HIV variable
 			x$hiv <- NA
 
-			# all those with a result start as negative
-			x$hiv[! (is.na(x$HIV) & is.na(x$cdhivenrol))] <- 0
-			x$hiv[x$HIV == 1 | x$cdhivenrol == 1] <- 1
-
+# if db = "k6"
+		if (db == "k6") {
+		# all those with a result start as negative
+			x$hiv[x[[hiv]] %in% c(1, 2) | x[[cdhiv]] %in% c(1,2)] <- 0
+			x$hiv[x[[hiv]] == 1 | x[[cdhiv]] == 1] <- 1
 		}
 
 # if db = epi_info
-if (db == "epi_info") {
-		# check variables are present
-			h_names <- c("HIV")
-			if (! all(h_names %in% names(x))) {
-				stop("Required HIV variable not included in data frame")
-			}
-
-		# convert HIV == not done to NA
-			x$HIV[x$HIV == 3] <- NA
-
-		# check levels of HIV variable
-			if (! length(table(x$HIV)) == 2) {
-				stop("HIV variable does not have 2 levels")
-			}
-
-		# generate aggregate HIV variable
-			x$hiv <- NA
-
+		if (db == "epi_info") {
+	
 			# all those with a result start as negative
-			x$hiv[x$HIV == 2] <- 0
-			x$hiv[x$HIV == 1] <- 1
+			x$hiv[x[[hiv]] == 2] <- 0
+			x$hiv[x[[hiv]] == 1] <- 1
 
 		}
+
+# check levels of original HIV variable
+			if (! length(table(x$hiv)) == 2) {
+				stop("HIV variable does not have 2 levels")
+			}
 
 # factorise gender variable
 	x$hiv <- factor(x$hiv, levels = c(0:1),
