@@ -69,7 +69,7 @@ adm_data_cleanr <- function(x, set = "k6_adm_standard", ...) {
 			# categorise gender variable
 		gender_fixer(db = "epi_info") %>%		
 			# hiv variables consolidated
-		hiv_fixer() %>%
+		hiv_fixer(db = "epi_info") %>%
 
 
 		

@@ -16,7 +16,7 @@
 #' }
 
 
-subset_vars <- function(x, set, add,  ...) {
+subset_vars <- function(x, set, add = NULL,  ...) {
 # acceptable values for "set" arg
 	s <- c("msc500", "chechnya_myco_lab", "k6_adm_standard", "nukus_epi_info")
 
@@ -64,7 +64,7 @@ if (set == "nukus_epi_info") {
 					"HEALTHWO", "PRIWO", "TOBACCO", "REGRP", "PRETRAPID", "WEIGHT", 
 					"HEIGHT", "HD", "EE", "RR", "ZP","CSC", "SMS", "AMA", "KMK", "CPX", "OFX",
 					"TT", "ETHE","PASP", "AMXC","CFZ", "CLRC","CMC", "OTH", "SPE1", "SITEDIS",
-					"ABNORM", "HIV", "STARTTRE", "CATTRE", "DIABETES","CARDIODI",
+					"ABNORM", "XRAYRES", "HIV", "STARTTRE", "CATTRE", "DIABETES","CARDIODI",
 					"RENALFAI","PSYCHI", "SEIZURE", "HEPADIS", "HDH","RDR", "EDE", "ZDZ", "SDS",
 					"KADKA", "OFLDOFL", "CAPDCAP", "ETHDETH", "CYCLDCYCL", "AMXDAMX", "PASDPAS",
 					"CLADCLA", "CLODCLO", "LXDLX", "MXDMX", "PTDPT", "LZDDLZD", "IMPDIMP",
