@@ -36,7 +36,7 @@ adm_data_cleanr <- function(x, set = "k6_adm_standard", ...) {
 			# subset variables
 		subset_vars(set = "k6_adm_standard") %>%
 			# detangle apid number
-		k6_idno_fixer() %>%
+		id_detangle(db = "k6") %>%
 			# bmi generator
 		bmi_generator() %>%
 			# date format
@@ -61,11 +61,11 @@ adm_data_cleanr <- function(x, set = "k6_adm_standard", ...) {
 			# subset variables
 		subset_vars(set = "nukus_epi_info") %>%
 			# detangle apid number
-		apid_detangle() %>%
+		id_detangle(db = "epi_info") %>%
 			# date format
 		date_format() %>%			
 			# bmi generator
-		bmi_generator(weight = "WEIGHT", height = "HEIGHT") %>%
+		bmi_generator(db = "epi_info") %>%
 			# categorise gender variable
 		gender_fixer(db = "epi_info") %>%		
 			# hiv variables consolidated
