@@ -29,13 +29,15 @@ gender_fixer <- function(x, db = "k6", ...) {
 		stop("Specify db argument within specified values")
 	}
 
-# set gender variable name
+# =================================================================
+# set db specific variables 
 		if (db == "k6") {
 			gen_var <- "gender"
 		}	
 		if (db == "epi_info") {
 			gen_var <- "SEX"
 		}
+# =================================================================
 
 # check gender variable present
 	if (! gen_var %in% names(x)) {
@@ -58,7 +60,6 @@ gender_fixer <- function(x, db = "k6", ...) {
 # factorise gender variable
 	x[[gen_var]] <- factor(x[[gen_var]], levels = c(1:2),
 				labels = c("Male", "Female"))
-
 
 return(x)
 }
