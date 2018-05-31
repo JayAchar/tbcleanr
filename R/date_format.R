@@ -5,8 +5,8 @@
 #' @param format specify the lubridate output format
 #' @param ... further arguments passed to or from other methods
 #' @keywords TB
-#' @import dplyr
-#' @import purrr
+#' @importFrom purrr map
+#' @importFrom stringr str_detect
 #' @importFrom stats na.omit
 #' @export
 

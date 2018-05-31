@@ -7,7 +7,7 @@
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
-#' @import magrittr
+#' @importFrom magrittr %>%
 #' @export
 #' @examples
 #' \dontrun{
