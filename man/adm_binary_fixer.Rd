@@ -4,13 +4,13 @@
 \alias{adm_binary_fixer}
 \title{Convert binary variables to factorised output}
 \usage{
-adm_binary_fixer(x, set = "msc500", ...)
+adm_binary_fixer(x, set, ...)
 }
 \arguments{
 \item{x}{data frame containing drug variables}
 
 \item{set}{define variable set to apply. Values can be "msc500",
-"k6_adm_standard"}
+"k6_adm_standard", "nukus_epi_info"}
 
 \item{...}{further arguments passed to or from other methods}
 }

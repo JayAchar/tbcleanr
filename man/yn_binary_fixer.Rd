@@ -4,17 +4,21 @@
 \alias{yn_binary_fixer}
 \title{Factorise binary (Y/N) variables}
 \usage{
-yn_binary_fixer(x)
+yn_binary_fixer(x, class, ...)
 }
 \arguments{
 \item{x}{numerical variable with 2 levels - 0, 1}
+
+\item{class}{specify class of variables to be parsed - "num", "chr"}
+
+\item{...}{further arguments passed to or from other methods}
 }
 \description{
 Convert numerical variable into factor Y/N
 }
 \examples{
 \dontrun{
-yn_binary_fixer(p$renalfail)
+yn_binary_fixer(p$renalfail, class = "num")
 }
 }
 \seealso{

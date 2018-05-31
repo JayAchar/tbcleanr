@@ -52,7 +52,7 @@ adm_data_cleanr <- function(x, set = "k6_adm_standard", ...) {
 			# change all drugs from doses to binary
 		drug_fixer() %>%
 			# change all binary variables to factors
-		adm_binary_fixer()	
+		adm_binary_fixer(set = "k6_adm_standard")	
 	}
 
 
@@ -76,11 +76,8 @@ adm_data_cleanr <- function(x, set = "k6_adm_standard", ...) {
 		outcome_fixer(db = "epi_info") %>%
 			# change all drugs from doses to binary
 		drug_fixer(set = "nukus_epi_info") %>%
-
-
-		
 			# change all binary variables to factors
-		adm_binary_fixer()	
+		adm_binary_fixer(set = "nukus_epi_info")	
 	}
 
 x
