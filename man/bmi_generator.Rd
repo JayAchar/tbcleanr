@@ -4,14 +4,14 @@
 \alias{bmi_generator}
 \title{Calculate BMI from height and weight}
 \usage{
-bmi_generator(x, weight = "weight", height = "height", ...)
+bmi_generator(x, db = "k6", rm_orig = TRUE, ...)
 }
 \arguments{
 \item{x}{data frame containing height and weight variables}
 
-\item{weight}{weight variable recorded in kgs - "weight"}
+\item{db}{define database being used - "k6", "epi_info"}
 
-\item{height}{height variable recorded in cms - "height"}
+\item{rm_orig}{remove original variables - TRUE or FALSE}
 
 \item{...}{further arguments passed to or from other methods}
 }

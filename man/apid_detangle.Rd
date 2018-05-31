@@ -4,10 +4,14 @@
 \alias{apid_detangle}
 \title{Detangle APID identification number into rayon, DS/DR TB and ID number}
 \usage{
-apid_detangle(x)
+apid_detangle(x, rm_orig = TRUE, ...)
 }
 \arguments{
 \item{x}{data frame containing APID variable from KK programme}
+
+\item{rm_orig}{remove original variables - TRUE or FALSE}
+
+\item{...}{further arguments passed to or from other methods}
 }
 \description{
 Separate APID numbers into 3 constituent parts to ascertain 

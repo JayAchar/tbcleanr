@@ -9,7 +9,7 @@ gender_fixer(x, db = "k6", ...)
 \arguments{
 \item{x}{data frame containing Koch 6 admission variables}
 
-\item{db}{define database being used - "k6"}
+\item{db}{define database being used - "k6", "epi_info"}
 
 \item{...}{further arguments passed to or from other methods}
 }

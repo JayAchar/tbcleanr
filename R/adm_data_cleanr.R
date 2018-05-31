@@ -46,7 +46,7 @@ adm_data_cleanr <- function(x, set = "k6_adm_standard", ...) {
 			# hiv variables consolidated
 		hiv_fixer() %>%
 			# cavities variables consolidated
-		k6_cavities_fixer() %>%
+		cavities_fixer(db = "k6") %>%
 			# fix outcomes variables
 		k6_outcome_fixer() %>%
 			# change all drugs from doses to binary
@@ -70,11 +70,12 @@ adm_data_cleanr <- function(x, set = "k6_adm_standard", ...) {
 		gender_fixer(db = "epi_info") %>%		
 			# hiv variables consolidated
 		hiv_fixer(db = "epi_info") %>%
+			# cavities variables consolidated
+		cavities_fixer(db = "epi_info") %>%
+
 
 
 		
-			# cavities variables consolidated
-		k6_cavities_fixer() %>%
 			# fix outcomes variables
 		k6_outcome_fixer() %>%
 			# change all drugs from doses to binary
