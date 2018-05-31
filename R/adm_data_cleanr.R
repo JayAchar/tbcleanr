@@ -72,14 +72,13 @@ adm_data_cleanr <- function(x, set = "k6_adm_standard", ...) {
 		hiv_fixer(db = "epi_info") %>%
 			# cavities variables consolidated
 		cavities_fixer(db = "epi_info") %>%
-
+			# fix outcomes variables
+		outcome_fixer(db = "epi_info") %>%
+			# change all drugs from doses to binary
+		drug_fixer(set = "nukus_epi_info") %>%
 
 
 		
-			# fix outcomes variables
-		k6_outcome_fixer() %>%
-			# change all drugs from doses to binary
-		drug_fixer() %>%
 			# change all binary variables to factors
 		adm_binary_fixer()	
 	}

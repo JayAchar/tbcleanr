@@ -15,13 +15,13 @@ The TB.funs package provides functions to clean and subset TB data from K6, and 
 
 \code{\link{age_generator}}
 
-\code{\link{apid_detangle}}
-
 \code{\link{baseline}}
 
 \code{\link{bentiu_xpert_date}}
 
 \code{\link{bmi_generator}}
+
+\code{\link{cavities_fixer}}
 
 \code{\link{chechnya_lab_date_consolidator}}
 
@@ -41,13 +41,11 @@ The TB.funs package provides functions to clean and subset TB data from K6, and 
 
 \code{\link{hiv_fixer}}
 
+\code{\link{id_detangle}}
+
 \code{\link{k6.clean.adm}}
 
-\code{\link{k6_cavities_fixer}}
-
 \code{\link{k6_hep_fixer}}
-
-\code{\link{k6_idno_fixer}}
 
 \code{\link{k6_outcome_fixer}}
 

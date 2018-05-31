@@ -4,6 +4,7 @@
 #' to define which data base is being used as the input
 #' @param x data frame containing Koch 6 admission variables
 #' @param db define database being used - "k6", "epi_info"
+#' @param rm_orig remove original variables - TRUE or FALSE
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
@@ -14,7 +15,7 @@
 #' }
 
 
-gender_fixer <- function(x, db = "k6", ...) {
+gender_fixer <- function(x, db = "k6", rm_orig = TRUE, ...) {
 
 # acceptable values for "set" arg
 	s <- c("k6", "epi_info")
@@ -60,6 +61,16 @@ gender_fixer <- function(x, db = "k6", ...) {
 # factorise gender variable
 	x[[gen_var]] <- factor(x[[gen_var]], levels = c(1:2),
 				labels = c("Male", "Female"))
+
+# standardise nameing of gender variable
+	if (db == "epi_info") {
+		x$gender <- x[[gen_var]]
+	}
+
+# remove original variables
+ 	if (rm_orig %in% c("TRUE", "T")) {
+ 		x[, gen_var] <- NULL
+ 	}
 
 return(x)
 }
