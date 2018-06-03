@@ -7,7 +7,7 @@
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
-#' @import magrittr
+#' @importFrom magrittr %>%
 #' @export
 #' @examples
 #' \dontrun{
@@ -44,7 +44,7 @@ if (lab == "chechnya") {
 			# consolidate xpert results
 		xpert_result_fixer(set = "chechnya_myco_lab", rm_orig = TRUE) %>%
 			# fix lab samples variable
-		lab_sample_fixer(rm_orig = TRUE) %>%
+		lab_sample_fixer(set = "chechnya_myco_lab", rm_orig = TRUE) %>%
 			# consolidate smear results
 		result_consolidator(set = "chechnya_myco_lab", test = "smear", rm_orig = TRUE) %>%
 			# consolidate culture results
@@ -52,7 +52,7 @@ if (lab == "chechnya") {
 			# consolidate DST results
 		dst_consolidator(set = "chechnya_myco_lab", aggregate = TRUE, rm_orig = TRUE) %>%
 			# consolidate hain mtbdrplus results
-		mtbdrplus_fixer(set = "chechnya")
+		mtbdrplus_fixer(set = "chechnya_myco_lab")
 
 	# check variable names are all present
 		vars <- c("dbno", "dstno", "dob", "samp_date", "sample", "smear", "culture",

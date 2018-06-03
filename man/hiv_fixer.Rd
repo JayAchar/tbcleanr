@@ -4,12 +4,14 @@
 \alias{hiv_fixer}
 \title{Factorise HIV variable}
 \usage{
-hiv_fixer(x, db = "k6", ...)
+hiv_fixer(x, db = "k6", rm_orig = TRUE, ...)
 }
 \arguments{
 \item{x}{data frame containing Koch 6 admission variables}
 
-\item{db}{define database being used - "k6"}
+\item{db}{define database being used - "k6", "epi_info"}
+
+\item{rm_orig}{remove original variables - TRUE or FALSE}
 
 \item{...}{further arguments passed to or from other methods}
 }

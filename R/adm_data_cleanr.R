@@ -7,7 +7,7 @@
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
-#' @import magrittr
+#' @importFrom magrittr %>%
 #' @export
 #' @examples
 #' \dontrun{
@@ -21,11 +21,11 @@ adm_data_cleanr <- function(x, set = "k6_adm_standard", ...) {
 			stop("input paramter, x, must be a data frame")
 	}
 # acceptable values for lab
-	allowed <- c("k6_adm_standard")
+	allowed <- c("k6_adm_standard", "nukus_epi_info")
 
-# check lab arg is within acceptable values
+# check set arg is within acceptable values
 	if (! set %in% allowed) {
-		stop("Specify lab argument within specified values")
+		stop("Specify set argument within specified values")
 	}
 
 # =======================================================
@@ -36,25 +36,55 @@ adm_data_cleanr <- function(x, set = "k6_adm_standard", ...) {
 			# subset variables
 		subset_vars(set = "k6_adm_standard") %>%
 			# detangle apid number
-		k6_idno_fixer() %>%
+		id_detangle(db = "k6") %>%
 			# bmi generator
 		bmi_generator() %>%
 			# date format
 		date_format() %>%
 			# categorise gender variable
 		gender_fixer() %>%
+			# age calculator
+		age_generator(db = "k6") %>%	
 			# hiv variables consolidated
 		hiv_fixer() %>%
 			# cavities variables consolidated
-		k6_cavities_fixer() %>%
+		cavities_fixer(db = "k6") %>%
 			# fix outcomes variables
 		k6_outcome_fixer() %>%
 			# change all drugs from doses to binary
 		drug_fixer() %>%
 			# change all binary variables to factors
-		adm_binary_fixer()	
+		adm_binary_fixer(set = "k6_adm_standard")	
 	}
 
+
+	if (set == "nukus_epi_info") {
+	x <- x %>%
+			# subset variables
+		subset_vars(set = "nukus_epi_info") %>%
+			# detangle apid number
+		id_detangle(db = "epi_info") %>%
+			# date format
+		date_format() %>%			
+			# bmi generator
+		bmi_generator(db = "epi_info") %>%
+			# categorise gender variable
+		gender_fixer(db = "epi_info") %>%	
+			# age calculator
+		age_generator(db = "epi_info") %>%	
+			# hiv variables consolidated
+		hiv_fixer(db = "epi_info") %>%
+			# cavities variables consolidated
+		cavities_fixer(db = "epi_info") %>%
+			# fix outcomes variables
+		outcome_fixer(db = "epi_info") %>%
+			# change all drugs from doses to binary
+		drug_fixer(set = "nukus_epi_info") %>%
+			# change all binary variables to factors
+		adm_binary_fixer(set = "nukus_epi_info") %>%
+			# adjust miscellaneous epi info variables
+		epi_info_misc_cleanr()
+	}
 
 x
 }

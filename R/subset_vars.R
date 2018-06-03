@@ -4,7 +4,8 @@
 #' sets   
 #' @param x data frame containing variables
 #' @param set define variable set to apply. Values can be "msc500", "chechnya_myco_lab",
-#' "k6_adm_standard"
+#' "k6_adm_standard", "nukus_epi_info"
+#' @param add string of any additional variables to keep
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
@@ -15,9 +16,9 @@
 #' }
 
 
-subset_vars <- function(x, set = "msc500", ...) {
+subset_vars <- function(x, set, add = NULL,  ...) {
 # acceptable values for "set" arg
-	s <- c("msc500", "chechnya_myco_lab", "k6_adm_standard")
+	s <- c("msc500", "chechnya_myco_lab", "k6_adm_standard", "nukus_epi_info")
 
 # check input
 	if (!(is.data.frame(x))) {
@@ -57,6 +58,20 @@ subset_vars <- function(x, set = "msc500", ...) {
 					"dateend", "dateout", "outfirst", "outfirst2013", "2013outcome")
 	}
 
+# set = nukus_epi_info
+if (set == "nukus_epi_info") {
+		k <- c("APID", "BIRTDATE", "SEX", "EMPL", "EVER", "INJECT", "ALCO", "HOMELESS",
+					"HEALTHWO", "PRIWO", "TOBACCO", "REGRP", "PRETRAPID", "WEIGHT", 
+					"HEIGHT", "HD", "EE", "RR", "ZP","CSC", "SMS", "AMA", "KMK", "CPX", "OFX",
+					"TT", "ETHE","PASP", "AMXC","CFZ", "CLRC","CMC", "OTH", "SPE1", "SITEDIS",
+					"ABNORM", "XRAYRES", "HIV", "STARTTRE", "CATTRE", "DIABETES","CARDIODI",
+					"RENALFAI","PSYCHI", "SEIZURE", "HEPADIS", "HDH","RDR", "EDE", "ZDZ", "SDS",
+					"KADKA", "OFLDOFL", "CAPDCAP", "ETHDETH", "CYCLDCYCL", "AMXDAMX", "PASDPAS",
+					"CLADCLA", "CLODCLO", "LXDLX", "MXDMX", "PTDPT", "LZDDLZD", "IMPDIMP",
+					"BDQDBDQ", "PHA", "DATEN", "RES", "NEWAPID", "DATEDEAT",
+					"TRANDT", "OUTD")
+	}
+
 # set = chechnya_myco_lab
 	if (set == "chechnya_myco_lab") {
 		k <- c("dbno", "dstno", "dob", "sputum", "dcol1", "dcol2", "dcol3",
@@ -68,7 +83,7 @@ subset_vars <- function(x, set = "msc500", ...) {
 					"cts", "ctr", "cth", "ctz", "cte", "ctcm", "ctam", "ctlfx", "ctmfx",
 					"ctmfx2", "ctlzd", "cthres", "cthrifres", "cthinhres")
 	}
-
+		k <- c(k, add)		# add additional requested variables
 		x <- subset(x, select = k)
 return(x)	
 }

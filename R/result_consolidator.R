@@ -9,7 +9,7 @@
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
 #' @export
-#' @import purrr
+#' @importFrom purrr map_at
 #' @examples
 #' \dontrun{
 #' result_consolidator(p, set = "chechnya_myco_lab", rm_orig = TRUE)
