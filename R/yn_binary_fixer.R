@@ -2,7 +2,6 @@
 #'
 #' Convert numerical variable into factor Y/N
 #' @param x numerical variable with 2 levels - 0, 1
-#' @param class specify class of variables to be parsed - "num", "chr"
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{TB.funs}}
@@ -13,9 +12,12 @@
 #' }
 
 
-yn_binary_fixer <- function(x, class, ...) {
+yn_binary_fixer <- function(x, ...) {
 # acceptable values for "set" arg
-	s <- c("num", "chr")
+	s <- c("integer", "numeric", "character")
+
+# record class of variable
+	class <- class(x)
 
 # check class is within acceptable values
 	if (! class %in% s) {
@@ -30,16 +32,11 @@ yn_binary_fixer <- function(x, class, ...) {
 
 	} else {
 
-		if (class == "num") {
+		if (class %in% s[1:2]) {
 			
 			# check variable class
 			if (! is.numeric(x)) {
 				stop("Y/N variable not classed as numeric")
-			}
-			
-			# check levels - confirm Y/N status
-			if (! length(table(x)) == 2) {
-				stop("Number of levels of Y/N variable is not 2")
 			}
 			
 		# convert to binary variable
@@ -47,21 +44,18 @@ yn_binary_fixer <- function(x, class, ...) {
 
 		}
 
-
-		if (class == "chr") {
+		if (class == s[3]) {
 			
 			# check variable class
 			if (! is.character(x)) {
-				stop("Y/N variable not classed as charactre")
+				stop("Y/N variable not classed as character")
 			}
 
-			# check levels - confirm Y/N status
-			if (! length(table(x)) == 2) {
-				stop("Number of levels of Y/N variable is not 2")
-			}
 			# convert to numerical variable
+			x[! (x %in% c("N", "Y"))] <- NA
 			x[x == "N"] <- 0
 			x[x == "Y"] <- 1
+
 			x <- as.numeric(x)
 		}
 		

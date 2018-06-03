@@ -18,6 +18,7 @@
 #' @seealso \code{\link{dst_consolidator}}  
 #' @seealso \code{\link{dst_recoder}}  
 #' @seealso \code{\link{dstno_detangle}}
+#' @seealso \code{\link{epi_info_misc_cleanr}}
 #' @seealso \code{\link{gender_fixer}}  
 #' @seealso \code{\link{hiv_fixer}}  
 #' @seealso \code{\link{id_detangle}} 

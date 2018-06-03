@@ -37,10 +37,12 @@ adm_binary_fixer <- function(x, set, ...) {
 		}	
 		if (set == "nukus_epi_info") {
 			# numerical variables
-			v <- c("DIABETES","CARDIODI", "RENALFAI","PSYCHI", "SEIZURE", "HEPADIS")
+			v <- c("DIABETES","CARDIODI", "RENALFAI","PSYCHI", "SEIZURE", "HEPADIS",
+					"ALCO")
 			# character variables
 			c <- c("HD", "EE", "RR", "ZP","CSC", "SMS", "AMA", "KMK", "CPX", "OFX",
-					"TT", "ETHE","PASP", "AMXC","CFZ", "CLRC","CMC", "OTH")
+					"TT", "ETHE","PASP", "AMXC","CFZ", "CLRC","CMC", "OTH", "EVER",
+					"INJECT", "HOMELESS", "HEALTHWO", "PRIWO", "TOBACCO")
 		}
 
 # =================================================================
@@ -50,11 +52,11 @@ adm_binary_fixer <- function(x, set, ...) {
 	}
 
 # recode numerical variables 
-	x[] <- map_at(x, .at = v, .f = yn_binary_fixer, class = "num")
+	x[] <- map_at(x, .at = v, .f = yn_binary_fixer)
 
 # recode character variables
 	if (! missing(c)) {
-		x[] <- map_at(x, .at = c, .f = yn_binary_fixer, class = "chr")
+		x[] <- map_at(x, .at = c, .f = yn_binary_fixer)
 	}
 	
 

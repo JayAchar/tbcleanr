@@ -68,7 +68,7 @@ if (set == "nukus_epi_info") {
 					"RENALFAI","PSYCHI", "SEIZURE", "HEPADIS", "HDH","RDR", "EDE", "ZDZ", "SDS",
 					"KADKA", "OFLDOFL", "CAPDCAP", "ETHDETH", "CYCLDCYCL", "AMXDAMX", "PASDPAS",
 					"CLADCLA", "CLODCLO", "LXDLX", "MXDMX", "PTDPT", "LZDDLZD", "IMPDIMP",
-					"BDQDBDQ", "LI", "PHA", "CONSDAY1", "INAMB1", "DATEN", "RES", "NEWAPID", "DATEDEAT",
+					"BDQDBDQ", "PHA", "DATEN", "RES", "NEWAPID", "DATEDEAT",
 					"TRANDT", "OUTD")
 	}
 

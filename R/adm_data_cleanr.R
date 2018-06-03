@@ -43,6 +43,8 @@ adm_data_cleanr <- function(x, set = "k6_adm_standard", ...) {
 		date_format() %>%
 			# categorise gender variable
 		gender_fixer() %>%
+			# age calculator
+		age_generator(db = "k6") %>%	
 			# hiv variables consolidated
 		hiv_fixer() %>%
 			# cavities variables consolidated
@@ -67,7 +69,9 @@ adm_data_cleanr <- function(x, set = "k6_adm_standard", ...) {
 			# bmi generator
 		bmi_generator(db = "epi_info") %>%
 			# categorise gender variable
-		gender_fixer(db = "epi_info") %>%		
+		gender_fixer(db = "epi_info") %>%	
+			# age calculator
+		age_generator(db = "epi_info") %>%	
 			# hiv variables consolidated
 		hiv_fixer(db = "epi_info") %>%
 			# cavities variables consolidated
@@ -77,7 +81,9 @@ adm_data_cleanr <- function(x, set = "k6_adm_standard", ...) {
 			# change all drugs from doses to binary
 		drug_fixer(set = "nukus_epi_info") %>%
 			# change all binary variables to factors
-		adm_binary_fixer(set = "nukus_epi_info")	
+		adm_binary_fixer(set = "nukus_epi_info") %>%
+			# adjust miscellaneous epi info variables
+		epi_info_misc_cleanr()
 	}
 
 x

@@ -4,14 +4,14 @@
 \alias{age_generator}
 \title{Calculate age from two dates}
 \usage{
-age_generator(x, dob = "dateofbirth", start = "Starttre")
+age_generator(x, db = "k6", rm_orig = TRUE)
 }
 \arguments{
 \item{x}{data frame containing Koch 6 admission variables}
 
-\item{dob}{date of birth variable - "dateofbirth"}
+\item{db}{define database being used - "k6", "epi_info"}
 
-\item{start}{date of treatment start - "Starttre"}
+\item{rm_orig}{remove original variables - TRUE or FALSE}
 }
 \description{
 Use date of birth and date of starting treatment to calculate 
