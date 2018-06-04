@@ -2,14 +2,15 @@
 % Please edit documentation in R/lab_data_cleanr.R
 \name{lab_data_cleanr}
 \alias{lab_data_cleanr}
-\title{Cleans TB laboratory data sets}
+\title{Cleans laboratory data sets}
 \usage{
 lab_data_cleanr(x, lab = "chechnya", ...)
 }
 \arguments{
 \item{x}{data frame containing variables}
 
-\item{lab}{define laboratory dat set being used. Values can be - "chechnya".}
+\item{lab}{define laboratory dat set being used. Values can be - "chechnya",
+"nukus_clin_lab".}
 
 \item{...}{further arguments passed to or from other methods}
 }

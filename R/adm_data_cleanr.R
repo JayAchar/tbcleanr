@@ -15,7 +15,7 @@
 #' }
 
 
-adm_data_cleanr <- function(x, set = "k6_adm_standard", ...) {
+adm_data_cleanr <- function(x, set, ...) {
 # check input
 	if (!(is.data.frame(x))) {
 			stop("input paramter, x, must be a data frame")

@@ -18,23 +18,19 @@
 
 subset_vars <- function(x, set, add = NULL,  ...) {
 # acceptable values for "set" arg
-	s <- c("msc500", "chechnya_myco_lab", "k6_adm_standard", "nukus_epi_info")
+	s <- c("msc500", "chechnya_myco_lab", "k6_adm_standard", "nukus_epi_info",
+			"nukus_clin_lab")
 
 # check input
 	if (!(is.data.frame(x))) {
 			stop("input paramter, x, must be a data frame")
 	}
 
-# check set is valid
-	if (set == "") {
-		stop("Specify set argument in function call")
-	}
-
 # check set is within acceptable values
 	if (! set %in% s) {
 		stop("Specify set argument within specified values")
 	}
-
+# =====================================================
 # set = msc500
 	if (set == "msc500") {
 		k <- c("registrationnb", "dstnumber", "dateofbirth", "datedeat", "gender",
@@ -46,7 +42,7 @@ subset_vars <- function(x, set, add = NULL,  ...) {
 					"Bdq", "Cfz", "Clr", "Dld", "hdH", "ImpCln", "Lzd", "Mpm",
 					"dateend", "dateout", "outfirst", "outfirst2013", "2013outcome")
 	}
-
+# =====================================================
 	if (set == "k6_adm_standard") {
 		k <- c("registrationnb", "dstnumber", "dateofbirth", "datedeat", "gender",
 					"weight", "height",
@@ -57,7 +53,7 @@ subset_vars <- function(x, set, add = NULL,  ...) {
 					"Bdq", "Cfz", "Clr", "Dld", "hdH", "ImpCln", "Lzd", "Mpm",
 					"dateend", "dateout", "outfirst", "outfirst2013", "2013outcome")
 	}
-
+# =====================================================
 # set = nukus_epi_info
 if (set == "nukus_epi_info") {
 		k <- c("APID", "BIRTDATE", "SEX", "EMPL", "EVER", "INJECT", "ALCO", "HOMELESS",
@@ -71,7 +67,7 @@ if (set == "nukus_epi_info") {
 					"BDQDBDQ", "PHA", "DATEN", "RES", "NEWAPID", "DATEDEAT",
 					"TRANDT", "OUTD")
 	}
-
+# =====================================================
 # set = chechnya_myco_lab
 	if (set == "chechnya_myco_lab") {
 		k <- c("dbno", "dstno", "dob", "sputum", "dcol1", "dcol2", "dcol3",
@@ -83,7 +79,21 @@ if (set == "nukus_epi_info") {
 					"cts", "ctr", "cth", "ctz", "cte", "ctcm", "ctam", "ctlfx", "ctmfx",
 					"ctmfx2", "ctlzd", "cthres", "cthrifres", "cthinhres")
 	}
+# =====================================================
+# set = nukus_clin_lab
+	if (set == "nukus_clin_lab") {
+		k <- c("APID", "Test date (dd/mm/yy)", "Test name", "Result", "Comment")
+		names <- c("APID", "date", "test", "result", "comm")
+	}
+# =====================================================
+
 		k <- c(k, add)		# add additional requested variables
 		x <- subset(x, select = k)
-return(x)	
+
+# rename subsetted variables if required
+	if (! missing(names)) {
+		names(x) <- names
+	}
+
+x
 }

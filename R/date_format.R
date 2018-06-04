@@ -13,10 +13,15 @@
 date_format <- function(x, format = dmy, ...) {
 	
 			output <- logical()
+
+			# strings to detect
+			strings <- c("^\\d{2}/\\d{2}/\\d{4}$",
+						"^\\d{2} \\w* \\d{4}$",
+						"^\\d{2}-\\w*-\\d{2}$")
 			
 	for (i in 1:length(names(x)))	{
 		x[[i]] %>%
-			str_detect("^\\d{2}/\\d{2}/\\d{4}$") %>%
+			str_detect(paste(strings, collapse = '|')) %>%
 			# omit missing values
 			na.omit() %>%
 			mean() %>%

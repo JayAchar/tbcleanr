@@ -1,9 +1,10 @@
-#' Cleans TB laboratory data sets
+#' Cleans laboratory data sets
 #'
 #' Take laboratory data set and perform multiple adjustments based on which
 #' laboratory data set is being used
 #' @param x data frame containing variables
-#' @param lab define laboratory dat set being used. Values can be - "chechnya".
+#' @param lab define laboratory dat set being used. Values can be - "chechnya",
+#' "nukus_clin_lab".
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{tbcleanr}}
@@ -21,7 +22,7 @@ lab_data_cleanr <- function(x, lab = "chechnya", ...) {
 			stop("input paramter, x, must be a data frame")
 	}
 # acceptable values for lab
-	l <- c("chechnya")
+	l <- c("chechnya", "nukus_clin_lab")
 
 # check lab arg is within acceptable values
 	if (! lab %in% l) {
@@ -66,6 +67,28 @@ if (lab == "chechnya") {
 		x <- x[vars]
 
 	}
+
+if (lab == "nukus_clin_lab") {
+	x <- x %>%
+			# subset all vars required
+		subset_vars(set = "nukus_clin_lab") %>%
+			# id number detangle - use epi_info db arg for APID
+		id_detangle(db = "epi_info") %>%
+			# find and format dates
+		date_format() 
+
+	# check variable names are all present
+		vars <- c("district", "id", "ds_dr", "date", "test", "result", "comm")
+		
+		if (! (all(names(x) %in% vars))) {
+			warning("All variables in final data frame are not recognised")
+		}
+
+	# reorder variables in data frame
+		x <- x[vars]
+
+}
+
 
 x
 }

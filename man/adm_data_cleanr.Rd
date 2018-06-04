@@ -4,7 +4,7 @@
 \alias{adm_data_cleanr}
 \title{Cleans TB admissions data sets}
 \usage{
-adm_data_cleanr(x, set = "k6_adm_standard", ...)
+adm_data_cleanr(x, set, ...)
 }
 \arguments{
 \item{x}{data frame containing variables}
