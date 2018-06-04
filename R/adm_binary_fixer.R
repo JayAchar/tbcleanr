@@ -7,7 +7,7 @@
 #' "k6_adm_standard", "nukus_epi_info"
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
-#' @seealso \code{\link{TB.funs}}
+#' @seealso \code{\link{tbcleanr}}
 #' @importFrom purrr map_at
 #' @export
 #' @examples

@@ -7,7 +7,7 @@
 #' @param test smear or culture
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
-#' @seealso \code{\link{TB.funs}}
+#' @seealso \code{\link{tbcleanr}}
 #' @export
 #' @importFrom purrr map_at
 #' @examples

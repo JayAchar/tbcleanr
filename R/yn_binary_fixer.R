@@ -4,7 +4,7 @@
 #' @param x numerical variable with 2 levels - 0, 1
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
-#' @seealso \code{\link{TB.funs}}
+#' @seealso \code{\link{tbcleanr}}
 #' @export
 #' @examples
 #' \dontrun{

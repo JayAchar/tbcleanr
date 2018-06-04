@@ -5,7 +5,7 @@
 #' @param x data frame including variable called "date"
 #' @keywords TB
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
-#' @seealso \code{\link{TB.funs}}
+#' @seealso \code{\link{tbcleanr}}
 #' @export
 
 bentiu_xpert_date <- function(x) {

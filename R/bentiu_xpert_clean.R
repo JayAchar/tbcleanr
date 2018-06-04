@@ -6,7 +6,7 @@
 #' @param x data frome including Bentiu PoC lab Xpert data
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @export
-#' @seealso \code{\link{TB.funs}}
+#' @seealso \code{\link{tbcleanr}}
 #' @examples
 #' \dontrun{
 #' bentiu_xpert_clean(p)

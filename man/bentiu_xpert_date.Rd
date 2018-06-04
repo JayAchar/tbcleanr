@@ -14,7 +14,7 @@ This function takes the Bentiu PoC lab dataset as a data.frame and cleans
 the date format and class.
 }
 \seealso{
-\code{\link{TB.funs}}
+\code{\link{tbcleanr}}
 }
 \author{
 Jay Achar \email{jay.achar@doctors.org.uk}

@@ -6,7 +6,7 @@
 #' @param set define admission data set being used. Values can be - "k6_adm_standard".
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
-#' @seealso \code{\link{TB.funs}}
+#' @seealso \code{\link{tbcleanr}}
 #' @importFrom magrittr %>%
 #' @export
 #' @examples
@@ -37,20 +37,16 @@ adm_data_cleanr <- function(x, set = "k6_adm_standard", ...) {
 		subset_vars(set = "k6_adm_standard") %>%
 			# detangle apid number
 		id_detangle(db = "k6") %>%
-			# bmi generator
-		bmi_generator() %>%
 			# date format
 		date_format() %>%
 			# categorise gender variable
 		gender_fixer() %>%
-			# age calculator
-		age_generator(db = "k6") %>%	
 			# hiv variables consolidated
 		hiv_fixer() %>%
 			# cavities variables consolidated
 		cavities_fixer(db = "k6") %>%
 			# fix outcomes variables
-		k6_outcome_fixer() %>%
+		outcome_fixer(db = "k6") %>%
 			# change all drugs from doses to binary
 		drug_fixer() %>%
 			# change all binary variables to factors
@@ -66,12 +62,8 @@ adm_data_cleanr <- function(x, set = "k6_adm_standard", ...) {
 		id_detangle(db = "epi_info") %>%
 			# date format
 		date_format() %>%			
-			# bmi generator
-		bmi_generator(db = "epi_info") %>%
 			# categorise gender variable
 		gender_fixer(db = "epi_info") %>%	
-			# age calculator
-		age_generator(db = "epi_info") %>%	
 			# hiv variables consolidated
 		hiv_fixer(db = "epi_info") %>%
 			# cavities variables consolidated

@@ -21,7 +21,7 @@ epi_info_misc_cleanr(p)
 }
 }
 \seealso{
-\code{\link{TB.funs}}
+\code{\link{tbcleanr}}
 }
 \author{
 Jay Achar \email{jay.achar@doctors.org.uk}

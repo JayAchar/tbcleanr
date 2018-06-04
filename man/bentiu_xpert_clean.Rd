@@ -20,7 +20,7 @@ bentiu_xpert_clean(p)
 }
 }
 \seealso{
-\code{\link{TB.funs}}
+\code{\link{tbcleanr}}
 }
 \author{
 Jay Achar \email{jay.achar@doctors.org.uk}

@@ -4,7 +4,7 @@
 #' integer varialbe 
 #' @param x data frame containing Koch 6 HBV and HCV variables
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
-#' @seealso \code{\link{TB.funs}}
+#' @seealso \code{\link{tbcleanr}}
 #' @export
 #' @examples
 #' \dontrun{

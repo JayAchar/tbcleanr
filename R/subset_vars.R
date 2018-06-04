@@ -8,7 +8,7 @@
 #' @param add string of any additional variables to keep
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
-#' @seealso \code{\link{TB.funs}}
+#' @seealso \code{\link{tbcleanr}}
 #' @export
 #' @examples
 #' \dontrun{

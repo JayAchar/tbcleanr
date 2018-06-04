@@ -25,7 +25,7 @@ outcome_fixer(p, db = "epi_info")
 }
 }
 \seealso{
-\code{\link{TB.funs}}
+\code{\link{tbcleanr}}
 }
 \author{
 Jay Achar \email{jay.achar@doctors.org.uk}

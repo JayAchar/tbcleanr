@@ -3,7 +3,7 @@
 #' Recode individual DST variables
 #' @param dst_var DST variable 
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
-#' @seealso \code{\link{TB.funs}}
+#' @seealso \code{\link{tbcleanr}}
 #' @export
 #' @examples
 #' \dontrun{

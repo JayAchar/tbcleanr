@@ -3,7 +3,7 @@
 #' Recode individual culture variables
 #' @param cult culture variable as defined in result_consolidator()
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
-#' @seealso \code{\link{TB.funs}}
+#' @seealso \code{\link{tbcleanr}}
 #' @export
 #' @examples
 #' \dontrun{

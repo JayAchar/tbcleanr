@@ -26,7 +26,7 @@ subset_vars(p, set = "msc500")
 }
 }
 \seealso{
-\code{\link{TB.funs}}
+\code{\link{tbcleanr}}
 }
 \author{
 Jay Achar \email{jay.achar@doctors.org.uk}

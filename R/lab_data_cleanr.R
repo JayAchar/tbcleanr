@@ -6,7 +6,7 @@
 #' @param lab define laboratory dat set being used. Values can be - "chechnya".
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
-#' @seealso \code{\link{TB.funs}}
+#' @seealso \code{\link{tbcleanr}}
 #' @importFrom magrittr %>%
 #' @export
 #' @examples

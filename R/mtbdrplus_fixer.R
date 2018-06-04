@@ -5,7 +5,7 @@
 #' @param set define variable set to apply. Values can be - "chechnya"
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
-#' @seealso \code{\link{TB.funs}}
+#' @seealso \code{\link{tbcleanr}}
 #' @importFrom purrr map_at
 #' @export
 #' @examples

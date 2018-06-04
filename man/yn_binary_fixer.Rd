@@ -20,7 +20,7 @@ yn_binary_fixer(p$renalfail, class = "num")
 }
 }
 \seealso{
-\code{\link{TB.funs}}
+\code{\link{tbcleanr}}
 }
 \author{
 Jay Achar \email{jay.achar@doctors.org.uk}
