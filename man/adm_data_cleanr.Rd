@@ -9,7 +9,8 @@ adm_data_cleanr(x, set, ...)
 \arguments{
 \item{x}{data frame containing variables}
 
-\item{set}{define admission data set being used. Values can be - "k6_adm_standard".}
+\item{set}{define admission data set being used. Values can be - "k6_adm_standard",
+or "nukus_epi_info".}
 
 \item{...}{further arguments passed to or from other methods}
 }
@@ -19,7 +20,7 @@ database set is being used
 }
 \examples{
 \dontrun{
-adm_data_cleanr(p, lab = "chechnya")
+adm_data_cleanr(p, set = "k6_adm_standard")
 }
 }
 \seealso{

@@ -26,8 +26,9 @@ yn_binary_fixer <- function(x, ...) {
 
 # remove variables with all NAs
 	if (all(is.na(x))) {
-		
-		message("Y/N variable dropped as all NAs")
+		varname <- deparse(substitute(x))
+		mess <- paste(varname, "- Y/N variable dropped as all NAs")
+		message(mess)
 		x <- NULL
 
 	} else {

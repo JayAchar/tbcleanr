@@ -83,7 +83,7 @@ if (set == "nukus_epi_info") {
 # set = nukus_clin_lab
 	if (set == "nukus_clin_lab") {
 		k <- c("APID", "Test date (dd/mm/yy)", "Test name", "Result", "Comment")
-		names <- c("APID", "date", "test", "result", "comm")
+		nms <- c("APID", "date", "test", "result", "comm")
 	}
 # =====================================================
 
@@ -91,8 +91,8 @@ if (set == "nukus_epi_info") {
 		x <- subset(x, select = k)
 
 # rename subsetted variables if required
-	if (! missing(names)) {
-		names(x) <- names
+	if (exists("nms")) {
+		names(x) <- nms
 	}
 
 x

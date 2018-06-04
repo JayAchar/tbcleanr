@@ -68,8 +68,8 @@ hiv_fixer <- function(x, db = "k6", rm_orig = TRUE, ...) {
 		}
 
 # check levels of original HIV variable
-			if (! length(table(x$hiv)) == 2) {
-				stop("HIV variable does not have 2 levels")
+			if (! length(table(x$hiv)) <= 2) {
+				stop("HIV variable has greater than 2 levels")
 			}
 
 # factorise gender variable
