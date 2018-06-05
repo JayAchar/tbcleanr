@@ -4,12 +4,13 @@
 \alias{xpert_result_fixer}
 \title{Consolidate Xpert results}
 \usage{
-xpert_result_fixer(x, set = "chechnya_myco_lab", rm_orig = TRUE, ...)
+xpert_result_fixer(x, set, rm_orig = TRUE, ...)
 }
 \arguments{
 \item{x}{data frame containing variables}
 
-\item{set}{define variable set to apply. Values can be - "chechnya_myco_lab"}
+\item{set}{define variable set to apply. Values can be - "chechnya_myco_lab",
+"nukus_myco_lab".}
 
 \item{rm_orig}{remove original variables - TRUE or FALSE}
 

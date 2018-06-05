@@ -19,7 +19,7 @@
 subset_vars <- function(x, set, add = NULL,  ...) {
 # acceptable values for "set" arg
 	s <- c("msc500", "chechnya_myco_lab", "k6_adm_standard", "nukus_epi_info",
-			"nukus_clin_lab", "k6_clin_lab")
+			"nukus_clin_lab", "k6_clin_lab", "nukus_myco_lab")
 
 # check input
 	if (!(is.data.frame(x))) {
@@ -68,6 +68,18 @@ if (set == "nukus_epi_info") {
 					"TRANDT", "OUTD")
 	}
 # =====================================================
+# set = nukus_myco_lab
+	if (set == "nukus_myco_lab") {
+		k <- c("APID", "REAS", "MICRLABN", "FIRST", "SECOND", "THIRD", "BK1", "BK2", "BK3",
+			"RES", "RES02", "RES03", "RES04", "RESULT", "RESULT02", "RESULT03",
+			"RESULT04", "MGITH", "MGITE", "MGITR", "MGITS", "MGITZ", "HAINH",
+			"HAINR", "HSMPL", "H", "E", "R", "S", "Z", "KM", "OF", "CAP", "ETH",
+			"CS", "PAS", "AMI", "OTHER1", "SPEC", "OTHER2", "SPECI", "H1", "E1", "R1", 
+			"S1", "Z1", "KM1", "OF1", "CAP1", "ETH1", "CS1", "PAS1", "AMI1",
+			"MFX1", "LZD1", "GX_res1", "GX_res2", "GX_res3")
+	}  
+
+# =====================================================
 # set = chechnya_myco_lab
 	if (set == "chechnya_myco_lab") {
 		k <- c("dbno", "dstno", "dob", "sputum", "dcol1", "dcol2", "dcol3",
@@ -106,3 +118,4 @@ if (set == "nukus_epi_info") {
 
 x
 }
+
