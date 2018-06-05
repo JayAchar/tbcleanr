@@ -19,7 +19,7 @@
 subset_vars <- function(x, set, add = NULL,  ...) {
 # acceptable values for "set" arg
 	s <- c("msc500", "chechnya_myco_lab", "k6_adm_standard", "nukus_epi_info",
-			"nukus_clin_lab")
+			"nukus_clin_lab", "k6_clin_lab")
 
 # check input
 	if (!(is.data.frame(x))) {
@@ -86,6 +86,15 @@ if (set == "nukus_epi_info") {
 		nms <- c("APID", "date", "test", "result", "comm")
 	}
 # =====================================================
+# set = k6_clin_lab
+	if (set == "k6_clin_lab") {
+		# convert all variables to lower case
+		names(x) <- tolower(names(x))
+		k <- c("registrationnb", "labclindate", "hemoglobin", "thrombocyt", "ast", "alt",
+				"creatinine", "glucose", "potassium", "magnesium", "serumalbumin")
+	}
+# =====================================================
+
 
 		k <- c(k, add)		# add additional requested variables
 		x <- subset(x, select = k)

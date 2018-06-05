@@ -16,13 +16,13 @@
 #' }
 
 
-lab_data_cleanr <- function(x, lab = "chechnya", ...) {
+lab_data_cleanr <- function(x, lab, ...) {
 # check input
 	if (!(is.data.frame(x))) {
 			stop("input paramter, x, must be a data frame")
 	}
 # acceptable values for lab
-	l <- c("chechnya", "nukus_clin_lab")
+	l <- c("chechnya_myco_lab", "nukus_clin_lab", "k6_clin_lab")
 
 # check lab arg is within acceptable values
 	if (! lab %in% l) {
@@ -32,7 +32,7 @@ lab_data_cleanr <- function(x, lab = "chechnya", ...) {
 # =======================================================
 	# clean and convert data frame
 
-if (lab == "chechnya") {
+if (lab == "chechnya_myco_lab") {
 	x <- x %>%
 			# subset all vars required
 		subset_vars(set = "chechnya_myco_lab") %>%
@@ -89,6 +89,19 @@ if (lab == "nukus_clin_lab") {
 
 }
 
+if (lab == "k6_clin_lab") {
+	x <- x %>%
+			# subset all vars required
+		subset_vars(set = "k6_clin_lab") %>%
+			# id number detangle - use k6 db arg for registration number
+		id_detangle(db = "k6") %>%			
+			# find and format dates
+		date_format() %>%
+			# convert all zeros to NA in continuous variables
+		zero_to_na(set = "k6_clin_lab") %>% 
+			# convert from wide to long format and remove all results == NA
+		lab_longr(set = "k6_clin_lab")
+}
 
 x
 }
