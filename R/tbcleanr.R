@@ -8,7 +8,6 @@
 #' @seealso \code{\link{adm_data_cleanr}} 
 #' @seealso \code{\link{bentiu_xpert_date}}  
 #' @seealso \code{\link{cavities_fixer}} 
-#' @seealso \code{\link{chechnya_lab_date_consolidator}}  
 #' @seealso \code{\link{culture_recode}}  
 #' @seealso \code{\link{date_format}}  
 #' @seealso \code{\link{drug_fixer}}  
@@ -20,7 +19,8 @@
 #' @seealso \code{\link{hiv_fixer}}  
 #' @seealso \code{\link{id_detangle}} 
 #' @seealso \code{\link{k6_hep_fixer}}  
-#' @seealso \code{\link{lab_data_cleanr}}    
+#' @seealso \code{\link{lab_data_cleanr}}  
+#' @seealso \code{\link{lab_date_consolidator}}    
 #' @seealso \code{\link{lab_sample_fixer}}  
 #' @seealso \code{\link{mtbdrplus_fixer}}  
 #' @seealso \code{\link{outcome_fixer}} 

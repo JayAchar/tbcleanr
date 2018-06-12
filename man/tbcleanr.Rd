@@ -17,8 +17,6 @@ The tbcleanr package provides functions to clean and subset TB data from K6, and
 
 \code{\link{cavities_fixer}}
 
-\code{\link{chechnya_lab_date_consolidator}}
-
 \code{\link{culture_recode}}
 
 \code{\link{date_format}}
@@ -42,6 +40,8 @@ The tbcleanr package provides functions to clean and subset TB data from K6, and
 \code{\link{k6_hep_fixer}}
 
 \code{\link{lab_data_cleanr}}
+
+\code{\link{lab_date_consolidator}}
 
 \code{\link{lab_sample_fixer}}
 

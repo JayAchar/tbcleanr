@@ -16,13 +16,14 @@
 #' }
 
 
-lab_data_cleanr <- function(x, lab = "chechnya", ...) {
+lab_data_cleanr <- function(x, lab, ...) {
 # check input
 	if (!(is.data.frame(x))) {
 			stop("input paramter, x, must be a data frame")
 	}
 # acceptable values for lab
-	l <- c("chechnya", "nukus_clin_lab")
+	l <- c("chechnya_myco_lab", "nukus_clin_lab", "k6_clin_lab",
+			"nukus_myco_lab")
 
 # check lab arg is within acceptable values
 	if (! lab %in% l) {
@@ -32,7 +33,7 @@ lab_data_cleanr <- function(x, lab = "chechnya", ...) {
 # =======================================================
 	# clean and convert data frame
 
-if (lab == "chechnya") {
+if (lab == "chechnya_myco_lab") {
 	x <- x %>%
 			# subset all vars required
 		subset_vars(set = "chechnya_myco_lab") %>%
@@ -41,7 +42,7 @@ if (lab == "chechnya") {
 			# detangle dstno
 		dstno_detangle() %>%
 			# consolidate sample date
-		chechnya_lab_date_consolidator() %>%
+		lab_date_consolidator(db = "chechnya_myco_lab") %>%
 			# consolidate xpert results
 		xpert_result_fixer(set = "chechnya_myco_lab", rm_orig = TRUE) %>%
 			# fix lab samples variable
@@ -68,6 +69,20 @@ if (lab == "chechnya") {
 
 	}
 
+if (lab == "nukus_myco_lab") {
+	x <- x %>%
+			# subset all vars required
+		subset_vars(set = "nukus_myco_lab") %>%	
+			# find and format all dates
+		date_format() %>%
+			# detangle idno
+		id_detangle(db = "epi_info") %>%
+			# consolidate sample date
+		lab_date_consolidator(db = "nukus_myco_lab")
+	
+	}	
+
+
 if (lab == "nukus_clin_lab") {
 	x <- x %>%
 			# subset all vars required
@@ -89,6 +104,19 @@ if (lab == "nukus_clin_lab") {
 
 }
 
+if (lab == "k6_clin_lab") {
+	x <- x %>%
+			# subset all vars required
+		subset_vars(set = "k6_clin_lab") %>%
+			# id number detangle - use k6 db arg for registration number
+		id_detangle(db = "k6") %>%			
+			# find and format dates
+		date_format() %>%
+			# convert all zeros to NA in continuous variables
+		zero_to_na(set = "k6_clin_lab") %>% 
+			# convert from wide to long format and remove all results == NA
+		lab_longr(set = "k6_clin_lab")
+}
 
 x
 }

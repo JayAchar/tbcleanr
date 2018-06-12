@@ -4,7 +4,7 @@
 \alias{lab_data_cleanr}
 \title{Cleans laboratory data sets}
 \usage{
-lab_data_cleanr(x, lab = "chechnya", ...)
+lab_data_cleanr(x, lab, ...)
 }
 \arguments{
 \item{x}{data frame containing variables}
