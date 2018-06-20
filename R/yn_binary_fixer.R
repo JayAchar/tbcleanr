@@ -21,7 +21,10 @@ yn_binary_fixer <- function(x, ...) {
 
 # check class is within acceptable values
 	if (! class %in% s) {
-		stop("Specify class argument within specified values")
+			set_options <- paste(s, collapse = ", ")
+			error_message <- paste("\'class\' of variable should be one of the following: ",
+															 set_options, sep = "")
+		stop(error_message)
 	}
 
 # remove variables with all NAs
