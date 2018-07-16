@@ -68,7 +68,7 @@ if (lab == "chechnya_myco_lab") {
 		x <- x[vars]
 
 	}
-
+# =================================================================
 if (lab == "nukus_myco_lab") {
 	x <- x %>%
 			# subset all vars required
@@ -81,7 +81,7 @@ if (lab == "nukus_myco_lab") {
 		lab_date_consolidator(db = "nukus_myco_lab")
 	
 	}	
-
+# =================================================================
 
 if (lab == "nukus_clin_lab") {
 	x <- x %>%
@@ -103,7 +103,7 @@ if (lab == "nukus_clin_lab") {
 		x <- x[vars]
 
 }
-
+# =================================================================
 if (lab == "k6_clin_lab") {
 	x <- x %>%
 			# subset all vars required
@@ -117,6 +117,6 @@ if (lab == "k6_clin_lab") {
 			# convert from wide to long format and remove all results == NA
 		lab_longr(set = "k6_clin_lab")
 }
-
+# =================================================================
 x
 }
