@@ -4,12 +4,13 @@
 \alias{cavities_fixer}
 \title{Fix and aggregate Koch 6 x-ray cavities variables}
 \usage{
-cavities_fixer(x, db = "k6", rm_orig = TRUE, ...)
+cavities_fixer(x, software = c("excel", "koch_6", "epiinfo"),
+  rm_orig = TRUE, ...)
 }
 \arguments{
 \item{x}{data frame containing xray variable data}
 
-\item{db}{define database being used - "k6", "epi_info"}
+\item{software}{define database being used - "koch_6", "epiinfo"}
 
 \item{rm_orig}{remove original variables - TRUE or FALSE}
 
@@ -21,7 +22,7 @@ and aggregate into new variable -cavity-
 }
 \examples{
 \dontrun{
-cavities_fixer(p, db = "epi_info", rm_orig = TRUE)
+cavities_fixer(p, software = "epiinfo", rm_orig = TRUE)
 }
 }
 \seealso{

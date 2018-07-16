@@ -61,6 +61,5 @@ epi_info_misc_cleanr <- function(x, ...) {
 			x[["PHA"]] <- factor(x[["PHA"]], levels = c(1, 3),
 								labels = labs)			
 		}
-
-return(x)
+x
 }

@@ -1,6 +1,6 @@
 
 
-tbcleanr_arg_checker <- function(...) {
+tbcleanr_arg_checker <- function(..., software, project, file) {
 	# acceptable values for args
 		# software
 		s <- c("excel", "koch_6", "epiinfo")

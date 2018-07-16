@@ -3,7 +3,7 @@
 #' Combine  treatment outcome variables to leave one 
 #' factorised, labelled variable
 #' @param x data frame containing outcome variables
-#' @param db define database being used - "k6", "epi_info"
+#' @param software define database being used - "koch_6", "epiinfo"
 #' @param rm_orig remove original variables - TRUE or FALSE
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
@@ -11,29 +11,22 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' outcome_fixer(p, db = "epi_info")
+#' outcome_fixer(p, software = "epiinfo")
 #' }
 
-outcome_fixer <- function(x, db = "k6", rm_orig = TRUE, ...) {
-
-# acceptable values for "set" arg
-	s <- c("k6", "epi_info")
+outcome_fixer <- function(x, software = c("excel", "koch_6", "epiinfo"),
+							rm_orig = TRUE, ...) {
 
 # check input
 	if (!(is.data.frame(x))) {
 			stop("input paramter, x, must be a data frame")
 	}
-
-# check db is within acceptable values
-	if (! db %in% s) {
-			set_options <- paste(s, collapse = ", ")
-			error_message <- paste("\'db\' arg should be ", set_options, sep = "")
-		stop(error_message)	
-	}
+# check all args
+	software <- match.arg(software)
 
 # =================================================================
-# set db specific variables 
-		if (db == "k6") {
+# set software specific variables 
+		if (software == "koch_6") {
 			# outcome variables in Koch 6
 				v <- c("outfirst", "outfirst2013", "2013outcome")
 				v1 <- "outfirst"
@@ -49,7 +42,7 @@ outcome_fixer <- function(x, db = "k6", rm_orig = TRUE, ...) {
 								"Other",
 								"Transfer back to SCC")
 		}	
-		if (db == "epi_info") {
+		if (software == "epiinfo") {
 			v <- "RES"
 			labs <- c("On treatment",
 								"Cured",
@@ -61,6 +54,9 @@ outcome_fixer <- function(x, db = "k6", rm_orig = TRUE, ...) {
 								"Fail & amplify",
 								"Transfer to Cat 4")
 		}
+		if (software == "excel") {
+			return(x)
+		}
 # =================================================================
 # check outcome variables present
 	if (! all(v %in% names(x))) {
@@ -70,7 +66,7 @@ outcome_fixer <- function(x, db = "k6", rm_orig = TRUE, ...) {
 # generate final outcome variable
 	x$outcome <- NA	
 
-if (db == "k6") {
+if (software == "koch_6") {
 		# use all correct results from "outfirst" variable
 			x$outcome[is.na(x[[v3]])] <- x[[v1]][is.na(x[[v3]])]
 
@@ -80,7 +76,7 @@ if (db == "k6") {
 
 		}
 
-if (db == "epi_info") {
+if (software == "epiinfo") {
 	# duplicate outcome variable
 		x$outcome <- x[[v]]
 }
@@ -97,5 +93,5 @@ if (db == "epi_info") {
  		x[, v] <- NULL
  	}
 
-return(x)
+x
 }
