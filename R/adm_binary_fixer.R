@@ -3,8 +3,12 @@
 #' Take data frame with binary variables and output 
 #' binary factorised variables 
 #' @param x data frame containing drug variables
-#' @param set define variable set to apply. Values can be "msc500",
-#' "k6_adm_standard", "nukus_epi_info"
+#' @param software define software used for data collection.
+#' Values can be "excel", "koch_6", "epiinfo"
+#' @param project define project location to apply.
+#' Values can be "kk", "chechnya".
+#' @param file define database file argument to apply.
+#' Values can be "adm", "lab", "clinical_lab",
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{tbcleanr}}
@@ -15,29 +19,26 @@
 #' adm_binary_fixer(p, set = "msc500")
 #' }
 
-
-
-adm_binary_fixer <- function(x, set, ...) {
-# acceptable values for "set" arg
-	s <- c("msc500", "k6_adm_standard", "nukus_epi_info")
+adm_binary_fixer <- function(x, software = c("excel", "koch_6", "epiinfo"),
+								project = c("kk", "chechnya"),
+								file = c("adm", "lab", "clinical_lab"), 
+								...) {
 
 # check input
 	if (!(is.data.frame(x))) {
 			stop("input paramter, x, must be a data frame")
 	}
 
-# check set is within acceptable values
-	if (! set %in% s) {
-			set_options <- paste(s, collapse = ", ")
-			error_message <- paste("\'set\' arg should be ", set_options, sep = "")
-		stop(error_message)
-	}
+# check all args
+	software <- match.arg(software)
+	project <- match.arg(project)
+	file <- match.arg(file)
+
 # =================================================================
 # set set specific variables 
-		if (set %in% c("msc500", "k6_adm_standard")) {
+		if (software == "koch_6" && file == "adm") {
 			v <- c("diabetes", "cardiodi", "renalfail")
-		}	
-		if (set == "nukus_epi_info") {
+		} else if (software == "epiiinfo" && file == "adm") {
 			# numerical variables
 			v <- c("DIABETES","CARDIODI", "RENALFAI","PSYCHI", "SEIZURE", "HEPADIS",
 					"ALCO")
@@ -45,6 +46,8 @@ adm_binary_fixer <- function(x, set, ...) {
 			chr <- c("HD", "EE", "RR", "ZP","CSC", "SMS", "AMA", "KMK", "CPX", "OFX",
 					"TT", "ETHE","PASP", "AMXC","CFZ", "CLRC","CMC", "OTH", "EVER",
 					"INJECT", "HOMELESS", "HEALTHWO", "PRIWO", "TOBACCO")
+		} else {
+			return(x)
 		}
 
 # =================================================================
@@ -63,5 +66,5 @@ adm_binary_fixer <- function(x, set, ...) {
 	} 
 	
 
-return(x)
+x
 }

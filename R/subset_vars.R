@@ -20,21 +20,20 @@
 #' }
 
 
-subset_vars <- function(x, software, project, file, add = NULL, ...) {
+subset_vars <- function(x, software = c("excel", "koch_6", "epiinfo"),
+								project = c("kk", "chechnya"),
+								file = c("adm", "lab", "clinical_lab"), 
+								add = NULL, ...) {
 # check input
 	if (!(is.data.frame(x))) {
 			stop("input paramter, x, must be a data frame")
 	}
 
 # check all args
-	tbcleanr_arg_checker(...)
+	software <- match.arg(software)
+	project <- match.arg(project)
+	file <- match.arg(file)
 
-# check set is within acceptable values
-#	if (! set %in% s) {
-#			set_options <- paste(s, collapse = ", ")
-#			error_message <- paste("\'set\' arg should be ", set_options, sep = "")
-#		stop(error_message)
-#	}
 # =====================================================
 # Koch 6
 	if (software == "koch_6") {

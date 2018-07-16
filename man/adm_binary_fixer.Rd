@@ -4,13 +4,21 @@
 \alias{adm_binary_fixer}
 \title{Convert binary variables to factorised output}
 \usage{
-adm_binary_fixer(x, set, ...)
+adm_binary_fixer(x, software = c("excel", "koch_6", "epiinfo"),
+  project = c("kk", "chechnya"), file = c("adm", "lab", "clinical_lab"),
+  ...)
 }
 \arguments{
 \item{x}{data frame containing drug variables}
 
-\item{set}{define variable set to apply. Values can be "msc500",
-"k6_adm_standard", "nukus_epi_info"}
+\item{software}{define software used for data collection.
+Values can be "excel", "koch_6", "epiinfo"}
+
+\item{project}{define project location to apply.
+Values can be "kk", "chechnya".}
+
+\item{file}{define database file argument to apply.
+Values can be "adm", "lab", "clinical_lab",}
 
 \item{...}{further arguments passed to or from other methods}
 }

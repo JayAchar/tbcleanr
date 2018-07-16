@@ -1,9 +1,9 @@
 #' Factorise gender variable
 #'
-#' Take gender variable from data frame and factorise. Use db
+#' Take gender variable from data frame and factorise. Use software
 #' to define which data base is being used as the input
 #' @param x data frame containing Koch 6 admission variables
-#' @param db define database being used - "k6", "epi_info"
+#' @param software define database being used - "koch_6", "epiinfo"
 #' @param rm_orig remove original variables - TRUE or FALSE
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
@@ -11,34 +11,30 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' gender_fixer(p, db = "k6")
+#' gender_fixer(p, software = "koch_6")
 #' }
 
 
-gender_fixer <- function(x, db = "k6", rm_orig = TRUE, ...) {
-
-# acceptable values for "set" arg
-	s <- c("k6", "epi_info")
+gender_fixer <- function(x, software = c("excel", "koch_6", "epiinfo"),
+							rm_orig = TRUE, ...) {
 
 # check input
 	if (!(is.data.frame(x))) {
 			stop("input paramter, x, must be a data frame")
 	}
-
-# check db is within acceptable values
-	if (! db %in% s) {
-			set_options <- paste(s, collapse = ", ")
-			error_message <- paste("\'set\' arg should be ", set_options, sep = "")
-		stop(error_message)	
-	}
+# check all args
+	software <- match.arg(software)
 
 # =================================================================
-# set db specific variables 
-		if (db == "k6") {
+# set software specific variables 
+		if (software == "koch_6") {
 			gen_var <- "gender"
 		}	
-		if (db == "epi_info") {
+		if (software == "epiinfo") {
 			gen_var <- "SEX"
+		}
+		if (software == "excel") {
+			return(x)
 		}
 # =================================================================
 
@@ -65,7 +61,7 @@ gender_fixer <- function(x, db = "k6", rm_orig = TRUE, ...) {
 				labels = c("Male", "Female"))
 
 # standardise nameing of gender variable
-	if (db == "epi_info") {
+	if (software == "epiinfo") {
 		x$gender <- x[[gen_var]]
 	}
 
@@ -74,5 +70,5 @@ gender_fixer <- function(x, db = "k6", rm_orig = TRUE, ...) {
  		x[, gen_var] <- NULL
  	}
 
-return(x)
+x
 }

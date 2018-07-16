@@ -4,7 +4,7 @@
 #' into 3 constituent parts to ascertain district, DS or DR TB 
 #' categorisation and numerical ID number. If 
 #' @param x data frame containing APID variable from KK programme
-#' @param db define database being used - "k6", "epi_info"
+#' @param software define software being used
 #' @param rm_orig remove original variables - TRUE or FALSE
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
@@ -16,30 +16,27 @@
 #' apid_detangle(p)
 #' }
 
-id_detangle <- function(x, db = "k6", rm_orig = TRUE, ...) {
-# acceptable values for "set" arg
-	s <- c("k6", "epi_info")
+id_detangle <- function(x, software = c("excel", "koch_6", "epiinfo"), rm_orig = FALSE, ...) {
 
 # check input
 	if (!(is.data.frame(x))) {
 			stop("input paramter, x, must be a data frame")
 	}
 
-# check db is within acceptable values
-	if (! db %in% s) {
-			set_options <- paste(s, collapse = ", ")
-			error_message <- paste("\'set\' arg should be ", set_options, sep = "")
-		stop(error_message)
-		}
+# check all args
+	software <- match.arg(software)
 
 
 # =================================================================
-# set db specific variables 
-		if (db == "k6") {
+# set software specific variables 
+		if (software == "koch_6") {
 			id <- "registrationnb"
 		}	
-		if (db == "epi_info") {
+		if (software == "epiinfo") {
 			id <- "APID"
+		} 
+		if (software == "excel") {
+			return(x)
 		}
 # =================================================================
 
@@ -54,8 +51,8 @@ id_detangle <- function(x, db = "k6", rm_orig = TRUE, ...) {
 		warning(paste("There are", m, "missing ID values in this dataset"))
 	}
 
-# if db = "k6"
-	if (db == "k6") {
+# if software = "koch_6"
+	if (software == "koch_6") {
 
 		# check if all string identifiers are teh same
 			z <- str_match(x[[id]], "^.{3}")
@@ -88,8 +85,8 @@ id_detangle <- function(x, db = "k6", rm_orig = TRUE, ...) {
 
 
 
-# if db == "epi_info"
-	if (db == "epi_info") {
+# if software == "epiinfo"
+	if (software == "epiinfo") {
 		# if 4th character is "D" = DS TB
 			x$ds_dr <- NA		# new empty variable
 			ds <- grep("^.{3}D", x[[id]])
@@ -114,5 +111,5 @@ id_detangle <- function(x, db = "k6", rm_orig = TRUE, ...) {
 		 		x[, id] <- NULL
 		}
 
-return(x)
+x
 }

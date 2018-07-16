@@ -3,7 +3,7 @@
 #' Input data frame containing cavity variables, factorise 
 #' and aggregate into new variable -cavity-
 #' @param x data frame containing xray variable data
-#' @param db define database being used - "k6", "epi_info"
+#' @param software define database being used - "koch_6", "epiinfo"
 #' @param rm_orig remove original variables - TRUE or FALSE
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
@@ -11,37 +11,34 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' cavities_fixer(p, db = "epi_info", rm_orig = TRUE)
+#' cavities_fixer(p, software = "epiinfo", rm_orig = TRUE)
 #' }
 
 
-cavities_fixer <- function(x, db = "k6", rm_orig = TRUE, ...) {
-# acceptable values for "set" arg
-	s <- c("k6", "epi_info")
+cavities_fixer <- function(x, software = c("excel", "koch_6", "epiinfo"),
+								rm_orig = TRUE, ...) {
 
 # check input
 	if (!(is.data.frame(x))) {
 			stop("input paramter, x, must be a data frame")
 	}	
-
-# check db is within acceptable values
-	if (! db %in% s) {			
-		set_options <- paste(s, collapse = ", ")
-		error_message <- paste("\'set\' arg should be ", set_options, sep = "")
-		stop(error_message)
-	}
+# check all args
+	software <- match.arg(software)
 
 # =================================================================
-# set db specific variables 
-		if (db == "k6") {
+# set software specific variables 
+		if (software == "koch_6") {
 			v1 <- "cav"
 			v2 <- "cavD"
 			v <- c(v1, v2)	
 		}	
-		if (db == "epi_info") {
+		if (software == "epiinfo") {
 			v1 <- "XRAYRES"
 			v2 <- "ABNORM"
 			v <- c(v1, v2)
+		}
+		if (software == "excel") {
+			return(x)
 		}
 # =================================================================
 
@@ -53,7 +50,7 @@ cavities_fixer <- function(x, db = "k6", rm_orig = TRUE, ...) {
 # generate aggregate binary variable
 	x$cavity <- NA
 
-if (db == "k6") {
+if (software == "koch_6") {
 	# check levels of x-ray variables
 	if (! length(table(x[[v1]])) && length(table(x[[v2]])) == 3) {
 		stop("X-ray variables have incorrect number of levels")
@@ -77,7 +74,7 @@ if (db == "k6") {
 	x$cavity[is.na(x$cavity)] <- 1
 }
 
-if (db == "epi_info") {
+if (software == "epiinfo") {
 	# check levels of x-ray variables
 	if (! length(table(x[[v1]])) && length(table(x[[v2]])) < 5) {
 		stop("X-ray variables have incorrect number of levels")
@@ -113,5 +110,5 @@ if (db == "epi_info") {
  	}
  	
 
-return(x)
+x
 }
