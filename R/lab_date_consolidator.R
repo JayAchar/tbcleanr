@@ -25,8 +25,9 @@ lab_date_consolidator <- function(x, db, ...) {
 
 # check db is within acceptable values
 	if (! db %in% s) {
-		stop("Specify db argument within specified values")
-	}
+			set_options <- paste(s, collapse = ", ")
+			error_message <- paste("\'db\' arg should be ", set_options, sep = "")
+		stop(error_message)	}
 
 # =================================================================
 # set db specific variables 

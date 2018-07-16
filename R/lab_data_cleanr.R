@@ -27,7 +27,9 @@ lab_data_cleanr <- function(x, lab, ...) {
 
 # check lab arg is within acceptable values
 	if (! lab %in% l) {
-		stop("Specify lab argument within specified values")
+			set_options <- paste(l, collapse = ", ")
+			error_message <- paste("\'lab\' arg should be ", set_options, sep = "")
+		stop(error_message)	
 	}
 
 # =======================================================

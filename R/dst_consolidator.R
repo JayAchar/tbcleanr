@@ -26,14 +26,11 @@ dst_consolidator <- function(x, set = "chechnya_myco_lab", aggregate = TRUE, rm_
 			stop("input paramter, x, must be a data frame")
 	}
 
-# check set is valid
-	if (set == "") {
-		stop("Specify set argument in function call")
-	}
-
 # check set is within acceptable values
 	if (! set %in% s) {
-		stop("Specify set argument within specified values")
+			set_options <- paste(s, collapse = ", ")
+			error_message <- paste("\'set\' arg should be ", set_options, sep = "")
+		stop(error_message)
 	}
 
 # ============================================================================

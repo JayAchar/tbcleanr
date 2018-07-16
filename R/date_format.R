@@ -8,6 +8,7 @@
 #' @importFrom purrr map
 #' @importFrom stringr str_detect
 #' @importFrom stats na.omit
+#' @importFrom lubridate dmy mdy ymd
 #' @export
 
 date_format <- function(x, format = dmy, ...) {

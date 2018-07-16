@@ -27,7 +27,9 @@ gender_fixer <- function(x, db = "k6", rm_orig = TRUE, ...) {
 
 # check db is within acceptable values
 	if (! db %in% s) {
-		stop("Specify db argument within specified values")
+			set_options <- paste(s, collapse = ", ")
+			error_message <- paste("\'set\' arg should be ", set_options, sep = "")
+		stop(error_message)	
 	}
 
 # =================================================================

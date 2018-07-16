@@ -21,7 +21,9 @@ hiv_fixer <- function(x, db = "k6", rm_orig = TRUE, ...) {
 
 # check db is within acceptable values
 	if (! db %in% s) {
-		stop("Specify db argument within specified values")
+			db_options <- paste(s, collapse = ", ")
+			error_message <- paste("\'db\' arg should be ", db_options, sep = "")
+		stop(error_message)
 	}
 
 # check input

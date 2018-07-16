@@ -26,7 +26,9 @@ adm_data_cleanr <- function(x, set, ...) {
 
 # check set arg is within acceptable values
 	if (! set %in% allowed) {
-		stop("Specify set argument within specified values")
+			set_options <- paste(allowed, collapse = ", ")
+			error_message <- paste("\'set\' arg should be ", set_options, sep = "")
+		stop(error_message)
 	}
 
 # =======================================================

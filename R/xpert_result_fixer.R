@@ -27,7 +27,9 @@ xpert_result_fixer <- function(x, set, rm_orig = TRUE, ...) {
 
 # check set is within acceptable values
 	if (! set %in% s) {
-		stop("Specify set argument within specified values")
+			set_options <- paste(s, collapse = ", ")
+			error_message <- paste("\'set\' arg should be ", set_options, sep = "")
+		stop(error_message)
 	}
 
 # =================================================================
@@ -48,9 +50,9 @@ xpert_result_fixer <- function(x, set, rm_orig = TRUE, ...) {
 
 	if (set == s[1]) {
 		# define sub variables
-	err <- xpert_vars[1:2]
-	res <- xpert_vars[3:4]
-	rif <- xpert_vars[5:6]
+	err <- x_vars[1:2]
+	res <- x_vars[3:4]
+	rif <- x_vars[5:6]
 		
 		# recode errors
 					error_adjust <- function(e) {
@@ -123,7 +125,7 @@ xpert_result_fixer <- function(x, set, rm_orig = TRUE, ...) {
 
 # remove original variables
  	if (rm_orig %in% c("TRUE", "T")) {
- 		x[, xpert_vars] <- NULL
+ 		x[, x_vars] <- NULL
  	}
 
 # factorise final variables

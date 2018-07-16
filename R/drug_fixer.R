@@ -21,7 +21,9 @@ drug_fixer <- function(x, set, ...) {
 
 # check set is within acceptable values
 	if (! set %in% s) {
-		stop("Specify set argument within specified values")
+			set_options <- paste(s, collapse = ", ")
+			error_message <- paste("\'set\' arg should be ", set_options, sep = "")
+		stop(error_message)
 	}
 
 # check drug variables correct based on set arg
