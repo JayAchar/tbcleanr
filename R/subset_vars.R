@@ -88,7 +88,7 @@ if (software == "epiinfo") {
 				"HAINR", "HSMPL", "H", "E", "R", "S", "Z", "KM", "OF", "CAP", "ETH",
 				"CS", "PAS", "AMI", "OTHER1", "SPEC", "OTHER2", "SPECI", "H1", "E1", "R1", 
 				"S1", "Z1", "KM1", "OF1", "CAP1", "ETH1", "CS1", "PAS1", "AMI1",
-				"MFX1", "LZD1", "GX_res1", "GX_res2", "GX_res3")				
+				"MFX1", "LZD1", "GX_res1", "GX_res2", "GX_res3", "GX_res4")				
 			}
 
 		# Chechnya laboratory
