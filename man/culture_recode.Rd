@@ -4,10 +4,23 @@
 \alias{culture_recode}
 \title{Recode culture results}
 \usage{
-culture_recode(cult)
+culture_recode(cult, software = c("excel", "koch_6", "epiinfo"),
+  project = c("kk", "chechnya"), file = c("adm", "lab", "clinical_lab"),
+  ...)
 }
 \arguments{
 \item{cult}{culture variable as defined in result_consolidator()}
+
+\item{software}{define software used for data collection.
+Values can be "excel", "koch_6", "epiinfo"}
+
+\item{project}{define project location to apply.
+Values can be "kk", "chechnya".}
+
+\item{file}{define database file argument to apply.
+Values can be "adm", "lab", "clinical_lab",}
+
+\item{...}{further arguments passed to or from other methods}
 }
 \description{
 Recode individual culture variables

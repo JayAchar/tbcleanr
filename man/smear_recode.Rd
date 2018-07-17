@@ -4,10 +4,23 @@
 \alias{smear_recode}
 \title{Recode smear results}
 \usage{
-smear_recode(sm)
+smear_recode(sm, software = c("excel", "koch_6", "epiinfo"),
+  project = c("kk", "chechnya"), file = c("adm", "lab", "clinical_lab"),
+  ...)
 }
 \arguments{
 \item{sm}{smear variable as defined in result_consolidator()}
+
+\item{software}{define software used for data collection.
+Values can be "excel", "koch_6", "epiinfo"}
+
+\item{project}{define project location to apply.
+Values can be "kk", "chechnya".}
+
+\item{file}{define database file argument to apply.
+Values can be "adm", "lab", "clinical_lab",}
+
+\item{...}{further arguments passed to or from other methods}
 }
 \description{
 Recode individual smear variables
