@@ -2,7 +2,12 @@
 #'
 #' Consolidate sample dates in mycobacterial lab database
 #' @param x data frame containing sample date variables
-#' @param db define database being used - "chechnya_myco_lab", "nukus_myco_lab"
+#' @param software define software used for data collection.
+#' Values can be "excel", "koch_6", "epiinfo"
+#' @param project define project location to apply.
+#' Values can be "kk", "chechnya".
+#' @param file define database file argument to apply.
+#' Values can be "adm", "lab", "clinical_lab",
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{tbcleanr}}
@@ -14,28 +19,28 @@
 #' }
 
 
-lab_date_consolidator <- function(x, db, ...) {
-# acceptable values for db arg
-	s <- c("chechnya_myco_lab", "nukus_myco_lab")
-
+lab_date_consolidator <- function(x, software = c("excel", "koch_6", "epiinfo"),
+								project = c("kk", "chechnya"),
+								file = c("adm", "lab", "clinical_lab"),
+								...) {
 # check input
 	if (!(is.data.frame(x))) {
 			stop("input paramter, x, must be a data frame")
 	}
 
-# check db is within acceptable values
-	if (! db %in% s) {
-			set_options <- paste(s, collapse = ", ")
-			error_message <- paste("\'db\' arg should be ", set_options, sep = "")
-		stop(error_message)	}
+# check all args
+	software <- match.arg(software)
+	project <- match.arg(project)
+	file <- match.arg(file)
 
 # =================================================================
 # set db specific variables 
-		if (db == "chechnya_myco_lab") {
+		if (software == "excel" && project == "chechnya" && file == "lab") {
 			vars <- c("dcol1", "dcol2", "dcol3")
-		}	
-		if (db == "nukus_myco_lab") {
+		}	else if (software %in% c("excel", "epiinfo") && project == "kk" && file == "lab") {
 			vars <- c("FIRST", "SECOND", "THIRD")
+		} else {
+			return(x)
 		}
 # =================================================================
 # check variables are present

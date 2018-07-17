@@ -2,8 +2,12 @@
 #'
 #' Take laboratory data set and consolidate Xpert results from Chechen data
 #' @param x data frame containing variables
-#' @param set define variable set to apply. Values can be - "chechnya_myco_lab",
-#'  "nukus_myco_lab".
+#' @param software define software used for data collection.
+#' Values can be "excel", "koch_6", "epiinfo"
+#' @param project define project location to apply.
+#' Values can be "kk", "chechnya".
+#' @param file define database file argument to apply.
+#' Values can be "adm", "lab", "clinical_lab",
 #' @param rm_orig remove original variables - TRUE or FALSE
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
@@ -15,32 +19,31 @@
 #' }
 
 
-xpert_result_fixer <- function(x, set, rm_orig = TRUE, ...) {
-
-# acceptable values for "set" arg
-	s <- c("chechnya_myco_lab", "nukus_myco_lab")
+xpert_result_fixer <- function(x, software = c("excel", "koch_6", "epiinfo"),
+								project = c("kk", "chechnya"),
+								file = c("adm", "lab", "clinical_lab"),
+								rm_orig = TRUE, ...) {
 
 # check input
 	if (!(is.data.frame(x))) {
 			stop("input paramter, x, must be a data frame")
 	}
 
-# check set is within acceptable values
-	if (! set %in% s) {
-			set_options <- paste(s, collapse = ", ")
-			error_message <- paste("\'set\' arg should be ", set_options, sep = "")
-		stop(error_message)
-	}
+# check all args
+	software <- match.arg(software)
+	project <- match.arg(project)
+	file <- match.arg(file)
 
 # =================================================================
 # set db specific variables 
-		if (set == "checknya_myco_lab") {
+		if (software == "excel" && project == "chechnya" && file == "lab") {
 			x_vars <- c("xpert1err", "xpert2err",
 						"xpert1res", "xpert2res",
 						"xpert1rif", "xpert2rif")
-		}	
-		if (set == "nukus_myco_lab") {
+		}	else if (software %in% c("excel", "epiinfo") && project == "kk" && file == "lab") {
 			x_vars <- c("GX_res1", "GX_res2", "GX_res3")
+		} else {
+			return(x)
 		}
 # =================================================================
 #check vars are within data frame
@@ -48,7 +51,7 @@ xpert_result_fixer <- function(x, set, rm_orig = TRUE, ...) {
 		stop("Xpert variables are not all present in data frame")
 	}
 
-	if (set == s[1]) {
+	if (software == "excel" && project == "chechnya" && file == "lab") {
 		# define sub variables
 	err <- x_vars[1:2]
 	res <- x_vars[3:4]
@@ -84,7 +87,7 @@ xpert_result_fixer <- function(x, set, rm_orig = TRUE, ...) {
 
 	}
 
-	if (set == s[2]) {
+	if (software %in% c("excel", "epiinfo") && project == "kk" && file == "lab") {
 
 			x_split <- function(x) {
 				# convert invalid results to NA
@@ -106,16 +109,7 @@ xpert_result_fixer <- function(x, set, rm_orig = TRUE, ...) {
 				x
 			}
 
-
 	}
-
-
-
-
-
-
-
-
 
 # consolidate xpert results
 	x$xpert_res <- do.call(pmax, c(x[ , res], na.rm = T))
@@ -136,5 +130,5 @@ xpert_result_fixer <- function(x, set, rm_orig = TRUE, ...) {
  					labels = c("Not detected", "Detected"))
 
 
-return(x)
+x
 }

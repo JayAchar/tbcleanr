@@ -4,12 +4,21 @@
 \alias{mtbdrplus_fixer}
 \title{Consolidate Hain MTBDRplus results}
 \usage{
-mtbdrplus_fixer(x, set = "chechnya_myco_lab", ...)
+mtbdrplus_fixer(x, software = c("excel", "koch_6", "epiinfo"),
+  project = c("kk", "chechnya"), file = c("adm", "lab", "clinical_lab"),
+  ...)
 }
 \arguments{
 \item{x}{data frame containing variables}
 
-\item{set}{define variable set to apply. Values can be - "chechnya"}
+\item{software}{define software used for data collection.
+Values can be "excel", "koch_6", "epiinfo"}
+
+\item{project}{define project location to apply.
+Values can be "kk", "chechnya".}
+
+\item{file}{define database file argument to apply.
+Values can be "adm", "lab", "clinical_lab",}
 
 \item{...}{further arguments passed to or from other methods}
 }

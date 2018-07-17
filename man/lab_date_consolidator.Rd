@@ -4,12 +4,21 @@
 \alias{lab_date_consolidator}
 \title{Aggregate dates in lab database}
 \usage{
-lab_date_consolidator(x, db, ...)
+lab_date_consolidator(x, software = c("excel", "koch_6", "epiinfo"),
+  project = c("kk", "chechnya"), file = c("adm", "lab", "clinical_lab"),
+  ...)
 }
 \arguments{
 \item{x}{data frame containing sample date variables}
 
-\item{db}{define database being used - "chechnya_myco_lab", "nukus_myco_lab"}
+\item{software}{define software used for data collection.
+Values can be "excel", "koch_6", "epiinfo"}
+
+\item{project}{define project location to apply.
+Values can be "kk", "chechnya".}
+
+\item{file}{define database file argument to apply.
+Values can be "adm", "lab", "clinical_lab",}
 
 \item{...}{further arguments passed to or from other methods}
 }

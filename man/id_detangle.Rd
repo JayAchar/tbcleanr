@@ -4,13 +4,19 @@
 \alias{id_detangle}
 \title{Detangle ID number}
 \usage{
-id_detangle(x, software = c("excel", "koch_6", "epiinfo"), rm_orig = FALSE,
-  ...)
+id_detangle(x, software = c("excel", "koch_6", "epiinfo"), project = c("kk",
+  "chechnya"), file = c("adm", "lab", "clinical_lab"), rm_orig = FALSE, ...)
 }
 \arguments{
 \item{x}{data frame containing APID variable from KK programme}
 
 \item{software}{define software being used}
+
+\item{project}{define project location to apply.
+Values can be "kk", "chechnya".}
+
+\item{file}{define database file argument to apply.
+Values can be "adm", "lab", "clinical_lab",}
 
 \item{rm_orig}{remove original variables - TRUE or FALSE}
 

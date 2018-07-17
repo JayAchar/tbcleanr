@@ -2,38 +2,47 @@
 #'
 #' Consolidate mycobacterial sample types in Chechen lab data
 #' @param x data frame containing sample date variables
-#' @param set define variable set to apply. Values can be "chechnya_myco_lab".
+#' @param software define software used for data collection.
+#' Values can be "excel", "koch_6", "epiinfo"
+#' @param project define project location to apply.
+#' Values can be "kk", "chechnya".
+#' @param file define database file argument to apply.
+#' Values can be "adm", "lab", "clinical_lab",
 #' @param rm_orig remove original variables - TRUE or FALSE
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{tbcleanr}}
 #' @export
-#' @import stringr
+#' @importFrom stringr str_detect
 #' @examples
 #' \dontrun{
 #' lab_sample_fixer(p, rm_orig = TRUE)
 #' }
 
-lab_sample_fixer <- function(x, set = "chechnya_myco_lab", rm_orig = TRUE, ...) {
+lab_sample_fixer <- function(x, software = c("excel", "koch_6", "epiinfo"),
+								project = c("kk", "chechnya"),
+								file = c("adm", "lab", "clinical_lab"), 
+								rm_orig = TRUE, ...) {
 
 # check input
 	if (!(is.data.frame(x))) {
 			stop("input paramter, x, must be a data frame")
 	}
 
-s <- c("chechnya_myco_lab")
+# check all args
+	software <- match.arg(software)
+	project <- match.arg(project)
+	file <- match.arg(file)
 
-# check set is within acceptable values
-	if (! set %in% s) {
-			set_options <- paste(s, collapse = ", ")
-			error_message <- paste("\'set\' arg should be ", set_options, sep = "")
-		stop(error_message)
-		}
+# =======================================================
 
 # check variables are present
-	if (set == "chechnya_myco_lab") {
+	if (software == "excel" && project == "chechnya" && file == "lab")  {
 		v <- c("sputum")
+	} else {
+		return(x)
 	}
+# =======================================================
 
 	if (! all(v %in% names(x))) {
 		stop("Sample type variable not available")
@@ -72,5 +81,5 @@ s <- c("chechnya_myco_lab")
 		x[[v]] <- NULL
 	}
 
-return(x)
+x
 }

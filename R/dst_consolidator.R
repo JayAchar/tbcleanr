@@ -3,7 +3,12 @@
 #' Take Chechen laboratory data set and consolidate DST results - choose aggregate
 #' for categorised results
 #' @param x data frame containing variables
-#' @param set define variable set to apply. Values can be - "chechnya_myco_lab"
+#' @param software define software used for data collection.
+#' Values can be "excel", "koch_6", "epiinfo"
+#' @param project define project location to apply.
+#' Values can be "kk", "chechnya".
+#' @param file define database file argument to apply.
+#' Values can be "adm", "lab", "clinical_lab",
 #' @param aggregate choose whether to aggregate to categories or retain all drug results
 #' @param rm_orig remove original variables - TRUE or FALSE
 #' @param ... further arguments passed to or from other methods
@@ -16,26 +21,25 @@
 #' dst_consolidator(p, set = "chechnya_myco_lab", aggregate = TRUE, rm_orig = TRUE)
 #' }
 
-dst_consolidator <- function(x, set = "chechnya_myco_lab", aggregate = TRUE, rm_orig = TRUE, ...) {
-
-# acceptable values for "set" arg
-	s <- c("chechnya_myco_lab")
+dst_consolidator <- function(x, software = c("excel", "koch_6", "epiinfo"),
+								project = c("kk", "chechnya"),
+								file = c("adm", "lab", "clinical_lab"),
+								aggregate = TRUE, 
+								rm_orig = TRUE, ...) {
 
 # check input
 	if (!(is.data.frame(x))) {
 			stop("input paramter, x, must be a data frame")
 	}
 
-# check set is within acceptable values
-	if (! set %in% s) {
-			set_options <- paste(s, collapse = ", ")
-			error_message <- paste("\'set\' arg should be ", set_options, sep = "")
-		stop(error_message)
-	}
+# check all args
+	software <- match.arg(software)
+	project <- match.arg(project)
+	file <- match.arg(file)
 
 # ============================================================================
 # define dst variables
-	if (set == "chechnya_myco_lab") {
+	if (software == "excel" && project == "chechnya" && file == "lab") {
 			dst_vars <- c("ms", "mr", "mh", "mz", "me", "mcm", "mam", "mlfx",
 						"ljs", "ljr", "ljh", "ljz", "lje",
 						"cts", "ctr", "cth", "ctz", "cte", "ctcm", "ctam", "ctlfx",
@@ -49,6 +53,8 @@ dst_consolidator <- function(x, set = "chechnya_myco_lab", aggregate = TRUE, rm_
 			lfx <- c("mlfx", "ctlfx")
 			sli <- c("mcm", "mam","ctcm", "ctam")
 			fq <- c("mlfx", "ctlfx", "ctmfx", "ctmfx2")
+		} else {
+			return(x)
 		}
 
 # recode all dst variables
@@ -78,7 +84,6 @@ dst_consolidator <- function(x, set = "chechnya_myco_lab", aggregate = TRUE, rm_
 		 		x[, dst_vars] <- NULL
 		 	}
 
-
-return(x)
+x
 }
 

@@ -5,6 +5,10 @@
 #' categorisation and numerical ID number. If 
 #' @param x data frame containing APID variable from KK programme
 #' @param software define software being used
+#' @param project define project location to apply.
+#' Values can be "kk", "chechnya".
+#' @param file define database file argument to apply.
+#' Values can be "adm", "lab", "clinical_lab",
 #' @param rm_orig remove original variables - TRUE or FALSE
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
@@ -16,7 +20,10 @@
 #' apid_detangle(p)
 #' }
 
-id_detangle <- function(x, software = c("excel", "koch_6", "epiinfo"), rm_orig = FALSE, ...) {
+id_detangle <- function(x, software = c("excel", "koch_6", "epiinfo"), 
+							project = c("kk", "chechnya"),
+							file = c("adm", "lab", "clinical_lab"), 
+							rm_orig = FALSE, ...) {
 
 # check input
 	if (!(is.data.frame(x))) {
@@ -30,12 +37,15 @@ id_detangle <- function(x, software = c("excel", "koch_6", "epiinfo"), rm_orig =
 # =================================================================
 # set software specific variables 
 		if (software == "koch_6") {
+
 			id <- "registrationnb"
-		}	
-		if (software == "epiinfo") {
+
+		} else if (software %in% c("epiinfo", "excel") &&
+				 project == "kk") {
+
 			id <- "APID"
-		} 
-		if (software == "excel") {
+
+		} else {
 			return(x)
 		}
 # =================================================================

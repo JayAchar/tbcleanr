@@ -2,27 +2,46 @@
 #'
 #' Convert character DST number found in Chechen data to numerical
 #' @param x data frame containing APID variable from KK programme
+#' @param software define software used for data collection.
+#' Values can be "excel", "koch_6", "epiinfo"
+#' @param project define project location to apply.
+#' Values can be "kk", "chechnya".
+#' @param file define database file argument to apply.
+#' Values can be "adm", "lab", "clinical_lab",
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{tbcleanr}}
 #' @export
-#' @import stringr
+#' @importFrom stringr str_replace
 #' @examples
 #' \dontrun{
 #' dstno_detangle(p)
 #' }
 
 
-dstno_detangle <- function(x, ...) {
+dstno_detangle <- function(x, software = c("excel", "koch_6", "epiinfo"),
+								project = c("kk", "chechnya"),
+								file = c("adm", "lab", "clinical_lab"), 
+								...) {
 
 # check input
 	if (!(is.data.frame(x))) {
 			stop("input paramter, x, must be a data frame")
 	}
+# check all args
+	software <- match.arg(software)
+	project <- match.arg(project)
+	file <- match.arg(file)
 
+# =======================================================
 # check variables are present
-	v <- c("dstno")
-
+	# set db specific variables 
+		if (software == "excel" && project == "chechnya" && file == "lab") {
+			v <- c("dstno")
+		} else {
+			return(x)
+		}
+# =======================================================
 	if (! all(v %in% names(x))) {
 		stop("DST number variable not available")
 	}

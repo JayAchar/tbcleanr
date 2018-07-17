@@ -40,7 +40,7 @@ adm_data_cleanr <- function(x, software = c("excel", "koch_6", "epiinfo"),
 			# subset variables
 		subset_vars(software = software, project = project, file = file, add = add, ...) %>%
 			# detangle apid number
-		id_detangle(software = software, ...) %>%
+		id_detangle(software = software, project = project, file = file, ...) %>%
 			# date format
 		date_format(...) %>%
 			# categorise gender variable

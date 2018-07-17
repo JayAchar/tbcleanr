@@ -2,7 +2,12 @@
 #'
 #' Take laboratory data set and consolidate Hain MTBDRplus results from Chechen data
 #' @param x data frame containing variables
-#' @param set define variable set to apply. Values can be - "chechnya"
+#' @param software define software used for data collection.
+#' Values can be "excel", "koch_6", "epiinfo"
+#' @param project define project location to apply.
+#' Values can be "kk", "chechnya".
+#' @param file define database file argument to apply.
+#' Values can be "adm", "lab", "clinical_lab",
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{tbcleanr}}
@@ -14,28 +19,29 @@
 #' }
 
 
-mtbdrplus_fixer <- function(x, set = "chechnya_myco_lab", ...) {
-# acceptable values for "set" arg
-	s <- c("chechnya_myco_lab")	
+mtbdrplus_fixer <- function(x, software = c("excel", "koch_6", "epiinfo"),
+								project = c("kk", "chechnya"),
+								file = c("adm", "lab", "clinical_lab"),
+								 ...) {
 
 # check input
 	if (!(is.data.frame(x))) {
 			stop("input paramter, x, must be a data frame")
 	}
-
-# check set is within acceptable values
-	if (! set %in% s) {
-			set_options <- paste(s, collapse = ", ")
-			error_message <- paste("\'set\' arg should be ", set_options, sep = "")
-		stop(error_message)	
-	}
+# check all args
+	software <- match.arg(software)
+	project <- match.arg(project)
+	file <- match.arg(file)
 
 # =========================================================
 #specify hain variables
-	if (set == "chechnya_myco_lab") {
+	if (software == "excel" && project == "chechnya" && file == "lab") {
 		hain_vars <- c("cthres", "cthrifres", "cthinhres")
 		h_resist <- c("cthinhres", "cthrifres")
+	} else {
+		return(x)
 	}
+# =========================================================
 
 # recode hain resistance results
 	x[] <- map_at(x, .at = h_resist, .f = dst_recoder)
