@@ -152,7 +152,7 @@ xpert_result_fixer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 # consolidate xpert rif result
 	x$xpert_rif <- do.call(pmax, c(resist[, r_names], na.rm = T))
 
-	x <- as.data.frame(x)
+	x <- as.data.frame(x, stringsAsFactors = FALSE)
 	}
 
 # remove original variables

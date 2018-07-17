@@ -82,7 +82,7 @@ if (software == "epiinfo") {
 	if (software == "excel") {
 		# KK Laboratory 	
 			if (project == "kk" & file == "lab") {
-			k <- c("APID", "REAS", "MICRLABN", "FIRST", "SECOND", "THIRD", "BK1", "BK2", "BK3",
+			k <- c("APID", "MICRLABN", "FIRST", "SECOND", "THIRD", "BK1", "BK2", "BK3",
 				"RES", "RES02", "RES03", "RES04", "RESULT", "RESULT02", "RESULT03",
 				"RESULT04", "MGITH", "MGITE", "MGITR", "MGITS", "MGITZ", "HAINH",
 				"HAINR", "HSMPL", "H", "E", "R", "S", "Z", "KM", "OF", "CAP", "ETH",
