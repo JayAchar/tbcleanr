@@ -61,7 +61,7 @@ lab_data_cleanr <- function(x, software = c("excel", "koch_6", "epiinfo"),
 							test = "culture", rm_orig = TRUE, ...) %>%
 			# consolidate DST results
 		dst_consolidator(software = software, project = project, file = file,
-							aggregate = TRUE, rm_orig = TRUE, ...) %>%
+							aggregate = FALSE, rm_orig = TRUE, ...) %>%
 			# consolidate hain mtbdrplus results
 		mtbdrplus_fixer(software = software, project = project, file = file) %>%
 			# convert all zeros to NA in continuous variables
@@ -74,7 +74,7 @@ if (software == "excel" && project == "chechnya" && file == "lab") {
 	# check variable names are all present
 		vars <- c("dbno", "dstno", "dob", "samp_date", "sample", "smear", "culture",
 					"xpert_res", "xpert_rif", "hain_res", "hain_rif", "hain_inh", 
-					"dst_p_rif", "dst_p_inh", "dst_p_sli", "dst_p_fq")
+					"dst_p_rif", "dst_p_inh")
 
 } else if (software == "excel" && project == "kk" && file == "clinical_lab") {
 	# check variable names are all present
@@ -94,8 +94,7 @@ if (software == "excel" && project == "chechnya" && file == "lab") {
 		}
 
 # reorder variables in data frame
-		x <- x[vars]
-
+		x <- x[ ,c(vars, setdiff(colnames(x), vars))]
 
 x
 }

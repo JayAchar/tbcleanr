@@ -6,7 +6,7 @@
 \usage{
 dst_consolidator(x, software = c("excel", "koch_6", "epiinfo"),
   project = c("kk", "chechnya"), file = c("adm", "lab", "clinical_lab"),
-  aggregate = TRUE, rm_orig = TRUE, ...)
+  aggregate = FALSE, rm_orig = TRUE, ...)
 }
 \arguments{
 \item{x}{data frame containing variables}
