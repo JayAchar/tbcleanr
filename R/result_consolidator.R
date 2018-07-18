@@ -77,7 +77,9 @@ result_consolidator <- function(x, software = c("excel", "koch_6", "epiinfo"),
 		} else if (software %in% c("excel", "epiinfo") && project == "kk" && file == "lab") {
 			culture_vars <- c("RES", "RES02", "RES03", "RES04", "RESULT", 
 								"RESULT02", "RESULT03", "RESULT04")
-		}	
+		} else {
+			return(x)
+		}
 
 		# use smear_recode function
 				x[] <- map_at(x, .at = culture_vars, .f = culture_recode, 

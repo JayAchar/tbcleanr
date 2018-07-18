@@ -54,7 +54,7 @@ lab_longr <- function(x, software = c("excel", "koch_6", "epiinfo"),
 	}
 
 # convert result variables to long format
-	x <- gather(x, test, result, vars)
+	x <- gather(x, key = "test", value = "result", vars)
 
 # convert labclindate to date format
 	x$labclindate <- dmy(x$labclindate)
