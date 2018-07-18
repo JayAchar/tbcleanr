@@ -44,14 +44,17 @@ mtbdrplus_fixer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 # =========================================================
 
 # recode hain resistance results
-	x[] <- map_at(x, .at = h_resist, .f = dst_recoder)
+	x[] <- map_at(x, .at = h_resist, .f = dst_recoder,
+				software = software, project = project, file = file)
 
 # factorise hain resistance results
 	x[] <- map_at(x, .at = h_resist, .f = factor, levels = 0:1,
 								labels = c("Sensitive", "Resistant"))
 
 # recode hain result
-	x$hain_res <- culture_recode(x$cthres)
+	x$hain_res <- culture_recode(x$cthres, 
+					software = software, project = project, file = file)
+
 	x$hain_res <- factor(x$hain_res, levels = 0:1,
 					labels = c("Negative", "Positive"))
 
@@ -61,5 +64,5 @@ mtbdrplus_fixer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 # remove original hain result variable
 	x$cthres <- NULL
 
-return(x)
+x
 }
