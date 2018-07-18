@@ -62,7 +62,7 @@ id_detangle <- function(x, software = c("excel", "koch_6", "epiinfo"),
 	}
 
 # if software = "koch_6"
-	if (software == "koch_6") {
+	if (id == "registrationnb") {
 
 		# check if all string identifiers are teh same
 			z <- str_match(x[[id]], "^.{3}")
@@ -76,27 +76,24 @@ id_detangle <- function(x, software = c("excel", "koch_6", "epiinfo"),
 			}
 
 		# extract numerical part of id
-			x$id <- NA
 				# extract all digits after characters
-			x$id <- str_extract(x[[id]], "\\B\\d+$")
-			x$id <- as.numeric(x$id)
+			x$idno <- str_extract(x[[id]], "\\B\\d+$")
+			x$idno <- as.numeric(x$idno)
 
 
 		# check uniqueness of id number
-			if (dummy == 0 && ! length(unique(x$id)) == dim(x)[1]) {
+			if (dummy == 0 && ! length(unique(x$idno)) == dim(x)[1]) {
 					warning("id is not a unique identifier in this data set")
 			}
 
-			if (dummy == 1 && ! dim(unique(x[c("idstring", "id")]))[1] == dim(x)[1]) {
+			if (dummy == 1 && ! dim(unique(x[c("idstring", "idno")]))[1] == dim(x)[1]) {
 					warning("id and idstring combination is not a unique identifier")
 			}
 
 	}
 
 
-
-# if software == "epiinfo"
-	if (software == "epiinfo") {
+	if (id == "APID") {
 		# if 4th character is "D" = DS TB
 			x$ds_dr <- NA		# new empty variable
 			ds <- grep("^.{3}D", x[[id]])
@@ -112,13 +109,18 @@ id_detangle <- function(x, software = c("excel", "koch_6", "epiinfo"),
 	x$district <- as.character(x$district)
 
 # take all digits and generate id number
-	x$id <- str_match(x[[id]], "\\d+")
-	x$id <- as.numeric(x$id)
+	x$idno <- str_match(x[[id]], "\\d+")
+	x$idno <- as.numeric(x$idno)
+
 	}
+
 
 	# remove original variables
 	if (rm_orig %in% c("TRUE", "T")) {
 		 		x[, id] <- NULL
+		} else {
+	# rename original id variable
+			colnames(x)[match(id, colnames(x))] <- "id"
 		}
 
 x

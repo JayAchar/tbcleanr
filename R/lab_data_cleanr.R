@@ -82,7 +82,7 @@ if (software == "excel" && project == "chechnya" && file == "lab") {
 	
 } else if (software == "koch_6" && file == "clinical_lab") {
 		
-		vars <- c("registrationnb", "labclindate", "test", "result")
+		vars <- c("id", "labclindate", "test", "result")
 
 } else {
 		return(x)

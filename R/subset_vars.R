@@ -85,10 +85,10 @@ if (software == "epiinfo") {
 			k <- c("APID", "MICRLABN", "FIRST", "SECOND", "THIRD", "BK1", "BK2", "BK3",
 				"RES", "RES02", "RES03", "RES04", "RESULT", "RESULT02", "RESULT03",
 				"RESULT04", "MGITH", "MGITE", "MGITR", "MGITZ", "HAINH",
-				"HAINR", "HSMPL", "H", "E", "R", "Z", "KM", "OF", "CAP", "ETH",
+				"HAINR", "H", "E", "R", "Z", "KM", "OF", "CAP",
 				"H1", "E1", "R1", 
 				"Z1", "KM1", "OF1", "CAP1",
-				"MFX1", "LZD1", "GX_res1", "GX_res2", "GX_res3", "GX_res4")				
+				"MFX1", "GX_res1", "GX_res2", "GX_res3", "GX_res4")				
 			}
 
 		# Chechnya laboratory
