@@ -4,10 +4,21 @@
 \alias{dstno_detangle}
 \title{Detangle DST identification number}
 \usage{
-dstno_detangle(x, ...)
+dstno_detangle(x, software = c("excel", "koch_6", "epiinfo"),
+  project = c("kk", "chechnya"), file = c("adm", "lab", "clinical_lab"),
+  ...)
 }
 \arguments{
 \item{x}{data frame containing APID variable from KK programme}
+
+\item{software}{define software used for data collection.
+Values can be "excel", "koch_6", "epiinfo"}
+
+\item{project}{define project location to apply.
+Values can be "kk", "chechnya".}
+
+\item{file}{define database file argument to apply.
+Values can be "adm", "lab", "clinical_lab",}
 
 \item{...}{further arguments passed to or from other methods}
 }

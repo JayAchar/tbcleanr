@@ -4,12 +4,20 @@
 \alias{lab_longr}
 \title{Convert lab data from wide to long}
 \usage{
-lab_longr(x, set, add = NULL, ...)
+lab_longr(x, software = c("excel", "koch_6", "epiinfo"), project = c("kk",
+  "chechnya"), file = c("adm", "lab", "clinical_lab"), add = NULL, ...)
 }
 \arguments{
 \item{x}{data frame containing variables}
 
-\item{set}{define variable set to apply. Values can be "k6_clin_lab".}
+\item{software}{define software used for data collection.
+Values can be "excel", "koch_6", "epiinfo"}
+
+\item{project}{define project location to apply.
+Values can be "kk", "chechnya".}
+
+\item{file}{define database file argument to apply.
+Values can be "adm", "lab", "clinical_lab",}
 
 \item{add}{string of any additional variables to include}
 

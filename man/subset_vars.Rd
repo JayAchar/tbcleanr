@@ -4,13 +4,20 @@
 \alias{subset_vars}
 \title{Subset variables}
 \usage{
-subset_vars(x, set, add = NULL, ...)
+subset_vars(x, software = c("excel", "koch_6", "epiinfo"), project = c("kk",
+  "chechnya"), file = c("adm", "lab", "clinical_lab"), add = NULL, ...)
 }
 \arguments{
 \item{x}{data frame containing variables}
 
-\item{set}{define variable set to apply. Values can be "msc500", "chechnya_myco_lab",
-"k6_adm_standard", "nukus_epi_info"}
+\item{software}{define software used for data collection.
+Values can be "excel", "koch_6", "epiinfo"}
+
+\item{project}{define project location to apply.
+Values can be "kk", "chechnya".}
+
+\item{file}{define database file argument to apply.
+Values can be "adm", "lab", "clinical_lab",}
 
 \item{add}{string of any additional variables to keep}
 

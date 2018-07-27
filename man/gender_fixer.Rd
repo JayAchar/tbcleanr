@@ -4,24 +4,25 @@
 \alias{gender_fixer}
 \title{Factorise gender variable}
 \usage{
-gender_fixer(x, db = "k6", rm_orig = TRUE, ...)
+gender_fixer(x, software = c("excel", "koch_6", "epiinfo"), rm_orig = TRUE,
+  ...)
 }
 \arguments{
 \item{x}{data frame containing Koch 6 admission variables}
 
-\item{db}{define database being used - "k6", "epi_info"}
+\item{software}{define database being used - "koch_6", "epiinfo"}
 
 \item{rm_orig}{remove original variables - TRUE or FALSE}
 
 \item{...}{further arguments passed to or from other methods}
 }
 \description{
-Take gender variable from data frame and factorise. Use db
+Take gender variable from data frame and factorise. Use software
 to define which data base is being used as the input
 }
 \examples{
 \dontrun{
-gender_fixer(p, db = "k6")
+gender_fixer(p, software = "koch_6")
 }
 }
 \seealso{

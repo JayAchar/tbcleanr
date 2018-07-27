@@ -4,10 +4,20 @@
 \alias{dst_recoder}
 \title{Recode DST results}
 \usage{
-dst_recoder(dst_var)
+dst_recoder(dst_var, software = c("excel", "koch_6", "epiinfo"),
+  project = c("kk", "chechnya"), file = c("adm", "lab", "clinical_lab"))
 }
 \arguments{
 \item{dst_var}{DST variable}
+
+\item{software}{define software used for data collection.
+Values can be "excel", "koch_6", "epiinfo"}
+
+\item{project}{define project location to apply.
+Values can be "kk", "chechnya".}
+
+\item{file}{define database file argument to apply.
+Values can be "adm", "lab", "clinical_lab",}
 }
 \description{
 Recode individual DST variables

@@ -4,12 +4,21 @@
 \alias{lab_sample_fixer}
 \title{Lab sample fixer}
 \usage{
-lab_sample_fixer(x, set = "chechnya_myco_lab", rm_orig = TRUE, ...)
+lab_sample_fixer(x, software = c("excel", "koch_6", "epiinfo"),
+  project = c("kk", "chechnya"), file = c("adm", "lab", "clinical_lab"),
+  rm_orig = TRUE, ...)
 }
 \arguments{
 \item{x}{data frame containing sample date variables}
 
-\item{set}{define variable set to apply. Values can be "chechnya_myco_lab".}
+\item{software}{define software used for data collection.
+Values can be "excel", "koch_6", "epiinfo"}
+
+\item{project}{define project location to apply.
+Values can be "kk", "chechnya".}
+
+\item{file}{define database file argument to apply.
+Values can be "adm", "lab", "clinical_lab",}
 
 \item{rm_orig}{remove original variables - TRUE or FALSE}
 

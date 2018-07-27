@@ -4,13 +4,21 @@
 \alias{xpert_result_fixer}
 \title{Consolidate Xpert results}
 \usage{
-xpert_result_fixer(x, set, rm_orig = TRUE, ...)
+xpert_result_fixer(x, software = c("excel", "koch_6", "epiinfo"),
+  project = c("kk", "chechnya"), file = c("adm", "lab", "clinical_lab"),
+  rm_orig = TRUE, ...)
 }
 \arguments{
 \item{x}{data frame containing variables}
 
-\item{set}{define variable set to apply. Values can be - "chechnya_myco_lab",
-"nukus_myco_lab".}
+\item{software}{define software used for data collection.
+Values can be "excel", "koch_6", "epiinfo"}
+
+\item{project}{define project location to apply.
+Values can be "kk", "chechnya".}
+
+\item{file}{define database file argument to apply.
+Values can be "adm", "lab", "clinical_lab",}
 
 \item{rm_orig}{remove original variables - TRUE or FALSE}
 

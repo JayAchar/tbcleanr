@@ -3,7 +3,12 @@
 #' Take Chechen laboratory data set and consolidate DST results - choose aggregate
 #' for categorised results
 #' @param x data frame containing variables
-#' @param set define variable set to apply. Values can be - "chechnya_myco_lab"
+#' @param software define software used for data collection.
+#' Values can be "excel", "koch_6", "epiinfo"
+#' @param project define project location to apply.
+#' Values can be "kk", "chechnya".
+#' @param file define database file argument to apply.
+#' Values can be "adm", "lab", "clinical_lab",
 #' @param aggregate choose whether to aggregate to categories or retain all drug results
 #' @param rm_orig remove original variables - TRUE or FALSE
 #' @param ... further arguments passed to or from other methods
@@ -16,26 +21,25 @@
 #' dst_consolidator(p, set = "chechnya_myco_lab", aggregate = TRUE, rm_orig = TRUE)
 #' }
 
-dst_consolidator <- function(x, set = "chechnya_myco_lab", aggregate = TRUE, rm_orig = TRUE, ...) {
-
-# acceptable values for "set" arg
-	s <- c("chechnya_myco_lab")
+dst_consolidator <- function(x, software = c("excel", "koch_6", "epiinfo"),
+								project = c("kk", "chechnya"),
+								file = c("adm", "lab", "clinical_lab"),
+								aggregate = FALSE, 
+								rm_orig = TRUE, ...) {
 
 # check input
 	if (!(is.data.frame(x))) {
 			stop("input paramter, x, must be a data frame")
 	}
 
-# check set is within acceptable values
-	if (! set %in% s) {
-			set_options <- paste(s, collapse = ", ")
-			error_message <- paste("\'set\' arg should be ", set_options, sep = "")
-		stop(error_message)
-	}
+# check all args
+	software <- match.arg(software)
+	project <- match.arg(project)
+	file <- match.arg(file)
 
 # ============================================================================
 # define dst variables
-	if (set == "chechnya_myco_lab") {
+	if (software == "excel" && project == "chechnya" && file == "lab") {
 			dst_vars <- c("ms", "mr", "mh", "mz", "me", "mcm", "mam", "mlfx",
 						"ljs", "ljr", "ljh", "ljz", "lje",
 						"cts", "ctr", "cth", "ctz", "cte", "ctcm", "ctam", "ctlfx",
@@ -47,12 +51,33 @@ dst_consolidator <- function(x, set = "chechnya_myco_lab", aggregate = TRUE, rm_
 			cm <-  c("mcm", "ctcm")
 			am <-  c("mam", "ctam")
 			lfx <- c("mlfx", "ctlfx")
+			mfx <- x$ctmfx
 			sli <- c("mcm", "mam","ctcm", "ctam")
 			fq <- c("mlfx", "ctlfx", "ctmfx", "ctmfx2")
+		} else if (software %in% c("excel", "epiinfo") && project == "kk" && file == "lab") {
+			
+			dst_vars <- c("MGITH", "MGITE", "MGITR", "MGITZ", 
+						"H", "E", "R", "Z", "KM", "OF", "CAP",
+						"H1", "E1", "R1", "Z1", "KM1", "OF1", "CAP1",
+						"MFX1")
+			rif <- c("R", "R1", "MGITR")
+			inh <- c("H", "H1", "MGITH")
+			pza <- c("Z", "Z1", "MGITZ")
+			eth <- c("E", "E1", "MGITE")
+			cm  <- c("CAP", "CAP1")
+			km  <- c("KM", "KM1")
+			ofx <- c("OF", "OF1")
+			mfx <- x$MFX1
+			sli <- c("CAP", "CAP1", "KM", "KM1")
+			fq  <- c("OF", "OF1")
+
+		} else {
+			return(x)
 		}
 
 # recode all dst variables
-	x[] <- map_at(x, .at = dst_vars, .f = dst_recoder)
+	x[] <- map_at(x, .at = dst_vars, .f = dst_recoder,
+				software = software, project = project, file = file)
 
 # consolidate multiple methods for phenotypic dst
 	x$dst_p_rif <- do.call(pmax, c(x[ , rif], na.rm = T))
@@ -65,11 +90,18 @@ dst_consolidator <- function(x, set = "chechnya_myco_lab", aggregate = TRUE, rm_
 		x$dst_p_pza <- do.call(pmax, c(x[ , pza], na.rm = T))
 		x$dst_p_eth <- do.call(pmax, c(x[ , eth], na.rm = T))	
 		x$dst_p_cm <- do.call(pmax, c(x[ , cm], na.rm = T))	
+		x$dst_p_mfx <- mfx
+
+if (software == "excel" && project == "chechnya" && file == "lab") {
 		x$dst_p_am <- do.call(pmax, c(x[ , am], na.rm = T))
 		x$dst_p_lfx <- do.call(pmax, c(x[ , lfx], na.rm = T))
-		x$dst_p_mfx <- x$ctmfx
 		x$dst_p_mfxhigh <- x$ctmfx2
 		x$dst_p_lzd <- x$ctlzd
+	}
+if (software %in% c("excel", "epiinfo") && project == "kk" && file == "lab") {
+		x$dst_p_km <- do.call(pmax, c(x[ , km], na.rm = T))
+		x$dst_p_ofx <- do.call(pmax, c(x[ , ofx], na.rm = T))
+	}
 	}
 
 
@@ -78,7 +110,6 @@ dst_consolidator <- function(x, set = "chechnya_myco_lab", aggregate = TRUE, rm_
 		 		x[, dst_vars] <- NULL
 		 	}
 
-
-return(x)
+x
 }
 

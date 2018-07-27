@@ -4,7 +4,11 @@
 #' into 3 constituent parts to ascertain district, DS or DR TB 
 #' categorisation and numerical ID number. If 
 #' @param x data frame containing APID variable from KK programme
-#' @param db define database being used - "k6", "epi_info"
+#' @param software define software being used
+#' @param project define project location to apply.
+#' Values can be "kk", "chechnya".
+#' @param file define database file argument to apply.
+#' Values can be "adm", "lab", "clinical_lab",
 #' @param rm_orig remove original variables - TRUE or FALSE
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
@@ -16,30 +20,33 @@
 #' apid_detangle(p)
 #' }
 
-id_detangle <- function(x, db = "k6", rm_orig = TRUE, ...) {
-# acceptable values for "set" arg
-	s <- c("k6", "epi_info")
+id_detangle <- function(x, software = c("excel", "koch_6", "epiinfo"), 
+							project = c("kk", "chechnya"),
+							file = c("adm", "lab", "clinical_lab"), 
+							rm_orig = FALSE, ...) {
 
 # check input
 	if (!(is.data.frame(x))) {
 			stop("input paramter, x, must be a data frame")
 	}
 
-# check db is within acceptable values
-	if (! db %in% s) {
-			set_options <- paste(s, collapse = ", ")
-			error_message <- paste("\'set\' arg should be ", set_options, sep = "")
-		stop(error_message)
-		}
+# check all args
+	software <- match.arg(software)
 
 
 # =================================================================
-# set db specific variables 
-		if (db == "k6") {
+# set software specific variables 
+		if (software == "koch_6") {
+
 			id <- "registrationnb"
-		}	
-		if (db == "epi_info") {
+
+		} else if (software %in% c("epiinfo", "excel") &&
+				 project == "kk") {
+
 			id <- "APID"
+
+		} else {
+			return(x)
 		}
 # =================================================================
 
@@ -54,8 +61,8 @@ id_detangle <- function(x, db = "k6", rm_orig = TRUE, ...) {
 		warning(paste("There are", m, "missing ID values in this dataset"))
 	}
 
-# if db = "k6"
-	if (db == "k6") {
+# if software = "koch_6"
+	if (id == "registrationnb") {
 
 		# check if all string identifiers are teh same
 			z <- str_match(x[[id]], "^.{3}")
@@ -69,27 +76,24 @@ id_detangle <- function(x, db = "k6", rm_orig = TRUE, ...) {
 			}
 
 		# extract numerical part of id
-			x$id <- NA
 				# extract all digits after characters
-			x$id <- str_extract(x[[id]], "\\B\\d+$")
-			x$id <- as.numeric(x$id)
+			x$idno <- str_extract(x[[id]], "\\B\\d+$")
+			x$idno <- as.numeric(x$idno)
 
 
 		# check uniqueness of id number
-			if (dummy == 0 && ! length(unique(x$id)) == dim(x)[1]) {
+			if (dummy == 0 && ! length(unique(x$idno)) == dim(x)[1]) {
 					warning("id is not a unique identifier in this data set")
 			}
 
-			if (dummy == 1 && ! dim(unique(x[c("idstring", "id")]))[1] == dim(x)[1]) {
+			if (dummy == 1 && ! dim(unique(x[c("idstring", "idno")]))[1] == dim(x)[1]) {
 					warning("id and idstring combination is not a unique identifier")
 			}
 
 	}
 
 
-
-# if db == "epi_info"
-	if (db == "epi_info") {
+	if (id == "APID") {
 		# if 4th character is "D" = DS TB
 			x$ds_dr <- NA		# new empty variable
 			ds <- grep("^.{3}D", x[[id]])
@@ -105,14 +109,19 @@ id_detangle <- function(x, db = "k6", rm_orig = TRUE, ...) {
 	x$district <- as.character(x$district)
 
 # take all digits and generate id number
-	x$id <- str_match(x[[id]], "\\d+")
-	x$id <- as.numeric(x$id)
+	x$idno <- str_match(x[[id]], "\\d+")
+	x$idno <- as.numeric(x$idno)
+
 	}
+
 
 	# remove original variables
 	if (rm_orig %in% c("TRUE", "T")) {
 		 		x[, id] <- NULL
+		} else {
+	# rename original id variable
+			colnames(x)[match(id, colnames(x))] <- "id"
 		}
 
-return(x)
+x
 }

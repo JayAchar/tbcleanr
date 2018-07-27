@@ -4,24 +4,25 @@
 \alias{hiv_fixer}
 \title{Factorise HIV variable}
 \usage{
-hiv_fixer(x, db = "k6", rm_orig = TRUE, ...)
+hiv_fixer(x, software = c("excel", "koch_6", "epiinfo"), rm_orig = TRUE,
+  ...)
 }
 \arguments{
 \item{x}{data frame containing Koch 6 admission variables}
 
-\item{db}{define database being used - "k6", "epi_info"}
+\item{software}{define database being used - "koch_6", "epiinfo"}
 
 \item{rm_orig}{remove original variables - TRUE or FALSE}
 
 \item{...}{further arguments passed to or from other methods}
 }
 \description{
-Take HIV variables from data frame and factorise. Use db
+Take HIV variables from data frame and factorise. Use software
 to define which data base is being used as the input
 }
 \examples{
 \dontrun{
-hiv_fixer(p, db = "k6")
+hiv_fixer(p, software = "koch_6")
 }
 }
 \seealso{

@@ -4,13 +4,23 @@
 \alias{lab_data_cleanr}
 \title{Cleans laboratory data sets}
 \usage{
-lab_data_cleanr(x, lab, ...)
+lab_data_cleanr(x, software = c("excel", "koch_6", "epiinfo"),
+  project = c("kk", "chechnya"), file = c("adm", "lab", "clinical_lab"),
+  add = NULL, ...)
 }
 \arguments{
 \item{x}{data frame containing variables}
 
-\item{lab}{define laboratory dat set being used. Values can be - "chechnya",
-"nukus_clin_lab".}
+\item{software}{define software used for data collection.
+Values can be "excel", "koch_6", "epiinfo"}
+
+\item{project}{define project location to apply.
+Values can be "kk", "chechnya".}
+
+\item{file}{define database file argument to apply.
+Values can be "adm", "lab", "clinical_lab",}
+
+\item{add}{string of any additional variables to keep}
 
 \item{...}{further arguments passed to or from other methods}
 }

@@ -4,12 +4,13 @@
 \alias{outcome_fixer}
 \title{Fix Koch 6 treatment outcomes}
 \usage{
-outcome_fixer(x, db = "k6", rm_orig = TRUE, ...)
+outcome_fixer(x, software = c("excel", "koch_6", "epiinfo"), rm_orig = TRUE,
+  ...)
 }
 \arguments{
 \item{x}{data frame containing outcome variables}
 
-\item{db}{define database being used - "k6", "epi_info"}
+\item{software}{define database being used - "koch_6", "epiinfo"}
 
 \item{rm_orig}{remove original variables - TRUE or FALSE}
 
@@ -21,7 +22,7 @@ factorised, labelled variable
 }
 \examples{
 \dontrun{
-outcome_fixer(p, db = "epi_info")
+outcome_fixer(p, software = "epiinfo")
 }
 }
 \seealso{
