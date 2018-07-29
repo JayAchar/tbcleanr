@@ -54,7 +54,7 @@ nse_renamer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 		newnames <- c("id", "samp_date", "start", "end")
 		
 		if (project == "chechnya") {
-			oldnames <- c("dstnumber", "samp_date", "Starttre", "dateend")
+			oldnames <- c("idno", "samp_date", "Starttre", "dateend")
 		}
 	}
 
