@@ -23,6 +23,7 @@
 #' @seealso \code{\link{lab_date_consolidator}}    
 #' @seealso \code{\link{lab_sample_fixer}}  
 #' @seealso \code{\link{mtbdrplus_fixer}}  
+#' @seealso \code{\link{nse_renamer}}  
 #' @seealso \code{\link{outcome_fixer}} 
 #' @seealso \code{\link{result_consolidator}} 
 #' @seealso \code{\link{smear_recode}}  

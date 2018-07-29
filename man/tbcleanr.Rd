@@ -47,6 +47,8 @@ The tbcleanr package provides functions to clean and subset TB data from K6, and
 
 \code{\link{mtbdrplus_fixer}}
 
+\code{\link{nse_renamer}}
+
 \code{\link{outcome_fixer}}
 
 \code{\link{result_consolidator}}
