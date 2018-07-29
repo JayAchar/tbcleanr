@@ -37,8 +37,8 @@ subset_vars <- function(x, software = c("excel", "koch_6", "epiinfo"),
 # =====================================================
 # Koch 6
 	if (software == "koch_6") {
-		# KK SCR adm
-			if (project == "kk" & file == "adm") {
+		# KK SCR & chechnya adm
+			if (file == "adm") {
 				k <- c("registrationnb", "dstnumber", "dateofbirth", "datedeat", "gender",
 					"weight", "height", "ecgqt", "ecghr", "ecgrr", "ecgqtcf",
 					"diabetes", "cardiodi", "renalfail", "cav", "cavD", "labClinDate",
