@@ -57,7 +57,10 @@ lab_longr <- function(x, software = c("excel", "koch_6", "epiinfo"),
 	x <- gather(x, key = "test", value = "result", vars)
 
 # convert labclindate to date format
-	x$labclindate <- dmy(x$labclindate)
+	if (is.Date(x$labclindate) == FALSE) {
+			x$labclindate <- dmy(x$labclindate)
+		}
+	
 
 # remove all records where result == NA or 0
 	x <- subset(x, ! is.na(result))
