@@ -16,6 +16,7 @@
 #' @seealso \code{\link{tbcleanr}}
 #' @export
 #' @importFrom purrr map_at
+#' @importFrom stringr str_which
 #' @examples
 #' \dontrun{
 #' dst_consolidator(p, set = "chechnya_myco_lab", aggregate = TRUE, rm_orig = TRUE)
@@ -51,7 +52,9 @@ dst_consolidator <- function(x, software = c("excel", "koch_6", "epiinfo"),
 			cm <-  c("mcm", "ctcm")
 			am <-  c("mam", "ctam")
 			lfx <- c("mlfx", "ctlfx")
-			mfx <- x$ctmfx
+			mfx <- str_which(names(x), pattern = "ctmfx")
+			mfx2 <- str_which(names(x), pattern = "ctmfx2")
+			lzd <- str_which(names(x), pattern = "ctlzd")
 			sli <- c("mcm", "mam","ctcm", "ctam")
 			fq <- c("mlfx", "ctlfx", "ctmfx", "ctmfx2")
 		} else if (software %in% c("excel", "epiinfo") && project == "kk" && file == "lab") {
@@ -67,7 +70,7 @@ dst_consolidator <- function(x, software = c("excel", "koch_6", "epiinfo"),
 			cm  <- c("CAP", "CAP1")
 			km  <- c("KM", "KM1")
 			ofx <- c("OF", "OF1")
-			mfx <- x$MFX1
+			mfx <- str_which(names(x), pattern = "MFX1")
 			sli <- c("CAP", "CAP1", "KM", "KM1")
 			fq  <- c("OF", "OF1")
 
@@ -82,7 +85,7 @@ dst_consolidator <- function(x, software = c("excel", "koch_6", "epiinfo"),
 # consolidate multiple methods for phenotypic dst
 	x$dst_p_rif <- do.call(pmax, c(x[ , rif], na.rm = T))
 	x$dst_p_inh <- do.call(pmax, c(x[ , inh], na.rm = T))
-	
+
 	if (aggregate == TRUE) {
 		x$dst_p_sli <- do.call(pmax, c(x[ , sli], na.rm = T))
 		x$dst_p_fq  <- do.call(pmax, c(x[ , fq], na.rm = T))
@@ -90,13 +93,13 @@ dst_consolidator <- function(x, software = c("excel", "koch_6", "epiinfo"),
 		x$dst_p_pza <- do.call(pmax, c(x[ , pza], na.rm = T))
 		x$dst_p_eth <- do.call(pmax, c(x[ , eth], na.rm = T))	
 		x$dst_p_cm <- do.call(pmax, c(x[ , cm], na.rm = T))	
-		x$dst_p_mfx <- mfx
+		x$dst_p_mfx <- x[[mfx]]
 
 if (software == "excel" && project == "chechnya" && file == "lab") {
 		x$dst_p_am <- do.call(pmax, c(x[ , am], na.rm = T))
 		x$dst_p_lfx <- do.call(pmax, c(x[ , lfx], na.rm = T))
-		x$dst_p_mfxhigh <- x$ctmfx2
-		x$dst_p_lzd <- x$ctlzd
+		x$dst_p_mfxhigh <- x[[mfx2]]
+		x$dst_p_lzd <- x[[lzd]]
 	}
 if (software %in% c("excel", "epiinfo") && project == "kk" && file == "lab") {
 		x$dst_p_km <- do.call(pmax, c(x[ , km], na.rm = T))
@@ -104,6 +107,11 @@ if (software %in% c("excel", "epiinfo") && project == "kk" && file == "lab") {
 	}
 	}
 
+
+# factorise all dst_p results
+	where_names <- str_which(names(x), pattern = "dst_p")
+	x[] <- map_at(x, .at = where_names, .f = factor, levels = 0:1,
+								labels = c("Sensitive", "Resistant"))
 
 # remove original variables
 		 	if (rm_orig %in% c("TRUE", "T")) {
