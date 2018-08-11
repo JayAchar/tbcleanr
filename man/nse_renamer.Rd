@@ -6,7 +6,7 @@
 \usage{
 nse_renamer(x, software = c("excel", "koch_6", "epiinfo"), project = c("kk",
   "chechnya"), file = c("adm", "lab", "clinical_lab"), fun = c("baseline",
-  "converter", "drug_duration"), ...)
+  "converter", "drug_duration", "dst_baseliner", "ecg_collectr"), ...)
 }
 \arguments{
 \item{x}{data frame}
