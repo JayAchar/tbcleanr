@@ -81,7 +81,7 @@ nse_renamer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 	}
 
 	if (fun == "dst_baseliner") {
-		newnames <- c("idno", "starttre", "dateend", "labno", "samp_date")
+		newnames <- c("id", "starttre", "dateend", "labno", "samp_date")
 
 		if (project == "kk") {
 			oldnames <- c("id", "STARTTRE", "DATEN", "MICRLABN", "samp_date")

@@ -5,7 +5,7 @@
 \title{Non-Standard Evaluation variable renamer}
 \usage{
 nse_renamer(x, software = c("excel", "koch_6", "epiinfo"), project = c("kk",
-  "chechnya"), file = c("adm", "lab", "clinical_lab"), fun = c("baseline",
+  "chechnya"), file = c("adm", "lab", "clinical_lab"), fun = c("baseliner",
   "converter", "drug_duration", "dst_baseliner", "ecg_collectr"), ...)
 }
 \arguments{
