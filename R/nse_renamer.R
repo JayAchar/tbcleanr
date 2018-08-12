@@ -22,7 +22,7 @@
 nse_renamer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 						project = c("kk", "chechnya"),
 						file = c("adm", "lab", "clinical_lab"), 
-						fun = c("baseline", "converter", "drug_duration",
+						fun = c("baseliner", "converter", "drug_duration",
 								"dst_baseliner", "ecg_collectr"), ...) {
 
 # check input
@@ -51,15 +51,18 @@ nse_renamer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 #			}
 #	}
 
-	if (fun == "baseline") {
-		newnames <- c("id", "samp_date", "start", "end")
+	if (fun == "baseliner") {
+		newnames <- c("id", "samp_date", "start", "end", "culture", "smear")
 		
 		if (project == "chechnya") {
-			oldnames <- c("idno", "samp_date", "Starttre", "dateend")
+			oldnames <- c("id", "samp_date", "Starttre", "dateend", "culture", "smear")
 		}
 
 		if (project == "kk") {
-			oldnames <- c("id", "samp_date", "STARTTRE", "DATEN")
+			if (software %in% c("epiinfo", "excel")) {
+							oldnames <- c("id", "samp_date", "STARTTRE",
+											"DATEN", "culture", "smear")
+			}
 		}
 	}
 
