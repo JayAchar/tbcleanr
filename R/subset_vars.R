@@ -79,7 +79,7 @@ if (software == "epiinfo") {
 
 # =====================================================
 # Excel or Epiinfo
-	if (software %in% c("epiinfo", "excel")) {
+	if (software %in% c("epiinfo", "excel", "koch_6")) {
 	# KK Laboratory 	
 			if (project == "kk" & file == "lab") {
 			k <- c("APID", "MICRLABN", "FIRST", "SECOND", "THIRD", "BK1", "BK2", "BK3",

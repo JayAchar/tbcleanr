@@ -12,6 +12,7 @@ LazyData: true
 RoxygenNote: 6.1.0
 BugReports: http://github.com/JayAchar/tbcleanr/issues
 Imports:
+	assertive (>= 0.3.5),
 	dplyr (>= 0.7.5),
 	lubridate (>= 1.7.0),
 	magrittr (>= 1.5),

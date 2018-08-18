@@ -14,7 +14,8 @@
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{tbcleanr}}
 #' @export
-#' @import stringr
+#' @importFrom stringr str_match str_extract
+#' @importFrom assertive assert_is_data.frame
 #' @examples
 #' \dontrun{
 #' apid_detangle(p)
@@ -26,9 +27,7 @@ id_detangle <- function(x, software = c("excel", "koch_6", "epiinfo"),
 							rm_orig = FALSE, ...) {
 
 # check input
-	if (!(is.data.frame(x))) {
-			stop("input paramter, x, must be a data frame")
-	}
+	assert_is_data.frame(adm)
 
 # check all args
 	software <- match.arg(software)
@@ -36,11 +35,11 @@ id_detangle <- function(x, software = c("excel", "koch_6", "epiinfo"),
 
 # =================================================================
 # set software specific variables 
-		if (software == "koch_6") {
+		if (software == "koch_6" & file != "lab") {
 
 			id <- "registrationnb"
 
-		} else if (software %in% c("epiinfo", "excel") &&
+		} else if (software %in% c("epiinfo", "excel") &
 				 project == "kk") {
 
 			id <- "APID"
