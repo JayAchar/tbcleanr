@@ -5,8 +5,8 @@
 \title{Cleans laboratory data sets}
 \usage{
 lab_data_cleanr(x, software = c("excel", "koch_6", "epiinfo"),
-  project = c("kk", "chechnya"), file = c("adm", "lab", "clinical_lab"),
-  add = NULL, ...)
+  project = c("kk", "chechnya"), file = c("adm", "lab",
+  "clinical_lab"), add = NULL, ...)
 }
 \arguments{
 \item{x}{data frame containing variables}

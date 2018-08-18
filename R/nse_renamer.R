@@ -89,10 +89,13 @@ nse_renamer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 	}
 
 	if (fun == "ecg_collectr") {
-		newnames <- c("id", "starttre", "dateend", "date", "test", "result")
+		newnames <- c("id", "starttre", "date", "result")
 
-		if (project == "kk") {
-			oldnames <- c("id", "STARTTRE", "DATEN", "date", "test", "result")
+		if (software %in% c("excel", "epiinfo")) {
+			oldnames <- c("id", "STARTTRE", "ecg_date", "qtcf")
+		}
+		if (software == "koch_6") {
+			oldnames <- c("id", "Starttre", "ecg_date", "qtcf")
 		}
 	}
 	

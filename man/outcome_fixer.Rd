@@ -4,8 +4,8 @@
 \alias{outcome_fixer}
 \title{Fix Koch 6 treatment outcomes}
 \usage{
-outcome_fixer(x, software = c("excel", "koch_6", "epiinfo"), rm_orig = TRUE,
-  ...)
+outcome_fixer(x, software = c("excel", "koch_6", "epiinfo"),
+  rm_orig = TRUE, ...)
 }
 \arguments{
 \item{x}{data frame containing outcome variables}

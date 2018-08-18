@@ -5,8 +5,8 @@
 \title{Consolidate smear results}
 \usage{
 result_consolidator(x, software = c("excel", "koch_6", "epiinfo"),
-  project = c("kk", "chechnya"), file = c("adm", "lab", "clinical_lab"),
-  test = c("smear", "culture"), rm_orig = TRUE, ...)
+  project = c("kk", "chechnya"), file = c("adm", "lab",
+  "clinical_lab"), test = c("smear", "culture"), rm_orig = TRUE, ...)
 }
 \arguments{
 \item{x}{data frame containing variables}

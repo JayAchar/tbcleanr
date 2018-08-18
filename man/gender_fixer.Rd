@@ -4,8 +4,8 @@
 \alias{gender_fixer}
 \title{Factorise gender variable}
 \usage{
-gender_fixer(x, software = c("excel", "koch_6", "epiinfo"), rm_orig = TRUE,
-  ...)
+gender_fixer(x, software = c("excel", "koch_6", "epiinfo"),
+  rm_orig = TRUE, ...)
 }
 \arguments{
 \item{x}{data frame containing Koch 6 admission variables}

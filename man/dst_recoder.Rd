@@ -5,7 +5,8 @@
 \title{Recode DST results}
 \usage{
 dst_recoder(dst_var, software = c("excel", "koch_6", "epiinfo"),
-  project = c("kk", "chechnya"), file = c("adm", "lab", "clinical_lab"))
+  project = c("kk", "chechnya"), file = c("adm", "lab",
+  "clinical_lab"))
 }
 \arguments{
 \item{dst_var}{DST variable}

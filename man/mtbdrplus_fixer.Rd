@@ -5,8 +5,8 @@
 \title{Consolidate Hain MTBDRplus results}
 \usage{
 mtbdrplus_fixer(x, software = c("excel", "koch_6", "epiinfo"),
-  project = c("kk", "chechnya"), file = c("adm", "lab", "clinical_lab"),
-  ...)
+  project = c("kk", "chechnya"), file = c("adm", "lab",
+  "clinical_lab"), ...)
 }
 \arguments{
 \item{x}{data frame containing variables}

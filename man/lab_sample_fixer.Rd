@@ -5,8 +5,8 @@
 \title{Lab sample fixer}
 \usage{
 lab_sample_fixer(x, software = c("excel", "koch_6", "epiinfo"),
-  project = c("kk", "chechnya"), file = c("adm", "lab", "clinical_lab"),
-  rm_orig = TRUE, ...)
+  project = c("kk", "chechnya"), file = c("adm", "lab",
+  "clinical_lab"), rm_orig = TRUE, ...)
 }
 \arguments{
 \item{x}{data frame containing sample date variables}

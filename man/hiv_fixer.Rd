@@ -4,8 +4,8 @@
 \alias{hiv_fixer}
 \title{Factorise HIV variable}
 \usage{
-hiv_fixer(x, software = c("excel", "koch_6", "epiinfo"), rm_orig = TRUE,
-  ...)
+hiv_fixer(x, software = c("excel", "koch_6", "epiinfo"),
+  rm_orig = TRUE, ...)
 }
 \arguments{
 \item{x}{data frame containing Koch 6 admission variables}

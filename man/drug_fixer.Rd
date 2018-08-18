@@ -4,8 +4,9 @@
 \alias{drug_fixer}
 \title{Convert drug doses to binary output}
 \usage{
-drug_fixer(x, software = c("excel", "koch_6", "epiinfo"), project = c("kk",
-  "chechnya"), file = c("adm", "lab", "clinical_lab"), ...)
+drug_fixer(x, software = c("excel", "koch_6", "epiinfo"),
+  project = c("kk", "chechnya"), file = c("adm", "lab",
+  "clinical_lab"), ...)
 }
 \arguments{
 \item{x}{data frame containing drug variables}

@@ -4,8 +4,9 @@
 \alias{subset_vars}
 \title{Subset variables}
 \usage{
-subset_vars(x, software = c("excel", "koch_6", "epiinfo"), project = c("kk",
-  "chechnya"), file = c("adm", "lab", "clinical_lab"), add = NULL, ...)
+subset_vars(x, software = c("excel", "koch_6", "epiinfo"),
+  project = c("kk", "chechnya"), file = c("adm", "lab",
+  "clinical_lab"), add = NULL, ...)
 }
 \arguments{
 \item{x}{data frame containing variables}

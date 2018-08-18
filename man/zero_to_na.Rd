@@ -4,8 +4,9 @@
 \alias{zero_to_na}
 \title{Convert zero's to NA in data frame}
 \usage{
-zero_to_na(x, software = c("excel", "koch_6", "epiinfo"), project = c("kk",
-  "chechnya"), file = c("adm", "lab", "clinical_lab"), add = NULL, ...)
+zero_to_na(x, software = c("excel", "koch_6", "epiinfo"),
+  project = c("kk", "chechnya"), file = c("adm", "lab",
+  "clinical_lab"), add = NULL, ...)
 }
 \arguments{
 \item{x}{data frame containing variables}

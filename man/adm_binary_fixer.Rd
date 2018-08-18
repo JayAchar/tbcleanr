@@ -5,8 +5,8 @@
 \title{Convert binary variables to factorised output}
 \usage{
 adm_binary_fixer(x, software = c("excel", "koch_6", "epiinfo"),
-  project = c("kk", "chechnya"), file = c("adm", "lab", "clinical_lab"),
-  ...)
+  project = c("kk", "chechnya"), file = c("adm", "lab",
+  "clinical_lab"), ...)
 }
 \arguments{
 \item{x}{data frame containing drug variables}

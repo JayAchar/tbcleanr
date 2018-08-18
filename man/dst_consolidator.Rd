@@ -5,8 +5,8 @@
 \title{Consolidate DST results}
 \usage{
 dst_consolidator(x, software = c("excel", "koch_6", "epiinfo"),
-  project = c("kk", "chechnya"), file = c("adm", "lab", "clinical_lab"),
-  aggregate = FALSE, rm_orig = TRUE, ...)
+  project = c("kk", "chechnya"), file = c("adm", "lab",
+  "clinical_lab"), aggregate = FALSE, rm_orig = TRUE, ...)
 }
 \arguments{
 \item{x}{data frame containing variables}

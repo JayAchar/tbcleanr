@@ -5,8 +5,8 @@
 \title{Recode smear results}
 \usage{
 smear_recode(sm, software = c("excel", "koch_6", "epiinfo"),
-  project = c("kk", "chechnya"), file = c("adm", "lab", "clinical_lab"),
-  ...)
+  project = c("kk", "chechnya"), file = c("adm", "lab",
+  "clinical_lab"), ...)
 }
 \arguments{
 \item{sm}{smear variable as defined in result_consolidator()}

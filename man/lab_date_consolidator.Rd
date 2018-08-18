@@ -5,8 +5,8 @@
 \title{Aggregate dates in lab database}
 \usage{
 lab_date_consolidator(x, software = c("excel", "koch_6", "epiinfo"),
-  project = c("kk", "chechnya"), file = c("adm", "lab", "clinical_lab"),
-  ...)
+  project = c("kk", "chechnya"), file = c("adm", "lab",
+  "clinical_lab"), ...)
 }
 \arguments{
 \item{x}{data frame containing sample date variables}

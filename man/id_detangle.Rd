@@ -4,8 +4,9 @@
 \alias{id_detangle}
 \title{Detangle ID number}
 \usage{
-id_detangle(x, software = c("excel", "koch_6", "epiinfo"), project = c("kk",
-  "chechnya"), file = c("adm", "lab", "clinical_lab"), rm_orig = FALSE, ...)
+id_detangle(x, software = c("excel", "koch_6", "epiinfo"),
+  project = c("kk", "chechnya"), file = c("adm", "lab",
+  "clinical_lab"), rm_orig = FALSE, ...)
 }
 \arguments{
 \item{x}{data frame containing APID variable from KK programme}

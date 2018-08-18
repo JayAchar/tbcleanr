@@ -5,8 +5,8 @@
 \title{Recode culture results}
 \usage{
 culture_recode(cult, software = c("excel", "koch_6", "epiinfo"),
-  project = c("kk", "chechnya"), file = c("adm", "lab", "clinical_lab"),
-  ...)
+  project = c("kk", "chechnya"), file = c("adm", "lab",
+  "clinical_lab"), ...)
 }
 \arguments{
 \item{cult}{culture variable as defined in result_consolidator()}

@@ -4,8 +4,9 @@
 \alias{lab_longr}
 \title{Convert lab data from wide to long}
 \usage{
-lab_longr(x, software = c("excel", "koch_6", "epiinfo"), project = c("kk",
-  "chechnya"), file = c("adm", "lab", "clinical_lab"), add = NULL, ...)
+lab_longr(x, software = c("excel", "koch_6", "epiinfo"),
+  project = c("kk", "chechnya"), file = c("adm", "lab",
+  "clinical_lab"), add = NULL, ...)
 }
 \arguments{
 \item{x}{data frame containing variables}
