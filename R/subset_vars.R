@@ -90,6 +90,11 @@ if (software == "epiinfo") {
 				"Z1", "KM1", "OF1", "CAP1",
 				"MFX1", "GX_res1", "GX_res2", "GX_res3", "GX_res4")				
 			}
+	# KK clinical laboratory
+		if (project == "kk" & file == "clinical_lab") {
+			k <- c("APID", "Test date (dd/mm/yy)", "Test name", "Result", "Comment")
+			nms <- c("APID", "date", "test", "result", "comm")
+		}
 	}
 
 
@@ -109,11 +114,7 @@ if (software == "epiinfo") {
 					"ctmfx2", "ctlzd", "cthres", "cthrifres", "cthinhres")
 		}
 
-		# KK clinical laboratory
-		if (project == "kk" & file == "clinical_lab") {
-			k <- c("APID", "Test date (dd/mm/yy)", "Test name", "Result", "Comment")
-			nms <- c("APID", "date", "test", "result", "comm")
-		}
+
 
 
 	}  

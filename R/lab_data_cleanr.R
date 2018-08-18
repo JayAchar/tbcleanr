@@ -70,17 +70,17 @@ lab_data_cleanr <- function(x, software = c("excel", "koch_6", "epiinfo"),
 		lab_longr(software = software, project = project, file = file, ...)			
 
 
-if (software == "excel" && project == "chechnya" && file == "lab") {
+if (software == "excel" & project == "chechnya" & file == "lab") {
 	# check variable names are all present
 		vars <- c("dbno", "dstno", "dob", "samp_date", "sample", "smear", "culture",
 					"xpert_res", "xpert_rif", "hain_res", "hain_rif", "hain_inh", 
 					"dst_p_rif", "dst_p_inh")
 
-} else if (software == "excel" && project == "kk" && file == "clinical_lab") {
+} else if (software %in% c("excel", "epiinfo") & project == "kk" & file == "clinical_lab") {
 	# check variable names are all present
 		vars <- c("district", "id", "ds_dr", "date", "test", "result", "comm")
 	
-} else if (software == "koch_6" && file == "clinical_lab") {
+} else if (software == "koch_6" & file == "clinical_lab") {
 		
 		vars <- c("id", "labclindate", "test", "result")
 
