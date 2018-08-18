@@ -76,11 +76,11 @@ if (software == "epiinfo") {
 					"TRANDT", "OUTD")
 		}
 }
-		
+
 # =====================================================
-# Excel
-	if (software == "excel") {
-		# KK Laboratory 	
+# Excel or Epiinfo
+	if (software %in% c("epiinfo", "excel")) {
+	# KK Laboratory 	
 			if (project == "kk" & file == "lab") {
 			k <- c("APID", "MICRLABN", "FIRST", "SECOND", "THIRD", "BK1", "BK2", "BK3",
 				"RES", "RES02", "RES03", "RES04", "RESULT", "RESULT02", "RESULT03",
@@ -90,7 +90,13 @@ if (software == "epiinfo") {
 				"Z1", "KM1", "OF1", "CAP1",
 				"MFX1", "GX_res1", "GX_res2", "GX_res3", "GX_res4")				
 			}
+	}
 
+
+		
+# =====================================================
+# Excel
+	if (software == "excel") {
 		# Chechnya laboratory
 		if (project == "chechnya" & file == "lab") {
 		k <- c("dbno", "dstno", "dob", "sputum", "dcol1", "dcol2", "dcol3",
