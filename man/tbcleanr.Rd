@@ -17,6 +17,8 @@ The tbcleanr package provides functions to clean and subset TB data from K6, and
 
 \code{\link{cavities_fixer}}
 
+\code{\link{complete_tb_cleanr}}
+
 \code{\link{culture_recode}}
 
 \code{\link{date_format}}

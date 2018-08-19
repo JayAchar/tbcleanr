@@ -8,6 +8,7 @@
 #' @seealso \code{\link{adm_data_cleanr}} 
 #' @seealso \code{\link{bentiu_xpert_date}}  
 #' @seealso \code{\link{cavities_fixer}} 
+#' @seealso \code{\link{complete_tb_cleanr}} 
 #' @seealso \code{\link{culture_recode}}  
 #' @seealso \code{\link{date_format}}  
 #' @seealso \code{\link{drug_fixer}}  

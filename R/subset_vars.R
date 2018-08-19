@@ -80,6 +80,17 @@ if (software == "epiinfo") {
 # =====================================================
 # Excel or Epiinfo
 	if (software %in% c("epiinfo", "excel")) {
+		# KK Laboratory 	
+		if (project == "kk" & file == "lab") {
+				k <- c("APID", "MICRLABN", "FIRST", "SECOND", "THIRD", "BK1", "BK2", "BK3",
+					"RES", "RES02", "RES03", "RES04", "RESULT", "RESULT02", "RESULT03",
+					"RESULT04", "MGITH", "MGITE", "MGITR", "MGITZ", "HAINH",
+					"HAINR", "H", "E", "R", "Z", "KM", "OF", "CAP",
+					"H1", "E1", "R1", 
+					"Z1", "KM1", "OF1", "CAP1",
+					"MFX1", "GX_res1", "GX_res2", "GX_res3", "GX_res4")				
+				}
+
 	# KK clinical laboratory
 		if (project == "kk" & file == "clinical_lab") {
 			k <- c("APID", "Test date (dd/mm/yy)", "Test name", "Result", "Comment")
@@ -87,18 +98,7 @@ if (software == "epiinfo") {
 		}
 	}
 
-	# KK Laboratory 	
-	if (project == "kk" & file == "lab") {
-			k <- c("APID", "MICRLABN", "FIRST", "SECOND", "THIRD", "BK1", "BK2", "BK3",
-				"RES", "RES02", "RES03", "RES04", "RESULT", "RESULT02", "RESULT03",
-				"RESULT04", "MGITH", "MGITE", "MGITR", "MGITZ", "HAINH",
-				"HAINR", "H", "E", "R", "Z", "KM", "OF", "CAP",
-				"H1", "E1", "R1", 
-				"Z1", "KM1", "OF1", "CAP1",
-				"MFX1", "GX_res1", "GX_res2", "GX_res3", "GX_res4")				
-			}
 
-		
 # =====================================================
 # Excel
 	if (software == "excel") {
