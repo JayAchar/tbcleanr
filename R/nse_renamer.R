@@ -65,6 +65,7 @@ nse_renamer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 		}
 	
 
+
 	if (fun == "converter") {
 		newnames <- c("id", "starttre", "dateend", "culture", "samp_date", "smear")
 		
@@ -72,20 +73,24 @@ nse_renamer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 			oldnames <- c("idno", "Starttre", "dateend", "culture", 
 						"samp_date", "smear")
 		}
-
 		if (project == "kk") {
 			oldnames <- c("id", "STARTTRE", "DATEN", "culture",
 						"samp_date", "smear")
 		}
 	}
 
+
 	if (fun == "dst_baseliner") {
 		newnames <- c("id", "starttre", "dateend", "labno", "samp_date")
 
-		if (project == "kk") {
+		if (software == "epiinfo" & project == "kk") {
 			oldnames <- c("id", "STARTTRE", "DATEN", "MICRLABN", "samp_date")
 		}
+		if (software == "koch_6" & project == "kk") {
+			oldnames <- c("id", "Starttre", "dateend", "MICRLABN", "samp_date")
 	}
+	}
+
 
 	if (fun == "ecg_collectr") {
 		newnames <- c("id", "starttre", "date", "result")
