@@ -62,7 +62,7 @@ adm_data_cleanr <- function(x, software = c("excel", "koch_6", "epiinfo"),
 	} 
 
 # adjust dstnumber var to match lab dstnumber var
-	if (project == "chechnya") {
+	if (software == "koch_6") {
 		x$dstnumber <- as.numeric(x$dstnumber)
 		names(x)[names(x) == "dstnumber"] <- "dstno"
 	}
