@@ -59,6 +59,12 @@ adm_data_cleanr <- function(x, software = c("excel", "koch_6", "epiinfo"),
 	if (software == "epiinfo") {
 		x <- x %>%
 			epi_info_misc_cleanr()
+	} 
+
+# adjust dstnumber var to match lab dstnumber var
+	if (project == "chechnya") {
+		x$dstnumber <- as.numeric(x$dstnumber)
+		names(x)[names(x) == "dstnumber"] <- "dstno"
 	}
 
 

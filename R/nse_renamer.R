@@ -89,6 +89,9 @@ nse_renamer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 		if (software == "koch_6" & project == "kk") {
 			oldnames <- c("id", "Starttre", "dateend", "MICRLABN", "samp_date")
 	}
+			if (software == "koch_6" & project == "chechnya") {
+			oldnames <- c("id", "Starttre", "dateend", "dbno", "samp_date")
+	}
 	}
 
 
