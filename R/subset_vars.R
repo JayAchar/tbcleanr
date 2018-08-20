@@ -101,7 +101,7 @@ if (software == "epiinfo") {
 
 # =====================================================
 # Excel
-	if (software == "excel") {
+	if (software %in% c("excel", "koch_6")) {
 		# Chechnya laboratory
 		if (project == "chechnya" & file == "lab") {
 		k <- c("dbno", "dstno", "dob", "sputum", "dcol1", "dcol2", "dcol3",
@@ -113,9 +113,6 @@ if (software == "epiinfo") {
 					"cts", "ctr", "cth", "ctz", "cte", "ctcm", "ctam", "ctlfx", "ctmfx",
 					"ctmfx2", "ctlzd", "cthres", "cthrifres", "cthinhres")
 		}
-
-
-
 
 	}  
 
