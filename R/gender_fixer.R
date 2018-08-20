@@ -9,6 +9,7 @@
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{tbcleanr}}
 #' @export
+#' @importFrom assertive assert_is_data.frame
 #' @examples
 #' \dontrun{
 #' gender_fixer(p, software = "koch_6")
@@ -19,9 +20,8 @@ gender_fixer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 							rm_orig = TRUE, ...) {
 
 # check input
-	if (!(is.data.frame(x))) {
-			stop("input paramter, x, must be a data frame")
-	}
+assert_is_data.frame(x)
+
 # check all args
 	software <- match.arg(software)
 
@@ -43,13 +43,16 @@ gender_fixer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 		stop("Gender variable not present in data frame")
 	}
 
-
-# convert gender == not done to NA
-	x[[gen_var]][x[[gen_var]] == 0] <- NA
-
+if (software == "epiinfo") {
 # convert character to numeric
 	x[[gen_var]][x[[gen_var]] == "M"] <- 1
 	x[[gen_var]][x[[gen_var]] == "F"] <- 2
+}
+
+if (software == "koch_6") {
+	# convert gender == not done to NA
+	x[[gen_var]][x[[gen_var]] == 0] <- NA
+}
 
 # check levels of gender variable
 	if (! length(table(x[[gen_var]])) == 2) {
@@ -66,7 +69,7 @@ gender_fixer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 	}
 
 # remove original variables
- 	if (rm_orig %in% c("TRUE", "T")) {
+ 	if (rm_orig %in% c("TRUE", "T") & software == "epiinfo") {
  		x[, gen_var] <- NULL
  	}
 
