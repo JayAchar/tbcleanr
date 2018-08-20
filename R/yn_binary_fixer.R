@@ -27,14 +27,6 @@ yn_binary_fixer <- function(x, ...) {
 		stop(error_message)
 	}
 
-# remove variables with all NAs
-	if (all(is.na(x))) {
-		varname <- deparse(substitute(x))
-		mess <- paste(varname, "- Y/N variable dropped as all NAs")
-		message(mess)
-		x <- NULL
-
-	} else {
 
 		if (class %in% s[1:2]) {
 			
@@ -67,8 +59,7 @@ yn_binary_fixer <- function(x, ...) {
 			x <- factor(x, levels = c(0,1),
 						labels = c("No", "Yes"))
 
-	}
 
 
-return(x)
+x
 }
