@@ -27,7 +27,7 @@ id_detangle <- function(x, software = c("excel", "koch_6", "epiinfo"),
 							rm_orig = FALSE, ...) {
 
 # check input
-	assert_is_data.frame(adm)
+	assert_is_data.frame(x)
 
 # check all args
 	software <- match.arg(software)
