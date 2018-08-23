@@ -57,7 +57,8 @@ id_detangle <- function(x, software = c("excel", "koch_6", "epiinfo"),
 # warning regarding missing APID in records
 	if (sum(is.na(x[[id]])) > 0) {
 		m <- sum(is.na(x[[id]]))
-		warning(paste("There are", m, "missing ID values in this dataset"))
+		message(paste("There are", m, "missing ID values in the", 
+					project, file, "dataset"))
 	}
 
 # if software = "koch_6"
