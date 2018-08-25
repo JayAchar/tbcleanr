@@ -36,14 +36,14 @@ adm_binary_fixer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 
 # =================================================================
 # set set specific variables 
-		if (software == "koch_6" && file == "adm") {
+		if (software == "koch_6" & file == "adm") {
 			v <- c("diabetes", "cardiodi", "renalfail")
-		} else if (software == "epiiinfo" && file == "adm") {
+		} else if (software == "epiiinfo" & file == "adm") {
 			# numerical variables
 			v <- c("DIABETES","CARDIODI", "RENALFAI","PSYCHI", "SEIZURE", "HEPADIS",
 					"ALCO")
 			# character variables
-			chr <- c("HD", "EE", "RR", "ZP","CSC", "SMS", "AMA", "KMK", "CPX", "OFX",
+			chr_var <- c("HD", "EE", "RR", "ZP","CSC", "SMS", "AMA", "KMK", "CPX", "OFX",
 					"TT", "ETHE","PASP", "AMXC","CFZ", "CLRC","CMC", "OTH", "EVER",
 					"INJECT", "HOMELESS", "HEALTHWO", "PRIWO", "TOBACCO")
 		} else {
@@ -61,8 +61,8 @@ adm_binary_fixer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 
 
 # recode character variables
-	if (exists("chr")) {
-		x[] <- map_at(x, .at = c, .f = yn_binary_fixer)
+	if (exists("chr_var")) {
+		x[] <- map_at(x, .at = chr_var, .f = yn_binary_fixer)
 	} 
 	
 
