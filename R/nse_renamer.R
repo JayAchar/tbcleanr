@@ -23,7 +23,7 @@ nse_renamer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 						project = c("kk", "chechnya"),
 						file = c("adm", "lab", "clinical_lab"), 
 						fun = c("baseliner", "converter", "drug_duration",
-								"dst_baseliner", "ecg_collectr"), ...) {
+								"dst_baseliner", "ecg_collectr", "change_cleanr"), ...) {
 
 # check input
 	if (!(is.data.frame(x))) {
@@ -64,6 +64,18 @@ nse_renamer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 			}
 		}
 	
+		if (fun == "change_cleanr") {
+			newnames <- c("id", "date", "bdq_change", "dlm_change", "mfx_change",
+										"cfz_change", "lfx_change")
+
+			if (software == "epiinfor") {
+				oldnames <- c("APID", "DACHAN", "CXG", "CXI", "CXC", "CCLO", "CXE")
+			}
+			if (software == "koch_6") {
+				oldnames <- c("RegistrationNb", "changedate", "CBdq", "CDld", "CMfx",
+											"CCfz", "CLfx")
+			}
+		}
 
 
 	if (fun == "converter") {
