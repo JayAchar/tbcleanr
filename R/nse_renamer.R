@@ -23,7 +23,8 @@ nse_renamer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 						project = c("kk", "chechnya"),
 						file = c("adm", "lab", "clinical_lab"), 
 						fun = c("baseliner", "converter", "drug_duration",
-								"dst_baseliner", "ecg_collectr", "change_cleanr"), ...) {
+								"dst_baseliner", "ecg_collectr", "change_cleanr",
+								"all_drugs_on_dater"), ...) {
 
 # check input
 	if (!(is.data.frame(x))) {
@@ -38,19 +39,25 @@ nse_renamer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 
 
 # ======================================================
-# generate variables
-#	if (fun == "drug_duration") {
-#		newnames <- c("id", "change", "start", "end", "drug", "drug_change",
-#									"change_dose")
-		
-#		if (project == "chechnya") {
-#					dc <- paste0("C", arguments$drug)
-#					cd <- paste0("N", arguments$drug)
-#			oldnames <- c("RegistrationNb", "changedate", "Starttre",
-#									 "dateend", arguments$drug, dc, cd)
-#			}
-#	}
+# =============================== #
 
+	if (fun == "all_drugs_on_dater") {
+		newnames <- c("id", "start", "base_lfx", "base_mfx", "base_bdq", 
+										"base_dlm", "base_cfz")
+		
+		if (software == "epiinfo") {
+			oldnames <- c("id", "STARTTRE", "LXDLX", "MXDMX", "BDQDBDQ",
+                    "DLMDDLM", "CLODCLO")
+		}
+
+		if (software == "koch_6") {
+									oldnames <- c("id", "Starttre", "Lfx", "Mfx", "Bdq",
+											"Dld", "Cfz")
+			}
+		}
+
+
+# =============================== #
 	if (fun == "baseliner") {
 		newnames <- c("id", "samp_date", "start", "end", "culture", "smear")
 		
@@ -63,7 +70,7 @@ nse_renamer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 											"DATEN", "culture", "smear")
 			}
 		}
-	
+# =============================== #
 		if (fun == "change_cleanr") {
 			newnames <- c("id", "date", "bdq_change", "dlm_change", "mfx_change",
 										"cfz_change", "lfx_change")
@@ -77,7 +84,7 @@ nse_renamer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 			}
 		}
 
-
+# =============================== #
 	if (fun == "converter") {
 		newnames <- c("id", "starttre", "dateend", "culture", "samp_date", "smear")
 		
@@ -91,7 +98,7 @@ nse_renamer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 		}
 	}
 
-
+# =============================== #
 	if (fun == "dst_baseliner") {
 		newnames <- c("id", "starttre", "dateend", "labno", "samp_date")
 
@@ -106,7 +113,7 @@ nse_renamer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 	}
 	}
 
-
+# =============================== #
 	if (fun == "ecg_collectr") {
 		newnames <- c("id", "starttre", "date", "result")
 
