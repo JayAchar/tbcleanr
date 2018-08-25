@@ -42,7 +42,7 @@ drug_fixer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 		d <- c("HDH","RDR", "EDE", "ZDZ", "SDS",
 			"KADKA", "OFLDOFL", "CAPDCAP", "ETHDETH", "CYCLDCYCL", "AMXDAMX", "PASDPAS",
 			"CLADCLA", "CLODCLO", "LXDLX", "MXDMX", "PTDPT", "LZDDLZD", "IMPDIMP",
-			"BDQDBDQ")
+			"BDQDBDQ", "DLMDDLM")
 		# convert all variables to numerical for yn_binary_fixer()
 		x[] <- map_at(x, .at = d, .f = as.numeric)
 	} else {
