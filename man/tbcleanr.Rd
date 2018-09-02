@@ -51,6 +51,8 @@ The tbcleanr package provides functions to clean and subset TB data from K6, and
 
 \code{\link{oca_xpert_date}}
 
+\code{\link{oca_xpert_cleanr}}
+
 \code{\link{outcome_fixer}}
 
 \code{\link{result_consolidator}}

@@ -25,6 +25,7 @@
 #' @seealso \code{\link{mtbdrplus_fixer}}  
 #' @seealso \code{\link{nse_renamer}}  
 #' @seealso \code{\link{oca_xpert_date}} 
+#' @seealso \code{\link{oca_xpert_cleanr}} 
 #' @seealso \code{\link{outcome_fixer}} 
 #' @seealso \code{\link{result_consolidator}} 
 #' @seealso \code{\link{smear_recode}}  
