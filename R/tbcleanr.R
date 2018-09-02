@@ -5,8 +5,7 @@
 #' 
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{adm_binary_fixer}} 
-#' @seealso \code{\link{adm_data_cleanr}} 
-#' @seealso \code{\link{bentiu_xpert_date}}  
+#' @seealso \code{\link{adm_data_cleanr}}  
 #' @seealso \code{\link{cavities_fixer}} 
 #' @seealso \code{\link{complete_tb_cleanr}} 
 #' @seealso \code{\link{culture_recode}}  
@@ -25,6 +24,7 @@
 #' @seealso \code{\link{lab_sample_fixer}}  
 #' @seealso \code{\link{mtbdrplus_fixer}}  
 #' @seealso \code{\link{nse_renamer}}  
+#' @seealso \code{\link{oca_xpert_date}} 
 #' @seealso \code{\link{outcome_fixer}} 
 #' @seealso \code{\link{result_consolidator}} 
 #' @seealso \code{\link{smear_recode}}  

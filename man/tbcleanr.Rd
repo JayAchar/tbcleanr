@@ -13,8 +13,6 @@ The tbcleanr package provides functions to clean and subset TB data from K6, and
 
 \code{\link{adm_data_cleanr}}
 
-\code{\link{bentiu_xpert_date}}
-
 \code{\link{cavities_fixer}}
 
 \code{\link{complete_tb_cleanr}}
@@ -50,6 +48,8 @@ The tbcleanr package provides functions to clean and subset TB data from K6, and
 \code{\link{mtbdrplus_fixer}}
 
 \code{\link{nse_renamer}}
+
+\code{\link{oca_xpert_date}}
 
 \code{\link{outcome_fixer}}
 
