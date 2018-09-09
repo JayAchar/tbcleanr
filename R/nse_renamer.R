@@ -42,16 +42,16 @@ nse_renamer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 # =============================== #
 
 	if (fun == "all_drugs_on_dater") {
-		newnames <- c("id", "start", "base_lfx", "base_mfx", "base_bdq", 
+		newnames <- c("id", "start", "base_inh", "base_lfx", "base_mfx", "base_bdq", 
 										"base_dlm", "base_cfz")
 		
 		if (software == "epiinfo") {
-			oldnames <- c("id", "STARTTRE", "LXDLX", "MXDMX", "BDQDBDQ",
+			oldnames <- c("id", "STARTTRE", "HDH" "LXDLX", "MXDMX", "BDQDBDQ",
                     "DLMDDLM", "CLODCLO")
 		}
 
 		if (software == "koch_6") {
-									oldnames <- c("id", "Starttre", "Lfx", "Mfx", "Bdq",
+									oldnames <- c("id", "Starttre", "H", "Lfx", "Mfx", "Bdq",
 											"Dld", "Cfz")
 			}
 		}
