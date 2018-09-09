@@ -73,14 +73,14 @@ nse_renamer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 		}
 # =============================== #
 		if (fun == "change_cleanr") {
-			newnames <- c("id", "date", "bdq_change", "dlm_change", "mfx_change",
+			newnames <- c("id", "date", "inh_change", "bdq_change", "dlm_change", "mfx_change",
 										"cfz_change", "lfx_change")
 
 			if (software == "epiinfo") {
-				oldnames <- c("APID", "DACHAN", "CXG", "CXI", "CXC", "CCLO", "CXE")
+				oldnames <- c("APID", "DACHAN", "CH", "CXG", "CXI", "CXC", "CCLO", "CXE")
 			}
 			if (software == "koch_6") {
-				oldnames <- c("RegistrationNb", "changedate", "CBdq", "CDld", "CMfx",
+				oldnames <- c("RegistrationNb", "changedate", "CH", "CBdq", "CDld", "CMfx",
 											"CCfz", "CLfx")
 			}
 		}
