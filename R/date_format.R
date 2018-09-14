@@ -18,7 +18,8 @@ date_format <- function(x, format = dmy, ...) {
 			# strings to detect
 			strings <- c("^\\d{2}/\\d{2}/\\d{4}$",
 						"^\\d{2} \\w* \\d{4}$",
-						"^\\d{2}-\\w*-\\d{2}$")
+						"^\\d{2}-\\w*-\\d{2}$",
+						"^\\d{2}-\\d{2}-\\d{4}$")
 			
 	for (i in 1:length(names(x)))	{
 		x[[i]] %>%
