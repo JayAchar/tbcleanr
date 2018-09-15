@@ -48,7 +48,7 @@ adm_data_cleanr <- function(x, software = c("excel", "koch_6", "epiinfo"),
 			# hiv variables consolidated
 		hiv_fixer(software = software, ...) %>%
 			# cavities variables consolidated
-		cavities_fixer(software = software, ...) %>%
+		cavities_fixer(software = software, project = project, ...) %>%
 			# fix outcomes variables
 		outcome_fixer(software = software, ...) %>%
 			# change all drugs from doses to binary

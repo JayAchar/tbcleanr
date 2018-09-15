@@ -4,6 +4,8 @@
 #' and aggregate into new variable -cavity-
 #' @param x data frame containing xray variable data
 #' @param software define database being used - "koch_6", "epiinfo"
+#' @param project define project location to apply.
+#' Values can be "kk", "chechnya".
 #' @param rm_orig remove original variables - TRUE or FALSE
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
@@ -16,6 +18,7 @@
 
 
 cavities_fixer <- function(x, software = c("excel", "koch_6", "epiinfo"),
+								project = c("kk", "chechnya"),
 								rm_orig = TRUE, ...) {
 
 # check input
@@ -24,12 +27,14 @@ cavities_fixer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 	}	
 # check all args
 	software <- match.arg(software)
+	project <- match.arg(project)
 
 # =================================================================
 # set software specific variables 
 		if (software == "koch_6") {
 			v1 <- "cav"
 			v2 <- "cavD"
+			v3 <- "cavsimple"
 			v <- c(v1, v2)	
 		}	
 		if (software == "epiinfo") {
@@ -50,29 +55,30 @@ cavities_fixer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 # generate aggregate binary variable
 	x$cavity <- NA
 
-if (software == "koch_6") {
+if (software == "koch_6" & project == "chechnya") {
 	# check levels of x-ray variables
 	if (! length(table(x[[v1]])) && length(table(x[[v2]])) == 3) {
 		stop("X-ray variables have incorrect number of levels")
 	}
-	# factorise x-ray variables
-		factorise_xray <- function(x) {
-			x <- factor(x, levels = c(0:2),
-					labels = c("None",
-								"1 lobe",
-								"> 1 lobe"))
-			return(x)
-		}
 
-	# apply factorise function to drug variables
-		x[[v1]]  <- factorise_xray(x[[v1]])
-		x[[v2]] <- factorise_xray(x[[v2]])
+	# recode variables to have binary variable
+		x[[v1]][x[[v1]] == 2] <- 1L
+		x[[v2]][x[[v2]] == 2] <- 1L
 
 		# no cavities
-	x$cavity[x[[v1]] == "None" && x[[v2]] == "None"] <- 0
+	x$cavity[x[[v1]] == 0 & x[[v2]] == 0] <- 0
 		# cavities present
 	x$cavity[is.na(x$cavity)] <- 1
 }
+
+if (software == "koch_6" & project == "kk") {
+
+		x[[v3]][x[[v3]] == 2] <- 0L
+
+		x$cavity <- x[[v3]]
+
+}
+
 
 if (software == "epiinfo") {
 	# check levels of x-ray variables

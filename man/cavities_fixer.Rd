@@ -5,12 +5,15 @@
 \title{Fix and aggregate Koch 6 x-ray cavities variables}
 \usage{
 cavities_fixer(x, software = c("excel", "koch_6", "epiinfo"),
-  rm_orig = TRUE, ...)
+  project = c("kk", "chechnya"), rm_orig = TRUE, ...)
 }
 \arguments{
 \item{x}{data frame containing xray variable data}
 
 \item{software}{define database being used - "koch_6", "epiinfo"}
+
+\item{project}{define project location to apply.
+Values can be "kk", "chechnya".}
 
 \item{rm_orig}{remove original variables - TRUE or FALSE}
 
