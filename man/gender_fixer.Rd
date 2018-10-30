@@ -4,26 +4,23 @@
 \alias{gender_fixer}
 \title{Factorise gender variable}
 \usage{
-gender_fixer(x, software = c("excel", "koch_6", "epiinfo"),
-  rm_orig = TRUE, ...)
+gender_fixer(x, ...)
 }
 \arguments{
 \item{x}{data frame containing Koch 6 admission variables}
 
-\item{software}{define database being used - "koch_6", "epiinfo"}
-
-\item{rm_orig}{remove original variables - TRUE or FALSE}
-
 \item{...}{further arguments passed to or from other methods}
 }
 \description{
-Take gender variable from data frame and factorise. Use software
-to define which data base is being used as the input
+Take gender variable from data frame and factorise. Requires that variable names
+have been pre-adjusted.
 }
 \examples{
-\dontrun{
-gender_fixer(p, software = "koch_6")
-}
+# data from Koch 6 with variable names pre-cleaned
+
+x <- tbcleanr:::gender_k6
+gender_fixer(x)
+
 }
 \seealso{
 \code{\link{tbcleanr}}
