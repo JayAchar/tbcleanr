@@ -10,6 +10,7 @@
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{tbcleanr}}
+#' @importFrom assertthat assert_that
 #' @export
 #' @examples
 #' \dontrun{
@@ -22,9 +23,8 @@ cavities_fixer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 								rm_orig = TRUE, ...) {
 
 # check input
-	if (!(is.data.frame(x))) {
-			stop("input paramter, x, must be a data frame")
-	}	
+  assert_that(is.data.frame(x))
+        
 # check all args
 	software <- match.arg(software)
 	project <- match.arg(project)
