@@ -5,6 +5,7 @@
 #' 
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{adm_classr}} 
+#' @seealso \code{\link{adm_subset}}
 #' @seealso \code{\link{adm_binary_fixer}} 
 #' @seealso \code{\link{adm_data_cleanr}}  
 #' @seealso \code{\link{cavities_fixer}} 
