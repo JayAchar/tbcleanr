@@ -1,0 +1,13 @@
+#' Default method for adm_subset()
+#'
+#' Allow data frames with unspecified object class to pass through
+#' @param x data frame containing variables
+#' @param ... further arguments passed to or from other methods
+#' @author Jay Achar \email{jay.achar@@doctors.org.uk}
+#' @seealso \code{\link{tbcleanr}}
+
+
+adm_subset.default <- function(x, ...) {
+        
+x        
+}
