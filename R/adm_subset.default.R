@@ -8,6 +8,7 @@
 
 
 adm_subset.default <- function(x, ...) {
-        
+
+message("No adm object class detected: adm_subset() not applied.")
 x        
 }
