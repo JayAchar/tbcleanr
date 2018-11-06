@@ -15,13 +15,6 @@ gender_fixer(x, ...)
 Take gender variable from data frame and factorise. Requires that variable names
 have been pre-adjusted.
 }
-\examples{
-# data from Koch 6 with variable names pre-cleaned
-
-x <- tbcleanr:::gender_k6
-gender_fixer(x)
-
-}
 \seealso{
 \code{\link{tbcleanr}}
 }

@@ -8,13 +8,6 @@
 #' @seealso \code{\link{tbcleanr}}
 #' @export
 #' @importFrom assertthat assert_that
-#' @examples
-#' # data from Koch 6 with variable names pre-cleaned
-#' 
-#' x <- tbcleanr:::gender_k6
-#' gender_fixer(x)
-#' 
-
 
 gender_fixer <- function(x, ...) {
 
