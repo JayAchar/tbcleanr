@@ -14,5 +14,5 @@ You can install the released version of tbcleanr from [Github](http://www.github
 
 ``` r
 library(devtools)
-install_.packages_github("JayAchar/tbcleanr")
+install_github("JayAchar/tbcleanr")
 ```
