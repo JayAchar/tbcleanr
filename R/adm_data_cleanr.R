@@ -37,14 +37,16 @@ adm_data_cleanr <- function(x, software = c("excel", "koch_6", "epiinfo"),
 
 # =======================================================
 	x <- x %>%
+	        # add object class
+	        adm_classr() %>% 
 			# subset variables
-		subset_vars(software = software, project = project, file = file, add = add, ...) %>%
+		adm_subset(add = add, ...) %>%
 			# detangle apid number
 		id_detangle(software = software, project = project, file = file, ...) %>%
 			# date format
 		date_format(...) %>%
 			# categorise gender variable
-		gender_fixer(software = software, ...) %>%
+		gender_fixer() %>%
 			# hiv variables consolidated
 		hiv_fixer(software = software, ...) %>%
 			# cavities variables consolidated

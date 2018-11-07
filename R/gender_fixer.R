@@ -12,35 +12,8 @@
 gender_fixer <- function(x, ...) {
 
 # check input
-        assert_that(is.data.frame(x))
-
-# =================================================================
-# check gender variable present
-	if (! "gender" %in% names(x)) {
-		stop("Gender variable not present in data frame")
-	}
-
-# for EpiInfo data
-if (is.character(x$gender)) {
-# convert character to numeric
-	x$gender[x$gender == "M"] <- 1
-	x$gender[x$gender == "F"] <- 2
-}
-
-# for Koch 6 data
-if (is.numeric(x$gender)) {
-	# convert gender == not done to NA
-	x$gender[x$gender == 0] <- NA
-}
-
-# check levels of gender variable
-	if (! length(table(x$gender)) == 2) {
-		stop("Gender variable does not have 2 levels")
-	}
-
-# factorise gender variable
-	x$gender <- factor(x$gender, levels = c(1:2),
-				labels = c("Male", "Female"))
-
-x
+    assert_that(is.data.frame(x))
+    
+# UseMethod
+    UseMethod("gender_fixer", x)
 }
