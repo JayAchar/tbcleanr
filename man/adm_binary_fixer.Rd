@@ -26,11 +26,6 @@ Values can be "adm", "lab", "clinical_lab",}
 Take data frame with binary variables and output 
 binary factorised variables
 }
-\examples{
-\dontrun{
-adm_binary_fixer(p, set = "msc500")
-}
-}
 \seealso{
 \code{\link{tbcleanr}}
 }

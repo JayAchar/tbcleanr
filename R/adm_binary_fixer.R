@@ -14,10 +14,7 @@
 #' @seealso \code{\link{tbcleanr}}
 #' @importFrom purrr map_at
 #' @export
-#' @examples
-#' \dontrun{
-#' adm_binary_fixer(p, set = "msc500")
-#' }
+
 
 adm_binary_fixer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 								project = c("kk", "chechnya"),

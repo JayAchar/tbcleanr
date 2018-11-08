@@ -8,6 +8,7 @@
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{tbcleanr}}
+#' @importFrom assertthat assert_that
 #' @export
 #' @examples
 #' \dontrun{
@@ -18,9 +19,7 @@ hiv_fixer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 						rm_orig = TRUE, ...) {
 
 # check input
-	if (!(is.data.frame(x))) {
-			stop("input paramter, x, must be a data frame")
-	}
+  assert_that(is.data.frame(x))
 
 # check all args
 	software <- match.arg(software)
@@ -42,9 +41,9 @@ hiv_fixer <- function(x, software = c("excel", "koch_6", "epiinfo"),
 # =================================================================
 
 # check variables are present
-			if (! all(h_names %in% names(x))) {
-				stop("Required HIV variables not included in data frame")
-			}
+	if (! all(h_names %in% names(x))) {
+		stop("Required HIV variables not included in data frame")
+	}
 
 # generate aggregate HIV variable
 			x$hiv <- NA
