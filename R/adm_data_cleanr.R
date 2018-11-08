@@ -48,7 +48,7 @@ adm_data_cleanr <- function(x, software = c("excel", "koch_6", "epiinfo"),
 			# categorise gender variable
 		gender_fixer() %>%
 			# hiv variables consolidated
-		hiv_fixer(software = software, ...) %>%
+		hiv_fixer() %>%
 			# cavities variables consolidated
 #		cavities_fixer(software = software, project = project, ...) %>%
 			# fix outcomes variables
