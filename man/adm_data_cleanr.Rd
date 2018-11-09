@@ -28,11 +28,6 @@ Values can be "adm", "lab", "clinical_lab",}
 Take admission data set and perform multiple adjustments based on which
 database set is being used
 }
-\examples{
-\dontrun{
-adm_data_cleanr(p, set = "k6_adm_standard")
-}
-}
 \seealso{
 \code{\link{tbcleanr}}
 }

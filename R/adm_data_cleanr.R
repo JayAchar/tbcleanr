@@ -14,11 +14,8 @@
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{tbcleanr}}
 #' @importFrom magrittr %>%
+#' @importFrom assertthat assert_that
 #' @export
-#' @examples
-#' \dontrun{
-#' adm_data_cleanr(p, set = "k6_adm_standard")
-#' }
 
 
 adm_data_cleanr <- function(x, software = c("excel", "koch_6", "epiinfo"),
@@ -26,9 +23,7 @@ adm_data_cleanr <- function(x, software = c("excel", "koch_6", "epiinfo"),
 								file = c("adm", "lab", "clinical_lab"), 
 								add = NULL, ...) {
 # check input
-	if (!(is.data.frame(x))) {
-			stop("input paramter, x, must be a data frame")
-	}
+    assert_that(is.data.frame(x))
 
 # check all args
 	software <- match.arg(software)
@@ -52,7 +47,7 @@ adm_data_cleanr <- function(x, software = c("excel", "koch_6", "epiinfo"),
 			# cavities variables consolidated
 #		cavities_fixer(software = software, project = project, ...) %>%
 			# fix outcomes variables
-		outcome_fixer(software = software, ...) %>%
+		outcome_fixer(...) %>%
 			# change all drugs from doses to binary
 		drug_fixer(software = software, project = project, file = file, ...) %>%
 			# change all binary variables to factors
