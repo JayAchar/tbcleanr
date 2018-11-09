@@ -19,7 +19,9 @@ hiv_fixer.koch6 <- function(x, ...) {
     
 # check that levels for HIV variable are correct
     assert_that(unique(x$cdhivenrol) %in% c(0:5, NA_integer_) %>% all())
-    
+
+# save object class
+    object_class <- class(x)
     
 # recode cdhivenrol
     # 0 = not defined, 1 = positive, 2 = negative, 3 = not done
@@ -44,7 +46,9 @@ hiv_fixer.koch6 <- function(x, ...) {
 # factorise gender variable
     x$hiv <- factor(x$hiv, levels = c(0:1),
                     labels = c("Negative", "Positive"))    
-    
+
+# reattach object_class
+    class(x) <- object_class
     
     x
 }
