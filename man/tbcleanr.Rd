@@ -31,8 +31,6 @@ The tbcleanr package provides functions to clean and subset TB data from K6, and
 
 \code{\link{dst_recoder}}
 
-\code{\link{dstno_detangle}}
-
 \code{\link{epi_info_misc_cleanr}}
 
 \code{\link{gender_fixer}}

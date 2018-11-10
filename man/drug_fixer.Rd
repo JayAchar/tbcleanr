@@ -4,32 +4,16 @@
 \alias{drug_fixer}
 \title{Convert drug doses to binary output}
 \usage{
-drug_fixer(x, software = c("excel", "koch_6", "epiinfo"),
-  project = c("kk", "chechnya"), file = c("adm", "lab",
-  "clinical_lab"), ...)
+drug_fixer(x, ...)
 }
 \arguments{
 \item{x}{data frame containing drug variables}
-
-\item{software}{define software used for data collection.
-Values can be "excel", "koch_6", "epiinfo"}
-
-\item{project}{define project location to apply.
-Values can be "kk", "chechnya".}
-
-\item{file}{define database file argument to apply.
-Values can be "adm", "lab", "clinical_lab",}
 
 \item{...}{further arguments passed to or from other methods.}
 }
 \description{
 Take data frame with drug dosing variables and output 
 binary factorised variables
-}
-\examples{
-\dontrun{
-drug_fixer(p, set = "msc500")
-}
 }
 \seealso{
 \code{\link{tbcleanr}}
