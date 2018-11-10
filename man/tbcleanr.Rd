@@ -13,9 +13,9 @@ The tbcleanr package provides functions to clean and subset TB data from K6, and
 
 \code{\link{adm_subset}}
 
-\code{\link{adm_binary_fixer}}
-
 \code{\link{adm_data_cleanr}}
+
+\code{\link{binary_fixer}}
 
 \code{\link{cavities_fixer}}
 

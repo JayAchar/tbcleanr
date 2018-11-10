@@ -51,7 +51,7 @@ adm_data_cleanr <- function(x, software = c("excel", "koch_6", "epiinfo"),
 			# change all drugs from doses to binary
 		drug_fixer() %>%
 			# change all binary variables to factors
-		adm_binary_fixer(software = software, project = project, file = file, ...)	
+		binary_fixer(...)	
 
 	if (software == "epiinfo") {
 		x <- x %>%
