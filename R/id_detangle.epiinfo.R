@@ -8,12 +8,12 @@
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{tbcleanr}}
 #' @importFrom stringr str_match str_extract
-#' @importFrom assertive assert_is_data.frame
+#' @importFrom assertthat assert_that
 
 id_detangle.epiinfo <- function(x, ...) {
 
 # check input
-	assert_is_data.frame(x)
+	assert_that(is.data.frame(x))
 
 # =================================================================
 
