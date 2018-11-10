@@ -17,21 +17,9 @@ The tbcleanr package provides functions to clean and subset TB data from K6, and
 
 \code{\link{binary_fixer}}
 
-\code{\link{cavities_fixer}}
-
-\code{\link{complete_tb_cleanr}}
-
-\code{\link{culture_recode}}
-
 \code{\link{date_format}}
 
 \code{\link{drug_fixer}}
-
-\code{\link{dst_consolidator}}
-
-\code{\link{dst_recoder}}
-
-\code{\link{epi_info_misc_cleanr}}
 
 \code{\link{gender_fixer}}
 
@@ -39,31 +27,7 @@ The tbcleanr package provides functions to clean and subset TB data from K6, and
 
 \code{\link{id_detangle}}
 
-\code{\link{k6_hep_fixer}}
-
-\code{\link{lab_data_cleanr}}
-
-\code{\link{lab_date_consolidator}}
-
-\code{\link{lab_sample_fixer}}
-
-\code{\link{mtbdrplus_fixer}}
-
-\code{\link{nse_renamer}}
-
-\code{\link{oca_xpert_date}}
-
-\code{\link{oca_xpert_cleanr}}
-
 \code{\link{outcome_fixer}}
-
-\code{\link{result_consolidator}}
-
-\code{\link{smear_recode}}
-
-\code{\link{subset_vars}}
-
-\code{\link{xpert_result_fixer}}
 
 \code{\link{yn_binary_fixer}}
 }

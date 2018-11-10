@@ -3,13 +3,7 @@
 #' Take admission data set and perform multiple adjustments based on which
 #' database set is being used
 #' @param x data frame containing variables
-#' @param software define software used for data collection.
-#' Values can be "excel", "koch_6", "epiinfo"
-#' @param project define project location to apply.
-#' Values can be "kk", "chechnya".
-#' @param file define database file argument to apply.
-#' Values can be "adm", "lab", "clinical_lab",
-#' @param add string of any additional variables to keep
+#' @param add string of additional variable names to retain in cleaned output data frame
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{tbcleanr}}
@@ -18,22 +12,14 @@
 #' @export
 
 
-adm_data_cleanr <- function(x, software = c("excel", "koch_6", "epiinfo"),
-								project = c("kk", "chechnya"),
-								file = c("adm", "lab", "clinical_lab"), 
-								add = NULL, ...) {
+adm_data_cleanr <- function(x, add = NULL, ...) {
 # check input
     assert_that(is.data.frame(x))
-
-# check all args
-	software <- match.arg(software)
-	project <- match.arg(project)
-	file <- match.arg(file)
 
 # =======================================================
 	x <- x %>%
 	        # add object class
-	        adm_classr() %>% 
+	    adm_classr() %>% 
 			# subset variables
 		adm_subset(add = add, ...) %>%
 			# detangle apid number
@@ -52,18 +38,6 @@ adm_data_cleanr <- function(x, software = c("excel", "koch_6", "epiinfo"),
 		drug_fixer() %>%
 			# change all binary variables to factors
 		binary_fixer(...)	
-
-	if (software == "epiinfo") {
-		x <- x %>%
-			epi_info_misc_cleanr()
-	} 
-
-# adjust dstnumber var to match lab dstnumber var
-	if (software == "koch_6") {
-		x$dstnumber <- as.numeric(x$dstnumber)
-		names(x)[names(x) == "dstnumber"] <- "dstno"
-	}
-
 
 x
 }
