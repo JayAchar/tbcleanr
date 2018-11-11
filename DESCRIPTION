@@ -13,7 +13,7 @@ RoxygenNote: 6.1.0
 BugReports: http://github.com/JayAchar/tbcleanr/issues
 Imports:
 	assertthat (>= 0.2.0),
-	dplyr (>= 0.7.5),
+	dplyr (>= 0.7.7),
 	lubridate (>= 1.7.0),
 	magrittr (>= 1.5),
 	purrr (>= 0.2.4),
