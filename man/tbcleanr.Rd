@@ -30,6 +30,10 @@ When published, it will integrate with tbgeneratr, tbcheckr, tbreportr
 
 \code{\link{id_detangle}}
 
+\code{\link{lab_classr}}
+
+\code{\link{lab_data_cleanr}}
+
 \code{\link{outcome_fixer}}
 
 \code{\link{yn_binary_fixer}}

@@ -11,6 +11,7 @@ reference:
     desc: Combine multiple functions to streamline workflow
     contents:
       - adm_data_cleanr
+      - lab_data_cleanr
   - title: Admission data functions
     desc: Functions used only for admission data sets
     contents:
@@ -21,6 +22,10 @@ reference:
       - hiv_fixer
       - id_detangle
       - outcome_fixer
+  - title: Mycobacteriology lab data functions
+    desc: Functions used only for mycobacteriology lab data sets
+    contents:
+      - adm_classr
   - title: General purpose functions
     desc: Functions that can be used on multiple data sets
     contents: 

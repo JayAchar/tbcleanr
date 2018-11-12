@@ -33,9 +33,10 @@ library(tbcleanr)
 Important functions
 -------------------
 
-| Function            | Use it for                          |
-|---------------------|-------------------------------------|
-| `adm_data_cleanr()` | Streamlined admission data cleaning |
+| Function            | Use it for                           |
+|---------------------|--------------------------------------|
+| `adm_data_cleanr()` | Streamlined admission data cleaning  |
+| `lab_data_cleanr()` | Streamlined laboratory data cleaning |
 
 Help
 ----

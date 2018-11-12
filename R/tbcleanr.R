@@ -16,6 +16,8 @@
 #' @seealso \code{\link{gender_fixer}}  
 #' @seealso \code{\link{hiv_fixer}}  
 #' @seealso \code{\link{id_detangle}} 
+#' @seealso \code{\link{lab_classr}}
+#' @seealso \code{\link{lab_data_cleanr}}
 #' @seealso \code{\link{outcome_fixer}} 
 #' @seealso \code{\link{yn_binary_fixer}} 
 #' 

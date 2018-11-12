@@ -1,4 +1,4 @@
-#' Add object class to identify database
+#' Add object class to identify admission database
 #'
 #' From variable characteristics identify data entry tool and assign
 #' object class to identify database for further cleaning
