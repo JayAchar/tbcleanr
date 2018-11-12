@@ -3,3 +3,39 @@ template:
     bootswatch: cosmo
     ganalytics: UA-128985004-1
     
+reference:
+  - title: Package information
+    contents: 
+      - tbcleanr
+  - title: Aggregating functions
+    desc: Combine multiple functions to streamline workflow
+    contents:
+      - adm_data_cleanr
+  - title: Admission data functions
+    desc: Functions used only for admission data sets
+    contents:
+      - adm_classr
+      - adm_subset
+      - drug_fixer
+      - gender_fixer
+      - hiv_fixer
+      - id_detangle
+      - outcome_fixer
+  - title: General purpose functions
+    desc: Functions that can be used on multiple data sets
+    contents: 
+      - binary_fixer
+      - date_format
+      - yn_binary_fixer
+      
+navbar: 
+  title: ~
+  type: default
+  left:
+    - text: Functions
+      href: reference/index.html
+    - text: Articles
+      menu: 
+      - text: Getting started
+        href: articles/getting-started.html
+      

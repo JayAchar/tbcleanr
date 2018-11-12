@@ -1,7 +1,10 @@
 #' tbcleanr: tools for cleaning TB data
 #'
-#' The tbcleanr package provides functions to clean and subset TB data from K6, and EpiInfo
+#' @description
+#' The tbcleanr package contains functions to clean and subset TB data from 
+#' Koch 6 and EpiInfo used by MSF OCA. 
 #' 
+#' When published, it will integrate with tbgeneratr, tbcheckr, tbreportr
 #' 
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{adm_classr}} 
