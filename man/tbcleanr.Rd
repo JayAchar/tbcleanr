@@ -4,7 +4,7 @@
 \name{tbcleanr}
 \alias{tbcleanr}
 \alias{tbcleanr-package}
-\title{tbcleanr: A package for cleaning TB data.}
+\title{tbcleanr: tools for cleaning TB data}
 \description{
 The tbcleanr package provides functions to clean and subset TB data from K6, and EpiInfo
 }

@@ -1,4 +1,4 @@
-#' tbcleanr: A package for cleaning TB data.
+#' tbcleanr: tools for cleaning TB data
 #'
 #' The tbcleanr package provides functions to clean and subset TB data from K6, and EpiInfo
 #' 
