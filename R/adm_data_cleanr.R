@@ -1,10 +1,15 @@
-#' Cleans TB admissions data sets
+#' Clean TB admission data sets
 #'
-#' Take admission data set and perform multiple adjustments based on which
-#' database set is being used
+#' Simplify workflow of cleaning TB admission data sets from EpiInfo or Koch 6
+#' by adding an object class for identification, subsetting variables, 
+#' extracting additional information from ID numbers in Epiinfo, formatting date, 
+#' gender, HIV and treatment outcome variables. Also, converts drug dosing variables
+#' to binary variables
 #' @param x data frame containing variables
 #' @param add string of additional variable names to retain in cleaned output data frame
 #' @param ... further arguments passed to or from other methods
+#' @return Data frame with an object attribute signifying the data collection software - 
+#' "epiinfo" or "koch6"
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{tbcleanr}}
 #' @importFrom magrittr %>%

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Cleans TB admissions data sets — adm_data_cleanr • tbcleanr</title>
+<title>Clean TB admission data sets — adm_data_cleanr • tbcleanr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,10 +30,13 @@
 
 
 
-<meta property="og:title" content="Cleans TB admissions data sets — adm_data_cleanr" />
+<meta property="og:title" content="Clean TB admission data sets — adm_data_cleanr" />
 
-<meta property="og:description" content="Take admission data set and perform multiple adjustments based on which
-database set is being used" />
+<meta property="og:description" content="Simplify workflow of cleaning TB admission data sets from EpiInfo or Koch 6
+by adding an object class for identification, subsetting variables, 
+extracting additional information from ID numbers in Epiinfo, formatting date, 
+gender, HIV and treatment outcome variables. Also, converts drug dosing variables
+to binary variables" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -72,20 +75,26 @@ database set is being used" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tbcleanr</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0.1</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0.2</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
-     
-  </a>
+  <a href="../reference/index.html">Functions</a>
 </li>
-<li>
-  <a href="../reference/index.html">Reference</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/getting-started.html">Getting started</a>
+    </li>
+  </ul>
 </li>
       </ul>
       
@@ -108,15 +117,18 @@ database set is being used" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Cleans TB admissions data sets</h1>
+    <h1>Clean TB admission data sets</h1>
     <small class="dont-index">Source: <a href='http://github.com/JayAchar/tbcleanr/blob/master/R/adm_data_cleanr.R'><code>R/adm_data_cleanr.R</code></a></small>
     <div class="hidden name"><code>adm_data_cleanr.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Take admission data set and perform multiple adjustments based on which
-database set is being used</p>
+    <p>Simplify workflow of cleaning TB admission data sets from EpiInfo or Koch 6
+by adding an object class for identification, subsetting variables, 
+extracting additional information from ID numbers in Epiinfo, formatting date, 
+gender, HIV and treatment outcome variables. Also, converts drug dosing variables
+to binary variables</p>
     
     </div>
 
@@ -139,6 +151,11 @@ database set is being used</p>
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>Data frame with an object attribute signifying the data collection software - 
+"epiinfo" or "koch6"</p>
+    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='tbcleanr.html'>tbcleanr</a></code></p></div>
@@ -150,6 +167,8 @@ database set is being used</p>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
+      <li><a href="#value">Value</a></li>
+
       <li><a href="#see-also">See also</a></li>
           </ul>
 
