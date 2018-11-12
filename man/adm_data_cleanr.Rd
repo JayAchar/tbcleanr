@@ -2,7 +2,7 @@
 % Please edit documentation in R/adm_data_cleanr.R
 \name{adm_data_cleanr}
 \alias{adm_data_cleanr}
-\title{Cleans TB admissions data sets}
+\title{Clean TB admission data sets}
 \usage{
 adm_data_cleanr(x, add = NULL, ...)
 }
@@ -13,9 +13,16 @@ adm_data_cleanr(x, add = NULL, ...)
 
 \item{...}{further arguments passed to or from other methods}
 }
+\value{
+Data frame with an object attribute signifying the data collection software - 
+"epiinfo" or "koch6"
+}
 \description{
-Take admission data set and perform multiple adjustments based on which
-database set is being used
+Simplify workflow of cleaning TB admission data sets from EpiInfo or Koch 6
+by adding an object class for identification, subsetting variables, 
+extracting additional information from ID numbers in Epiinfo, formatting date, 
+gender, HIV and treatment outcome variables. Also, converts drug dosing variables
+to binary variables
 }
 \seealso{
 \code{\link{tbcleanr}}
