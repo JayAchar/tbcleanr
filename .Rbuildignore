@@ -1,3 +1,4 @@
+^docs$
 ^codecov\.yml$
 ^appveyor\.yml$
 ^\.travis\.yml$
@@ -5,4 +6,4 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.Rprofile$
-docs/
+^_pkgdown\.yml$
