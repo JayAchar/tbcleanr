@@ -21,7 +21,7 @@ lab_classr <- function(x) {
   grozny_varnames <- c("dbno", "micro1", "sampqual2", "mgit1d")
   
   # names of variables in Koch 6
-  k6_varnames <- c("RegrationNb", "Admission", "DSTMethode1", "Lfx3")
+  k6_varnames <- c("RegistrationNb", "Admission", "DSTMethode1", "Lfx3")
   
   # assign admission file object class
   if (all(epiinfo_varnames %in% names(x))) {
