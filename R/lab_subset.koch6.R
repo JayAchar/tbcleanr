@@ -48,5 +48,6 @@ lab_subset.koch6 <- function(x, add = NULL, ...) {
   class(x) <- object_class
   
   x
+
 }
 
