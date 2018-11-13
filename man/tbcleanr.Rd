@@ -34,6 +34,8 @@ When published, it will integrate with tbgeneratr, tbcheckr, tbreportr
 
 \code{\link{lab_data_cleanr}}
 
+\code{\link{lab_subset}}
+
 \code{\link{outcome_fixer}}
 
 \code{\link{yn_binary_fixer}}

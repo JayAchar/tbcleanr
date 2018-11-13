@@ -23,7 +23,7 @@ lab_data_cleanr <- function(x, add = NULL, ...) {
 	  # add object attribute for lab data collection tool
 	  lab_classr() %>% 
 			# subset all vars required
-		subset_vars(software = software, project = project, file = file, add = add, ...) %>%
+		lab_subset(...) %>%
 			# find and format all dates
 		date_format(...) %>%
 			# detangle dstno
