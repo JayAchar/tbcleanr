@@ -48,4 +48,8 @@ lab_subset.koch6 <- function(x, add = NULL, ...) {
   class(x) <- object_class
   
   x
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> b25569b438e04cfda28c420d901f18cdb6e0d56d
