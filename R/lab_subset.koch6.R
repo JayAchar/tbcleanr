@@ -49,3 +49,4 @@ lab_subset.koch6 <- function(x, add = NULL, ...) {
   
   x
 }
+

@@ -17,7 +17,7 @@ lab_subset <- function(x, add = NULL, ...) {
 	assert_that(is.data.frame(x))
 
 # apply useMethod
-  UseMethod(x, "lab_subset")
+  UseMethod("lab_subset", x)
 
 }
 
