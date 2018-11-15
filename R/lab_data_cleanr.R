@@ -26,12 +26,8 @@ lab_data_cleanr <- function(x, add = NULL, ...) {
 		lab_subset(...) %>%
 			# find and format all dates
 		date_format(...) %>%
-			# detangle dstno
-		dstno_detangle(software = software, project = project, file = file, ...) %>%
-			# detangle idno
-		id_detangle(software = software, project = project, file = file, ...) %>%
 			# consolidate sample date
-		lab_date_consolidator(software = software, project = project, file = file, ...) %>%
+		lab_date_fixer(...) %>%
 			# consolidate xpert results
 		xpert_result_fixer(software = software, project = project, file = file, 
 							rm_orig = TRUE, ...) %>%
