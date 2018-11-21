@@ -38,6 +38,8 @@ When published, it will integrate with tbgeneratr, tbcheckr, tbreportr
 
 \code{\link{outcome_fixer}}
 
+\code{\link{xpert_result_fixer}}
+
 \code{\link{yn_binary_fixer}}
 }
 \author{

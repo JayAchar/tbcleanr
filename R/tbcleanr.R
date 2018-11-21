@@ -20,6 +20,7 @@
 #' @seealso \code{\link{lab_data_cleanr}}
 #' @seealso \code{\link{lab_subset}}
 #' @seealso \code{\link{outcome_fixer}} 
+#' @seealso \code{\link{xpert_result_fixer}} 
 #' @seealso \code{\link{yn_binary_fixer}} 
 #' 
 #' @docType package
