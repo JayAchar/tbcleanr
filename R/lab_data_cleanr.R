@@ -29,11 +29,9 @@ lab_data_cleanr <- function(x, add = NULL, ...) {
 			# consolidate sample date
 		lab_date_fixer(...) %>%
 			# consolidate xpert results
-		xpert_result_fixer(software = software, project = project, file = file, 
-							rm_orig = TRUE, ...) %>%
+		xpert_result_fixer(rm_orig = TRUE, ...) %>%
 			# fix lab samples variable
-		lab_sample_fixer(software = software, project = project, file = file, 
-							rm_orig = TRUE, ...) %>%
+		lab_sample_fixer(rm_orig = TRUE, ...) %>%
 			# consolidate smear results
 		result_consolidator(software = software, project = project, file = file,
 							test = "smear", rm_orig = TRUE, ...) %>%

@@ -18,6 +18,7 @@
 #' @seealso \code{\link{id_detangle}} 
 #' @seealso \code{\link{lab_classr}}
 #' @seealso \code{\link{lab_data_cleanr}}
+#' @seealso \code{\link{lab_sample_fixer}}
 #' @seealso \code{\link{lab_subset}}
 #' @seealso \code{\link{outcome_fixer}} 
 #' @seealso \code{\link{xpert_result_fixer}} 
