@@ -33,11 +33,7 @@ lab_data_cleanr <- function(x, add = NULL, ...) {
 			# fix lab samples variable
 		lab_sample_fixer(rm_orig = TRUE, ...) %>%
 			# consolidate smear results
-		result_consolidator(software = software, project = project, file = file,
-							test = "smear", rm_orig = TRUE, ...) %>%
-			# consolidate culture results
-		result_consolidator(software = software, project = project, file = file,
-							test = "culture", rm_orig = TRUE, ...) %>%
+		result_consolidator(rm_orig = TRUE, ...) %>%
 			# consolidate DST results
 		dst_consolidator(software = software, project = project, file = file,
 							aggregate = FALSE, rm_orig = TRUE, ...) %>%
