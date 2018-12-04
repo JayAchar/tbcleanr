@@ -6,6 +6,7 @@
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{tbcleanr}}
 #' @importFrom assertthat assert_that
+#' @importFrom lubridate is.Date
 
 lab_date_fixer.grozny <- function(x, ...) {
  
