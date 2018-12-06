@@ -1,4 +1,4 @@
-context("gender_fixer")
+context("test-gender_fixer")
 library(tbcleanr)
 
 # Load data

@@ -1,4 +1,4 @@
-context("adm_classr")
+context("test-adm_classr")
 library(tbcleanr)
 
 epi_raw <- system.file("testdata", "epi_adm_classr.rds", package = "tbcleanr") %>% 

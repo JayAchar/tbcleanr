@@ -1,4 +1,4 @@
-context("adm_subset")
+context("test-adm_subset")
 library(tbcleanr)
 
 epi_raw <- system.file("testdata", "adm_subset_epi.rds", package = "tbcleanr") %>% 

@@ -1,4 +1,4 @@
-context("date_format")
+context("test-date_format")
 library(tbcleanr)
 
 epi <- system.file("testdata", "adm_subset_epi.rds", package = "tbcleanr") %>% 

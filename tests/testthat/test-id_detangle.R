@@ -1,4 +1,4 @@
-context("id_detangle")
+context("test-id_detangle")
 library(tbcleanr)
 
 # Load EpiInfo data
