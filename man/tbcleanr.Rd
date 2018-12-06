@@ -22,6 +22,8 @@ When published, it will integrate with tbgeneratr, tbcheckr, tbreportr
 
 \code{\link{date_format}}
 
+\code{\link{dst_consolidator}}
+
 \code{\link{drug_fixer}}
 
 \code{\link{gender_fixer}}

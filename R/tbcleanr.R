@@ -11,7 +11,8 @@
 #' @seealso \code{\link{adm_subset}}
 #' @seealso \code{\link{adm_data_cleanr}} 
 #' @seealso \code{\link{binary_fixer}}  
-#' @seealso \code{\link{date_format}}  
+#' @seealso \code{\link{date_format}}
+#' @seealso \code{\link{dst_consolidator}} 
 #' @seealso \code{\link{drug_fixer}}  
 #' @seealso \code{\link{gender_fixer}}  
 #' @seealso \code{\link{hiv_fixer}}  

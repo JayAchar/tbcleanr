@@ -35,8 +35,7 @@ lab_data_cleanr <- function(x, add = NULL, ...) {
 			# consolidate smear results
 		result_consolidator(rm_orig = TRUE, ...) %>%
 			# consolidate DST results
-		dst_consolidator(software = software, project = project, file = file,
-							aggregate = FALSE, rm_orig = TRUE, ...) %>%
+		dst_consolidator(aggregate = FALSE, rm_orig = TRUE, ...) %>%
 			# consolidate hain mtbdrplus results
 		mtbdrplus_fixer(software = software, project = project, file = file) %>%
 			# convert all zeros to NA in continuous variables
