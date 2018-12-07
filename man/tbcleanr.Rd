@@ -40,6 +40,8 @@ When published, it will integrate with tbgeneratr, tbcheckr, tbreportr
 
 \code{\link{lab_subset}}
 
+\code{\link{mtbdrplus_fixer}}
+
 \code{\link{outcome_fixer}}
 
 \code{\link{result_consolidator}}

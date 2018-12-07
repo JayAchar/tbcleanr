@@ -21,6 +21,7 @@
 #' @seealso \code{\link{lab_data_cleanr}}
 #' @seealso \code{\link{lab_sample_fixer}}
 #' @seealso \code{\link{lab_subset}}
+#' @seealso \code{\link{mtbdrplus_fixer}}
 #' @seealso \code{\link{outcome_fixer}} 
 #' @seealso \code{\link{result_consolidator}}
 #' @seealso \code{\link{xpert_result_fixer}} 
