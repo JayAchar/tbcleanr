@@ -37,11 +37,13 @@ xpert_result_fixer.grozny <- function(x, rm_orig = TRUE, ...) {
   # recode results applying error corrections
   x$xpert1res[x$xpert1res == "MTB NOT DETECTED"] <- 0
   x$xpert1res[! is.na(x$xpert1res) & ! x$xpert1res == 0] <- 1
-  x$xpert1res[x$xpert1err == 1] <- NA
+  x$xpert1res[x$xpert1err == 1] <- NA_character_
+  x$xpert1res <- as.numeric(x$xpert1res)
   
   x$xpert2res[x$xpert2res == "MTB NOT DETECTED"] <- 0
   x$xpert2res[! is.na(x$xpert2res) & ! x$xpert2res == 0] <- 1
   x$xpert2res[x$xpert2err == 1] <- NA
+  x$xpert2res <- as.numeric(x$xpert2res)
   
   # consolidate rif results
   rif_adjust <- function(r) {
@@ -72,6 +74,14 @@ xpert_result_fixer.grozny <- function(x, rm_orig = TRUE, ...) {
   
   x$xpert_rif <- factor(x$xpert_rif, levels = 0:1,
                         labels = c("Not detected", "Detected"))
+  
+  # warning if xpert rif result present, but xpert detection negative
+  error_detection_neg <- sum(x$xpert_res == "Negative" & ! is.na(x$xpert_rif), na.rm = T)
+  if (error_detection_neg > 0) warning("Xpert rif result available when Xpert MTB not detected")
+  
+  # warning if xpert rif result present, but xpert detection == NA
+  error_detection_na <- sum(is.na(x$xpert_res) & ! is.na(x$xpert_rif), na.rm = T)
+  if (error_detection_na > 0) warning("Xpert rif result available when Xpert MTB not available")
   
   
   x

@@ -10,7 +10,9 @@
 #' @importFrom stringr str_detect
 
 xpert_result_fixer.epiinfo <- function(x, rm_orig = TRUE, ...) {
- 
+ # save original class
+  class_start <- class(x)
+  
   x_vars <- c("GX_res1", "GX_res2", "GX_res3", "GX_res4")
   
   #check vars are within data frame
@@ -74,6 +76,29 @@ xpert_result_fixer.epiinfo <- function(x, rm_orig = TRUE, ...) {
   x$xpert_rif <- do.call(pmax, c(resist[, r_names], na.rm = T))
   
   x <- as.data.frame(x, stringsAsFactors = FALSE)
+  
+  # factorise final variables
+  x$xpert_res <- factor(x$xpert_res, levels = 0:1,
+                        labels = c("Negative", "Positive"))
+  
+  x$xpert_rif <- factor(x$xpert_rif, levels = 0:1,
+                        labels = c("Not detected", "Detected"))
+  
+  # remove original variables
+  if (rm_orig) {
+    x[, x_vars] <- NULL
+  }
+  
+  # warning if xpert rif result present, but xpert detection negative
+  error_detection_neg <- sum(x$xpert_res == "Negative" & ! is.na(x$xpert_rif), na.rm = T)
+  if (error_detection_neg > 0) warning("Xpert rif result available when Xpert MTB not detected")
+  
+  # warning if xpert rif result present, but xpert detection == NA
+  error_detection_na <- sum(is.na(x$xpert_res) & ! is.na(x$xpert_rif), na.rm = T)
+  if (error_detection_na > 0) warning("Xpert rif result available when Xpert MTB not available")
+
+  # reapply starting class  
+  class(x) <- class_start
   
   x
 }

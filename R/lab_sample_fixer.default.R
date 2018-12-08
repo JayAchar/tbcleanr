@@ -8,6 +8,16 @@
 
 lab_sample_fixer.default <- function(x, ...) {
   
-  message("No adm object class detected: lab_sample_fixer() not applied.")
-  x       
+  if ("epiinfo" %in% class(x)) {
+    
+    message("lab_sample_fixer() not applied to EpiInfo lab data")
+    return(x)
+  
+    } else {
+    
+    message("No lab object class detected: lab_sample_fixer() not applied.")
+    return(x)       
+  
+    }
+  
 }

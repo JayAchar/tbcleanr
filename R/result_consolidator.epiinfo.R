@@ -43,9 +43,8 @@ result_consolidator.epiinfo <- function(x, rm_orig = TRUE, ...) {
   ### consolidate culture results
   # recode culture results to numeric
   x[] <- map_at(x, .at = culture_vars, .f = 
-                  ~ as.numeric(.x) %>% 
-                  case_when(.x == 1, 0L,
-                            .x == 2, 1L,
+                  ~ case_when(.x == 1 ~ 0L,
+                            .x == 2 ~ 1L,
                             TRUE ~ NA_integer_))
   
   # find maximum culture for each sample
