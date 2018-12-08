@@ -19,6 +19,7 @@
 #' @seealso \code{\link{id_detangle}} 
 #' @seealso \code{\link{lab_classr}}
 #' @seealso \code{\link{lab_data_cleanr}}
+#' @seealso \code{\link{lab_import_checkr}}
 #' @seealso \code{\link{lab_sample_fixer}}
 #' @seealso \code{\link{lab_subset}}
 #' @seealso \code{\link{mtbdrplus_fixer}}

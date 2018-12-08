@@ -22,6 +22,8 @@ lab_data_cleanr <- function(x, add = NULL, ...) {
 	x <- x %>%
 	  # add object attribute for lab data collection tool
 	  lab_classr() %>% 
+	  # check that import parsing comprehensive (guess_max)
+	  lab_import_checkr() %>% 
 			# subset all vars required
 		lab_subset(...) %>%
 			# find and format all dates
