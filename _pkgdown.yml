@@ -25,7 +25,15 @@ reference:
   - title: Mycobacteriology lab data functions
     desc: Functions used only for mycobacteriology lab data sets
     contents:
-      - adm_classr
+      - dst_consolidator
+      - lab_classr
+      - lab_date_fixer
+      - lab_import_checkr
+      - lab_sample_fixer
+      - lab_subset
+      - mtbdrplus_fixer
+      - result_consolidator
+      - xpert_result_fixer
   - title: General purpose functions
     desc: Functions that can be used on multiple data sets
     contents: 
