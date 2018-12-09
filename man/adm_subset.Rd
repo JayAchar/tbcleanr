@@ -16,6 +16,16 @@ adm_subset(x, add = NULL, ...)
 \description{
 Subset pre-specified TB admission variables
 }
+\examples{
+# Load EpiInfo example data frame
+epi_raw <- readRDS(system.file("testdata", "adm_subset_epi.rds", package = "tbcleanr"))
+
+# Apply adm_subset()
+adm_subset(epi_raw)
+
+# Keep additional variables from data set
+adm_subset(epi_raw, add = "REGRP")
+}
 \seealso{
 \code{\link{tbcleanr}}
 }
