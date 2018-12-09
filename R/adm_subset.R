@@ -8,6 +8,16 @@
 #' @seealso \code{\link{tbcleanr}}
 #' @importFrom assertthat assert_that
 #' @export
+#' @examples 
+#' # Load EpiInfo example data frame
+#' epi_raw <- readRDS(system.file("testdata", "adm_subset_epi.rds", package = "tbcleanr"))
+#' 
+#' # Apply adm_subset()
+#' adm_subset(epi_raw)
+#' 
+#' # Keep additional variables from data set
+#' adm_subset(epi_raw, add = "REGRP")
+
 
 adm_subset <- function(x, add = NULL, ...) {
     
