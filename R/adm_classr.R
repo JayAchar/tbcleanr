@@ -7,13 +7,6 @@
 #' @seealso \code{\link{tbcleanr}}
 #' @importFrom assertthat assert_that
 #' @export
-#' @examples 
-#' # Load EpiInfo admission data
-#' epi_raw <- readRDS(system.file("testdata", "epi_adm_classr.rds", package = "tbcleanr"))
-#' # Apply adm_classr()
-#' epi_new <- adm_classr(epi_raw)
-#' # Check class added correctly
-#' class(epi_new)
 #' 
 
 adm_classr <- function(x) {
