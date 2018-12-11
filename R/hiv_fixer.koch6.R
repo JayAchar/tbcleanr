@@ -13,7 +13,7 @@
 hiv_fixer.koch6 <- function(x, ...) {
     
 # check variables are present
-    if (! all(c("hiv", "cdhivenrol") %in% names(x))) {
+    if (! all(c("HIV", "cdhivenrol") %in% names(x))) {
         stop("Required HIV variables not included in data frame")
     }
     
@@ -32,19 +32,19 @@ hiv_fixer.koch6 <- function(x, ...) {
 
 # recode hiv 
     # 0 = Unknown, 1 = positive, 2 = negative, 3 = not done, 4 = pending
-    x$hiv[x$hiv %in% c(0, 3:4)] <- NA_integer_
-    x$hiv[x$hiv == 2] <- 0
+    x$HIV[x$HIV %in% c(0, 3:4)] <- NA_integer_
+    x$HIV[x$HIV == 2] <- 0
     
 # combine known status with baseline hiv result
     x <- x %>% 
-        mutate(hiv_sum = rowSums(x[c("hiv", "cdhivenrol")], na.rm = T)) %>% 
-        mutate(hiv = ifelse(.data$hiv_sum >= 1, 1, .data$hiv)) %>% 
-        mutate(hiv = ifelse(is.na(.data$hiv), .data$cdhivenrol, .data$hiv)) %>% 
+        mutate(hiv_sum = rowSums(x[c("HIV", "cdhivenrol")], na.rm = T)) %>% 
+        mutate(HIV = ifelse(.data$hiv_sum >= 1, 1, .data$HIV)) %>% 
+        mutate(HIV = ifelse(is.na(.data$HIV), .data$cdhivenrol, .data$HIV)) %>% 
         select(-.data$hiv_sum, -.data$cdhivenrol)
 
     
 # factorise gender variable
-    x$hiv <- factor(x$hiv, levels = c(0:1),
+    x$HIV <- factor(x$HIV, levels = c(0:1),
                     labels = c("Negative", "Positive"))    
 
 # reattach object_class
