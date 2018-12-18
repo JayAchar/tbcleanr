@@ -27,13 +27,15 @@ test_that("koch6 subset correct", {
 
 
 
-groz_raw <- system.file("testdata", "lab_classr_groz.rds", package = "tbcleanr") %>% 
-  readRDS() %>% 
-  lab_classr()
+groz_raw <- system.file("testdata", "lab_subset_groz.rds", package = "tbcleanr") %>% 
+  readRDS()
 
 groz <- lab_subset(groz_raw)
 
 
 test_that("grozny subset correct", {
   expect_equal(class(groz_raw), class(groz))
+  expect_true("dstnumber" %in% names(groz))
+  expect_equal(nrow(groz_raw), nrow(groz))
+  expect_false(stringr::str_detect(groz$dstnumber, pattern = "-"))
 })

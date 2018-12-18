@@ -14,7 +14,7 @@
 \item{...}{further arguments passed to or from other methods}
 }
 \description{
-Subset pre-specified TB laboratory variables
+Subset pre-specified TB laboratory variables and clean dstnumber variable
 }
 \seealso{
 \code{\link{tbcleanr}}

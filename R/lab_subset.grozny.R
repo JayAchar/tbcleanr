@@ -1,11 +1,12 @@
 #' Subset lab variables
 #'
-#' Subset pre-specified TB laboratory variables
+#' Subset pre-specified TB laboratory variables and clean dstnumber variable
 #' @param x data frame containing variables
 #' @param add string of any additional variables to keep
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{tbcleanr}}
+#' @importFrom stringr str_replace
 
 
 lab_subset.grozny <- function(x, add = NULL, ...) {
@@ -26,6 +27,10 @@ lab_subset.grozny <- function(x, add = NULL, ...) {
   ## Additional specified variables
   k <- c(keep, add)		# add additional requested variables
   x <- subset(x, select = k)
+  
+  ## Reformat and rename dstno to conform with admission dstnumber variable
+  x$dstnumber <- stringr::str_replace(x$dstno, pattern = "-", replacement = "")
+  x$dstno <- NULL
   
   class(x) <- object_class
   
