@@ -1,5 +1,6 @@
 context("test-lab_date_fixer")
 
-test_that("multiplication works", {
-  expect_equal(2 * 2, 4)
+
+test_that("Errors, warnings and messages", {
+  expect_message(data.frame(x = 2) %>% lab_date_fixer(), "No lab object class")
 })
