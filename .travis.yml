@@ -13,6 +13,10 @@ r:
   - oldrel
   - release
   - devel
+
+matrix:
+  allow_failures:
+    - os: osx
   
 after_success:
     - Rscript -e 'covr::codecov()'
