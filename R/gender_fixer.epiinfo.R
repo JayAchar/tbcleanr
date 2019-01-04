@@ -6,7 +6,7 @@
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{tbcleanr}}
 #' @importFrom assertthat assert_that
-#' 
+#' @export 
 
 gender_fixer.epiinfo <- function(x, ...) {
     

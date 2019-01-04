@@ -7,6 +7,7 @@
 #' @seealso \code{\link{tbcleanr}}
 #' @importFrom assertthat assert_that
 #' @importFrom lubridate is.Date
+#' @export 
 
 lab_date_fixer.grozny <- function(x, ...) {
  

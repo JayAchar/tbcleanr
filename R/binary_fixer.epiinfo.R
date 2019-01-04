@@ -7,6 +7,7 @@
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{tbcleanr}}
 #' @importFrom purrr map_at
+#' @export 
 
 binary_fixer.epiinfo <- function(x, ...) {
     

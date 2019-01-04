@@ -5,14 +5,13 @@
 #' @param x data frame containing variables
 #' @param aggregate choose whether to aggregate to categories or retain all drug results
 #' @param rm_orig remove original variables - TRUE or FALSE
-#' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{tbcleanr}}
 #' @export
 
 
 dst_consolidator <- function(x, aggregate = FALSE, 
-                             rm_orig = TRUE, ...) {
+                             rm_orig = TRUE) {
   
   # check input
   assert_that(is.data.frame(x))
@@ -28,6 +27,7 @@ dst_consolidator <- function(x, aggregate = FALSE,
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{tbcleanr}}
+#' @export 
 
 dst_consolidator.default <- function(x, ...) {
   

@@ -21,32 +21,3 @@ lab_subset <- function(x, add = NULL, ...) {
 
 }
 
-# # =====================================================
-# # Koch 6
-# 	if (software == "koch_6") {
-# 
-# 		# All projects clinical lab
-# 			if (file == "clinical_lab") {
-# 				# convert all variables to lower case
-# 				names(x) <- tolower(names(x))
-# 				k <- c("registrationnb", "labclindate", "hemoglobin", "thrombocyt", "ast", "alt",
-# 						"creatinine", "glucose", "potassium", "magnesium", "serumalbumin")
-# 			}
-# 	} 
-# 		
-# # Excel or Epiinfo
-# 	if (software %in% c("epiinfo", "excel")) {
-# 
-# 
-# 	# KK clinical laboratory
-# 		if (project == "kk" & file == "clinical_lab") {
-# 			k <- c("APID", "Test date (dd/mm/yy)", "Test name", "Result", "Comment")
-# 			nms <- c("APID", "date", "test", "result", "comm")
-# 		}
-# 	}
-# 
-# 
-# 
-# x
-
-

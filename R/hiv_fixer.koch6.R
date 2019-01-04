@@ -9,6 +9,7 @@
 #' @importFrom dplyr mutate select
 #' @importFrom magrittr %>% 
 #' @importFrom rlang .data
+#' @export 
 
 hiv_fixer.koch6 <- function(x, ...) {
     

@@ -4,12 +4,10 @@
 \alias{lab_import_checkr}
 \title{Confirm correct lab data import}
 \usage{
-lab_import_checkr(x, ...)
+lab_import_checkr(x)
 }
 \arguments{
 \item{x}{data frame containing variables}
-
-\item{...}{further arguments passed to or from other methods}
 }
 \description{
 By default, readr parses the first 1000 rows to define column class.

@@ -7,6 +7,7 @@
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{tbcleanr}}
 #' @importFrom stringr str_detect
+#' @export 
 
 lab_sample_fixer.grozny <- function(x, rm_orig = TRUE, ...) {
   

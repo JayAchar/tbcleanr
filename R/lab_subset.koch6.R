@@ -6,6 +6,7 @@
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{tbcleanr}}
+#' @export 
 
 lab_subset.koch6 <- function(x, add = NULL, ...) {
   

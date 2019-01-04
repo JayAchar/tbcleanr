@@ -5,6 +5,7 @@
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{tbcleanr}}
+#' @export 
 
 hiv_fixer.default <- function(x, ...) {
     

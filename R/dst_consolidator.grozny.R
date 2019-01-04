@@ -12,6 +12,7 @@
 #' @importFrom dplyr recode
 #' @importFrom magrittr %>%
 #' @seealso \code{\link{tbcleanr}}
+#' @export 
 
 dst_consolidator.grozny <- function(x, aggregate = FALSE, rm_orig = TRUE) {
   

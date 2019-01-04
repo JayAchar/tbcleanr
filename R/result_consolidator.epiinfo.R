@@ -9,6 +9,7 @@
 #' @importFrom purrr map_at
 #' @importFrom dplyr case_when
 #' @importFrom stringr str_detect
+#' @export 
 
 result_consolidator.epiinfo <- function(x, rm_orig = TRUE, ...) {
   

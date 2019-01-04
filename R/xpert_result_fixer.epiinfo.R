@@ -8,6 +8,7 @@
 #' @seealso \code{\link{tbcleanr}}
 #' @importFrom purrr map_at map_df
 #' @importFrom stringr str_detect
+#' @export 
 
 xpert_result_fixer.epiinfo <- function(x, rm_orig = TRUE, ...) {
  # save original class

@@ -8,6 +8,7 @@
 #' @importFrom assertthat assert_that
 #' @importFrom purrr map_at
 #' @importFrom dplyr case_when
+#' @export 
 
 mtbdrplus_fixer.epiinfo <- function(x, ...) {
   

@@ -6,6 +6,7 @@
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{tbcleanr}}
+#' @export 
 
 
 xpert_result_fixer.grozny <- function(x, rm_orig = TRUE, ...) {

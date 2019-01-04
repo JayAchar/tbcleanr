@@ -9,6 +9,7 @@
 #' @seealso \code{\link{tbcleanr}}
 #' @importFrom stringr str_match str_extract
 #' @importFrom assertthat assert_that
+#' @export 
 
 id_detangle.epiinfo <- function(x, ...) {
 

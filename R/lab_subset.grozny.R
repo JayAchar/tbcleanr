@@ -7,6 +7,7 @@
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{tbcleanr}}
 #' @importFrom stringr str_replace
+#' @export 
 
 
 lab_subset.grozny <- function(x, add = NULL, ...) {

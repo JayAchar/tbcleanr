@@ -12,6 +12,7 @@
 #' @importFrom magrittr %>% 
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{tbcleanr}}
+#' @export 
 
 dst_consolidator.epiinfo <- function(x, aggregate = FALSE, rm_orig = TRUE) {
   
