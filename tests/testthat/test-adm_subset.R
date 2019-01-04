@@ -30,6 +30,6 @@ test_that("Messages, warnings and errors", {
   expect_message(adm_subset(k6_raw), "No adm object class detected")
   expect_error(adm_subset(c(1:10)), "x is not a data frame")
   expect_error(adm_subset(epi_raw, add = 1))
-  expect_error(adm_subset(epi_raw, add = "random_text"), "not found")
+  expect_error(adm_subset(epi_raw, add = "random_text"))
   
 })
