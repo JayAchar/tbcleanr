@@ -36,7 +36,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tbcleanr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1.5</span>
       </span>
     </div>
 
@@ -92,26 +92,34 @@
 <div id="accessing-instructions" class="section level1">
 <h1 class="hasAnchor">
 <a href="#accessing-instructions" class="anchor"></a>Accessing instructions</h1>
-<p>This instruction vignette is available either online at <strong><a href="https://github.com/JayAchar/tbreportr">Github</a></strong> or through <strong><a href="mailto:jay.achar@london.msf.org?subject=tbreportr%20instructions">emailing the author</a></strong>. Alternatively, you may ask your medical manager since they may also have a copy. For the most up to date version, it’s recommended to visit the online repository linked.</p>
+<p>This instruction vignette is available either online at <strong><a href="https://github.com/JayAchar/tbreportr">Github</a></strong> or through <strong><a href="mailto:jay.achar@london.msf.org?subject=tbreportr%20instructions">emailing the author</a></strong>. Alternatively, you may ask your medical manager since they may also have a copy. For the most up to date version, check the package website <strong><a href="https://jayachar.github.io/tbcleanr">here</a></strong>.</p>
 </div>
 <div id="purpose" class="section level1">
 <h1 class="hasAnchor">
 <a href="#purpose" class="anchor"></a>Purpose</h1>
-<p>This R package, <code>tbcleanr</code>, has been developed to support MSF field staff using either Koch 6 or EpiInfo to clean routinely collected programme TB data. Currently, the package will only accept admission data sets, but laboratory and change drug data sets will likely be accepted in future versions. Reported bugs or requested new features will be incorporated as time allows.</p>
+<p>This R package, <code>tbcleanr</code>, has been developed to support MSF field staff using either Koch 6 or EpiInfo to clean routinely collected programme TB data. Currently, the package will accept admission and laboratory data sets, Future work will allow automated cleaning of change and adherance data sets. Reported bugs or requested new features will be incorporated as time allows.</p>
 </div>
 <div id="how-to" class="section level1">
 <h1 class="hasAnchor">
 <a href="#how-to" class="anchor"></a>How to</h1>
-<p>To use this package, R experience is required. Future packages, such as <code>tbreportr</code> will allow automated report generation.</p>
-<p>After reading in the admission data export from either Koch 6 or EpiInfo, install and load the <code>tbcleanr</code> package.</p>
+<p>To use this package, R experience is required. Future packages, such as <code>tbgeneratr</code> and <code>tbreportr</code> will allow automated variable construction and reporting.</p>
+<p>After reading in the raw data export from either Koch 6 or EpiInfo, install and load the <code>tbcleanr</code> package.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(devtools)
 <span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"JayAchar/tbcleanr"</span>)
 <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(tbcleanr)</code></pre></div>
 <p>A single function can be called to simplify admission data cleaning:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw"><a href="../reference/adm_data_cleanr.html">adm_data_cleanr</a></span>(x)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">clean_adm &lt;-<span class="st"> </span><span class="kw"><a href="../reference/adm_data_cleanr.html">adm_data_cleanr</a></span>(raw_adm)</code></pre></div>
 <p>Where necessary, additional variables can be included for subsetting and manual cleaning:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw"><a href="../reference/adm_data_cleanr.html">adm_data_cleanr</a></span>(x, <span class="dt">add =</span> <span class="st">"REGRP"</span>)</code></pre></div>
-<p>Further function-specific documentation are available within the package. # Future developments</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">clean_adm &lt;-<span class="st"> </span><span class="kw"><a href="../reference/adm_data_cleanr.html">adm_data_cleanr</a></span>(raw_adm, <span class="dt">add =</span> <span class="st">"REGRP"</span>)</code></pre></div>
+<p>A similar process is required with laboratory data:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">clean_lab &lt;-<span class="st"> </span><span class="kw"><a href="../reference/lab_data_cleanr.html">lab_data_cleanr</a></span>(raw_lab)</code></pre></div>
+<p>Additional variables can be included as for the <code><a href="../reference/adm_data_cleanr.html">adm_data_cleanr()</a></code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">clean_lab &lt;-<span class="st"> </span><span class="kw"><a href="../reference/lab_data_cleanr.html">lab_data_cleanr</a></span>(raw_lab, <span class="dt">add =</span> <span class="st">"RES"</span>)</code></pre></div>
+<p>Further function-specific documentation are available within the package.</p>
+</div>
+<div id="future-developments" class="section level1">
+<h1 class="hasAnchor">
+<a href="#future-developments" class="anchor"></a>Future developments</h1>
 <p>Functionality will be added for laboratory and change drug data sets. In parallel, <code>tbgeneratr</code> and <code>tbreportr</code> are being developed to firstly generate new varialbe such as culture conversion time, and secondly to automate cohort reporting for programme evaluation purposes.</p>
 </div>
   </div>
@@ -124,6 +132,7 @@
 <li><a href="#accessing-instructions">Accessing instructions</a></li>
       <li><a href="#purpose">Purpose</a></li>
       <li><a href="#how-to">How to</a></li>
+      <li><a href="#future-developments">Future developments</a></li>
       </ul>
 </div>
       </div>

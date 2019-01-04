@@ -40,7 +40,10 @@ reference:
       - binary_fixer
       - date_format
       - yn_binary_fixer
-      
+  - title: Utilities
+    desc: General package functions (not exported) in misc_utils.R
+    contents:
+      - xpert_variable_detector
 navbar: 
   title: ~
   type: default

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Default method for mtbdrplus_fixer() — mtbdrplus_fixer.default • tbcleanr</title>
+<title>Xpert variable detector — xpert_variable_detector • tbcleanr</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,10 @@
 
 
 
-<meta property="og:title" content="Default method for mtbdrplus_fixer() — mtbdrplus_fixer.default" />
+<meta property="og:title" content="Xpert variable detector — xpert_variable_detector" />
 
-<meta property="og:description" content="Allow data frames with unspecified object class to pass through" />
+<meta property="og:description" content="Find Xpert variables within data frame by using Regex. Adjust
+when lab changes variable names" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -115,36 +116,32 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Default method for mtbdrplus_fixer()</h1>
-    <small class="dont-index">Source: <a href='https://github.com/JayAchar/tbcleanr/blob/master/R/mtbdrplus_fixer.R'><code>R/mtbdrplus_fixer.R</code></a></small>
-    <div class="hidden name"><code>mtbdrplus_fixer.default.Rd</code></div>
+    <h1>Xpert variable detector</h1>
+    <small class="dont-index">Source: <a href='https://github.com/JayAchar/tbcleanr/blob/master/R/misc_utils.R'><code>R/misc_utils.R</code></a></small>
+    <div class="hidden name"><code>xpert_variable_detector.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Allow data frames with unspecified object class to pass through</p>
+    <p>Find Xpert variables within data frame by using Regex. Adjust
+when lab changes variable names</p>
     
     </div>
 
-    <pre class="usage"><span class='co'># S3 method for default</span>
-<span class='fu'><a href='mtbdrplus_fixer.html'>mtbdrplus_fixer</a></span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>xpert_variable_detector</span>(<span class='no'>x</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>data frame containing variables</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>further arguments passed to or from other methods</p></td>
+      <td><p>data frame with xpert variables</p></td>
     </tr>
     </table>
     
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <div class='dont-index'><p><code><a href='tbcleanr.html'>tbcleanr</a></code></p></div>
+    <p>string of variable names matching regex for Xpert results</p>
     
 
   </div>
@@ -153,11 +150,9 @@
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#see-also">See also</a></li>
+      <li><a href="#value">Value</a></li>
           </ul>
 
-    <h2>Author</h2>
-    <p>Jay Achar <a href='mailto:jay.achar@doctors.org.uk'>jay.achar@doctors.org.uk</a></p>
   </div>
 </div>
 

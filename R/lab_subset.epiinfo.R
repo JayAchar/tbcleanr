@@ -6,6 +6,7 @@
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{tbcleanr}}
+#' @importFrom stringr str_detect
 #' @export 
 
 
@@ -21,8 +22,14 @@ lab_subset.epiinfo <- function(x, add = NULL, ...) {
             "HAINR", "H", "E", "R", "Z", "KM", "OF", "CAP",
             "H1", "E1", "R1", 
             "Z1", "KM1", "OF1", "CAP1",
-            "MFX1", "GX_res1", "GX_res2", "GX_res3", "GX_res4")	
+            "MFX1")	
   
+  # new xpert variable names added in late 2018
+  xpert_additions <- xpert_variable_detector(x)
+  
+    # add to keep variables
+    keep <- c(keep, xpert_additions)
+
   ## Additional specified variables
   k <- c(keep, add)		# add additional requested variables
   x <- subset(x, select = k)

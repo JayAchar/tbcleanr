@@ -1,7 +1,7 @@
 Package: tbcleanr
 Type: Package
 Title: tbcleanr: tools for cleaning TB data
-Version: 0.1.1.4
+Version: 0.1.1.5
 Date: 2019-01-04
 Authors@R: person("Jay", "Achar", 
     email = "jay.achar@doctors.org.uk", 

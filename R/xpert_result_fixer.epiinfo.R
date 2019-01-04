@@ -14,13 +14,14 @@ xpert_result_fixer.epiinfo <- function(x, rm_orig = TRUE, ...) {
  # save original class
   class_start <- class(x)
   
-  x_vars <- c("GX_res1", "GX_res2", "GX_res3", "GX_res4")
-  
-  #check vars are within data frame
-  if (! all(x_vars %in% names(x))) {
-    stop("Xpert variables are not all present in data frame")
-  }
-  
+ # new xpert variable names added in late 2018  
+  x_vars <- xpert_variable_detector(x)
+
+  # #check vars are within data frame
+  # if (! all(x_vars %in% names(x))) {
+  #   stop("Xpert variables are not all present in data frame")
+  # }
+  #
   # reclassify errors across all variables
   fix_errors <- function(e) {
     # convert invalid results to NA
@@ -62,12 +63,12 @@ xpert_result_fixer.epiinfo <- function(x, rm_orig = TRUE, ...) {
   
   # apply MTB result generator to all original variables
   mtb <- map_df(.x = x[x_vars], .f = x_mtb)
-  y_names <- c("mtb1", "mtb2", "mtb3", "mtb4")
+  y_names <- c(paste0("mtb", 1:ncol(mtb)))
   names(mtb) <- y_names
   
   # apply rif resistance generator to all original variables
   resist <- map_df(.x = x[x_vars], .f = x_rif)
-  r_names <- c("rif1", "rif2", "rif3", "rif4")
+  r_names <- c(paste0("rif", 1:ncol(resist)))
   names(resist) <- r_names
   
   # consolidate xpert results
