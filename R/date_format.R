@@ -2,18 +2,16 @@
 #'
 #' This function detects variables with dates xx/xx/xxxx and converts them into date objects
 #' @param x data frame or data.table
-#' @param format specify the lubridate output format
 #' @param ... further arguments passed to or from other methods
 #' @keywords TB
-#' @importFrom purrr map
+#' @importFrom purrr map compose partial map_lgl map_if
 #' @importFrom stringr str_detect
 #' @importFrom stats na.omit
-#' @importFrom lubridate dmy mdy ymd
+#' @importFrom lubridate date dmy
+#' @importFrom tidyr replace_na
 #' @export
 
-date_format <- function(x, format = dmy, ...) {
-	
-			output <- logical()
+date_format <- function(x, ...) {
 
 			# strings to detect
 			strings <- c("^\\d{2}/\\d{2}/\\d{4}$",
@@ -21,21 +19,26 @@ date_format <- function(x, format = dmy, ...) {
 						"^\\d{2}-\\w*-\\d{2}$",
 						"^\\d{2}-\\d{2}-\\d{4}$")
 			
-	for (i in 1:length(names(x)))	{
-		x[[i]] %>%
-			str_detect(paste(strings, collapse = '|')) %>%
-			# omit missing values
-			na.omit() %>%
-			mean() %>%
-			# only keep variables where all records are datesa
-			as.logical -> output[i]	
-	}
-	
-	# convert variables with all missing to FALSE
-		output[is.na(output)] <- FALSE
-	
-	# format date
-		x[output] <- map(x[output], format)
+			string_pattern <- paste(strings, collapse = "|")
 
-	return(x)
+			# build function for checking for dd/mm/yy character string dates
+			chr_date_check <- compose(as.logical,
+			                          mean,
+			                          na.omit,
+			                          partial(str_detect, pattern = string_pattern))
+			
+			# logical to find all character string dates with pattern
+			vec <- map_lgl(x, chr_date_check) %>% 
+			  tidyr::replace_na(replace = FALSE)
+
+			# convert all identified character string dates to dmy
+			x[] <- map_if(x, vec, dmy) 
+
+  # check for presence of POSIX date variables
+			vec_pos <- map_lgl(x, ~class(.x)[1] == "POSIXct")
+	
+	# convert all POSIX dates
+			x[] <- map_if(x, vec_pos, date)
+			
+	x
 }
