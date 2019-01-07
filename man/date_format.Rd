@@ -4,12 +4,10 @@
 \alias{date_format}
 \title{Detect and convert date variables}
 \usage{
-date_format(x, format = dmy, ...)
+date_format(x, ...)
 }
 \arguments{
 \item{x}{data frame or data.table}
-
-\item{format}{specify the lubridate output format}
 
 \item{...}{further arguments passed to or from other methods}
 }
