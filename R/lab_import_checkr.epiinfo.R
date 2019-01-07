@@ -25,7 +25,7 @@ lab_import_checkr.epiinfo <- function(x) {
   check_vars <- c(check_vars, xpert_additions)
   
   # check if variables have been incorrectly parsed as logicals
-  class_check <- map_lgl(x[, check_vars], .f = ~ class(.x) == "logical")
+  class_check <- map_lgl(x[, check_vars], .f = ~ class(.x)[1] == "logical")
   
   if (any(class_check)) stop("Lab variables incorrectly parsed as logicals - check data read args - suggest guess_max adjustment in readr, or data set is incomplete")
   
