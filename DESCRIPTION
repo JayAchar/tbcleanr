@@ -2,7 +2,7 @@ Package: tbcleanr
 Type: Package
 Title: tbcleanr: tools for cleaning TB data
 Version: 0.1.1.7
-Date: 2019-01-08
+Date: 2019-01-09
 Authors@R: person("Jay", "Achar", 
     email = "jay.achar@doctors.org.uk", 
     role = c("aut", "cre"),
