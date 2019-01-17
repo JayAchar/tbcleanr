@@ -27,5 +27,6 @@ test_that("yn_binary chr works", {
 
 test_that("yn_binary lgl works", {
   expect_error(tbcleanr:::yn_binary_fixer(data$TEST))
+  expect_message(tbcleanr::yn_binary_fixer(data$ALL_NA))
 
 })
