@@ -36,6 +36,8 @@ adm_data_cleanr <- function(x, add = NULL, ...) {
 		gender_fixer() %>%
 			# hiv variables consolidated
 		hiv_fixer() %>%
+	    # treatment history 
+	  txhistory() %>% 
 			# cavities variables consolidated
 #		cavities_fixer(software = software, project = project, ...) %>%
 			# fix outcomes variables

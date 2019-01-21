@@ -19,7 +19,7 @@ koch6 <- adm_subset(k6_raw)
 
 test_that("Koch 6 output ok", {
   expect_true("koch6" %in% class(koch6))
-  expect_equal(dim(koch6), c(10, 52))
+  expect_equal(dim(koch6), c(10, 53))
 })
 
 
