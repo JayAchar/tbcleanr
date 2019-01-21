@@ -23,8 +23,10 @@
 #' @seealso \code{\link{lab_sample_fixer}}
 #' @seealso \code{\link{lab_subset}}
 #' @seealso \code{\link{mtbdrplus_fixer}}
-#' @seealso \code{\link{outcome_fixer}} 
+#' @seealso \code{\link{outcome_fixer}}
+#' @seealso \code{\link{recorded_dst}} 
 #' @seealso \code{\link{result_consolidator}}
+#' @seealso \code{\link{txhistory}}
 #' @seealso \code{\link{xpert_result_fixer}} 
 #' @seealso \code{\link{yn_binary_fixer}} 
 #' 

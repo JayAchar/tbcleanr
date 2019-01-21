@@ -14,7 +14,8 @@ object_class <- class(x)
 
 # define variables to keep
 keep <- c("registrationnb", "dstnumber", "dateofbirth", "datedeat", "gender",
-               "weight", "height", "cdhistory", "ecgqt", "ecghr", "ecgrr", "ecgqtcf",
+               "weight", "height", "cdhistory", "cdstrainprofil", "cdstrainconf", 
+               "ecgqt", "ecghr", "ecgrr", "ecgqtcf",
                "diabetes", "cardiodi", "renalfail", "cav", "cavD", "labClinDate",
                "Hemoglobin", "Creatinine", "cdhivenrol", "HIV", "CD4count", "Starttre",
                "E", "H", "R", "Z", "Am", "Cm", "Km", "Lfx", "Mfx", 

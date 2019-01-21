@@ -38,6 +38,8 @@ adm_data_cleanr <- function(x, add = NULL, ...) {
 		hiv_fixer() %>%
 	    # treatment history 
 	  txhistory() %>% 
+	    # programme entered DST
+	  recorded_dst() %>% 
 			# cavities variables consolidated
 #		cavities_fixer(software = software, project = project, ...) %>%
 			# fix outcomes variables

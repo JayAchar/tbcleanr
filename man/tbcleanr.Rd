@@ -46,7 +46,11 @@ When published, it will integrate with tbgeneratr, tbcheckr, tbreportr
 
 \code{\link{outcome_fixer}}
 
+\code{\link{recorded_dst}}
+
 \code{\link{result_consolidator}}
+
+\code{\link{txhistory}}
 
 \code{\link{xpert_result_fixer}}
 

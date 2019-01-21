@@ -23,6 +23,7 @@ reference:
       - id_detangle
       - outcome_fixer
       - txhistory
+      - recorded_dst
   - title: Mycobacteriology lab data functions
     desc: Functions used only for mycobacteriology lab data sets
     contents:

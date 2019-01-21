@@ -1,9 +1,12 @@
-## tbcleanr 0.1.2.0
-### 20 Jan 2019
+
+# tbcleanr 0.1.2.0
+#### 21 Jan 2019
 ## Major changes
 
-* Added txhistory() to clean variables for previous treatment history
-* 'cdhistory' variable included in`adm_subset.koch6()`
+* Added `txhistory()` to clean variables for previous treatment history
+* Added `recorded_dst()` to clean programme recorded baseline DST
+* 'cdhistory', 'cdstrainprofil' and 'cdstrainconf' variables included in`adm_subset.koch6()`
+* 'DIPRO' variable included in `adm_subset.epiinfo()`
 
 ---
 
