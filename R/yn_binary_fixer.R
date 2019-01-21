@@ -18,6 +18,17 @@ yn_binary_fixer <- function(x, ...) {
 
 # record class of variable
 	class <- class(x)
+	
+# if class == logical, likely all na
+	if (class(x) == "logical") {
+	  if (all(is.na(x))){
+	    message(paste(names(x), "is all NA and class == logical. Not converted to factor."))
+	    return(x)
+	  } else {
+	    stop(paste(names(x), "is logical, but not all NA. Not converted to factor."))
+	    
+	  }
+	}
 
 # check class is within acceptable values
 	if (! class %in% s) {
