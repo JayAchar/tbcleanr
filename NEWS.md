@@ -1,3 +1,10 @@
+# tbcleanr 0.1.3.9000
+#### 27 Jan 2019
+## Major changes
+
+* Added `change_classr()` to assign object classes to change data imports
+
+---
 
 # tbcleanr 0.1.2.0
 #### 21 Jan 2019
