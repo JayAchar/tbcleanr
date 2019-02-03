@@ -1,3 +1,11 @@
+# tbcleanr 0.1.3.9001
+#### 03 Feb 2019
+## Major changes
+
+* Added `change_cleanr()` to clean change data sets from EpiInfo and Koch 6
+
+---
+
 # tbcleanr 0.1.3.9000
 #### 27 Jan 2019
 ## Major changes

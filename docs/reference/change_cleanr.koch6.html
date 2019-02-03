@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Consolidate DST results — dst_consolidator.grozny • tbcleanr</title>
+<title>Clean drug change data — change_cleanr.koch6 • tbcleanr</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,10 +30,10 @@
 
 
 
-<meta property="og:title" content="Consolidate DST results — dst_consolidator.grozny" />
+<meta property="og:title" content="Clean drug change data — change_cleanr.koch6" />
 
-<meta property="og:description" content="Take laboratory data set and consolidate DST results - choose aggregate
-for categorised results" />
+<meta property="og:description" content="Take drug change data from routine TB programmes and clean for 
+further analysis." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -128,39 +128,27 @@ for categorised results" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Consolidate DST results</h1>
-    <small class="dont-index">Source: <a href='https://github.com/JayAchar/tbcleanr/blob/master/R/dst_consolidator.grozny.R'><code>R/dst_consolidator.grozny.R</code></a></small>
-    <div class="hidden name"><code>dst_consolidator.grozny.Rd</code></div>
+    <h1>Clean drug change data</h1>
+    <small class="dont-index">Source: <a href='https://github.com/JayAchar/tbcleanr/blob/master/R/change_cleanr.koch6.R'><code>R/change_cleanr.koch6.R</code></a></small>
+    <div class="hidden name"><code>change_cleanr.koch6.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Take laboratory data set and consolidate DST results - choose aggregate
-for categorised results</p>
+    <p>Take drug change data from routine TB programmes and clean for 
+further analysis.</p>
     
     </div>
 
-    <pre class="usage"><span class='co'># S3 method for grozny</span>
-<span class='fu'><a href='dst_consolidator.html'>dst_consolidator</a></span>(<span class='no'>x</span>, <span class='kw'>aggregate</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>rm_orig</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='co'># S3 method for koch6</span>
+<span class='fu'><a href='change_cleanr.html'>change_cleanr</a></span>(<span class='no'>x</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>data frame containing variables</p></td>
-    </tr>
-    <tr>
-      <th>aggregate</th>
-      <td><p>choose whether to aggregate to categories or retain all drug results</p></td>
-    </tr>
-    <tr>
-      <th>rm_orig</th>
-      <td><p>remove original variables - TRUE or FALSE</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>further arguments passed to or from other methods</p></td>
+      <td><p>data frame containing drug variables</p></td>
     </tr>
     </table>
     
