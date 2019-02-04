@@ -91,6 +91,9 @@ change_cleanr.koch6 <- function(x) {
   # convert to dates
   x$change_dt <- lubridate::dmy(x$change_dt)
   
+  # convert all variable to lower case
+  names(x) <- tolower(names(x))
+  
   # re-apply starting class
   class(x) <- start_class
   

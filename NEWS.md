@@ -1,4 +1,12 @@
-# tbcleanr 0.1.3.9001
+# tbcleanr 0.1.3.1
+#### 04 Feb 2019
+## Minor changes
+
+* All output variables converted to lower case in `change_cleanr.koch6()`
+
+---
+
+# tbcleanr 0.1.3.0
 #### 03 Feb 2019
 ## Major changes
 
