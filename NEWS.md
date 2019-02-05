@@ -1,3 +1,12 @@
+# tbcleanr 0.1.3.2
+#### 05 Feb 2019
+## Minor changes
+
+* New function added: `adherence_classr()` is designed to detect and allocate 
+object class to facilitate analysis by data entry software.
+
+---
+
 # tbcleanr 0.1.3.1
 #### 04 Feb 2019
 ## Minor changes

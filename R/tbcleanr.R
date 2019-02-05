@@ -10,6 +10,7 @@
 #' @seealso \code{\link{adm_classr}} 
 #' @seealso \code{\link{adm_subset}}
 #' @seealso \code{\link{adm_data_cleanr}} 
+#' @seealso \code{\link{adherence_classr}} 
 #' @seealso \code{\link{binary_fixer}} 
 #' @seealso \code{\link{change_classr}}  
 #' @seealso \code{\link{change_cleanr}} 

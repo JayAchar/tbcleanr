@@ -18,6 +18,8 @@ When published, it will integrate with tbgeneratr, tbcheckr, tbreportr
 
 \code{\link{adm_data_cleanr}}
 
+\code{\link{adherence_classr}}
+
 \code{\link{binary_fixer}}
 
 \code{\link{change_classr}}
