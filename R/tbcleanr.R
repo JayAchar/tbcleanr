@@ -28,6 +28,7 @@
 #' @seealso \code{\link{mtbdrplus_fixer}}
 #' @seealso \code{\link{outcome_fixer}}
 #' @seealso \code{\link{recorded_dst}} 
+#' @seealso \code{\link{response_weight_cleanr}} 
 #' @seealso \code{\link{result_consolidator}}
 #' @seealso \code{\link{txhistory}}
 #' @seealso \code{\link{xpert_result_fixer}} 

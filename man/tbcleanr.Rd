@@ -54,6 +54,8 @@ When published, it will integrate with tbgeneratr, tbcheckr, tbreportr
 
 \code{\link{recorded_dst}}
 
+\code{\link{response_weight_cleanr}}
+
 \code{\link{result_consolidator}}
 
 \code{\link{txhistory}}
