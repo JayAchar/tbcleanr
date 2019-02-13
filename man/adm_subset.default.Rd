@@ -18,5 +18,5 @@ Allow data frames with unspecified object class to pass through
 \code{\link{tbcleanr}}
 }
 \author{
-Jay Achar \email{jay.achar@doctors.org.uk}
+Jay Achar
 }

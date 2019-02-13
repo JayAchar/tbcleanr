@@ -17,5 +17,5 @@ object class to identify database for further cleaning
 \code{\link{tbcleanr}}
 }
 \author{
-Jay Achar \email{jay.achar@doctors.org.uk}
+Jay Achar
 }
