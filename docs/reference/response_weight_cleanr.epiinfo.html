@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Clean treatment history variable — txhistory.koch6 • tbcleanr</title>
+<title>Treatment response weight cleanr — response_weight_cleanr.epiinfo • tbcleanr</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Clean treatment history variable — txhistory.koch6" />
+<meta property="og:title" content="Treatment response weight cleanr — response_weight_cleanr.epiinfo" />
 
-<meta property="og:description" content="Clean treatment history variable" />
+<meta property="og:description" content="Treatment response weight cleanr" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -130,33 +130,38 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Clean treatment history variable</h1>
-    <small class="dont-index">Source: <a href='https://github.com/JayAchar/tbcleanr/blob/master/R/txhistory.koch6.R'><code>R/txhistory.koch6.R</code></a></small>
-    <div class="hidden name"><code>txhistory.koch6.Rd</code></div>
+    <h1>Treatment response weight cleanr</h1>
+    <small class="dont-index">Source: <a href='https://github.com/JayAchar/tbcleanr/blob/master/R/response_weight_cleanr.epiinfo.R'><code>R/response_weight_cleanr.epiinfo.R</code></a></small>
+    <div class="hidden name"><code>response_weight_cleanr.epiinfo.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Clean treatment history variable</p>
+    <p>Treatment response weight cleanr</p>
     
     </div>
 
-    <pre class="usage"><span class='co'># S3 method for koch6</span>
-<span class='fu'><a href='txhistory.html'>txhistory</a></span>(<span class='no'>x</span>)</pre>
+    <pre class="usage"><span class='co'># S3 method for epiinfo</span>
+<span class='fu'><a href='response_weight_cleanr.html'>response_weight_cleanr</a></span>(<span class='no'>x</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>data frame of TB admission data</p></td>
+      <td><p>adherence or BMI data frame including monthly weight measurements</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>data frame with factorised treatment history
-variable</p>
+    <p>data frame with treatment month and weight per patient. Duplicate
+monthly measurements are removed with weights closest to the preceeding month
+retained.</p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='tbcleanr.html'>tbcleanr</a></code></p></div>
     
 
   </div>
@@ -166,8 +171,12 @@ variable</p>
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#see-also">See also</a></li>
           </ul>
 
+    <h2>Author</h2>
+    <p>Jay Achar</p>
   </div>
 </div>
 

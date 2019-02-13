@@ -1,10 +1,11 @@
 # tbcleanr 0.1.3.3
 #### 13 Feb 2019
-## Minor changes
+## Major changes
 
 * New function added: `response_weight_cleanr()` cleans weight monitoring data.
 * `adm_classr()` removed from NAMESPACE and incorporated into default methods.
 * Updates to package tests.
+* New vignetted added: `Workflow - admission file` is designed to give instructions on how to use the package to process admission data sets. 
 
 ---
 
