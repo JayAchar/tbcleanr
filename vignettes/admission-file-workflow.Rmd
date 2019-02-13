@@ -1,0 +1,68 @@
+---
+title: "Cleaning workflow - admission file"
+author: "Jay Achar"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The `tbcleanr` package has been designed to simplify routine data cleaning for TB programmatic data. Since this data is typically stored in Excel, CSV or TSV formatted files, the chosen workflow for the package retains this seperation to allow easier calculation and generation of new variables in the `tbgeneratr` package. In this vignette, a typical workflow for cleaning admission data files is presented.
+
+## Import data
+
+Use of the `readr` package is recommended for importing CSV and TSV files. While the `readxl` package can be used for data stored in Excel documents, this is not recommended. 
+
+```{r import_setwd, include = TRUE, eval = FALSE}
+# define working directory
+setwd("C:/tb_data")
+
+# confirm required admission file is present
+list.files()
+
+# read in admission data
+adm <- readr::read_csv("admission_tb_data.csv", guess_max = 100000)
+
+```
+
+The `guess_max` option is defined here to ensure variables are parsed using a greater than standard figure. Since some variables have been added to data sets only in recent years, if this option is not defined, there is a risk that recently collected data will be incorrectly lost through misclassification of a variable as a logical vector. For larger data sets, higher figures for `guess_max` are recommended. 
+
+Check for warnings in the output of the `read_csv()` call. If a variable has been incorrectly defined as a logical, parsing failures will be displayed. 
+
+## Simplified workflow
+
+All `tbcleanr` functions designed to work with admission data files can be applied using one function call:
+
+```{r aggregate_adm_clean, include = TRUE, eval = FALSE}
+
+clean_adm <- adm_data_cleanr(adm)
+
+```
+
+Individual functions can also be called seperately where more specific cleaning is required. 
+
+## Multiple files
+
+Sometimes cleaning and subsequent analysis of multiple data sets is required. This can be achieved by combining the `tbcleanr` and `tbgeneratr` packages with `purrr`. 
+
+``` {r multiple_files, include = TRUE, eval = FALSE}
+# define files to process
+filenames <- c("admission1.csv", "admission2.csv", "admission3.csv")
+
+# combine purrr with tbcleanr
+tbl <- dplyr::tibble(file = filenames,
+                    dataset = map(.x = files, 
+                                  .f = ~ {readr::read_csv(.x) %>% 
+                                      tbcleanr::adm_data_cleanr()}))
+```
+
+This approach uses `map()` to iterate over the defined file names in the working directory. The defined function within `map()` imports the file and applies the `adm_data_cleanr()` leaving a cleaned, nested dataset in the tibble. Further use of `map()` will allow additional processing using the `tbgeneratr` package. 
