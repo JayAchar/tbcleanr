@@ -39,8 +39,11 @@ reference:
   - title: Drug change data functions
     desc: Functions used only for drug treatment change data sets
     contents:
-      - change_classr
       - change_cleanr
+  - title: Adherance and BMI data functions
+    desc: Functions used only for adherance and BMI data sets
+    contents:
+      - response_weight_cleanr
   - title: General purpose functions
     desc: Functions that can be used on multiple data sets
     contents: 
