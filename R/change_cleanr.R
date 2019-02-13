@@ -4,7 +4,7 @@
 #' further analysis.
 #' 
 #' @param x data frame containing drug variables
-#' @author Jay Achar \email{jay.achar@@doctors.org.uk}
+#' @author Jay Achar 
 #' @seealso \code{\link{tbcleanr}}
 #' @importFrom assertthat assert_that
 #' @export

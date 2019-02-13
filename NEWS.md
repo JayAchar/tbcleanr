@@ -1,3 +1,13 @@
+# tbcleanr 0.1.3.3
+#### 13 Feb 2019
+## Minor changes
+
+* New function added: `response_weight_cleanr()` cleans weight monitoring data.
+* `adm_classr()` removed from NAMESPACE and incorporated into default methods.
+* Updates to package tests.
+
+---
+
 # tbcleanr 0.1.3.2
 #### 05 Feb 2019
 ## Minor changes

@@ -22,8 +22,6 @@ When published, it will integrate with tbgeneratr, tbcheckr, tbreportr
 
 \code{\link{binary_fixer}}
 
-\code{\link{change_classr}}
-
 \code{\link{change_cleanr}}
 
 \code{\link{date_format}}
