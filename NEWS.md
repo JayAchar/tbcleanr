@@ -1,3 +1,10 @@
+# tbcleanr 0.1.3.4
+#### 18 Feb 2019
+## Bug fix
+
+* `adm_subset.default()` failed to pass add arg to `adm_subset()` when applying class object. 
+
+---
 # tbcleanr 0.1.3.3
 #### 13 Feb 2019
 ## Major changes

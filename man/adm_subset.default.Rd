@@ -4,10 +4,12 @@
 \alias{adm_subset.default}
 \title{Default method for adm_subset()}
 \usage{
-\method{adm_subset}{default}(x, ...)
+\method{adm_subset}{default}(x, add = NULL, ...)
 }
 \arguments{
 \item{x}{data frame containing variables}
+
+\item{add}{string of any additional variables to keep}
 
 \item{...}{further arguments passed to or from other methods}
 }
