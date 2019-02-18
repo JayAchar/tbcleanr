@@ -29,5 +29,6 @@ Suggests:
     testthat,
     covr,
     knitr,
+    pkgdown,
     rmarkdown
 VignetteBuilder: knitr
