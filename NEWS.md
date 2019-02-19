@@ -1,8 +1,10 @@
 # tbcleanr 0.1.3.4
-#### 18 Feb 2019
+#### 19 Feb 2019
 ## Bug fix
 
 * `adm_subset.default()` failed to pass add arg to `adm_subset()` when applying class object. 
+* prevent duplication of admission object class addition in `adm_classr()`.
+* bug fix in `id_detangle.default()`.
 
 ---
 # tbcleanr 0.1.3.3
