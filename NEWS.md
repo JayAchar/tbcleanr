@@ -3,6 +3,7 @@
 ## Bug fix
 
 * `adm_subset.default()` failed to pass add arg to `adm_subset()` when applying class object. 
+* prevent duplication of admission object class addition in `adm_classr()`.
 
 ---
 # tbcleanr 0.1.3.3
