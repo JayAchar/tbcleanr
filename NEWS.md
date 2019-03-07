@@ -1,3 +1,13 @@
+# tbcleanr 0.1.3.3
+#### 08 Feb 2019
+## Minor changes
+
+* New function added: `response_weight_cleanr()` is designed to take treatment 
+adherence data from EpiInfo and clean the regular weight monitoring into a weight
+time series.
+
+---
+
 # tbcleanr 0.1.3.2
 #### 05 Feb 2019
 ## Minor changes

@@ -12,11 +12,11 @@
 
 response_weight_cleanr.default <- function(x) {
   
-  k6_bmi_names <- c("RegistrationNb", "RxMonth", "Id_BMI", "weight", "BMI")
+  epiinfo_names <- c("FOLAFT", "STARTTRE", "MEDTTD", "PHASE", "WEIGHT")
   
-  if (all(k6_bmi_names %in% names(x))) {
+  if (all(epiinfo_names %in% names(x))) {
 
-    class(x) <- c(class(x), "koch6")
+    class(x) <- c(class(x), "epiinfo")
     response_weight_cleanr(x)
     
   } else {
