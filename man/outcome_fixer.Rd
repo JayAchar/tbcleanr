@@ -4,10 +4,12 @@
 \alias{outcome_fixer}
 \title{Fix TB treatment outcomes}
 \usage{
-outcome_fixer(x, ...)
+outcome_fixer(x, rm_orig = TRUE, ...)
 }
 \arguments{
 \item{x}{data frame containing outcome variables}
+
+\item{rm_orig}{remove original variables - TRUE or FALSE}
 
 \item{...}{further arguments passed to or from other methods}
 }
@@ -19,5 +21,5 @@ factorised, labelled variable
 \code{\link{tbcleanr}}
 }
 \author{
-Jay Achar \email{jay.achar@doctors.org.uk}
+Jay Achar
 }

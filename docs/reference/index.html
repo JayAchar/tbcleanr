@@ -70,7 +70,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tbcleanr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3.3</span>
       </span>
     </div>
 
@@ -88,6 +88,9 @@
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="../articles/getting-started.html">Getting started</a>
+    </li>
+    <li>
+      <a href="../articles/admission-file-workflow.html">Workflow - admission</a>
     </li>
   </ul>
 </li>
@@ -303,15 +306,507 @@
       <tr>
         
         <td>
-          <p><code><a href="change_classr.html">change_classr()</a></code> </p>
+          <p><code><a href="adherence_classr.html">adherence_classr()</a></code> </p>
         </td>
-        <td><p>Add object class to identify change database</p></td>
+        <td><p>Apply class for adherance data</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="adm_classr.html">adm_classr()</a></code> </p>
+        </td>
+        <td><p>Add object class to identify admission database</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="adm_data_cleanr.html">adm_data_cleanr()</a></code> </p>
+        </td>
+        <td><p>Clean TB admission data sets</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="adm_subset.default.html">adm_subset(<i>&lt;default&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Default method for adm_subset()</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="adm_subset.epiinfo.html">adm_subset(<i>&lt;epiinfo&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Subset EpiInfo adm variables</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="adm_subset.koch6.html">adm_subset(<i>&lt;koch6&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Subset Koch 6 adm variables</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="adm_subset.html">adm_subset()</a></code> </p>
+        </td>
+        <td><p>Subset adm variables</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="binary_fixer.default.html">binary_fixer(<i>&lt;default&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Default method for binary_fixer()</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="binary_fixer.epiinfo.html">binary_fixer(<i>&lt;epiinfo&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Convert admission binary variables to factorised output</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="binary_fixer.koch6.html">binary_fixer(<i>&lt;koch6&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Convert admission binary variables to factorised output</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="binary_fixer.html">binary_fixer()</a></code> </p>
+        </td>
+        <td><p>Convert admission binary variables to factorised output</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="change_cleanr.default.html">change_cleanr(<i>&lt;default&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Default method for change_cleanr()</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="change_cleanr.epiinfo.html">change_cleanr(<i>&lt;epiinfo&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Clean drug change data</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="change_cleanr.koch6.html">change_cleanr(<i>&lt;koch6&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Clean drug change data</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="change_cleanr.html">change_cleanr()</a></code> </p>
         </td>
         <td><p>Clean drug change data</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="date_format.html">date_format()</a></code> </p>
+        </td>
+        <td><p>Detect and convert date variables</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="drug_fixer.default.html">drug_fixer(<i>&lt;default&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Default method for drug_fixer()</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="drug_fixer.epiinfo.html">drug_fixer(<i>&lt;epiinfo&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Fix EpiInfo drug dosing data</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="drug_fixer.koch6.html">drug_fixer(<i>&lt;koch6&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Fix Koch 6 drug dosing data</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="drug_fixer.html">drug_fixer()</a></code> </p>
+        </td>
+        <td><p>Convert drug doses to binary output</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="dst_consolidator.default.html">dst_consolidator(<i>&lt;default&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Default method for dst_consolidator()</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="dst_consolidator.epiinfo.html">dst_consolidator(<i>&lt;epiinfo&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Consolidate DST results</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="dst_consolidator.grozny.html">dst_consolidator(<i>&lt;grozny&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Consolidate DST results</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="dst_consolidator.html">dst_consolidator()</a></code> </p>
+        </td>
+        <td><p>Consolidate DST results</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="gender_fixer.default.html">gender_fixer(<i>&lt;default&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Default method for gender_fixer()</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="gender_fixer.epiinfo.html">gender_fixer(<i>&lt;epiinfo&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Factorise Epiinfo gender variable</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="gender_fixer.koch6.html">gender_fixer(<i>&lt;koch6&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Factorise Koch 6 gender variable</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="gender_fixer.html">gender_fixer()</a></code> </p>
+        </td>
+        <td><p>Factorise gender variable</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="hiv_fixer.default.html">hiv_fixer(<i>&lt;default&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Default method for hiv_fixer()</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="hiv_fixer.epiinfo.html">hiv_fixer(<i>&lt;epiinfo&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Factorise Epiinfo HIV variable</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="hiv_fixer.koch6.html">hiv_fixer(<i>&lt;koch6&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Factorise Koch 6 HIV variable</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="hiv_fixer.html">hiv_fixer()</a></code> </p>
+        </td>
+        <td><p>Factorise HIV variable</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="id_detangle.default.html">id_detangle(<i>&lt;default&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Default method for id_detangle()</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="id_detangle.epiinfo.html">id_detangle(<i>&lt;epiinfo&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Split admission ID number</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="id_detangle.html">id_detangle()</a></code> </p>
+        </td>
+        <td><p>Split admission ID number</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="lab_classr.html">lab_classr()</a></code> </p>
+        </td>
+        <td><p>Add object class to identify lab database</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="lab_data_cleanr.html">lab_data_cleanr()</a></code> </p>
+        </td>
+        <td><p>Cleans laboratory data sets</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="lab_date_fixer.default.html">lab_date_fixer(<i>&lt;default&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Default method for lab_date_fixer()</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="lab_date_fixer.epiinfo.html">lab_date_fixer(<i>&lt;epiinfo&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Aggregate dates in lab database</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="lab_date_fixer.grozny.html">lab_date_fixer(<i>&lt;grozny&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Aggregate dates in lab database</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="lab_date_fixer.html">lab_date_fixer()</a></code> </p>
+        </td>
+        <td><p>Aggregate dates in lab database</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="lab_import_checkr.default.html">lab_import_checkr(<i>&lt;default&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Default method for lab_import_checkr()</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="lab_import_checkr.epiinfo.html">lab_import_checkr(<i>&lt;epiinfo&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Confirm correct lab data import</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="lab_import_checkr.grozny.html">lab_import_checkr(<i>&lt;grozny&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Confirm correct lab data import</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="lab_import_checkr.html">lab_import_checkr()</a></code> </p>
+        </td>
+        <td><p>Confirm correct lab data import</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="lab_sample_fixer.default.html">lab_sample_fixer(<i>&lt;default&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Default method for lab)sample_fixer()</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="lab_sample_fixer.grozny.html">lab_sample_fixer(<i>&lt;grozny&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Lab sample fixer</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="lab_sample_fixer.html">lab_sample_fixer()</a></code> </p>
+        </td>
+        <td><p>Lab sample fixer</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="lab_subset.default.html">lab_subset(<i>&lt;default&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Default method for lab_subset()</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="lab_subset.epiinfo.html">lab_subset(<i>&lt;epiinfo&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Subset lab variables</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="lab_subset.grozny.html">lab_subset(<i>&lt;grozny&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Subset lab variables</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="lab_subset.koch6.html">lab_subset(<i>&lt;koch6&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Subset lab variables</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="lab_subset.html">lab_subset()</a></code> </p>
+        </td>
+        <td><p>Subset lab variables</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="mtbdrplus_fixer.default.html">mtbdrplus_fixer(<i>&lt;default&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Default method for mtbdrplus_fixer()</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="mtbdrplus_fixer.epiinfo.html">mtbdrplus_fixer(<i>&lt;epiinfo&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Consolidate Hain MTBDRplus results</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="mtbdrplus_fixer.grozny.html">mtbdrplus_fixer(<i>&lt;grozny&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Consolidate Hain MTBDRplus results</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="mtbdrplus_fixer.html">mtbdrplus_fixer()</a></code> </p>
+        </td>
+        <td><p>Consolidate Hain MTBDRplus results</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="outcome_fixer.default.html">outcome_fixer(<i>&lt;default&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Default method for outcome_fixer()</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="outcome_fixer.epiinfo.html">outcome_fixer(<i>&lt;epiinfo&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Fix EpiInfo treatment outcomes</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="outcome_fixer.koch6.html">outcome_fixer(<i>&lt;koch6&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Fix Koch 6 treatment outcomes</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="outcome_fixer.html">outcome_fixer()</a></code> </p>
+        </td>
+        <td><p>Fix TB treatment outcomes</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="recorded_dst.default.html">recorded_dst(<i>&lt;default&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Default method for recorded_dst()</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="recorded_dst.epiinfo.html">recorded_dst(<i>&lt;epiinfo&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Clean recorded baseline DST variable</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="recorded_dst.koch6.html">recorded_dst(<i>&lt;koch6&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Clean recorded baseline DST variable</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="recorded_dst.html">recorded_dst()</a></code> </p>
+        </td>
+        <td><p>Clean recorded baseline DST variable</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="response_weight_cleanr.default.html">response_weight_cleanr(<i>&lt;default&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Treatment response weight cleanr</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="response_weight_cleanr.epiinfo.html">response_weight_cleanr(<i>&lt;epiinfo&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Treatment response weight cleanr</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="response_weight_cleanr.koch6.html">response_weight_cleanr(<i>&lt;koch6&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Treatment response weight cleanr</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="response_weight_cleanr.html">response_weight_cleanr()</a></code> </p>
+        </td>
+        <td><p>Treatment response weight cleanr</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="result_consolidator.default.html">result_consolidator(<i>&lt;default&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Default method for result_consolidator()</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="result_consolidator.epiinfo.html">result_consolidator(<i>&lt;epiinfo&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Consolidate smear and culture results</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="result_consolidator.grozny.html">result_consolidator(<i>&lt;grozny&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Consolidate smear and culture results</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="result_consolidator.html">result_consolidator()</a></code> </p>
+        </td>
+        <td><p>Consolidate smear and culture results</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="tbcleanr.html">tbcleanr</a></code> </p>
+        </td>
+        <td><p>tbcleanr: tools for cleaning TB data</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="txhistory.default.html">txhistory(<i>&lt;default&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Default method for txhistory()</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="txhistory.epiinfo.html">txhistory(<i>&lt;epiinfo&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Clean treatment history variable</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="txhistory.koch6.html">txhistory(<i>&lt;koch6&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Clean treatment history variable</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="txhistory.html">txhistory()</a></code> </p>
+        </td>
+        <td><p>Clean treatment history variable</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="xpert_result_fixer.default.html">xpert_result_fixer(<i>&lt;default&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Default method for xpert_result_fixer()</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="xpert_result_fixer.epiinfo.html">xpert_result_fixer(<i>&lt;epiinfo&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Consolidate Xpert results</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="xpert_result_fixer.grozny.html">xpert_result_fixer(<i>&lt;grozny&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Consolidate Xpert results</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="xpert_result_fixer.html">xpert_result_fixer()</a></code> </p>
+        </td>
+        <td><p>Consolidate Xpert results</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="xpert_variable_detector.html">xpert_variable_detector()</a></code> </p>
+        </td>
+        <td><p>Xpert variable detector</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="yn_binary_fixer.html">yn_binary_fixer()</a></code> </p>
+        </td>
+        <td><p>Factorise binary (Y/N) variables</p></td>
       </tr>
     </tbody><tbody>
       <tr>
@@ -377,7 +872,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
 </div>
       </footer>
    </div>

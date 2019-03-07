@@ -10,7 +10,7 @@
 #' @param ... further arguments passed to or from other methods
 #' @return Data frame with an object attribute signifying the data collection software - 
 #' "epiinfo" or "koch6"
-#' @author Jay Achar \email{jay.achar@@doctors.org.uk}
+#' @author Jay Achar 
 #' @seealso \code{\link{tbcleanr}}
 #' @importFrom magrittr %>%
 #' @importFrom assertthat assert_that
@@ -24,8 +24,6 @@ adm_data_cleanr <- function(x, add = NULL, ...) {
 
 # =======================================================
 	x <- x %>%
-	        # add object class
-	    adm_classr() %>% 
 			# subset variables
 		adm_subset(add = add, ...) %>%
 			# detangle apid number

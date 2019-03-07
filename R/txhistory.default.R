@@ -8,6 +8,18 @@
 
 txhistory.default <- function(x) {
   
+  # check whether adm object class can be applied
+  y <- adm_classr(x)
+  
+  # recycle if class sucessfully applied
+  if (length(class(y)) > length(class(x))) {
+    
+    adm_subset(y)
+    
+  } else {
   message("No adm object class detected: txhistory() not applied.")
-  x       
+  x          
+  
+  }
+ 
 }
