@@ -15,7 +15,7 @@ outcome_fixer.default <- function(x, ...) {
   # recycle if class sucessfully applied
   if (length(class(y)) > length(class(x))) {
     
-    adm_subset(y)
+    outcome_fixer(y)
     
   } else {
     
