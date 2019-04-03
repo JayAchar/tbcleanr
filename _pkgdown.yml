@@ -17,6 +17,7 @@ reference:
     contents:
       - adm_classr
       - adm_subset
+      - cavities_fixer
       - drug_fixer
       - gender_fixer
       - hiv_fixer
