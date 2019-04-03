@@ -11,6 +11,11 @@
 adm_classr <- function(x) {
   
   assert_that(is.data.frame(x))
+
+# if adm object class already present - stop further evaluation
+  if (any(c("epiinfo", "koch6") %in% class(x))) {
+    return(x)
+  }
   
 # names of variables in Epiinfo
   epiinfo_varnames <- c("APID", "BIRTDATE", "BDQDBDQ", "DATEDEAT")
