@@ -7,6 +7,7 @@
 #' @seealso \code{\link{tbcleanr}}
 #' @importFrom dplyr mutate
 #' @importFrom magrittr %>% 
+#' @importFrom rlang .data
 #' @return data frame with two new factor variables indicating
 #' whether a x-ray is normal or abnormal, and whether it shows
 #' a cavity or not
@@ -26,11 +27,11 @@ cavities_fixer.epiinfo <- function(x,
     
     ## convert variables to factor
     x <- x %>% 
-      mutate(xray_result = factor(XRAYRES, 
+      mutate(xray_result = factor(.data$XRAYRES, 
                               levels = c(1, 2),
                               labels = c("Normal",
                                          "Abnormal")),
-             cavity = factor(ABNORM,
+             cavity = factor(.data$ABNORM,
                              levels = c(1, 2),
                              labels = c("Cavitary", 
                                         "Non-cavitary")))
