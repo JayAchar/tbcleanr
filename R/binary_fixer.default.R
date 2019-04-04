@@ -7,21 +7,19 @@
 #' @seealso \code{\link{tbcleanr}}
 
 binary_fixer.default <- function(x, ...) {
-    
+
   # check whether adm object class can be applied
   y <- adm_classr(x)
-  
+
   # recycle if class sucessfully applied
   if (length(class(y)) > length(class(x))) {
-    
+
     binary_fixer(y)
-    
+
   } else {
-    
+
     message("No adm object class detected: binary_fixer() not applied.")
     x  
-    
+
   }
-    
-  
 }

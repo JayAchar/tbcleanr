@@ -19,8 +19,9 @@
 
 
 adm_data_cleanr <- function(x, add = NULL, ...) {
-# check input
-    assert_that(is.data.frame(x))
+
+  # check input
+  assert_that(is.data.frame(x))
 
 # =======================================================
 	x <- x %>%
@@ -49,5 +50,3 @@ adm_data_cleanr <- function(x, add = NULL, ...) {
 
 x
 }
-
-
