@@ -32,7 +32,7 @@ test_that("Koch 6 output ok", {
   expect_true(! "koch6" %in% class(k6_raw))
   expect_true("koch6" %in% class(k6))
   expect_equal(nrow(k6_raw), nrow(k6))
-  expect_equal(ncol(k6), 55)
+  expect_equal(ncol(k6), 57)
 })
 
 
