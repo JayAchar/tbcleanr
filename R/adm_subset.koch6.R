@@ -34,6 +34,8 @@ keep <-
     "renalfail",
     "cav",
     "cavD",
+    "XRay_Finding",
+    "cavsimple",
     "labClinDate",
     "Hemoglobin",
     "Creatinine",
