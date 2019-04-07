@@ -36,7 +36,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tbcleanr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3.5</span>
       </span>
     </div>
 
@@ -95,7 +95,7 @@
       <h1>Cleaning workflow - admission file</h1>
                         <h4 class="author">Jay Achar</h4>
             
-            <h4 class="date">2019-03-11</h4>
+            <h4 class="date">2019-04-07</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/JayAchar/tbcleanr/blob/master/vignettes/admission-file-workflow.Rmd"><code>vignettes/admission-file-workflow.Rmd</code></a></small>
       <div class="hidden name"><code>admission-file-workflow.Rmd</code></div>
@@ -137,9 +137,10 @@
 <a class="sourceLine" id="cb3-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co"># combine purrr with tbcleanr</span></a>
 <a class="sourceLine" id="cb3-5" data-line-number="5">tbl &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(<span class="dt">file =</span> filenames,</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">                    <span class="dt">dataset =</span> <span class="kw">map</span>(<span class="dt">.x =</span> files, </a>
-<a class="sourceLine" id="cb3-7" data-line-number="7">                                  <span class="dt">.f =</span> <span class="op">~</span><span class="st"> </span>{readr<span class="op">::</span><span class="kw">read_csv</span>(.x) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="st">                                      </span>tbcleanr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/tbcleanr/topics/adm_data_cleanr">adm_data_cleanr</a></span>()}))</a></code></pre></div>
+<a class="sourceLine" id="cb3-6" data-line-number="6">                     <span class="dt">adm_data =</span> <span class="kw">map</span>(<span class="dt">.x =</span> filenames, </a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">                                  <span class="dt">.f =</span> <span class="op">~</span><span class="st"> </span>{readr<span class="op">::</span><span class="kw">read_csv</span>(.x,</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">                                                          <span class="dt">guess_max =</span> <span class="dv">100000</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="st">                                      </span>tbcleanr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/tbcleanr/topics/adm_data_cleanr">adm_data_cleanr</a></span>()}))</a></code></pre></div>
 <p>This approach uses <code>map()</code> to iterate over the defined file names in the working directory. The defined function within <code>map()</code> imports the file and applies the <code>adm_data_cleanr()</code> leaving a cleaned, nested dataset in the tibble. Further use of <code>map()</code> will allow additional processing using the <code>tbgeneratr</code> package.</p>
 </div>
   </div>

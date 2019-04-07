@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Consolidate DST results — dst_consolidator.epiinfo • tbcleanr</title>
+<title>Convert admission x-ray variables to factorised output — cavities_fixer • tbcleanr</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,10 +30,9 @@
 
 
 
-<meta property="og:title" content="Consolidate DST results — dst_consolidator.epiinfo" />
+<meta property="og:title" content="Convert admission x-ray variables to factorised output — cavities_fixer" />
 
-<meta property="og:description" content="Take laboratory data set and consolidate DST results - choose aggregate
-for categorised results" />
+<meta property="og:description" content="Convert admission x-ray variables to factorised output" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -131,42 +130,35 @@ for categorised results" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Consolidate DST results</h1>
-    <small class="dont-index">Source: <a href='https://github.com/JayAchar/tbcleanr/blob/master/R/dst_consolidator.epiinfo.R'><code>R/dst_consolidator.epiinfo.R</code></a></small>
-    <div class="hidden name"><code>dst_consolidator.epiinfo.Rd</code></div>
+    <h1>Convert admission x-ray variables to factorised output</h1>
+    <small class="dont-index">Source: <a href='https://github.com/JayAchar/tbcleanr/blob/master/R/cavities_fixer.R'><code>R/cavities_fixer.R</code></a></small>
+    <div class="hidden name"><code>cavities_fixer.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Take laboratory data set and consolidate DST results - choose aggregate
-for categorised results</p>
+    <p>Convert admission x-ray variables to factorised output</p>
     
     </div>
 
-    <pre class="usage"><span class='co'># S3 method for epiinfo</span>
-<span class='fu'>dst_consolidator</span>(<span class='no'>x</span>, <span class='kw'>aggregate</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>rm_orig</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>cavities_fixer</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>data frame containing variables</p></td>
-    </tr>
-    <tr>
-      <th>aggregate</th>
-      <td><p>choose whether to aggregate to categories or retain all drug results</p></td>
-    </tr>
-    <tr>
-      <th>rm_orig</th>
-      <td><p>remove original variables - TRUE or FALSE</p></td>
+      <td><p>data frame containing admission x-ray variables</p></td>
     </tr>
     <tr>
       <th>...</th>
       <td><p>further arguments passed to or from other methods</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>admission data frame with factor x-ray summary varialbe</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
@@ -179,11 +171,13 @@ for categorised results</p>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
+      <li><a href="#value">Value</a></li>
+
       <li><a href="#see-also">See also</a></li>
           </ul>
 
     <h2>Author</h2>
-    <p>Jay Achar <a href='mailto:jay.achar@doctors.org.uk'>jay.achar@doctors.org.uk</a></p>
+    <p>Jay Achar</p>
   </div>
 </div>
 
