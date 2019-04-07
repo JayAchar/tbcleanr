@@ -17,7 +17,7 @@ r:
 matrix:
   allow_failures:
     - os: osx
-    - r: devel
+      r: devel
   
 after_success:
     - Rscript -e 'covr::codecov()'
