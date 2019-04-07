@@ -60,8 +60,9 @@ filenames <- c("admission1.csv", "admission2.csv", "admission3.csv")
 
 # combine purrr with tbcleanr
 tbl <- dplyr::tibble(file = filenames,
-                    dataset = map(.x = files, 
-                                  .f = ~ {readr::read_csv(.x) %>% 
+                     adm_data = map(.x = filenames, 
+                                  .f = ~ {readr::read_csv(.x,
+                                                          guess_max = 100000) %>% 
                                       tbcleanr::adm_data_cleanr()}))
 ```
 
