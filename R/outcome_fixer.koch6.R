@@ -5,14 +5,14 @@
 #' @param x data frame containing outcome variables
 #' @param rm_orig remove original variables - TRUE or FALSE
 #' @param ... further arguments passed to or from other methods
-#' @author Jay Achar \email{jay.achar@@doctors.org.uk}
+#' @author Jay Achar 
 #' @seealso \code{\link{tbcleanr}}
-#' @export 
+#' @export
 
-outcome_fixer.koch6 <- function(x, rm_orig = TRUE, ...) {
-    
-    # check input
-    assert_that(is.data.frame(x))
+
+outcome_fixer.koch6 <- function(x, 
+                                rm_orig = TRUE, 
+                                ...) {
     
     
     # specify outcome vars

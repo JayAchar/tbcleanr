@@ -5,14 +5,15 @@
 #' @param x data frame containing outcome variables
 #' @param rm_orig remove original variables - TRUE or FALSE
 #' @param ... further arguments passed to or from other methods
-#' @author Jay Achar \email{jay.achar@@doctors.org.uk}
+#' @importFrom dplyr case_when mutate
+#' @author Jay Achar 
 #' @seealso \code{\link{tbcleanr}}
 #' @export 
 
-outcome_fixer.epiinfo <- function(x, rm_orig = TRUE, ...) {
+outcome_fixer.epiinfo <- function(x, 
+                                  rm_orig = TRUE, 
+                                  ...) {
     
-    # check input
-    assert_that(is.data.frame(x))
     
     # specify outcome vars
     v <- "RES"
