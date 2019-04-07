@@ -1,3 +1,11 @@
+# tbcleanr 0.1.3.5
+#### 03 Apr 2019
+## Major changes
+
+* `cavities_fixer()` added as function and to `adm_data_cleanr()`
+
+
+---
 # tbcleanr 0.1.3.4
 #### 19 Feb 2019
 ## Bug fix

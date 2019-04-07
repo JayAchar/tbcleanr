@@ -10,10 +10,10 @@
 #' @export
 
 adm_subset <- function(x, add = NULL, ...) {
-    
-# check arg        
+
+# check arg
     assert_that(is.character(add) | is.null(add))
     assert_that(is.data.frame(x))
-    
+
     UseMethod("adm_subset", x)
 }

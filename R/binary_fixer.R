@@ -4,7 +4,7 @@
 #' binary factorised variables 
 #' @param x data frame containing admission binary variables
 #' @param ... further arguments passed to or from other methods
-#' @author Jay Achar \email{jay.achar@@doctors.org.uk}
+#' @author Jay Achar 
 #' @seealso \code{\link{tbcleanr}}
 #' @importFrom assertthat assert_that
 #' @export

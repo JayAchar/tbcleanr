@@ -19,8 +19,9 @@
 
 
 adm_data_cleanr <- function(x, add = NULL, ...) {
-# check input
-    assert_that(is.data.frame(x))
+
+  # check input
+  assert_that(is.data.frame(x))
 
 # =======================================================
 	x <- x %>%
@@ -39,7 +40,7 @@ adm_data_cleanr <- function(x, add = NULL, ...) {
 	    # programme entered DST
 	  recorded_dst() %>% 
 			# cavities variables consolidated
-#		cavities_fixer(software = software, project = project, ...) %>%
+    cavities_fixer() %>%
 			# fix outcomes variables
 		outcome_fixer(...) %>%
 			# change all drugs from doses to binary
@@ -49,5 +50,3 @@ adm_data_cleanr <- function(x, add = NULL, ...) {
 
 x
 }
-
-
