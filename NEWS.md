@@ -32,7 +32,7 @@ time series.
 #### 05 Feb 2019
 ## Minor changes
 
-* New function added: `adherence_classr()` is designed to detect and allocate 
+* New function added: `adhere_classr()` is designed to detect and allocate 
 object class to facilitate analysis by data entry software.
 
 ---

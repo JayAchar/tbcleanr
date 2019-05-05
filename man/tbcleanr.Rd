@@ -12,13 +12,15 @@ Koch 6 and EpiInfo used by MSF OCA.
 When published, it will integrate with tbgeneratr, tbcheckr, tbreportr
 }
 \seealso{
+\code{\link{adhere_classr}}
+
+\code{\link{adhere_cleanr}}
+
 \code{\link{adm_classr}}
 
 \code{\link{adm_subset}}
 
 \code{\link{adm_data_cleanr}}
-
-\code{\link{adherence_classr}}
 
 \code{\link{binary_fixer}}
 

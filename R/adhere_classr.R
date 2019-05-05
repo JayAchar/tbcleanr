@@ -2,15 +2,20 @@
 #'
 #' Automatically apply class to adherance data
 #' @param x data frame containing variables
-#' @author Jay Achar \email{jay.achar@@doctors.org.uk}
+#' @author Jay Achar 
 #' @seealso \code{\link{tbcleanr}}
 #' @importFrom assertthat assert_that
 #' @export
 
-adherence_classr <- function(x) {
+adhere_classr <- function(x) {
 
   # check arg
   assert_that(is.data.frame(x))
+  
+  # if adherance object class already present - stop further evaluation
+  if (any(c("epiinfo", "koch6") %in% class(x))) {
+    return(x)
+  }
 
   # names of variables in Epiinfo
   epiinfo_varnames <- c("APID", "PHASE", "PH", "NDCLO")
