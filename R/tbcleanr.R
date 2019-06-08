@@ -14,7 +14,8 @@
 #' @seealso \code{\link{adm_data_cleanr}} 
 #' @seealso \code{\link{binary_fixer}}
 #' @seealso \code{\link{cavities_fixer}} 
-#' @seealso \code{\link{change_cleanr}} 
+#' @seealso \code{\link{change_cleanr}}
+#' @seealso \code{\link{clean_standard_indicators}} 
 #' @seealso \code{\link{date_format}}
 #' @seealso \code{\link{dst_consolidator}} 
 #' @seealso \code{\link{drug_fixer}}  

@@ -7,7 +7,7 @@
 get_lookup_value(key, table_name)
 }
 \arguments{
-\item{key}{original name(s) representing keys in look-up table. These are used 
+\item{key}{original name(s) representing keys in look-up table. These are used
 to identify the correct value to be outputted by the function}
 
 \item{table_name}{single string identifying internal package look-up tables. Current

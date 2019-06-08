@@ -28,6 +28,8 @@ When published, it will integrate with tbgeneratr, tbcheckr, tbreportr
 
 \code{\link{change_cleanr}}
 
+\code{\link{clean_standard_indicators}}
+
 \code{\link{date_format}}
 
 \code{\link{dst_consolidator}}

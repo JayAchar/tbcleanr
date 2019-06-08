@@ -1,9 +1,16 @@
+# tbcleanr 0.1.4.0
+#### 
+## Major changes
+
+* `clean_standard_indicators()` added to streamline workflow with Annual TB standard 
+indicators Excel data tools.
+
+---
 # tbcleanr 0.1.3.5
 #### 03 Apr 2019
 ## Major changes
 
 * `cavities_fixer()` added as function and to `adm_data_cleanr()`
-
 
 ---
 # tbcleanr 0.1.3.4
