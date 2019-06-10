@@ -187,16 +187,16 @@ transpose_tb_data <- function(df,
   
   # change rownames to varialbe = project
   project_names <- rownames(df)
-  df <- cbind(project_names, df)
+  df <- cbind(project_names, df, stringsAsFactors = FALSE)
   rownames(df) <- NULL
   colnames(df)[1] <- "project"
   
   # format columns
   df <- purrr::map_at(df, c(3:21), as.numeric)
   
-  df <- as.data.frame(df)
+  df <- data.frame(df, stringsAsFactors = FALSE)
   
-  return(df)
+  df
 }
 
 

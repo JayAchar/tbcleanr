@@ -25,14 +25,6 @@ clean_standard_indicators <- function(file,
               is.character(year),
               length(year) == 1)
   
-  # # extract year from filename
-  # year <- str_extract(file, "\\d{4}")
-  # 
-  # import data
-  # df <- read_excel(path = file, 
-  #                  sheet = "projects compiled", 
-  #                  skip = 3)
-  
   # remvoe first three rows if not done on data import
   if (file[4, 1] == "Country:") {
     df <- file[-c(1:3), ]
@@ -90,7 +82,7 @@ clean_standard_indicators <- function(file,
               is.character(year))
   
   # output data frame and year integer
-  list(df_tb)
+  df_tb
   
 }
 

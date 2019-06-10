@@ -8,3 +8,4 @@
 ^\.Rproj\.user$
 ^\.Rprofile$
 ^_pkgdown\.yml$
+R/adhere_cleanr*

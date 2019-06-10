@@ -12,12 +12,12 @@ clean_standard_indicators(file, year)
 \item{year}{string defining year of data collection}
 }
 \value{
-list containing a data frame of cleaned data and an integer indicating
-the year of the raw data.
+list containing a data frame of cleaned data
 }
 \description{
 This function takes a data frame of imported data from  
 a MSF OCA Annual Standard Indicators Excel file.
 The function will clean, transpose, subset TB data and standardise renaming
-missions and projects.
+missions and projects using internal package look up tables. These look up 
+tables can be accessed via tbcleanr:::oca_missions and tbcleanr:::oca_projects.
 }

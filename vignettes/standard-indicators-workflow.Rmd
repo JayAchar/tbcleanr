@@ -1,0 +1,91 @@
+---
+title: "MSF OCA Standard Indicators workflow"
+author: "Jay Achar"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{MSF OCA Standard Indicators workflow}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  include = TRUE,
+  eval = FALSE
+)
+```
+
+# Purpose
+
+A workflow for handling aggregated routine programmatic TB data from MSF OCA projects has been developed and included in the `tbcleanr` pacakge. Functions have been developed using Standard Indicator files from 2014-2019, so functionality cannot be guaranteed on data outside this date range. 
+
+Similar to other workflows in this package, use of the ` %>% ` function from the `magrittr` or `dplyr` packages is recommended to encourage the development of more human-readable code. 
+
+# Functions
+
+`tbcleanr` includes 1 exported function designed for cleaning Standard Indicator data alongside 2 internal package functions: 
+
+Function                       | Exported | Use it for
+---------------------------    | -------  | ---------------------------------
+`clean_standard_indicators()`  | Yes      | Single function to clean imported Standard Indicator data object
+`extract_tb_data()`            | No       | Incorporated in `clean_standard_indicators()` so seperate use not required. 
+`transpose_tb_data()`          | No       | Incorporated in `clean_standard_indicators()` so seperate use not required. 
+
+
+# Workflow
+
+## Import raw data
+
+For ease of use, saving all raw data files in one local folder is recommended. Navigate to this folder using the `setwd()` or another approach you are comfortable with. Then import the raw data:
+
+```{r import}
+# import data using readxl package
+raw_file <- readxl::read_excel("2014_Standard_Indicators.xlsx",
+                               sheet = "projects compiled")
+
+```
+
+> Ensure the `sheet` argument in the read_excel() function is filled to represent the full country compiled data 
+
+## Clean data
+
+The `clean_standard_indicators()` takes two arguments. The first is the imported data object - this must be a data frame. The second arugement is a string of length one indicating the year of data collection. In this case, the raw data file was labelled with the year of data collection, so is included in the cleaning step to include this as a variable in the output. 
+
+```{r clean}
+# clean imported data
+
+clean_data <- clean_standard_indicators(file = raw_file,
+                                        year = "2014")
+```
+
+Mission and project names are standardised to allow simpler aggregating across years. Output variable names are related to raw data rows and are self-explanatory. 
+
+## Multiple files
+
+To simultaneously import and clean multiple data files the following appraoch could be used:
+
+```{r multiple}
+# define file names
+files <- c("2014_Standard_Indicators.xlsx", "2015_Standard_Indicators.xlsx",
+           "2016_Standard_Indicators.xlsx", "2017_Standard_Indicators.xlsx")
+
+# define years
+years <- c("2014", "2015", "2016", "2017")
+
+# use purrr to import and clean in one step
+data_list <- purrr::map2(.x = files,
+            .y = years, 
+            .f = ~ {readxl::read_excel(.x, sheet = "projects compiled") %>% 
+                clean_standard_indicators(year = .y)}) 
+
+# use dplyr to convert list to data frame
+clean_data <- dplyr::bind_rows(data_list)
+```
+
+
+# Further development
+
+Since the Standard Indicator template is unlikely to be used in future years, further development of this component of the `tbcleanr` package is unlikely. Please contact the developer if you would like to help maintain this package, or develop new features. 

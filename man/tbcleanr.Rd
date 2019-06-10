@@ -14,8 +14,6 @@ When published, it will integrate with tbgeneratr, tbcheckr, tbreportr
 \seealso{
 \code{\link{adhere_classr}}
 
-\code{\link{adhere_cleanr}}
-
 \code{\link{adm_classr}}
 
 \code{\link{adm_subset}}
