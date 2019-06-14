@@ -11,8 +11,8 @@ lab_import_checkr(x)
 }
 \description{
 By default, readr parses the first 1000 rows to define column class.
-However, lab data is frequently very long with more recent test types, 
-e.g. Hain MTBDRsl, only being available in more recent years. Thus, if not 
+However, lab data is frequently very long with more recent test types,
+e.g. Hain MTBDRsl, only being available in more recent years. Thus, if not
 specified within the guess_max option, variables may be miss classified on import
 }
 \seealso{

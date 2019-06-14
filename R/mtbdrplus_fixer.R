@@ -9,14 +9,14 @@
 #' @export
 
 mtbdrplus_fixer <- function(x, ...) {
-  
+
   # check input
   assert_that(is.data.frame(x))
-  
+
   UseMethod("mtbdrplus_fixer", x)
-  
-}  
- 
+
+}
+
 
 #' Default method for mtbdrplus_fixer()
 #'
@@ -25,11 +25,10 @@ mtbdrplus_fixer <- function(x, ...) {
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{tbcleanr}}
-#' @export 
+#' @export
 
 mtbdrplus_fixer.default <- function(x, ...) {
-  
-  message("No lab object class detected: mtbdrplus_fixer() not applied.")
-  x       
-}
 
+  message("No lab object class detected: mtbdrplus_fixer() not applied.")
+  x
+}

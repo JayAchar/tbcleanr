@@ -10,14 +10,14 @@
 #' @export
 
 
-dst_consolidator <- function(x, aggregate = FALSE, 
+dst_consolidator <- function(x, aggregate = FALSE,
                              rm_orig = TRUE) {
-  
+
   # check input
   assert_that(is.data.frame(x))
-  
+
   UseMethod("dst_consolidator", x)
-  
+
 }
 
 #' Default method for dst_consolidator()
@@ -27,10 +27,10 @@ dst_consolidator <- function(x, aggregate = FALSE,
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{tbcleanr}}
-#' @export 
+#' @export
 
 dst_consolidator.default <- function(x, ...) {
-  
+
   message("No lab object class detected: dst_consolidator() not applied.")
-  x        
+  x
 }

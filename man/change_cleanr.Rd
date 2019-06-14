@@ -10,7 +10,7 @@ change_cleanr(x)
 \item{x}{data frame containing drug variables}
 }
 \description{
-Take drug change data from routine TB programmes and clean for 
+Take drug change data from routine TB programmes and clean for
 further analysis.
 }
 \seealso{

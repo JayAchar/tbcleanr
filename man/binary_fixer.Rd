@@ -12,7 +12,7 @@ binary_fixer(x, ...)
 \item{...}{further arguments passed to or from other methods}
 }
 \description{
-Take admission data frame with binary variables and output 
+Take admission data frame with binary variables and output
 binary factorised variables
 }
 \seealso{

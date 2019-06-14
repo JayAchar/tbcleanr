@@ -12,7 +12,7 @@ drug_fixer(x, ...)
 \item{...}{further arguments passed to or from other methods.}
 }
 \description{
-Take data frame with drug dosing variables and output 
+Take data frame with drug dosing variables and output
 binary factorised variables
 }
 \seealso{

@@ -11,7 +11,7 @@
 
 
 lab_subset <- function(x, add = NULL, ...) {
-  
+
 # check input
   assert_that(is.character(add) | is.null(add))
 	assert_that(is.data.frame(x))
@@ -21,3 +21,19 @@ lab_subset <- function(x, add = NULL, ...) {
 
 }
 
+
+#' Default method for lab_subset()
+#'
+#' Allow data frames with unspecified object class to pass through
+#' @param x data frame containing variables
+#' @param ... further arguments passed to or from other methods
+#' @author Jay Achar \email{jay.achar@@doctors.org.uk}
+#' @seealso \code{\link{tbcleanr}}
+#' @export
+
+
+lab_subset.default <- function(x, ...) {
+
+  message("No adm object class detected: lab_subset() not applied.")
+  x
+}

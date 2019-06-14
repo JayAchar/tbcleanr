@@ -14,7 +14,7 @@ outcome_fixer(x, rm_orig = TRUE, ...)
 \item{...}{further arguments passed to or from other methods}
 }
 \description{
-Combine treatment outcome variables to leave one 
+Combine treatment outcome variables to leave one
 factorised, labelled variable
 }
 \seealso{
