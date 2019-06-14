@@ -2,10 +2,10 @@ template:
   params:
     bootswatch: cosmo
     ganalytics: UA-128985004-1
-    
+
 reference:
   - title: Package information
-    contents: 
+    contents:
       - tbcleanr
   - title: Aggregating functions
     desc: Combine multiple functions to streamline workflow
@@ -45,9 +45,13 @@ reference:
     desc: Functions used only for adherance and BMI data sets
     contents:
       - response_weight_cleanr
+  - title: OCA Standard Indicators functions
+    desc: Functions designed for cleaning annual OCA SI data
+    contents:
+      - clean_standard_indicators
   - title: General purpose functions
     desc: Functions that can be used on multiple data sets
-    contents: 
+    contents:
       - binary_fixer
       - date_format
       - yn_binary_fixer
@@ -55,20 +59,21 @@ reference:
     desc: General package functions (not exported) in misc_utils.R
     contents:
       - xpert_variable_detector
-navbar: 
+navbar:
   title: ~
   type: default
   left:
     - text: Functions
       href: reference/index.html
     - text: Articles
-      menu: 
+      menu:
       - text: Getting started
         href: articles/getting-started.html
       - text: Workflow - admission
         href: articles/admission-file-workflow.html
+      - text: Workflow - OCA SI
+        href: articles/standard-indicators-workflow.html
     - text: News
       menu:
       - text: Changelog
         href: news/index.html
-      

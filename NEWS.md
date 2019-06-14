@@ -1,9 +1,10 @@
 # tbcleanr 0.1.4.0
-#### 
+#### 14 June 2019
 ## Major changes
 
-* `clean_standard_indicators()` added to streamline workflow with Annual TB standard 
+* `clean_standard_indicators()` added to streamline workflow with Annual TB standard
 indicators Excel data tools.
+* Standard indicators workflow vignette added to package
 
 ---
 # tbcleanr 0.1.3.5
@@ -17,7 +18,7 @@ indicators Excel data tools.
 #### 19 Feb 2019
 ## Bug fix
 
-* `adm_subset.default()` failed to pass add arg to `adm_subset()` when applying class object. 
+* `adm_subset.default()` failed to pass add arg to `adm_subset()` when applying class object.
 * prevent duplication of admission object class addition in `adm_classr()`.
 * bug fix in `id_detangle.default()`.
 
@@ -26,12 +27,12 @@ indicators Excel data tools.
 #### 13 Feb 2019
 ## Major changes
 
-* New function added: `response_weight_cleanr()` is designed to take treatment 
+* New function added: `response_weight_cleanr()` is designed to take treatment
 adherence data from EpiInfo and clean the regular weight monitoring into a weight
 time series.
 * `adm_classr()` removed from NAMESPACE and incorporated into default methods.
 * Updates to package tests.
-* New vignetted added: `Workflow - admission file` is designed to give instructions on how to use the package to process admission data sets. 
+* New vignetted added: `Workflow - admission file` is designed to give instructions on how to use the package to process admission data sets.
 
 ---
 
@@ -39,7 +40,7 @@ time series.
 #### 05 Feb 2019
 ## Minor changes
 
-* New function added: `adhere_classr()` is designed to detect and allocate 
+* New function added: `adhere_classr()` is designed to detect and allocate
 object class to facilitate analysis by data entry software.
 
 ---
@@ -83,7 +84,7 @@ object class to facilitate analysis by data entry software.
 #### 17 Jan 2019
 ## Minor changes
 
-* Bug fix in `yn_binary_fixer()` - add message and error when 
+* Bug fix in `yn_binary_fixer()` - add message and error when
 logical input encountered
 
 ---
