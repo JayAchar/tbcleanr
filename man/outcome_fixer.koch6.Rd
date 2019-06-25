@@ -4,13 +4,15 @@
 \alias{outcome_fixer.koch6}
 \title{Fix Koch 6 treatment outcomes}
 \usage{
-\method{outcome_fixer}{koch6}(x, who_defined = TRUE, rm_orig = TRUE,
-  ...)
+\method{outcome_fixer}{koch6}(x, who_defined = TRUE,
+  bin_outcome = TRUE, rm_orig = TRUE, ...)
 }
 \arguments{
 \item{x}{data frame containing outcome variables}
 
 \item{who_defined}{create new factor variable with levels defined by WHO (2013)}
+
+\item{bin_outcome}{create new binary factor variable simplifying treatment outcome}
 
 \item{rm_orig}{remove original variables - TRUE or FALSE}
 

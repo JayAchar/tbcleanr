@@ -4,6 +4,7 @@
 #' factorised, labelled variable
 #' @param x data frame containing outcome variables
 #' @param who_defined create new factor variable with levels defined by WHO (2013)
+#' @param bin_outcome create new binary factor variable simplifying treatment outcome
 #' @param rm_orig remove original variables - TRUE or FALSE
 #' @param ... further arguments passed to or from other methods
 #' @importFrom dplyr case_when mutate %>%
@@ -15,6 +16,7 @@
 
 outcome_fixer.koch6 <- function(x, 
                                 who_defined = TRUE,
+                                bin_outcome = TRUE,
                                 rm_orig = TRUE, 
                                 ...) {
     
@@ -70,6 +72,15 @@ outcome_fixer.koch6 <- function(x,
                                                           "Other") ~ "Not evaluated",
                                            TRUE ~ NA_character_),
                    outcome_who = factor(.data$outcome_who))
+    }
+    
+    # create binary outcome variable 
+    if (bin_outcome) {
+        x <- x %>% 
+            mutate(outcome_bin = case_when(outcome %in% c("Cured", "Completed") ~ "Treatment successful",
+                                           outcome %in% c("Fail", "Death", "LTFU") ~ "Treatment unsuccessful",
+                                           TRUE ~ NA_character_),
+                   outcome_bin = factor(.data$outcome_bin))
     }
     
     # remove original variables

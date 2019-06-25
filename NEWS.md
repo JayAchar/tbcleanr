@@ -8,6 +8,8 @@ indicators Excel data tools.
 * `adhere_classr()` added for EpiInfo and Koch6 data sets
 * `who_defined` arg added to `outcome_fixer()` to generate new factor variable of outcomes 
 according to WHO 2013 definitions
+* `bin_outcome` arg added to `outcome_fixer()` to generate new binary factor variable of 
+simplified treatment outcomes
 
 ---
 # tbcleanr 0.1.3.5

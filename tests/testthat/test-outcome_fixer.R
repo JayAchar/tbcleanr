@@ -6,7 +6,10 @@ library(tbcleanr)
 k6 <- system.file("testdata", "outcome_k6.rds", package = "tbcleanr") %>% 
     readRDS()
 
-k6_out <- outcome_fixer(k6)
+k6_out <- outcome_fixer(k6, 
+                        who_defined = TRUE,
+                        bin_outcome = TRUE,
+                        rm_orig = TRUE)
 
 test_that("koch6 correct", {
     expect_true(class(k6) == "data.frame")
@@ -25,6 +28,8 @@ test_that("koch6 correct", {
     expect_true(class(k6_out$outcome_who) == "factor")
     expect_true("outcome_who" %in% names(k6_out))
     expect_true(ncol(outcome_fixer(k6, who_defined = FALSE)) == ncol(k6_out) -1)
+    expect_true("outcome_bin" %in% names(k6_out))
+    expect_true(class(k6_out$outcome_bin) == "factor")
 })
 
 
@@ -34,6 +39,7 @@ epi <- system.file("testdata", "outcome_epi.rds", package = "tbcleanr") %>%
 
 epi_out <- outcome_fixer(epi,
                          who_defined = TRUE,
+                         bin_outcome = TRUE, 
                          rm_orig = TRUE)
 
 test_that("epiinfo correct", {
@@ -48,6 +54,11 @@ test_that("epiinfo correct", {
     expect_true(epi_out$outcome[2] == "Cured") 
     expect_true("outcome_who" %in% names(epi_out))
     expect_true(class(epi_out$outcome_who) == "factor")
+    expect_true("outcome_bin" %in% names(epi_out))
+    expect_true(class(epi_out$outcome_bin) == "factor")
+    expect_equal(sum(k6_out$outcome_bin == "Treatment successful", na.rm = TRUE),
+                 sum(k6_out$outcome %in% c("Cured", "Completed"), na.rm = TRUE))
+    
 })
 
 
