@@ -4,10 +4,12 @@
 \alias{outcome_fixer}
 \title{Fix TB treatment outcomes}
 \usage{
-outcome_fixer(x, rm_orig = TRUE, ...)
+outcome_fixer(x, who_defined = TRUE, rm_orig = TRUE, ...)
 }
 \arguments{
 \item{x}{data frame containing outcome variables}
+
+\item{who_defined}{create new factor variable with levels defined by WHO (2013)}
 
 \item{rm_orig}{remove original variables - TRUE or FALSE}
 

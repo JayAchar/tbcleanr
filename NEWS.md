@@ -1,11 +1,13 @@
 # tbcleanr 0.1.4.0
-#### 17 June 2019
+#### 25 June 2019
 ## Major changes
 
 * `clean_standard_indicators()` added to streamline workflow with Annual TB standard
 indicators Excel data tools.
 * Standard indicators workflow vignette added to package
 * `adhere_classr()` added for EpiInfo and Koch6 data sets
+* `who_defined` arg added to `outcome_fixer()` to generate new factor variable of outcomes 
+according to WHO 2013 definitions
 
 ---
 # tbcleanr 0.1.3.5

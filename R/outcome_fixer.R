@@ -3,6 +3,7 @@
 #' Combine treatment outcome variables to leave one
 #' factorised, labelled variable
 #' @param x data frame containing outcome variables
+#' @param who_defined create new factor variable with levels defined by WHO (2013)
 #' @param rm_orig remove original variables - TRUE or FALSE
 #' @param ... further arguments passed to or from other methods
 #' @author Jay Achar
@@ -11,12 +12,14 @@
 #' @export
 
 outcome_fixer <- function(x,
+                          who_defined = TRUE,
                           rm_orig = TRUE,
                           ...) {
 
     # check input
     assert_that(is.data.frame(x),
-                is.flag(rm_orig))
+                is.flag(rm_orig),
+                is.flag(who_defined))
 
     # apply correct method
     UseMethod("outcome_fixer", x)
@@ -42,7 +45,7 @@ outcome_fixer.default <- function(x, ...) {
   # recycle if class sucessfully applied
   if (length(class(y)) > length(class(x))) {
 
-    outcome_fixer(y)
+    outcome_fixer(y, ...)
 
   } else {
 

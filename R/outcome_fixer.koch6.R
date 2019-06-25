@@ -3,17 +3,23 @@
 #' Combine  treatment outcome variables to leave one 
 #' factorised, labelled variable
 #' @param x data frame containing outcome variables
+#' @param who_defined create new factor variable with levels defined by WHO (2013)
 #' @param rm_orig remove original variables - TRUE or FALSE
 #' @param ... further arguments passed to or from other methods
+#' @importFrom dplyr case_when mutate %>%
+#' @importFrom rlang .data
 #' @author Jay Achar 
 #' @seealso \code{\link{tbcleanr}}
 #' @export
 
 
 outcome_fixer.koch6 <- function(x, 
+                                who_defined = TRUE,
                                 rm_orig = TRUE, 
                                 ...) {
     
+    # capture class of original data
+    start_class <- class(x)
     
     # specify outcome vars
     # outcome variables in Koch 6
@@ -50,10 +56,28 @@ outcome_fixer.koch6 <- function(x,
     x$outcome <- factor(x$outcome, 
                         levels = c(0:8),
                         labels = labs)
+    
+    # create WHO defined outcome variable
+    if (who_defined) {
+        x <- x %>%
+            mutate(outcome_who = case_when(outcome == "Cured" ~ "Cured",
+                                           outcome == "Completed" ~ "Treatment completed",
+                                           outcome == "Fail" ~ "Treatment failed",
+                                           outcome == "Death" ~ "Died",
+                                           outcome == "LTFU" ~ "Lost to follow-up",
+                                           outcome %in% c("Transfer out", 
+                                                          "Transfer back to SCC",
+                                                          "Other") ~ "Not evaluated",
+                                           TRUE ~ NA_character_),
+                   outcome_who = factor(.data$outcome_who))
+    }
+    
     # remove original variables
     if (rm_orig) {
         x[, v] <- NULL
     }
+    
+    class(x) <- start_class
     
     x
 }
