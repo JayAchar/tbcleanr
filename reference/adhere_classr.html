@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Consolidate smear and culture results — result_consolidator.epiinfo • tbcleanr</title>
+<title>Apply class for adherance data — adhere_classr • tbcleanr</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Consolidate smear and culture results — result_consolidator.epiinfo" />
+<meta property="og:title" content="Apply class for adherance data — adhere_classr" />
 
-<meta property="og:description" content="Take laboratory data set and consolidate repeated results to give summary variable" />
+<meta property="og:description" content="Automatically apply class to adherance data" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -133,19 +133,18 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Consolidate smear and culture results</h1>
-    <small class="dont-index">Source: <a href='https://github.com/JayAchar/tbcleanr/blob/master/R/result_consolidator.epiinfo.R'><code>R/result_consolidator.epiinfo.R</code></a></small>
-    <div class="hidden name"><code>result_consolidator.epiinfo.Rd</code></div>
+    <h1>Apply class for adherance data</h1>
+    <small class="dont-index">Source: <a href='https://github.com/JayAchar/tbcleanr/blob/master/R/adhere_classr.R'><code>R/adhere_classr.R</code></a></small>
+    <div class="hidden name"><code>adhere_classr.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Take laboratory data set and consolidate repeated results to give summary variable</p>
+    <p>Automatically apply class to adherance data</p>
     
     </div>
 
-    <pre class="usage"><span class='co'># S3 method for epiinfo</span>
-<span class='fu'>result_consolidator</span>(<span class='no'>x</span>, <span class='kw'>rm_orig</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>adhere_classr</span>(<span class='no'>x</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -153,14 +152,6 @@
     <tr>
       <th>x</th>
       <td><p>data frame containing variables</p></td>
-    </tr>
-    <tr>
-      <th>rm_orig</th>
-      <td><p>remove original variables - TRUE or FALSE</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>further arguments passed to or from other methods</p></td>
     </tr>
     </table>
     
@@ -179,7 +170,7 @@
           </ul>
 
     <h2>Author</h2>
-    <p>Jay Achar <a href='mailto:jay.achar@doctors.org.uk'>jay.achar@doctors.org.uk</a></p>
+    <p>Jay Achar</p>
   </div>
 </div>
 

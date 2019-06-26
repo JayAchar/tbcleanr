@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Consolidate smear and culture results — result_consolidator.epiinfo • tbcleanr</title>
+<title>Clean and transpose Standard Indicators object — transpose_tb_data • tbcleanr</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Consolidate smear and culture results — result_consolidator.epiinfo" />
+<meta property="og:title" content="Clean and transpose Standard Indicators object — transpose_tb_data" />
 
-<meta property="og:description" content="Take laboratory data set and consolidate repeated results to give summary variable" />
+<meta property="og:description" content="Clean and transpose Standard Indicators object" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -133,40 +133,35 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Consolidate smear and culture results</h1>
-    <small class="dont-index">Source: <a href='https://github.com/JayAchar/tbcleanr/blob/master/R/result_consolidator.epiinfo.R'><code>R/result_consolidator.epiinfo.R</code></a></small>
-    <div class="hidden name"><code>result_consolidator.epiinfo.Rd</code></div>
+    <h1>Clean and transpose Standard Indicators object</h1>
+    <small class="dont-index">Source: <a href='https://github.com/JayAchar/tbcleanr/blob/master/R/utils.R'><code>R/utils.R</code></a></small>
+    <div class="hidden name"><code>transpose_tb_data.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Take laboratory data set and consolidate repeated results to give summary variable</p>
+    <p>Clean and transpose Standard Indicators object</p>
     
     </div>
 
-    <pre class="usage"><span class='co'># S3 method for epiinfo</span>
-<span class='fu'>result_consolidator</span>(<span class='no'>x</span>, <span class='kw'>rm_orig</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>transpose_tb_data</span>(<span class='no'>df</span>, <span class='no'>year</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>x</th>
-      <td><p>data frame containing variables</p></td>
+      <th>df</th>
+      <td><p>data frame of imported and extracted TB Standard Indicators</p></td>
     </tr>
     <tr>
-      <th>rm_orig</th>
-      <td><p>remove original variables - TRUE or FALSE</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>further arguments passed to or from other methods</p></td>
+      <th>year</th>
+      <td><p>character of length 1 representing the year of data collected</p></td>
     </tr>
     </table>
     
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <div class='dont-index'><p><code>tbcleanr</code></p></div>
+    <p>data frame of tidy TB Standard Indicators data</p>
     
 
   </div>
@@ -175,11 +170,9 @@
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#see-also">See also</a></li>
+      <li><a href="#value">Value</a></li>
           </ul>
 
-    <h2>Author</h2>
-    <p>Jay Achar <a href='mailto:jay.achar@doctors.org.uk'>jay.achar@doctors.org.uk</a></p>
   </div>
 </div>
 
