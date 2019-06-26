@@ -9,3 +9,5 @@
 ^\.Rprofile$
 ^_pkgdown\.yml$
 R/adhere_cleanr*
+^doc$
+^Meta$
