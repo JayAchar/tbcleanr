@@ -200,9 +200,6 @@ transpose_tb_data <- function(df,
 }
 
 
-
-
-
 #' Xpert variable detector
 #'
 #' Find Xpert variables within data frame by using Regex. Adjust
@@ -222,4 +219,85 @@ xpert_variable_detector <- function(x) {
     subset(names(x), subset = .)
   
   xpert_additions
+}
+
+
+#' Drug adherence
+#'
+#' Calculate monthly drug adherence percentage
+#' @param df data frame with EpiInfo "Follow" data including all monthly adherence data
+#' @param drug string representing drug to be analysed
+#' @importFrom stringr str_which
+#' @importFrom assertthat assert_that
+#' @importFrom dplyr %>%  group_by summarise_at ungroup
+
+drug_adhere <- function(df,
+                        drug) {
+  
+  assertthat::assert_that(is.data.frame(df),
+                          length(drug) == 1,
+                          is.character(drug))
+  
+  # generate string to match drug variables
+  start_var_string <- c("ND", "P", "N", "D", "NO", "O", "NM", "M", "R")
+  
+  if (any(drug %in% drug_adhere_vars$drug_abb)) {
+    drug <- drug_adhere_vars$var_name[drug_adhere_vars$drug_abb == drug]
+  }
+  
+  drug_string <- paste0("^", start_var_string, drug, "$")
+  
+  if (drug == "R") {
+    drug_string[6] <- "ORI"
+  } else if (drug == "CLA") {
+    drug_string[9] <- "WCLA"
+  }
+  
+  # match numerical position of drug variables in data frame
+  drug_vars <- stringr::str_which(names(df), pattern = paste0(drug_string, collapse = "|"))
+  
+  assertthat::assert_that(length(drug_vars) == 9L)
+  
+  # add all monthly figures by APID 
+  df <- df %>% 
+    dplyr::group_by(APID, FOLAFT) %>% 
+    dplyr::summarise_at(.funs = sum,
+                 # na.rm = TRUE,
+                 .vars = drug_vars - 2) %>% 
+    ungroup()
+  
+  # match numerical position of drug variables in data frame
+  drug_vars <- stringr::str_which(names(df), pattern = paste0(drug_string, collapse = "|"))
+  
+  # check that missed cumulative dosing is correctly calculated
+  incorrect_missing_dose <- sum(!df[, drug_vars[8]] == df[, drug_vars[4]] - df[, drug_vars[6]], na.rm = TRUE)
+  
+  if (incorrect_missing_dose > 0) {
+    message(paste0(incorrect_missing_dose, " rows have incorrectly calculated missing dosage results"))
+  }
+  
+  # check that ingested dose < prescribed drug dose
+  inconsistent_dosing <- sum(!df[, drug_vars[6]] <= df[, drug_vars[4]], na.rm = TRUE)
+  
+  if (inconsistent_dosing > 0) {
+    warning(paste0(inconsistent_dosing, " rows have incorrectly recorded dosing data"))
+  }
+  
+  # calculate monthly percentage adherence using cumulative dosing variables
+  df$dose_adhere <- df[[drug_vars[6]]] / df[[drug_vars[4]]] * 100
+  
+  # convert all NaN to NA_integer where both dose prescribed and dose taken == 0
+  df$dose_adhere[df[[6]] == 0 & df[[4]] == 0] <- NA_integer_ 
+  
+  # format and rename output
+  out <- df[, c("APID", "FOLAFT", "dose_adhere")]
+  
+  if (any(drug %in% drug_adhere_vars$var_name)) {
+    drug <- drug_adhere_vars$drug_abb[drug_adhere_vars$var_name == drug]
+  }
+  
+  # rename output variables
+  names(out) <- c("APID", "tx_month", paste0("adhere_pct_", drug))
+  
+  out
 }

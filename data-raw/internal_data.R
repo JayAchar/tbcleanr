@@ -380,8 +380,13 @@ generate_look_up <- function(list) {
 oca_missions <- generate_look_up(raw_missions)
 oca_projects <- generate_look_up(raw_projects)
 
+
+drug_adhere_vars <- data.frame(var_name = c("XC", "XD", "XE", "XF", "XG", "XH", "XI"),
+                               drug_abb = c("MFX", "PTO", "LFX", "LZD", "BDQ", "IMP", "DLM"),
+                               stringsAsFactors = FALSE)
+
 # save to internal package data
-usethis::use_data(oca_missions, oca_projects, 
+usethis::use_data(oca_missions, oca_projects, drug_adhere_vars,
                    internal = TRUE,
                    overwrite = TRUE)
 
