@@ -7,33 +7,29 @@
 #' @author Jay Achar 
 #' @seealso \code{\link{tbcleanr}}
 #' @importFrom assertthat assert_that
-#' @importFrom dplyr %>% select starts_with
-#' @importFrom lubridate dmy
-#' @importFrom rlang .data
+#' @importFrom dplyr %>% left_join
+#' @importFrom purrr map reduce
 #' @export
 
 adhere_cleanr.epiinfo <- function(x) {
 
   # check arguments  
-  assert_that(is.data.frame(x))
+  assertthat::assert_that(is.data.frame(x))
 
   # remove variables
   vars_remove <- c("SURNAME", "NAME", "BIRTDATE", "SEX", "STARTTRE", 
-                   "MEDTT", "MEDTTT", "MEDTTD")
+                   "MEDTT", "MEDTTT", "MEDTTD", "PHASE")
   
   x[, vars_remove] <- NULL
   
-    
-  # x <- x %>% 
-  #   # remove identifiable data
-  #   select(-.data$SURNAME, -.data$NAME, -.data$BIRTDATE, -starts_with("MEDTT")) %>% 
-  #   # convert dates
-  #   mutate(STARTTRE = dmy(.data$STARTTRE)) %>% 
-  #   # inpatient or outpatient to factor
-  #   mutate(PHASE = factor(.data$PHASE, 
-  #                          levels = c("OUT", "IN"),
-  #                          labels = c("Outpatient", "Inpatient")))
-
+  # all drug names
+  drug_names <- c("H", "R", "E", "Z", "S", "KA", "CAP", "OFL", "ETH", "CYC", 
+                  "PAS", "AMX", "CLA", "CLO", "MFX", "PTO", "LFX", "LZD", "BDQ", 
+                  "IMP", "DLM")
   
-x
+  # generate data frame of monthly adherence percentage by drug
+  out <- purrr::map(drug_names, .f = ~drug_adhere(x, drug = .x)) %>% 
+    purrr::reduce(dplyr::left_join, by = c("APID", "tx_month"))
+    
+  out
 }

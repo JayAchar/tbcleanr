@@ -230,6 +230,7 @@ xpert_variable_detector <- function(x) {
 #' @importFrom stringr str_which
 #' @importFrom assertthat assert_that
 #' @importFrom dplyr %>%  group_by summarise_at ungroup
+#' @importFrom rlang .data
 
 drug_adhere <- function(df,
                         drug) {
@@ -260,7 +261,7 @@ drug_adhere <- function(df,
   
   # add all monthly figures by APID 
   df <- df %>% 
-    dplyr::group_by(APID, FOLAFT) %>% 
+    dplyr::group_by(.data$APID, .data$FOLAFT) %>% 
     dplyr::summarise_at(.funs = sum,
                  # na.rm = TRUE,
                  .vars = drug_vars - 2) %>% 

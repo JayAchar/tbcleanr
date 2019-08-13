@@ -1,3 +1,11 @@
+# tbcleanr 0.1.5.0
+#### 13 August 2019
+## Major changes
+
+* `adhere_cleanr.epiinfo()` added to allow cleaning of drug and month specific
+adherence data from EpiInfo software. 
+
+---
 # tbcleanr 0.1.4.0
 #### 17 June 2019
 ## Major changes
