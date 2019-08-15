@@ -1,44 +1,40 @@
 context("test-change_cleanr")
 library(tbcleanr)
 
-### EpiInfo
-# Load data
-input <- system.file("testdata", "change_cleanr_epiinfo.rds", package = "tbcleanr") %>% 
-  readRDS()
-
-# generate correct output        
-output <- change_cleanr(input)
-
-
-test_that("epiinfo correct", {
-  expect_equal(class(input), class(output))
-  expect_equal(nrow(input), nrow(output) + 1)
-  expect_true(class(output$change_dt) == "Date")
-  expect_true(class(output$bdq_change) == "factor")
-  expect_equal(levels(output$bdq_change), c("Start", "Stop"))
-  expect_true(output$bdq_change[3] == "Start")
-  expect_true(output$cfz_change[5] %>% is.na())
-  expect_true(output$dlm_change[1] == "Stop")
-  expect_true(output$lzd_change[7] == "Start")
-  })
-
-### Koch6
-# Load data
-input <- system.file("testdata", "change_cleanr_koch6.rds", package = "tbcleanr") %>% 
-  readRDS()
-
-# generate correct output        
-output <- change_cleanr(input)
-
-
-test_that("koch6 correct", {
-  expect_equal(class(input), class(output))
-  expect_equal(nrow(input), nrow(output) + 1)
-  expect_true(class(output$change_dt) == "Date")
-  expect_true(class(output$bdq_change) == "factor")
-  expect_equal(levels(output$bdq_change), c("Start", "Stop"))
-  expect_true(output$bdq_change[3] == "Start")
-  expect_true(output$cfz_change[5] %>% is.na())
-  expect_true(output$dlm_change[1] == "Stop")
-  expect_true(output$lzd_change[7] == "Start")
+# define unit tests code
+testing_code <- quote({
+  expect_true("data.frame" %in% class(output))
+  expect_true("bdq_change" %in% names(output))
+  
+  expect_true(output$ofx_change[output[[1]] == "XYZ1"] == "Stop")
+  expect_true(output$ofx_change[output[[1]] == "XYZ2"] == "Start")
+  expect_false(all("XYZ3" %in% output[[1]]))
+  expect_false(all("XYZ4" %in% output[[1]]))
+  
 })
+
+error_testing <- quote({
+  
+})
+
+## Epiinfo
+# load test data
+input <- system.file("testdata", "change_cleanr_epi.rds", package="tbcleanr") %>% 
+  readRDS() 
+
+output <- tbcleanr:::change_cleanr(x = input)
+
+# test code
+test_that("EpiInfo testing", eval(testing_code))
+# test_that("EpiInfo errors", eval(error_testing))
+
+## Koch6
+input <- system.file("testdata", "change_cleanr_koch6.rds", package = "tbcleanr") %>%
+  readRDS()
+
+# generate correct output
+output <- change_cleanr(input)
+
+# test code
+test_that("Koch6 testing", eval(testing_code))
+# test_that("EpiInfo errors", eval(error_testing))

@@ -14,6 +14,8 @@ When published, it will integrate with tbgeneratr, tbcheckr, tbreportr
 \seealso{
 \code{\link{adhere_classr}}
 
+\code{\link{adhere_cleanr}}
+
 \code{\link{adm_classr}}
 
 \code{\link{adm_subset}}
@@ -67,5 +69,5 @@ When published, it will integrate with tbgeneratr, tbcheckr, tbreportr
 \code{\link{yn_binary_fixer}}
 }
 \author{
-Jay Achar \email{jay.achar@doctors.org.uk}
+Jay Achar
 }

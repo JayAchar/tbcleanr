@@ -23,7 +23,7 @@ change_cleanr <- function(x) {
 #' Default method for change_cleanr()
 #'
 #' Allow data frames with unspecified object class to pass through
-#' @param x data frame containing variables
+#' @inheritParams change_cleanr
 #' @author Jay Achar
 #' @seealso \code{\link{tbcleanr}}
 #' @export

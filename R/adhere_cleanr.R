@@ -35,7 +35,7 @@ adhere_cleanr.default <- function(x) {
   # recycle if class sucessfully applied
   if (length(class(y)) > length(class(x))) {
 
-    adhere_cleanr(y, adm = adm)
+    adhere_cleanr(y)
 
   } else {
 

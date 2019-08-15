@@ -44,6 +44,7 @@ reference:
   - title: Adherance and BMI data functions
     desc: Functions used only for adherance and BMI data sets
     contents:
+      - adhere_cleanr
       - response_weight_cleanr
   - title: OCA Standard Indicators functions
     desc: Functions designed for cleaning annual OCA SI data
