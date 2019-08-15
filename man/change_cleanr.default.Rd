@@ -7,7 +7,7 @@
 \method{change_cleanr}{default}(x)
 }
 \arguments{
-\item{x}{data frame containing variables}
+\item{x}{data frame containing drug variables}
 }
 \description{
 Allow data frames with unspecified object class to pass through

@@ -3,13 +3,11 @@
 #' Take drug change data from routine TB programmes and clean for 
 #' further analysis.
 #' 
-#' @param x data frame containing drug variables
+#' @inheritParams change_cleanr
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @seealso \code{\link{tbcleanr}}
 #' @importFrom assertthat assert_that
 #' @importFrom lubridate dmy
-#' @importFrom rlang .data quos 
-#' @importFrom dplyr select filter
 #' @importFrom purrr as_mapper modify_at
 #' @export
 
@@ -20,24 +18,50 @@ change_cleanr.koch6 <- function(x) {
   
   ## Adjust variable names
   # variable names to change
-  original_names <- c("changedate", 
-                      "CBdq", 
-                      "CDld", 
-                      "CMfx", 
-                      "CCfz", 
-                      "CLfx",
-                      "CImpCln",
-                      "CLzd")
+  original_names <- c("changedate",
+                        "CBdq", 
+                        "CDld", 
+                        "CMfx", 
+                        "CCfz", 
+                        "CLfx",
+                        "CImpCln",
+                        "CLzd",
+                        "CH", 
+                        "CR", 
+                        "CE", 
+                        "CZ",  
+                        "CS",  
+                        "CKm", 
+                        "CCm", 
+                        "COfx", 
+                        "CEto", 
+                        "CCs", 
+                        "CPAS", 
+                        "CAmx-Clv", 
+                        "CPto")
   
   # define new names for drug variables
   new_names <- c("change_dt", 
                  "bdq_change",
                  "dlm_change",
                  "mfx_change",
-                 "cfz_change", 
+                 "cfz_change",
                  "lfx_change",
                  "imp_change",
-                 "lzd_change")
+                 "lzd_change",
+                 "inh_change",
+                 "rif_change",
+                 "eth_change",
+                 "pza_change",
+                 "str_change",
+                 "kan_change",
+                 "cap_change ",
+                 "ofx_change",
+                 "eto_change",
+                 "cyc_change",
+                 "pas_change",
+                 "amx_change",
+                 "pto_change")
   
   # define drug variables only
   drug_names <- new_names[!new_names == "change_dt"]
@@ -54,12 +78,8 @@ change_cleanr.koch6 <- function(x) {
   names(x)[name_position] <- new_names
   
   ## Subset and clean data
-  # variables to retain
-  keep_vars <- rlang::quos(c("RegistrationNb", new_names))
-  
-  x <- x %>% 
     ## subset to only keep specified variables
-    select(!!! keep_vars)
+    x <- x[, c("RegistrationNb", new_names)]
   
   ## convert drug dose changes to NA
   x[x == 3] <- NA_integer_
@@ -74,10 +94,9 @@ change_cleanr.koch6 <- function(x) {
   x$row_na <- as.numeric(rowSums(is.na(x[, drug_names])))
   
   # remove rows with all NA in drug variables
-  x <- x %>% 
-    filter(.data$row_na < length(drug_names)) %>% 
-    # remove NA count
-    select(- .data$row_na)
+  x <- x[x$row_na < length(drug_names), ]
+  
+  x$row_na <- NULL
   
   # define mapper to convert drugs to factors
   fct_drugs <- purrr::as_mapper(~ factor(.x, 

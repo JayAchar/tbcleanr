@@ -6,8 +6,9 @@
 #' 
 #' When published, it will integrate with tbgeneratr, tbcheckr, tbreportr
 #' 
-#' @author Jay Achar \email{jay.achar@@doctors.org.uk}
+#' @author Jay Achar 
 #' @seealso \code{\link{adhere_classr}}
+#' @seealso \code{\link{adhere_cleanr}}
 #' @seealso \code{\link{adm_classr}} 
 #' @seealso \code{\link{adm_subset}}
 #' @seealso \code{\link{adm_data_cleanr}} 
