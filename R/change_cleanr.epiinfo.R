@@ -58,7 +58,7 @@ change_cleanr.epiinfo <- function(x) {
     "pza_change",
     "str_change",
     "kan_change",
-    "cap_change ",
+    "cap_change",
     "ofx_change",
     "eto_change",
     "cyc_change",
