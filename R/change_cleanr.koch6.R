@@ -4,7 +4,7 @@
 #' further analysis.
 #' 
 #' @inheritParams change_cleanr
-#' @author Jay Achar \email{jay.achar@@doctors.org.uk}
+#' @author Jay Achar 
 #' @seealso \code{\link{tbcleanr}}
 #' @importFrom assertthat assert_that
 #' @importFrom lubridate dmy
@@ -12,10 +12,13 @@
 #' @export
 
 change_cleanr.koch6 <- function(x,
-                                add) {
+                                add = NULL) {
   
   # save class
   start_class <- class(x)
+  
+  # check and adjust add arg
+  add <- add[add %in% names(x)]
   
   ## Adjust variable names
   # variable names to change

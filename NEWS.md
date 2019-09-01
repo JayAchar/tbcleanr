@@ -1,10 +1,11 @@
 # tbcleanr 0.1.5.1
-#### 15 August 2019
+#### 01 September 2019
 ## Minor changes
 
 * `change_cleanr()` incorporated cleaning for all TB drugs included in 
 EpiInfo and Koch6 data sets. 
 * Improvements in unit testing for `change_cleanr()`
+* `add` arg included in `change_cleanr()` to allow inclusion of uncleaned variables in function output
 
 ---
 # tbcleanr 0.1.5.0

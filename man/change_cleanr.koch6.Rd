@@ -4,10 +4,12 @@
 \alias{change_cleanr.koch6}
 \title{Clean drug change data}
 \usage{
-\method{change_cleanr}{koch6}(x)
+\method{change_cleanr}{koch6}(x, add = NULL)
 }
 \arguments{
 \item{x}{data frame containing drug variables}
+
+\item{add}{string of variables to include in output without cleaning}
 }
 \description{
 Take drug change data from routine TB programmes and clean for 
@@ -17,5 +19,5 @@ further analysis.
 \code{\link{tbcleanr}}
 }
 \author{
-Jay Achar \email{jay.achar@doctors.org.uk}
+Jay Achar
 }

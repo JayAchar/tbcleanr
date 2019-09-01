@@ -4,10 +4,12 @@
 \alias{change_cleanr}
 \title{Clean drug change data}
 \usage{
-change_cleanr(x)
+change_cleanr(x, add = NULL)
 }
 \arguments{
 \item{x}{data frame containing drug variables}
+
+\item{add}{string of variables to include in output without cleaning}
 }
 \description{
 Take drug change data from routine TB programmes and clean for
