@@ -4,10 +4,12 @@
 \alias{change_cleanr.default}
 \title{Default method for change_cleanr()}
 \usage{
-\method{change_cleanr}{default}(x)
+\method{change_cleanr}{default}(x, add = NULL)
 }
 \arguments{
 \item{x}{data frame containing drug variables}
+
+\item{add}{string of variables to include in output without cleaning}
 }
 \description{
 Allow data frames with unspecified object class to pass through

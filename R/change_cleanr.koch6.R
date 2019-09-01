@@ -4,17 +4,21 @@
 #' further analysis.
 #' 
 #' @inheritParams change_cleanr
-#' @author Jay Achar \email{jay.achar@@doctors.org.uk}
+#' @author Jay Achar 
 #' @seealso \code{\link{tbcleanr}}
 #' @importFrom assertthat assert_that
 #' @importFrom lubridate dmy
 #' @importFrom purrr as_mapper modify_at
 #' @export
 
-change_cleanr.koch6 <- function(x) {
+change_cleanr.koch6 <- function(x,
+                                add = NULL) {
   
   # save class
   start_class <- class(x)
+  
+  # check and adjust add arg
+  add <- add[add %in% names(x)]
   
   ## Adjust variable names
   # variable names to change
@@ -79,7 +83,7 @@ change_cleanr.koch6 <- function(x) {
   
   ## Subset and clean data
     ## subset to only keep specified variables
-    x <- x[, c("RegistrationNb", new_names)]
+    x <- x[, c("RegistrationNb", new_names, add)]
   
   ## convert drug dose changes to NA
   x[x == 3] <- NA_integer_
