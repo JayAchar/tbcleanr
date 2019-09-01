@@ -20,7 +20,7 @@ error_testing <- quote({
 ## Epiinfo
 # load test data
 input <- system.file("testdata", "change_cleanr_epi.rds", package="tbcleanr") %>% 
-  readRDS() 
+  readRDS()
 
 output <- tbcleanr:::change_cleanr(x = input)
 

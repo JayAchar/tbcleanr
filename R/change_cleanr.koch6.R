@@ -11,7 +11,8 @@
 #' @importFrom purrr as_mapper modify_at
 #' @export
 
-change_cleanr.koch6 <- function(x) {
+change_cleanr.koch6 <- function(x,
+                                add) {
   
   # save class
   start_class <- class(x)
@@ -79,7 +80,7 @@ change_cleanr.koch6 <- function(x) {
   
   ## Subset and clean data
     ## subset to only keep specified variables
-    x <- x[, c("RegistrationNb", new_names)]
+    x <- x[, c("RegistrationNb", new_names, add)]
   
   ## convert drug dose changes to NA
   x[x == 3] <- NA_integer_

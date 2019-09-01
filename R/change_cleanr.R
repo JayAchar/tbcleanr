@@ -4,6 +4,7 @@
 #' further analysis.
 #'
 #' @param x data frame containing drug variables
+#' @param add string of variables to include in output without cleaning
 #' @author Jay Achar
 #' @seealso \code{\link{tbcleanr}}
 #' @importFrom assertthat assert_that
