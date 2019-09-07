@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cleaning workflow - admission file • tbcleanr</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="Cleaning workflow - admission file">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
@@ -79,7 +80,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/JayAchar/tbcleanr">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -92,13 +93,14 @@
 <!--/.navbar -->
 
       
+
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>Cleaning workflow - admission file</h1>
                         <h4 class="author">Jay Achar</h4>
             
-            <h4 class="date">2019-09-01</h4>
+            <h4 class="date">2019-09-07</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/JayAchar/tbcleanr/blob/master/vignettes/admission-file-workflow.Rmd"><code>vignettes/admission-file-workflow.Rmd</code></a></small>
       <div class="hidden name"><code>admission-file-workflow.Rmd</code></div>
@@ -113,10 +115,10 @@
 <a href="#import-data" class="anchor"></a>Import data</h2>
 <p>Use of the <code>readr</code> package is recommended for importing CSV and TSV files. While the <code>readxl</code> package can be used for data stored in Excel documents, this is not recommended.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># define working directory</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/getwd">setwd</a></span>(<span class="st">"C:/tb_data"</span>)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span>(<span class="st">"C:/tb_data"</span>)</a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co"># confirm required admission file is present</span></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list.files">list.files</a></span>()</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="kw"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span>()</a>
 <a class="sourceLine" id="cb1-6" data-line-number="6"></a>
 <a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co"># read in admission data</span></a>
 <a class="sourceLine" id="cb1-8" data-line-number="8">adm &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(<span class="st">"admission_tb_data.csv"</span>, <span class="dt">guess_max =</span> <span class="dv">100000</span>)</a></code></pre></div>
@@ -136,14 +138,14 @@
 <a href="#multiple-files" class="anchor"></a>Multiple files</h2>
 <p>Sometimes cleaning and subsequent analysis of multiple data sets is required. This can be achieved by combining the <code>tbcleanr</code> and <code>tbgeneratr</code> packages with <code>purrr</code>.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># define files to process</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">filenames &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"admission1.csv"</span>, <span class="st">"admission2.csv"</span>, <span class="st">"admission3.csv"</span>)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">filenames &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"admission1.csv"</span>, <span class="st">"admission2.csv"</span>, <span class="st">"admission3.csv"</span>)</a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co"># combine purrr with tbcleanr</span></a>
 <a class="sourceLine" id="cb3-5" data-line-number="5">tbl &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(<span class="dt">file =</span> filenames,</a>
 <a class="sourceLine" id="cb3-6" data-line-number="6">                     <span class="dt">adm_data =</span> <span class="kw">map</span>(<span class="dt">.x =</span> filenames, </a>
 <a class="sourceLine" id="cb3-7" data-line-number="7">                                  <span class="dt">.f =</span> <span class="op">~</span><span class="st"> </span>{readr<span class="op">::</span><span class="kw">read_csv</span>(.x,</a>
 <a class="sourceLine" id="cb3-8" data-line-number="8">                                                          <span class="dt">guess_max =</span> <span class="dv">100000</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="st">                                      </span>tbcleanr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/tbcleanr/topics/adm_data_cleanr">adm_data_cleanr</a></span>()}))</a></code></pre></div>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="st">                                      </span>tbcleanr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/tbcleanr/man/adm_data_cleanr.html">adm_data_cleanr</a></span>()}))</a></code></pre></div>
 <p>This approach uses <code>map()</code> to iterate over the defined file names in the working directory. The defined function within <code>map()</code> imports the file and applies the <code>adm_data_cleanr()</code> leaving a cleaned, nested dataset in the tibble. Further use of <code>map()</code> will allow additional processing using the <code>tbgeneratr</code> package.</p>
 </div>
   </div>
@@ -164,17 +166,20 @@
 </div>
 
 
+
       <footer><div class="copyright">
   <p>Developed by Jay Achar.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.0.</p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>

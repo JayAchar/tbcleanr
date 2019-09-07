@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MSF OCA Standard Indicators workflow • tbcleanr</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="MSF OCA Standard Indicators workflow">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
@@ -79,7 +80,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/JayAchar/tbcleanr">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -92,13 +93,14 @@
 <!--/.navbar -->
 
       
+
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>MSF OCA Standard Indicators workflow</h1>
                         <h4 class="author">Jay Achar</h4>
             
-            <h4 class="date">2019-09-01</h4>
+            <h4 class="date">2019-09-07</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/JayAchar/tbcleanr/blob/master/vignettes/standard-indicators-workflow.Rmd"><code>vignettes/standard-indicators-workflow.Rmd</code></a></small>
       <div class="hidden name"><code>standard-indicators-workflow.Rmd</code></div>
@@ -153,7 +155,7 @@
 <div id="import-raw-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#import-raw-data" class="anchor"></a>Import raw data</h2>
-<p>For ease of use, saving all raw data files in one local folder is recommended. Navigate to this folder using the <code><a href="https://www.rdocumentation.org/packages/base/topics/getwd">setwd()</a></code> or another approach you are comfortable with. Then import the raw data:</p>
+<p>For ease of use, saving all raw data files in one local folder is recommended. Navigate to this folder using the <code><a href="https://rdrr.io/r/base/getwd.html">setwd()</a></code> or another approach you are comfortable with. Then import the raw data:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># import data using readxl package</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2">raw_file &lt;-<span class="st"> </span>readxl<span class="op">::</span><span class="kw">read_excel</span>(<span class="st">"2014_Standard_Indicators.xlsx"</span>,</a>
 <a class="sourceLine" id="cb1-3" data-line-number="3">                               <span class="dt">sheet =</span> <span class="st">"projects compiled"</span>)</a></code></pre></div>
@@ -176,11 +178,11 @@
 <a href="#multiple-files" class="anchor"></a>Multiple files</h2>
 <p>To simultaneously import and clean multiple data files the following appraoch could be used:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># define file names</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">files &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"2014_Standard_Indicators.xlsx"</span>, <span class="st">"2015_Standard_Indicators.xlsx"</span>,</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">files &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"2014_Standard_Indicators.xlsx"</span>, <span class="st">"2015_Standard_Indicators.xlsx"</span>,</a>
 <a class="sourceLine" id="cb3-3" data-line-number="3">           <span class="st">"2016_Standard_Indicators.xlsx"</span>, <span class="st">"2017_Standard_Indicators.xlsx"</span>)</a>
 <a class="sourceLine" id="cb3-4" data-line-number="4"></a>
 <a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co"># define years</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">years &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"2014"</span>, <span class="st">"2015"</span>, <span class="st">"2016"</span>, <span class="st">"2017"</span>)</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">years &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"2014"</span>, <span class="st">"2015"</span>, <span class="st">"2016"</span>, <span class="st">"2017"</span>)</a>
 <a class="sourceLine" id="cb3-7" data-line-number="7"></a>
 <a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co"># use purrr to import and clean in one step</span></a>
 <a class="sourceLine" id="cb3-9" data-line-number="9">data_list &lt;-<span class="st"> </span>purrr<span class="op">::</span><span class="kw"><a href="https://purrr.tidyverse.org/reference/map2.html">map2</a></span>(<span class="dt">.x =</span> files,</a>
@@ -222,17 +224,20 @@
 </div>
 
 
+
       <footer><div class="copyright">
   <p>Developed by Jay Achar.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.0.</p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>
