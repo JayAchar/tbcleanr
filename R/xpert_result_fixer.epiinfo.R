@@ -1,10 +1,8 @@
 #' Consolidate Xpert results
 #'
 #' Take laboratory data set and consolidate Xpert results
-#' @param x data frame containing variables
-#' @param rm_orig remove original variables - TRUE or FALSE
-#' @param ... further arguments passed to or from other methods
-#' @author Jay Achar \email{jay.achar@@doctors.org.uk}
+#' @inheritParams xpert_result_fixer
+#' @author Jay Achar 
 #' @seealso \code{\link{tbcleanr}}
 #' @importFrom purrr map_at map_df
 #' @importFrom stringr str_detect

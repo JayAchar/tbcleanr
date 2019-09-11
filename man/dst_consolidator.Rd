@@ -21,5 +21,5 @@ for categorised results
 \code{\link{tbcleanr}}
 }
 \author{
-Jay Achar \email{jay.achar@doctors.org.uk}
+Jay Achar
 }

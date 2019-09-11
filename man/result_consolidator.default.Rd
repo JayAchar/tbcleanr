@@ -4,10 +4,12 @@
 \alias{result_consolidator.default}
 \title{Default method for result_consolidator()}
 \usage{
-\method{result_consolidator}{default}(x, ...)
+\method{result_consolidator}{default}(x, rm_orig = TRUE, ...)
 }
 \arguments{
 \item{x}{data frame containing variables}
+
+\item{rm_orig}{remove original variables - TRUE or FALSE}
 
 \item{...}{further arguments passed to or from other methods}
 }
@@ -18,5 +20,5 @@ Allow data frames with unspecified object class to pass through
 \code{\link{tbcleanr}}
 }
 \author{
-Jay Achar \email{jay.achar@doctors.org.uk}
+Jay Achar
 }

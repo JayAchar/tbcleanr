@@ -1,3 +1,12 @@
+# tbcleanr 0.1.5.2
+#### 10 September 2019
+## Minor changes
+
+* `lab_import_checkr.koch6()` added 
+* `xpert_result_fixer.koch6()` added
+* `result_consolidator.koch6()` added
+---
+
 # tbcleanr 0.1.5.1
 #### 01 September 2019
 ## Minor changes

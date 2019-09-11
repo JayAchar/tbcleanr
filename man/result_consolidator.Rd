@@ -4,10 +4,12 @@
 \alias{result_consolidator}
 \title{Consolidate smear and culture results}
 \usage{
-result_consolidator(x, ...)
+result_consolidator(x, rm_orig = TRUE, ...)
 }
 \arguments{
 \item{x}{data frame containing variables}
+
+\item{rm_orig}{remove original variables - TRUE or FALSE}
 
 \item{...}{further arguments passed to or from other methods}
 }
@@ -18,5 +20,5 @@ Take laboratory data set and consolidate repeated results to give summary variab
 \code{\link{tbcleanr}}
 }
 \author{
-Jay Achar \email{jay.achar@doctors.org.uk}
+Jay Achar
 }

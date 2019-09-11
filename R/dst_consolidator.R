@@ -5,7 +5,7 @@
 #' @param x data frame containing variables
 #' @param aggregate choose whether to aggregate to categories or retain all drug results
 #' @param rm_orig remove original variables - TRUE or FALSE
-#' @author Jay Achar \email{jay.achar@@doctors.org.uk}
+#' @author Jay Achar 
 #' @seealso \code{\link{tbcleanr}}
 #' @export
 
@@ -23,13 +23,12 @@ dst_consolidator <- function(x, aggregate = FALSE,
 #' Default method for dst_consolidator()
 #'
 #' Allow data frames with unspecified object class to pass through
-#' @param x data frame containing variables
-#' @param ... further arguments passed to or from other methods
-#' @author Jay Achar \email{jay.achar@@doctors.org.uk}
+#' @inheritParams dst_consolidator
+#' @author Jay Achar 
 #' @seealso \code{\link{tbcleanr}}
 #' @export
 
-dst_consolidator.default <- function(x, ...) {
+dst_consolidator.default <- function(x, aggregate = FALSE, rm_orig = TRUE) {
 
   message("No lab object class detected: dst_consolidator() not applied.")
   x

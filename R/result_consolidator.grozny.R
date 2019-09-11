@@ -1,10 +1,8 @@
 #' Consolidate smear and culture results
 #'
 #' Take laboratory data set and consolidate repeated results to give summary variable
-#' @param x data frame containing variables
-#' @param rm_orig remove original variables - TRUE or FALSE
-#' @param ... further arguments passed to or from other methods
-#' @author Jay Achar \email{jay.achar@@doctors.org.uk}
+#' @inheritParams result_consolidator
+#' @author Jay Achar 
 #' @seealso \code{\link{tbcleanr}}
 #' @importFrom purrr map_at
 #' @importFrom dplyr case_when
