@@ -19,3 +19,11 @@ data <- data %>%
 
 class(data) <- class(data)[1:3] %>% c("grozny")
 saveRDS(data, "inst/testdata/lab_date_fixer_groz.rds")
+
+### Koch6
+data <- data.frame(Samplecollectiondate = c("1/1/12", "5/2/14"),
+                   stringsAsFactors = FALSE)
+
+data$Samplecollectiondate <- lubridate::dmy(data$Samplecollectiondate)
+class(data) <- c(class(data), "koch6")
+saveRDS(data, "inst/testdata/lab_date_fixer_k6.rds")

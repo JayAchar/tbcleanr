@@ -3,7 +3,7 @@
 #' Consolidate sample dates in mycobacterial lab database
 #' @param x data frame containing sample date variables
 #' @param ... further arguments passed to or from other methods
-#' @author Jay Achar \email{jay.achar@@doctors.org.uk}
+#' @author Jay Achar 
 #' @seealso \code{\link{tbcleanr}}
 #' @export
 #' @importFrom assertthat assert_that
@@ -20,9 +20,8 @@ lab_date_fixer <- function(x, ...) {
 #' Default method for lab_date_fixer()
 #'
 #' Allow data frames with unspecified object class to pass through
-#' @param x data frame containing admission ID variable
-#' @param ... further arguments passed to or from other methods
-#' @author Jay Achar \email{jay.achar@@doctors.org.uk}
+#' @inheritParams lab_date_fixer
+#' @author Jay Achar
 #' @seealso \code{\link{tbcleanr}}
 #' @export
 

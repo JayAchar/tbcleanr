@@ -7,7 +7,7 @@
 \method{lab_date_fixer}{default}(x, ...)
 }
 \arguments{
-\item{x}{data frame containing admission ID variable}
+\item{x}{data frame containing sample date variables}
 
 \item{...}{further arguments passed to or from other methods}
 }
@@ -18,5 +18,5 @@ Allow data frames with unspecified object class to pass through
 \code{\link{tbcleanr}}
 }
 \author{
-Jay Achar \email{jay.achar@doctors.org.uk}
+Jay Achar
 }

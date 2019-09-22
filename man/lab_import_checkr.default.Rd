@@ -4,12 +4,10 @@
 \alias{lab_import_checkr.default}
 \title{Default method for lab_import_checkr()}
 \usage{
-\method{lab_import_checkr}{default}(x, ...)
+\method{lab_import_checkr}{default}(x)
 }
 \arguments{
 \item{x}{data frame containing variables}
-
-\item{...}{further arguments passed to or from other methods}
 }
 \description{
 Allow data frames with unspecified object class to pass through

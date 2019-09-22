@@ -3,25 +3,23 @@
 #' @inheritParams lab_import_checkr
 #' @return unchanged data frame or error highlighting parsing errors on data import
 #' @importFrom purrr map_lgl
-#' @author Jay Achar \email{jay.achar@@doctors.org.uk}
+#' @author Jay Achar
 #' @seealso \code{\link{tbcleanr}}
 #' @importFrom stringr str_detect
 #' @export 
 
-lab_import_checkr.epiinfo <- function(x) {
+lab_import_checkr.koch6 <- function(x) {
   
   # if specific variables are class == logical must check if data imported correctly
   # define key variables
-  check_vars <- c("RAYON", "CULRES2", "RES02", "CULRES3", "RES03", "CULRES4", "RES04",
-                  "MGITRES", "RESULT", "MGITRES2", "RESULT02", "MGITRES3", "RESULT03", 
-                  "MGITRES4", "RESULT04", "HAIN", "CAPILIA","MGITH", "MGITE", "MGITR",
-                  "MGITS", "MGITZ", "HAINH", "HAINR", "MFX1")
-  
-  # new xpert variable names added in late 2018
-  xpert_additions <- xpert_variable_detector(x)
-  
-  # add to keep variables
-  check_vars <- c(check_vars, xpert_additions)
+  check_vars <- c("RegistrationNb", "Id_Patient", "Id_Bacterio", "Imported", 
+                  "Admission", "FollowUp", "PostFollowUp", "Samplecollectiondate", 
+                  "Monthofttr", "SmearResult", "SmearNbLab", "CultResult", "CultLabNb", 
+                  "GeneXpertResult", "HainResult", "DSTLab1", "DSTLabNumber1", 
+                  "DSTMethode1", "DSTResultDate1", "E1", "H1", "R1", "Z1", 
+                  "Cm1", "Km1", "S1", "DSTLabNumber2", "DSTMethode2", "DSTResultDate2", 
+                  "DSTLab3", "DSTLabNumber3", 
+                  "DSTMethode3", "DSTResultDate3")
   
   # check if variables have been incorrectly parsed as logicals
   class_check <- map_lgl(x[, check_vars], .f = ~ class(.x)[1] == "logical")

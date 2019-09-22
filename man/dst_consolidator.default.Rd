@@ -4,12 +4,15 @@
 \alias{dst_consolidator.default}
 \title{Default method for dst_consolidator()}
 \usage{
-\method{dst_consolidator}{default}(x, ...)
+\method{dst_consolidator}{default}(x, aggregate = FALSE,
+  rm_orig = TRUE)
 }
 \arguments{
 \item{x}{data frame containing variables}
 
-\item{...}{further arguments passed to or from other methods}
+\item{aggregate}{choose whether to aggregate to categories or retain all drug results}
+
+\item{rm_orig}{remove original variables - TRUE or FALSE}
 }
 \description{
 Allow data frames with unspecified object class to pass through
@@ -18,5 +21,5 @@ Allow data frames with unspecified object class to pass through
 \code{\link{tbcleanr}}
 }
 \author{
-Jay Achar \email{jay.achar@doctors.org.uk}
+Jay Achar
 }

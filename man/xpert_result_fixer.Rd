@@ -4,10 +4,12 @@
 \alias{xpert_result_fixer}
 \title{Consolidate Xpert results}
 \usage{
-xpert_result_fixer(x, ...)
+xpert_result_fixer(x, rm_orig = TRUE, ...)
 }
 \arguments{
 \item{x}{data frame containing variables}
+
+\item{rm_orig}{remove original variables - TRUE or FALSE}
 
 \item{...}{further arguments passed to or from other methods}
 }
@@ -18,5 +20,5 @@ Take laboratory data set and consolidate Xpert results
 \code{\link{tbcleanr}}
 }
 \author{
-Jay Achar \email{jay.achar@doctors.org.uk}
+Jay Achar
 }

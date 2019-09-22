@@ -1,10 +1,8 @@
 #' Subset lab variables
 #'
 #' Subset pre-specified TB laboratory variables
-#' @param x data frame containing variables
-#' @param add string of any additional variables to keep
-#' @param ... further arguments passed to or from other methods
-#' @author Jay Achar \email{jay.achar@@doctors.org.uk}
+#' @inheritParams lab_subset
+#' @author Jay Achar 
 #' @seealso \code{\link{tbcleanr}}
 #' @importFrom stringr str_detect
 #' @export 

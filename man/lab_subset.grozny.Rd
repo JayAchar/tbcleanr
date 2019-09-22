@@ -20,5 +20,5 @@ Subset pre-specified TB laboratory variables and clean dstnumber variable
 \code{\link{tbcleanr}}
 }
 \author{
-Jay Achar \email{jay.achar@doctors.org.uk}
+Jay Achar
 }
