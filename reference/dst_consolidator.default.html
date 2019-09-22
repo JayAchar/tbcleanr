@@ -79,7 +79,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tbcleanr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.5.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.5.2</span>
       </span>
     </div>
 
@@ -149,7 +149,8 @@
     </div>
 
     <pre class="usage"><span class='co'># S3 method for default</span>
-<span class='fu'>dst_consolidator</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
+<span class='fu'>dst_consolidator</span>(<span class='no'>x</span>, <span class='kw'>aggregate</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>rm_orig</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -159,8 +160,12 @@
       <td><p>data frame containing variables</p></td>
     </tr>
     <tr>
-      <th>...</th>
-      <td><p>further arguments passed to or from other methods</p></td>
+      <th>aggregate</th>
+      <td><p>choose whether to aggregate to categories or retain all drug results</p></td>
+    </tr>
+    <tr>
+      <th>rm_orig</th>
+      <td><p>remove original variables - TRUE or FALSE</p></td>
     </tr>
     </table>
 
@@ -177,7 +182,7 @@
     </ul>
 
     <h2>Author</h2>
-    <p>Jay Achar <a href='mailto:jay.achar@doctors.org.uk'>jay.achar@doctors.org.uk</a></p>
+    <p>Jay Achar</p>
   </div>
 </div>
 

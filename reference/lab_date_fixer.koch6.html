@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Confirm correct lab data import — lab_import_checkr.epiinfo • tbcleanr</title>
+<title>Aggregate dates in lab database — lab_date_fixer.koch6 • tbcleanr</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Confirm correct lab data import — lab_import_checkr.epiinfo" />
-<meta property="og:description" content="Confirm correct lab data import" />
+<meta property="og:title" content="Aggregate dates in lab database — lab_date_fixer.koch6" />
+<meta property="og:description" content="Consolidate sample dates in mycobacterial lab database" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -139,30 +139,31 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Confirm correct lab data import</h1>
-    <small class="dont-index">Source: <a href='https://github.com/JayAchar/tbcleanr/blob/master/R/lab_import_checkr.epiinfo.R'><code>R/lab_import_checkr.epiinfo.R</code></a></small>
-    <div class="hidden name"><code>lab_import_checkr.epiinfo.Rd</code></div>
+    <h1>Aggregate dates in lab database</h1>
+    <small class="dont-index">Source: <a href='https://github.com/JayAchar/tbcleanr/blob/master/R/lab_date_fixer.koch6.R'><code>R/lab_date_fixer.koch6.R</code></a></small>
+    <div class="hidden name"><code>lab_date_fixer.koch6.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Confirm correct lab data import</p>
+    <p>Consolidate sample dates in mycobacterial lab database</p>
     </div>
 
-    <pre class="usage"><span class='co'># S3 method for epiinfo</span>
-<span class='fu'>lab_import_checkr</span>(<span class='no'>x</span>)</pre>
+    <pre class="usage"><span class='co'># S3 method for koch6</span>
+<span class='fu'>lab_date_fixer</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>data frame containing variables</p></td>
+      <td><p>data frame containing sample date variables</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>further arguments passed to or from other methods</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>unchanged data frame or error highlighting parsing errors on data import</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code>tbcleanr</code></p></div>
@@ -172,12 +173,11 @@
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
       <li><a href="#see-also">See also</a></li>
     </ul>
 
     <h2>Author</h2>
-    <p>Jay Achar <a href='mailto:jay.achar@doctors.org.uk'>jay.achar@doctors.org.uk</a></p>
+    <p>Jay Achar</p>
   </div>
 </div>
 
