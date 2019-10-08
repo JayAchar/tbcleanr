@@ -4,7 +4,7 @@
 #' @param x data frame containing variables
 #' @param add string of any additional variables to keep
 #' @param ... further arguments passed to or from other methods
-#' @author Jay Achar \email{jay.achar@@doctors.org.uk}
+#' @author Jay Achar 
 #' @seealso \code{\link{tbcleanr}}
 #' @importFrom assertthat assert_that
 #' @export
@@ -22,9 +22,7 @@ adm_subset <- function(x, add = NULL, ...) {
 #' Default method for adm_subset()
 #'
 #' Allow data frames with unspecified object class to pass through
-#' @param x data frame containing variables
-#' @param add string of any additional variables to keep
-#' @param ... further arguments passed to or from other methods
+#' @inheritParams adm_subset
 #' @author Jay Achar
 #' @seealso \code{\link{tbcleanr}}
 #' @export

@@ -1,10 +1,8 @@
 #' Subset EpiInfo adm variables
 #'
 #' Subset pre-specified EpiInfo TB admission variables
-#' @param x data frame containing variables
-#' @param add string of any additional variables to keep
-#' @param ... further arguments passed to or from other methods
-#' @author Jay Achar \email{jay.achar@@doctors.org.uk}
+#' @inheritParams adm_subset
+#' @author Jay Achar 
 #' @seealso \code{\link{tbcleanr}}
 #' @export 
 
@@ -30,6 +28,8 @@ keep <-
     "PRETRAPID",
     "WEIGHT",
     "HEIGHT",
+    "NB1",
+    "NB2",
     "HD",
     "EE",
     "RR",

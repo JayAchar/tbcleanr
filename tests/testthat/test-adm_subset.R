@@ -9,7 +9,7 @@ epi <- adm_subset(epi_raw)
 test_that("EpiInfo output ok", {
   expect_true(! "epiinfo" %in% class(epi_raw))
   expect_true("epiinfo" %in% class(epi))
-  expect_equal(dim(epi), c(nrow(epi_raw), 75))
+  expect_equal(dim(epi), c(nrow(epi_raw), 77))
 })
 
 # test "add" arg functionality
