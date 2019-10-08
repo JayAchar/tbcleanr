@@ -1,10 +1,8 @@
 #' Subset Koch 6 adm variables
 #'
 #' Subset pre-specified Koch 6 TB admission variables
-#' @param x data frame containing variables
-#' @param add string of any additional variables to keep
-#' @param ... further arguments passed to or from other methods
-#' @author Jay Achar \email{jay.achar@@doctors.org.uk}
+#' @inheritParams adm_subset
+#' @author Jay Achar 
 #' @seealso \code{\link{tbcleanr}}
 #' @export 
 

@@ -6,6 +6,7 @@
 * `xpert_result_fixer.koch6()` added
 * `result_consolidator.koch6()` added
 * `lab_date_fixer.koch6()` added
+* variables `NB1` and `NB2`, representing baseline laboratory sample numbers added to `adm_subset.epiinfo()`
 ---
 
 # tbcleanr 0.1.5.1

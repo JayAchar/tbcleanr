@@ -20,5 +20,5 @@ Subset pre-specified Koch 6 TB admission variables
 \code{\link{tbcleanr}}
 }
 \author{
-Jay Achar \email{jay.achar@doctors.org.uk}
+Jay Achar
 }
