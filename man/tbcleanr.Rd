@@ -3,7 +3,6 @@
 \docType{package}
 \name{tbcleanr}
 \alias{tbcleanr}
-\alias{tbcleanr-package}
 \title{tbcleanr: tools for cleaning TB data}
 \description{
 The tbcleanr package contains functions to clean and subset TB data from 

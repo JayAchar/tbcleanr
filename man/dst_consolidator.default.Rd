@@ -4,8 +4,7 @@
 \alias{dst_consolidator.default}
 \title{Default method for dst_consolidator()}
 \usage{
-\method{dst_consolidator}{default}(x, aggregate = FALSE,
-  rm_orig = TRUE)
+\method{dst_consolidator}{default}(x, aggregate = FALSE, rm_orig = TRUE)
 }
 \arguments{
 \item{x}{data frame containing variables}

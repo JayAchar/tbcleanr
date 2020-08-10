@@ -7,8 +7,8 @@ data <- data.frame(FIRST = "12/1/14",
                    stringsAsFactors = F)
 
 data <- data %>% purrr::map_df(.f = lubridate::dmy)
-class(data) <- c(class(data), "epiinfo")
-saveRDS(data, "inst/testdata/lab_date_fixer_epi.rds")
+class(data) <- c("epiinfo", class(data))
+saveRDS(data, "inst/testdata/lab_date_fixer_epi.rds", version = 2)
 
 ## Grozny
 
@@ -17,13 +17,13 @@ data <- data %>%
                 dcol2 = SECOND,
                 dcol3 = THIRD)
 
-class(data) <- class(data)[1:3] %>% c("grozny")
-saveRDS(data, "inst/testdata/lab_date_fixer_groz.rds")
+class(data) <- append("grozny", class(data)[2:4])
+saveRDS(data, "inst/testdata/lab_date_fixer_groz.rds", version = 2)
 
 ### Koch6
 data <- data.frame(Samplecollectiondate = c("1/1/12", "5/2/14"),
                    stringsAsFactors = FALSE)
 
 data$Samplecollectiondate <- lubridate::dmy(data$Samplecollectiondate)
-class(data) <- c(class(data), "koch6")
-saveRDS(data, "inst/testdata/lab_date_fixer_k6.rds")
+class(data) <- c("koch6", class(data))
+saveRDS(data, "inst/testdata/lab_date_fixer_k6.rds", version = 2)

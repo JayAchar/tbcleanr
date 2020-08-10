@@ -4,8 +4,8 @@ set.seed(1000)
 data <- data.frame(APID = paste0("XYZ", 1:20),
                    DIPRO = sample(c(1:7, 99), 20, replace = T), 
                    stringsAsFactors = F)
-class(data) <- c(class(data), "epiinfo")
-saveRDS(data, "inst/testdata/recorded_dst_epiinfo.rds")
+class(data) <- c("epiinfo", class(data))
+saveRDS(data, "inst/testdata/recorded_dst_epiinfo.rds", version = 2)
 
 
 # ===
@@ -23,6 +23,6 @@ data <- data.frame(registrationnb = as.character(100013:100042),
                                       rep(0, 1),
                                       rep(0, 2)),
                    stringsAsFactors = F)
-class(data) <- c(class(data), "koch6")
-saveRDS(data, "inst/testdata/recorded_dst_koch6.rds")
+class(data) <- c("koch6", class(data))
+saveRDS(data, "inst/testdata/recorded_dst_koch6.rds", version = 2)
 

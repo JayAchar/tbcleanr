@@ -7,4 +7,4 @@ x <- structure(list(ALCO = c(1L, 0L, 1L, 0L, 0L, 1L, 0L, 1L, 0L, 2L, 1L, 0L, 0L,
                     row.names = c(NA, -16L), 
                     class = c("tbl_df", "tbl", "data.frame", "epiinfo"))
 
-saveRDS(x, "inst/testdata/yn_binary.rds")
+saveRDS(x, "inst/testdata/yn_binary.rds", version = 2)

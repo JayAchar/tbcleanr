@@ -25,15 +25,15 @@ lab_classr <- function(x) {
   
   # assign admission file object class
   if (all(epiinfo_varnames %in% names(x))) {
-    class(x) <- c(class(x), "epiinfo")
+    class(x) <- c("epiinfo", class(x))
   }
   
   if (all(k6_varnames %in% names(x))) {
-    class(x) <- c(class(x), "koch6")
+    class(x) <- c("koch6", class(x))
   }
   
   if (all(grozny_varnames %in% names(x))) {
-    class(x) <- c(class(x), "grozny")
+    class(x) <- c("grozny", class(x))
   }
   
   # warning if no object class assigned
