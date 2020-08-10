@@ -12,8 +12,6 @@
 \item{aggregate}{choose whether to aggregate to categories or retain all drug results}
 
 \item{rm_orig}{remove original variables - TRUE or FALSE}
-
-\item{...}{further arguments passed to or from other methods}
 }
 \description{
 Take laboratory data set and consolidate DST results - choose aggregate

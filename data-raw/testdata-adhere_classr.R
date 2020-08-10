@@ -7,9 +7,5 @@ data <- data.frame(APID = paste0("XYZ", 1:10),
                    NDCLO = sample(31, 10, replace = TRUE),
                    stringsAsFactors = FALSE)
 
-<<<<<<< HEAD
-saveRDS(data, "inst/testdata/adhere_classr_epiinfo.rds",
-=======
 saveRDS(data, "inst/testdata/adhere_classr_epiinfo.rds", 
->>>>>>> dev-branch
         version = 2)

@@ -37,7 +37,7 @@ response_weight_cleanr.default <- function(x) {
 
   if (all(epiinfo_names %in% names(x))) {
 
-    class(x) <- c(class(x), "epiinfo")
+    class(x) <- c("epiinfo", class(x))
     response_weight_cleanr(x)
 
   } else {

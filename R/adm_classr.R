@@ -27,11 +27,11 @@ adm_classr <- function(x) {
 # assign admission file object class
   if (all(epiinfo_varnames %in% names(x))) {
 
-          class(x) <- c(class(x), "epiinfo")
+          class(x) <- c("epiinfo", class(x))
 
   } else if (all(k6_varnames %in% names(x))) {
 
-          class(x) <- c(class(x), "koch6")
+          class(x) <- c("koch6", class(x))
 
   }
 

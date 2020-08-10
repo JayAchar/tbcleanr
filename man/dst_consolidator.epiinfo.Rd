@@ -4,8 +4,7 @@
 \alias{dst_consolidator.epiinfo}
 \title{Consolidate DST results}
 \usage{
-\method{dst_consolidator}{epiinfo}(x, aggregate = FALSE,
-  rm_orig = TRUE)
+\method{dst_consolidator}{epiinfo}(x, aggregate = FALSE, rm_orig = TRUE)
 }
 \arguments{
 \item{x}{data frame containing variables}
@@ -13,8 +12,6 @@
 \item{aggregate}{choose whether to aggregate to categories or retain all drug results}
 
 \item{rm_orig}{remove original variables - TRUE or FALSE}
-
-\item{...}{further arguments passed to or from other methods}
 }
 \description{
 Take laboratory data set and consolidate DST results - choose aggregate

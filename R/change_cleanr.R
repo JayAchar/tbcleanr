@@ -46,11 +46,11 @@ change_cleanr.default <- function(x, add = NULL) {
 
   if (all(k6_names %in% names(x))) {
 
-    class(x) <- c(class(x), "koch6")
+    class(x) <- c("koch6", class(x))
     change_cleanr(x, add = add)
 
   } else if (all(epiinfo_names %in% names(x))) {
-    class(x) <- c(class(x), "epiinfo")
+    class(x) <- c("epiinfo", class(x))
     change_cleanr(x, add = add)
 
   } else {

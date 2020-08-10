@@ -1,7 +1,7 @@
 Package: tbcleanr
 Type: Package
 Title: tbcleanr: tools for cleaning TB datade
-Version: 0.1.5.2
+Version: 0.1.5.3
 Date: 2019-09-22
 Authors@R: person("Jay", "Achar",
     email = "jay.achar@doctors.org.uk",
@@ -12,7 +12,7 @@ Depends: R (>= 3.4.0)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.1
 URL: https://jayachar.github.io/tbcleanr/, http://github.com/JayAchar/tbcleanr
 BugReports: http://github.com/JayAchar/tbcleanr/issues
 Imports:

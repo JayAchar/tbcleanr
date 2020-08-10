@@ -5,7 +5,6 @@
 #' @param x data frame containing variables
 #' @param aggregate choose whether to aggregate to categories or retain all drug results
 #' @param rm_orig remove original variables - TRUE or FALSE
-#' @param ... further arguments passed to or from other methods
 #' @author Jay Achar \email{jay.achar@@doctors.org.uk}
 #' @importFrom stringr str_which
 #' @importFrom purrr map_at

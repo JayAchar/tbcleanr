@@ -393,7 +393,7 @@ k6 <- structure(
   class = c("tbl_df",
             "tbl", "data.frame")
 )
-saveRDS(k6, "inst/testdata/adm_subset_koch6.rds")
+saveRDS(k6, "inst/testdata/adm_subset_koch6.rds", version = 2)
 
 
 # EpiInfo
@@ -717,4 +717,4 @@ epi <- structure(
   row.names = c(NA,-3L)
 )
 
-saveRDS(epi, "inst/testdata/adm_subset_epi.rds")
+saveRDS(epi, "inst/testdata/adm_subset_epi.rds", version = 2)
