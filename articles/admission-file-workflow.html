@@ -100,7 +100,7 @@
       <h1 data-toc-skip>Cleaning workflow - admission file</h1>
                         <h4 class="author">Jay Achar</h4>
             
-            <h4 class="date">2020-09-05</h4>
+            <h4 class="date">2020-09-12</h4>
       
       <small class="dont-index">Source: <a href="http://github.com/JayAchar/tbcleanr/blob/master/vignettes/admission-file-workflow.Rmd"><code>vignettes/admission-file-workflow.Rmd</code></a></small>
       <div class="hidden name"><code>admission-file-workflow.Rmd</code></div>
@@ -114,14 +114,16 @@
 <h2 class="hasAnchor">
 <a href="#import-data" class="anchor"></a>Import data</h2>
 <p>Use of the <code>readr</code> package is recommended for importing CSV and TSV files. While the <code>readxl</code> package can be used for data stored in Excel documents, this is not recommended.</p>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="co"># define working directory</span>
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="co"># define working directory</span>
 <span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span>(<span class="st">"C:/tb_data"</span>)
 
 <span class="co"># confirm required admission file is present</span>
 <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span>()
 
 <span class="co"># read in admission data</span>
-<span class="no">adm</span> <span class="kw">&lt;-</span> <span class="kw pkg">readr</span><span class="kw ns">::</span><span class="fu">read_csv</span>(<span class="st">"admission_tb_data.csv"</span>, <span class="kw">guess_max</span> <span class="kw">=</span> <span class="fl">100000</span>)</pre></body></html></div>
+<span class="kw">adm</span> <span class="op">&lt;-</span> <span class="kw">readr</span>::<span class="fu">read_csv</span>(<span class="st">"admission_tb_data.csv"</span>, guess_max = <span class="fl">100000</span>)
+</pre></div>
 <p>The <code>guess_max</code> option is defined here to ensure variables are parsed using a greater than standard figure. Since some variables have been added to data sets only in recent years, if this option is not defined, there is a risk that recently collected data will be incorrectly lost through misclassification of a variable as a logical vector. For larger data sets, higher figures for <code>guess_max</code> are recommended.</p>
 <p>Check for warnings in the output of the <code>read_csv()</code> call. If a variable has been incorrectly defined as a logical, parsing failures will be displayed.</p>
 </div>
@@ -129,24 +131,28 @@
 <h2 class="hasAnchor">
 <a href="#simplified-workflow" class="anchor"></a>Simplified workflow</h2>
 <p>All <code>tbcleanr</code> functions designed to work with admission data files can be applied using one function call:</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r">
-<span class="no">clean_adm</span> <span class="kw">&lt;-</span> <span class="fu">adm_data_cleanr</span>(<span class="no">adm</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+
+<span class="kw">clean_adm</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/adm_data_cleanr.html">adm_data_cleanr</a></span>(<span class="kw">adm</span>)
+</pre></div>
 <p>Individual functions can also be called seperately where more specific cleaning is required.</p>
 </div>
 <div id="multiple-files" class="section level2">
 <h2 class="hasAnchor">
 <a href="#multiple-files" class="anchor"></a>Multiple files</h2>
 <p>Sometimes cleaning and subsequent analysis of multiple data sets is required. This can be achieved by combining the <code>tbcleanr</code> and <code>tbgeneratr</code> packages with <code>purrr</code>.</p>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="co"># define files to process</span>
-<span class="no">filenames</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"admission1.csv"</span>, <span class="st">"admission2.csv"</span>, <span class="st">"admission3.csv"</span>)
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="co"># define files to process</span>
+<span class="kw">filenames</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"admission1.csv"</span>, <span class="st">"admission2.csv"</span>, <span class="st">"admission3.csv"</span>)
 
 <span class="co"># combine purrr with tbcleanr</span>
-<span class="no">tbl</span> <span class="kw">&lt;-</span> <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(<span class="kw">file</span> <span class="kw">=</span> <span class="no">filenames</span>,
-                     <span class="kw">adm_data</span> <span class="kw">=</span> <span class="fu">map</span>(<span class="kw">.x</span> <span class="kw">=</span> <span class="no">filenames</span>,
-                                  <span class="kw">.f</span> <span class="kw">=</span> ~ {<span class="kw pkg">readr</span><span class="kw ns">::</span><span class="fu">read_csv</span>(<span class="no">.x</span>,
-                                                          <span class="kw">guess_max</span> <span class="kw">=</span> <span class="fl">100000</span>) <span class="kw">%&gt;%</span>
-                                      <span class="kw pkg">tbcleanr</span><span class="kw ns">::</span><span class="fu">adm_data_cleanr</span>()}))</pre></body></html></div>
-<p>This approach uses <code>map()</code> to iterate over the defined file names in the working directory. The defined function within <code>map()</code> imports the file and applies the <code>adm_data_cleanr()</code> leaving a cleaned, nested dataset in the tibble. Further use of <code>map()</code> will allow additional processing using the <code>tbgeneratr</code> package.</p>
+<span class="kw">tbl</span> <span class="op">&lt;-</span> <span class="kw">dplyr</span>::<span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span>(file = <span class="kw">filenames</span>,
+                     adm_data = <span class="fu">map</span>(.x = <span class="kw">filenames</span>, 
+                                  .f = <span class="op">~</span> {<span class="kw">readr</span>::<span class="fu">read_csv</span>(<span class="kw">.x</span>,
+                                                          guess_max = <span class="fl">100000</span>) <span class="op">%&gt;%</span> 
+                                      <span class="kw">tbcleanr</span>::<span class="fu"><a href="../reference/adm_data_cleanr.html">adm_data_cleanr</a></span>()}))
+</pre></div>
+<p>This approach uses <code>map()</code> to iterate over the defined file names in the working directory. The defined function within <code>map()</code> imports the file and applies the <code><a href="../reference/adm_data_cleanr.html">adm_data_cleanr()</a></code> leaving a cleaned, nested dataset in the tibble. Further use of <code>map()</code> will allow additional processing using the <code>tbgeneratr</code> package.</p>
 </div>
   </div>
 
@@ -165,7 +171,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

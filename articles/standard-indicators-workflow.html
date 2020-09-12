@@ -100,7 +100,7 @@
       <h1 data-toc-skip>MSF OCA Standard Indicators workflow</h1>
                         <h4 class="author">Jay Achar</h4>
             
-            <h4 class="date">2020-09-05</h4>
+            <h4 class="date">2020-09-12</h4>
       
       <small class="dont-index">Source: <a href="http://github.com/JayAchar/tbcleanr/blob/master/vignettes/standard-indicators-workflow.Rmd"><code>vignettes/standard-indicators-workflow.Rmd</code></a></small>
       <div class="hidden name"><code>standard-indicators-workflow.Rmd</code></div>
@@ -132,19 +132,19 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td><code>clean_standard_indicators()</code></td>
+<td><code><a href="../reference/clean_standard_indicators.html">clean_standard_indicators()</a></code></td>
 <td>Yes</td>
 <td>Single function to clean imported Standard Indicator data object</td>
 </tr>
 <tr class="even">
-<td><code>extract_tb_data()</code></td>
+<td><code><a href="../reference/extract_tb_data.html">extract_tb_data()</a></code></td>
 <td>No</td>
-<td>Incorporated in <code>clean_standard_indicators()</code> so seperate use not required.</td>
+<td>Incorporated in <code><a href="../reference/clean_standard_indicators.html">clean_standard_indicators()</a></code> so seperate use not required.</td>
 </tr>
 <tr class="odd">
-<td><code>transpose_tb_data()</code></td>
+<td><code><a href="../reference/transpose_tb_data.html">transpose_tb_data()</a></code></td>
 <td>No</td>
-<td>Incorporated in <code>clean_standard_indicators()</code> so seperate use not required.</td>
+<td>Incorporated in <code><a href="../reference/clean_standard_indicators.html">clean_standard_indicators()</a></code> so seperate use not required.</td>
 </tr>
 </tbody>
 </table>
@@ -156,9 +156,11 @@
 <h2 class="hasAnchor">
 <a href="#import-raw-data" class="anchor"></a>Import raw data</h2>
 <p>For ease of use, saving all raw data files in one local folder is recommended. Navigate to this folder using the <code><a href="https://rdrr.io/r/base/getwd.html">setwd()</a></code> or another approach you are comfortable with. Then import the raw data:</p>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="co"># import data using readxl package</span>
-<span class="no">raw_file</span> <span class="kw">&lt;-</span> <span class="kw pkg">readxl</span><span class="kw ns">::</span><span class="fu">read_excel</span>(<span class="st">"2014_Standard_Indicators.xlsx"</span>,
-                               <span class="kw">sheet</span> <span class="kw">=</span> <span class="st">"projects compiled"</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="co"># import data using readxl package</span>
+<span class="kw">raw_file</span> <span class="op">&lt;-</span> <span class="kw">readxl</span>::<span class="fu">read_excel</span>(<span class="st">"2014_Standard_Indicators.xlsx"</span>,
+                               sheet = <span class="st">"projects compiled"</span>)
+</pre></div>
 <blockquote>
 <p>Ensure the <code>sheet</code> argument in the read_excel() function is filled to represent the full country compiled data</p>
 </blockquote>
@@ -166,32 +168,36 @@
 <div id="clean-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#clean-data" class="anchor"></a>Clean data</h2>
-<p>The <code>clean_standard_indicators()</code> takes two arguments. The first is the imported data object - this must be a data frame. The second arugement is a string of length one indicating the year of data collection. In this case, the raw data file was labelled with the year of data collection, so is included in the cleaning step to include this as a variable in the output.</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="co"># clean imported data</span>
+<p>The <code><a href="../reference/clean_standard_indicators.html">clean_standard_indicators()</a></code> takes two arguments. The first is the imported data object - this must be a data frame. The second arugement is a string of length one indicating the year of data collection. In this case, the raw data file was labelled with the year of data collection, so is included in the cleaning step to include this as a variable in the output.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="co"># clean imported data</span>
 
-<span class="no">clean_data</span> <span class="kw">&lt;-</span> <span class="fu">clean_standard_indicators</span>(<span class="kw">file</span> <span class="kw">=</span> <span class="no">raw_file</span>,
-                                        <span class="kw">year</span> <span class="kw">=</span> <span class="st">"2014"</span>)</pre></body></html></div>
+<span class="kw">clean_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/clean_standard_indicators.html">clean_standard_indicators</a></span>(file = <span class="kw">raw_file</span>,
+                                        year = <span class="st">"2014"</span>)
+</pre></div>
 <p>Mission and project names are standardised to allow simpler aggregating across years. Output variable names are related to raw data rows and are self-explanatory.</p>
 </div>
 <div id="multiple-files" class="section level2">
 <h2 class="hasAnchor">
 <a href="#multiple-files" class="anchor"></a>Multiple files</h2>
 <p>To simultaneously import and clean multiple data files the following appraoch could be used:</p>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="co"># define file names</span>
-<span class="no">files</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"2014_Standard_Indicators.xlsx"</span>, <span class="st">"2015_Standard_Indicators.xlsx"</span>,
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="co"># define file names</span>
+<span class="kw">files</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"2014_Standard_Indicators.xlsx"</span>, <span class="st">"2015_Standard_Indicators.xlsx"</span>,
            <span class="st">"2016_Standard_Indicators.xlsx"</span>, <span class="st">"2017_Standard_Indicators.xlsx"</span>)
 
 <span class="co"># define years</span>
-<span class="no">years</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"2014"</span>, <span class="st">"2015"</span>, <span class="st">"2016"</span>, <span class="st">"2017"</span>)
+<span class="kw">years</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"2014"</span>, <span class="st">"2015"</span>, <span class="st">"2016"</span>, <span class="st">"2017"</span>)
 
 <span class="co"># use purrr to import and clean in one step</span>
-<span class="no">data_list</span> <span class="kw">&lt;-</span> <span class="kw pkg">purrr</span><span class="kw ns">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map2.html">map2</a></span>(<span class="kw">.x</span> <span class="kw">=</span> <span class="no">files</span>,
-            <span class="kw">.y</span> <span class="kw">=</span> <span class="no">years</span>,
-            <span class="kw">.f</span> <span class="kw">=</span> ~ {<span class="kw pkg">readxl</span><span class="kw ns">::</span><span class="fu">read_excel</span>(<span class="no">.x</span>, <span class="kw">sheet</span> <span class="kw">=</span> <span class="st">"projects compiled"</span>) <span class="kw">%&gt;%</span>
-                <span class="fu">clean_standard_indicators</span>(<span class="kw">year</span> <span class="kw">=</span> <span class="no">.y</span>)})
+<span class="kw">data_list</span> <span class="op">&lt;-</span> <span class="kw">purrr</span>::<span class="fu"><a href="https://purrr.tidyverse.org/reference/map2.html">map2</a></span>(.x = <span class="kw">files</span>,
+            .y = <span class="kw">years</span>, 
+            .f = <span class="op">~</span> {<span class="kw">readxl</span>::<span class="fu">read_excel</span>(<span class="kw">.x</span>, sheet = <span class="st">"projects compiled"</span>) <span class="op">%&gt;%</span> 
+                <span class="fu"><a href="../reference/clean_standard_indicators.html">clean_standard_indicators</a></span>(year = <span class="kw">.y</span>)}) 
 
 <span class="co"># use dplyr to convert list to data frame</span>
-<span class="no">clean_data</span> <span class="kw">&lt;-</span> <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span>(<span class="no">data_list</span>)</pre></body></html></div>
+<span class="kw">clean_data</span> <span class="op">&lt;-</span> <span class="kw">dplyr</span>::<span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span>(<span class="kw">data_list</span>)
+</pre></div>
 </div>
 </div>
 <div id="further-development" class="section level1">
@@ -216,7 +222,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

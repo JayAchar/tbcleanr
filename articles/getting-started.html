@@ -100,7 +100,7 @@
       <h1 data-toc-skip>Getting Started</h1>
                         <h4 class="author">Jay Achar</h4>
             
-            <h4 class="date">2020-09-05</h4>
+            <h4 class="date">2020-09-12</h4>
       
       <small class="dont-index">Source: <a href="http://github.com/JayAchar/tbcleanr/blob/master/vignettes/getting-started.Rmd"><code>vignettes/getting-started.Rmd</code></a></small>
       <div class="hidden name"><code>getting-started.Rmd</code></div>
@@ -124,17 +124,27 @@
 <a href="#how-to" class="anchor"></a>How to</h1>
 <p>To use this package, R experience is required. Future packages, such as <code>tbgeneratr</code> and <code>tbreportr</code> will allow automated variable construction and reporting.</p>
 <p>After reading in the raw data export from either Koch 6 or EpiInfo, install and load the <code>tbcleanr</code> package.</p>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">devtools</span>)
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw">devtools</span>)
 <span class="fu">install_github</span>(<span class="st">"JayAchar/tbcleanr"</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">tbcleanr</span>)</pre></body></html></div>
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://jayachar.github.io/tbcleanr">tbcleanr</a></span>)
+</pre></div>
 <p>A single function can be called to simplify admission data cleaning:</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">clean_adm</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tbcleanr/man/adm_data_cleanr.html">adm_data_cleanr</a></span>(<span class="no">raw_adm</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="kw">clean_adm</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/adm_data_cleanr.html">adm_data_cleanr</a></span>(<span class="kw">raw_adm</span>)
+</pre></div>
 <p>Where necessary, additional variables can be included for subsetting and manual cleaning:</p>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="no">clean_adm</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tbcleanr/man/adm_data_cleanr.html">adm_data_cleanr</a></span>(<span class="no">raw_adm</span>, <span class="kw">add</span> <span class="kw">=</span> <span class="st">"REGRP"</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="kw">clean_adm</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/adm_data_cleanr.html">adm_data_cleanr</a></span>(<span class="kw">raw_adm</span>, add = <span class="st">"REGRP"</span>)
+</pre></div>
 <p>A similar process is required with laboratory data:</p>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="no">clean_lab</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tbcleanr/man/lab_data_cleanr.html">lab_data_cleanr</a></span>(<span class="no">raw_lab</span>)</pre></body></html></div>
-<p>Additional variables can be included as for the <code><a href="https://rdrr.io/pkg/tbcleanr/man/adm_data_cleanr.html">adm_data_cleanr()</a></code> function:</p>
-<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="no">clean_lab</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tbcleanr/man/lab_data_cleanr.html">lab_data_cleanr</a></span>(<span class="no">raw_lab</span>, <span class="kw">add</span> <span class="kw">=</span> <span class="st">"RES"</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb4"><pre class="downlit">
+<span class="kw">clean_lab</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lab_data_cleanr.html">lab_data_cleanr</a></span>(<span class="kw">raw_lab</span>)
+</pre></div>
+<p>Additional variables can be included as for the <code><a href="../reference/adm_data_cleanr.html">adm_data_cleanr()</a></code> function:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit">
+<span class="kw">clean_lab</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lab_data_cleanr.html">lab_data_cleanr</a></span>(<span class="kw">raw_lab</span>, add = <span class="st">"RES"</span>)
+</pre></div>
 <p>Further function-specific documentation are available within the package.</p>
 </div>
 <div id="future-developments" class="section level1">
@@ -159,7 +169,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
